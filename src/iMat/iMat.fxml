@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.iMatController">
+<AnchorPane id="AnchorPane" prefHeight="560.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.iMatController">
     <children>
       <StackPane prefHeight="560.0" prefWidth="720.0">
          <children>
@@ -51,7 +51,7 @@
                            </font>
                         </TextField>
                         <Button layoutX="634.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleSearchAction" text="Sök" AnchorPane.rightAnchor="30.0" />
-                        <Button layoutX="27.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleShowAccountAction" text="iMat Mini">
+                        <Button layoutX="27.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleShowAccountAction" prefHeight="39.0" prefWidth="103.0" text="iMat Mini">
                            <font>
                               <Font size="18.0" />
                            </font>
