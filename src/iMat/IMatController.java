@@ -27,7 +27,7 @@ import se.chalmers.cse.dat216.project.ShoppingCartListener;
  *
  * @author oloft
  */
-public class iMatController implements Initializable, ShoppingCartListener {
+public class IMatController implements Initializable, ShoppingCartListener {
     
     // Shopping Pane
     @FXML
@@ -157,7 +157,7 @@ public class iMatController implements Initializable, ShoppingCartListener {
 
         cvcField.setText(""+card.getVerificationCode());
         
-        purchasesLabel.setText(model.getNumberOfOrders()+ " tidigare inköp hos iMat");
+        purchasesLabel.setText(model.getNumberOfOrders()+ " tidigare inköp hos IMat");
         
     }
     
