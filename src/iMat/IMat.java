@@ -1,12 +1,12 @@
 package iMat;
 
+import java.util.Objects;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
-import java.util.Objects;
 
 public class IMat extends Application {
 

@@ -1,11 +1,11 @@
 /* Hör ihop med ProductItem.fxml */
 package iMat;
 
+import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
-import java.io.IOException;
 
 public class ProductItemController extends AnchorPane {
 
