@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package iMat;
 
 import java.net.URL;
@@ -22,47 +17,24 @@ import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingCart;
 import se.chalmers.cse.dat216.project.ShoppingCartListener;
 
-
-/**
- *
- * @author oloft
- */
 public class IMatController implements Initializable, ShoppingCartListener {
-    
-    // Shopping Pane
-    @FXML
-    private AnchorPane shopPane;
-    @FXML
-    private TextField searchField;
-    @FXML
-    private Label itemsLabel;
-    @FXML
-    private Label costLabel;
-    @FXML
-    private FlowPane productsFlowPane;
-    
-    // Account Pane
-    @FXML
-    private AnchorPane accountPane;
-    @FXML 
-    ComboBox cardTypeCombo;
-    @FXML
-    private TextField numberTextField;
-    @FXML
-    private TextField nameTextField;
-    @FXML 
-    private ComboBox monthCombo;
-    @FXML
-    private ComboBox yearCombo;
-    @FXML
-    private TextField cvcField;
-    @FXML
-    private Label purchasesLabel;
-    
-    // Other variables
+
+    @FXML private AnchorPane shopPane;
+    @FXML private TextField searchField;
+    @FXML private Label itemsLabel;
+    @FXML private Label costLabel;
+    @FXML private FlowPane productsFlowPane;
+    @FXML private AnchorPane accountPane;
+    @FXML ComboBox cardTypeCombo;
+    @FXML private TextField numberTextField;
+    @FXML private TextField nameTextField;
+    @FXML private ComboBox monthCombo;
+    @FXML private ComboBox yearCombo;
+    @FXML private TextField cvcField;
+    @FXML private Label purchasesLabel;
+
     private final Model model = Model.getInstance();
 
-    // Shop pane actions
     @FXML
     private void handleShowAccountAction(ActionEvent event) {
         openAccountView();
@@ -70,11 +42,9 @@ public class IMatController implements Initializable, ShoppingCartListener {
     
     @FXML
     private void handleSearchAction(ActionEvent event) {
-        
         List<Product> matches = model.findProducts(searchField.getText());
         updateProductList(matches);
         System.out.println("# matching products: " + matches.size());
-
     }
     
     @FXML
@@ -87,26 +57,20 @@ public class IMatController implements Initializable, ShoppingCartListener {
         model.placeOrder();
         costLabel.setText("Köpet klart!");
     }
-    
-    // Account pane actions
-     @FXML
+
+    @FXML
     private void handleDoneAction(ActionEvent event) {
         closeAccountView();
     }
       
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         model.getShoppingCart().addShoppingCartListener(this);
-
         updateProductList(model.getProducts());
         updateBottomPanel();
-        
         setupAccountPane();
-        
     }    
-    
-    // Navigation
+
     public void openAccountView() {
         updateAccountPanel();
         accountPane.toFront();
@@ -116,36 +80,27 @@ public class IMatController implements Initializable, ShoppingCartListener {
         updateCreditCard();
         shopPane.toFront();
     }
-    
-    // Shope pane methods
+
     @Override
-     public void shoppingCartChanged(CartEvent evt) {
+    public void shoppingCartChanged(CartEvent evt) {
         updateBottomPanel();
     }
-   
-    
+
     private void updateProductList(List<Product> products) {
-
         productsFlowPane.getChildren().clear();
-
         for (Product product : products) {
-
             productsFlowPane.getChildren().add(new ProductPanel(product));
         }
-
     }
     
     private void updateBottomPanel() {
-        
         ShoppingCart shoppingCart = model.getShoppingCart();
-        
         itemsLabel.setText("Antal varor: " + shoppingCart.getItems().size());
         costLabel.setText("Kostnad: " + String.format("%.2f",shoppingCart.getTotal()));
         
     }
     
     private void updateAccountPanel() {
-        
         CreditCard card = model.getCreditCard();
         
         numberTextField.setText(card.getCardNumber());
@@ -158,11 +113,9 @@ public class IMatController implements Initializable, ShoppingCartListener {
         cvcField.setText(""+card.getVerificationCode());
         
         purchasesLabel.setText(model.getNumberOfOrders()+ " tidigare inköp hos IMat");
-        
     }
     
     private void updateCreditCard() {
-        
         CreditCard card = model.getCreditCard();
         
         card.setCardNumber(numberTextField.getText());
@@ -178,16 +131,13 @@ public class IMatController implements Initializable, ShoppingCartListener {
         card.setValidYear(Integer.parseInt(selectedValue));
         
         card.setVerificationCode(Integer.parseInt(cvcField.getText()));
-
     }
     
     private void setupAccountPane() {
-                
         cardTypeCombo.getItems().addAll(model.getCardTypes());
         
         monthCombo.getItems().addAll(model.getMonths());
         
         yearCombo.getItems().addAll(model.getYears());
-        
     }
 }

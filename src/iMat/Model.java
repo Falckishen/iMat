@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package iMat;
 
 import java.util.ArrayList;
@@ -16,12 +11,6 @@ import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingCart;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
-
-/**
- * Wrapper around the IMatDataHandler. The idea is that it might be useful to
- * add an extra layer that can provide special features
- *
- */
 public class Model {
 
     private static Model instance = null;
@@ -30,16 +19,11 @@ public class Model {
      private final ArrayList<String> availableCardTypes = new ArrayList<String>(Arrays.asList("MasterCard", "Visa"));
      private final ArrayList<String> months = new ArrayList<String>(Arrays.asList("1", "2","3", "4", "5", "6"));
      private final ArrayList<String> years = new ArrayList<String>(Arrays.asList("19", "20", "21", "22", "23", "24", "25"));
-    /**
-     * Constructor that should never be called, use getInstance() instead.
-     */
+
     protected Model() {
         // Exists only to defeat instantiation.
     }
 
-    /**
-     * Returns the single instance of the Model class.
-     */
     public static Model getInstance() {
         if (instance == null) {
             instance = new Model();
@@ -49,9 +33,7 @@ public class Model {
     }
 
     private void init() {
-
         iMatDataHandler = IMatDataHandler.getInstance();
-
     }
 
     public List<Product> getProducts() {
@@ -76,7 +58,6 @@ public class Model {
 
     public void addToShoppingCart(Product p) {
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
-
         ShoppingItem item = new ShoppingItem(p);
         Model.getInstance().getShoppingCart().addItem(item);
         
@@ -108,22 +89,15 @@ public class Model {
     }
 
     public void clearShoppingCart() {
-
         iMatDataHandler.getShoppingCart().clear();
-
     }
 
     public void placeOrder() {
-
         iMatDataHandler.placeOrder();
-
     }
-
     
     public int getNumberOfOrders() {
-
         return iMatDataHandler.getOrders().size();
-
     }
 
     public void shutDown() {
