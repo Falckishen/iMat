@@ -16,6 +16,7 @@ public class IMat extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainPage.fxml")));
         Scene scene = new Scene(root);
+        stage.setTitle("iMat");
         stage.setScene(scene);
         stage.show();
     }
