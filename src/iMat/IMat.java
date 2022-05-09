@@ -10,7 +10,7 @@ import java.util.Objects;
 
 public class IMat extends Application {
 
-    private static final IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
+    private static final IMatDataHandler dataHandler = IMatDataHandler.getInstance();
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -26,12 +26,12 @@ public class IMat extends Application {
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override
             public void run() {
-                iMatDataHandler.shutDown();
+                dataHandler.shutDown();
             }
         }));
     }
 
-    public IMatDataHandler getIMatDataHandler() {
-        return iMatDataHandler;
+    public static IMatDataHandler getIMatDataHandler() {
+        return dataHandler;
     }
 }
