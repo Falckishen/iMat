@@ -17,6 +17,7 @@ public class MainPageController implements Initializable {
     @FXML private AnchorPane detailViewAnchorPane;
     @FXML private ImageView detailViewImage;
     @FXML private Label priceLabel;
+    @FXML private Label productNameLabel;
 
     // Körs när MainPage.fxml läses in
     @Override
