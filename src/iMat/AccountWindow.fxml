@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="background" stylesheets="@AccountWindow.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="320.0" layoutY="90.0" prefHeight="900.0" prefWidth="1280.0" stylesheets="@AccountWindow.css" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="90.0">
+         <children>
+            <HBox prefHeight="900.0" prefWidth="1280.0" styleClass="complete-window">
+               <children>
+                <AnchorPane minHeight="0.0" minWidth="580.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <ScrollPane id="#scroll" focusTraversable="false" prefHeight="857.0" prefWidth="580.0" stylesheets="@ScrollBar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <content>
+                            <AnchorPane prefHeight="867.0" prefWidth="544.0" styleClass="scroll-pane">
+                                 <children>
+                                    <VBox fx:id="vBoxTidigareKop">
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="20.0" top="80.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                        <Label prefHeight="73.0" prefWidth="400.0" text="Tidigare köp">
+                           <padding>
+                              <Insets left="30.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="898.0" prefWidth="880.0" styleClass="account-pane">
+                     <children>
+                        <Pane id="backdrop" layoutX="50.0" layoutY="646.0" prefHeight="220.0" prefWidth="612.0" />
+                        <VBox layoutY="73.0" prefHeight="90.0" prefWidth="380.0" AnchorPane.leftAnchor="0.0">
+                           <children>
+                              <Label text="Förnamn:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="text-label-dark" prefHeight="54.0" prefWidth="360.0" />
+                           </children>
+                           <padding>
+                              <Insets left="70.0" top="25.0" />
+                           </padding>
+                        </VBox>
+                        <Label prefHeight="73.0" prefWidth="400.0" text="Kontouppgifter">
+                           <padding>
+                              <Insets left="70.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <VBox layoutY="163.0" prefHeight="90.0" prefWidth="380.0">
+                           <children>
+                              <Label text="Efternamn:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="text-label-dark" prefHeight="54.0" prefWidth="360.0" />
+                           </children>
+                           <padding>
+                              <Insets left="70.0" top="25.0" />
+                           </padding>
+                        </VBox>
+                        <VBox layoutY="253.0" prefHeight="90.0" prefWidth="380.0">
+                           <children>
+                              <Label text="Personnummer:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="text-label-dark" prefHeight="54.0" prefWidth="360.0" />
+                           </children>
+                           <padding>
+                              <Insets left="70.0" top="25.0" />
+                           </padding>
+                        </VBox>
+                        <VBox layoutY="343.0" prefHeight="90.0" prefWidth="380.0">
+                           <children>
+                              <Label text="Address:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="text-label-dark" prefHeight="54.0" prefWidth="360.0" />
+                           </children>
+                           <padding>
+                              <Insets left="70.0" top="25.0" />
+                           </padding>
+                        </VBox>
+                        <VBox layoutY="433.0" prefHeight="90.0" prefWidth="380.0">
+                           <children>
+                              <Label text="Postadress:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="text-label-dark" prefHeight="54.0" prefWidth="360.0" />
+                           </children>
+                           <padding>
+                              <Insets left="70.0" top="25.0" />
+                           </padding>
+                        </VBox>
+                        <VBox layoutY="523.0" prefHeight="90.0" prefWidth="380.0">
+                           <children>
+                              <Label text="Telefonnummer:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="text-label-dark" prefHeight="54.0" prefWidth="360.0" />
+                           </children>
+                           <padding>
+                              <Insets left="70.0" top="25.0" />
+                           </padding>
+                        </VBox>
+                        <HBox layoutY="613.0" prefHeight="262.0" prefWidth="674.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0">
+                           <children>
+                              <VBox prefHeight="286.0" prefWidth="379.0">
+                                 <children>
+                                    <Label prefHeight="0.0" prefWidth="379.0" text="Betalningsalternativ:">
+                                       <padding>
+                                          <Insets left="70.0" top="20.0" />
+                                       </padding>
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox id="checkbox" fx:id="checkBoxKort" mnemonicParsing="false" text="Kort">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="90.0" top="20.0" />
+                                       </padding>
+                                    </CheckBox>
+                                    <CheckBox id="checkbox" fx:id="checkBoxFaktura" mnemonicParsing="false" text="Faktura">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="90.0" top="20.0" />
+                                       </padding>
+                                    </CheckBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets top="40.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

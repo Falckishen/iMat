@@ -1,0 +1,38 @@
+.background {
+    -fx-background-color: rgba(0, 0, 0, 0.75);
+}
+
+.scroll-pane {
+    -fx-background-color: #F3F0F0;
+    -fx-border-color: #F3F0F0;
+    -fx-border-width: 3px;
+}
+
+.account-pane {
+    -fx-background-color: #FCFAFA;
+}
+
+.complete-window {
+    -fx-background-color: #FCFAFA;
+    -fx-border-color: #F3F0F0;
+    -fx-border-width: 3px;
+    -fx-split-pane-divider
+
+}
+
+#text-label-dark {
+    -fx-background-color: #F3F0F0;
+    -fx-font: bold italic 14pt "Arial";
+    -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.2) , 1 , 0.5 , 1 , 1 );
+    -fx-background-radius : 0.0em;
+}
+
+#checkbox .box{
+    -fx-background-color: #FCFAFA;
+    -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.2) , 1 , 0.5 , 1 , 1 );
+    -fx-background-radius : 0.0em;
+}
+
+#backdrop {
+    -fx-background-color: #F3F0F0;
+}
