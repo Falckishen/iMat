@@ -9,7 +9,7 @@
     -fx-border-color: #F3F0F0;
     -fx-background-radius : 0.0em;
     -fx-border-radius :0.0em;
-    -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.2) , 1 , 0.5 , 1 , 1 );
+    -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.2) , 2 , 0.5 , 2 , 2 );
 }
 
 .scroll-bar:horizontal .increment-button,
@@ -19,6 +19,21 @@
     -fx-border-radius :0.0em;
 }
 
+.scroll-bar:horizontal .increment-button:hover,
+.scroll-bar:vertical .increment-button:hover{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius : 0.0em;
+    -fx-border-radius :0.0em;
+}
+
+.scroll-bar:horizontal .increment-button:pressed,
+.scroll-bar:vertical .increment-button:pressed{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius : 0.0em;
+    -fx-border-radius :0.0em;
+    -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.2) , 2 , 0.5 , 2 , 1 );
+}
+
 .scroll-bar:horizontal .decrement-button,
 .scroll-bar:vertical .decrement-button{
     -fx-background-color: #FCFAFA;
@@ -26,11 +41,28 @@
     -fx-border-radius :0.0em;
 }
 
+.scroll-bar:horizontal .decrement-button:hover,
+.scroll-bar:vertical .decrement-button:hover{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius : 0.0em;
+    -fx-border-radius :0.0em;
+}
+
+.scroll-bar:horizontal .decrement-button:pressed,
+.scroll-bar:vertical .decrement-button:pressed{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius : 0.0em;
+    -fx-border-radius :0.0em;
+    -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.2) , 2 , 0.5 , 2 , 1 );
+}
+
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical .thumb {
     -fx-background-color: #395D77;
     -fx-background-insets : 2, 0.0, 0.0;
     -fx-background-radius : 0.0em;
+    -fx-effect: innershadow( gaussian , rgba(255, 255, 255, 0.2) , 1 , 0.3 , -1 , 1 );
+
 }
 
 .scroll-bar:horizontal .thumb:hover,
@@ -42,7 +74,8 @@
 
 .scroll-bar:horizontal .thumb:pressed,
 .scroll-bar:vertical .thumb:pressed {
-    -fx-background-color: #274156;
+    -fx-background-color: #559CAD;
     -fx-background-insets : 2, 0.0, 0.0;
     -fx-background-radius : 0.0em;
+    -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.2) , 2 , 0.5 , 2 , 1 );
 }

@@ -1,0 +1,35 @@
+.item {
+    -fx-background-color: #FCFAFA;
+    -fx-border-color: #F3F0F0;
+    -fx-border-width: 3px;
+    -fx-split-pane-divider
+    -fx-effect: dropshadow( gaussian , rgba(0, 0, 0, 0.2) , 1 , 0.5 , 1 , 1 );
+}
+
+.text-area{
+    -fx-background-color: #FCFAFA;
+    -fx-font: 13pt "Arial";
+    -fx-font-color: #2E3235;
+    -fx-padding: 5px;
+}
+
+.text-area .content{
+    -fx-background-color: #FCFAFA;
+    -fx-font: 13pt "Arial";
+    -fx-font-color: #2E3235;
+}
+
+#label {
+    -fx-font: 15pt "Arial";
+    -fx-font-color: #2E3235;
+}
+
+#label-date {
+    -fx-font: 20pt "Arial";
+    -fx-font-color: #2E3235;
+}
+
+#label-money-amount {
+    -fx-font: bold 15pt "Arial";
+    -fx-font-color: #2E3235;
+}
