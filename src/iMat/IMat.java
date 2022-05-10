@@ -18,6 +18,7 @@ public class IMat extends Application {
         Scene scene = new Scene(root);
         stage.setTitle("iMat");
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
     }
 
