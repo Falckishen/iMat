@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #fcfafa;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="125.0" prefWidth="1920.0" style="-fx-background-color: #395d77;" AnchorPane.bottomAnchor="955.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="731.0" layoutY="22.0" prefHeight="89.0" prefWidth="549.0" style="-fx-background-color: #fcfafa;">
+               <children>
+                  <Text layoutX="206.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kassa" wrappingWidth="137.13671875" AnchorPane.bottomAnchor="5.447265625" AnchorPane.leftAnchor="206.0" AnchorPane.rightAnchor="205.86328125" AnchorPane.topAnchor="11.728515625">
+                     <font>
+                        <Font size="54.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="94.0" fitWidth="154.0" layoutX="38.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Desktop/Cleaning/imatgoaty.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="62.0" fitWidth="93.0" layoutX="1428.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Desktop/placeholder.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="62.0" fitWidth="93.0" layoutX="1637.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Desktop/placeholder2.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="1097.0" layoutY="276.0" prefHeight="404.0" prefWidth="332.0" style="-fx-background-color: EFEFEF;">
+         <children>
+            <Text layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Förnamn:" wrappingWidth="137.13671875">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <TextField layoutX="14.0" layoutY="40.0" prefHeight="25.0" prefWidth="183.0" />
+            <Text layoutX="14.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Efternamn:" wrappingWidth="137.13671875">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <TextField layoutX="14.0" layoutY="124.0" prefHeight="25.0" prefWidth="183.0" />
+            <Text layoutX="14.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adress:" wrappingWidth="137.13671875">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <TextField layoutX="14.0" layoutY="204.0" prefHeight="25.0" prefWidth="183.0" />
+            <Text layoutX="14.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefonnummer:" wrappingWidth="137.13671875">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <TextField layoutX="14.0" layoutY="301.0" prefHeight="25.0" prefWidth="183.0" />
+         </children>
+      </AnchorPane>
+      <TextField layoutX="541.0" layoutY="232.0" prefHeight="503.0" prefWidth="310.0" style="-fx-background-color: EFEFEF;" />
+      <Text layoutX="541.0" layoutY="797.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Totalt:" wrappingWidth="130.13671875">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="611.0" layoutY="798.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris" wrappingWidth="74.13671875">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Button layoutX="1299.0" layoutY="715.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="130.0" text="Betala">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="721.0" layoutY="759.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="130.0" text="Tillbaka">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Text layoutX="541.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 2: Kolla att allt ser rätt ut." wrappingWidth="310.0">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="1097.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 3: Fyll i information och betala." wrappingWidth="310.0">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
