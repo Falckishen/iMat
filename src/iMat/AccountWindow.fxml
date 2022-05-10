@@ -20,24 +20,35 @@
                <children>
                 <AnchorPane minHeight="0.0" minWidth="580.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <ScrollPane focusTraversable="false" prefHeight="900.0" prefWidth="580.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ScrollPane id="#scroll" focusTraversable="false" prefHeight="857.0" prefWidth="580.0" stylesheets="@ScrollBar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="900.0" prefWidth="559.0" styleClass="scroll-pane" />
+                            <AnchorPane prefHeight="867.0" prefWidth="544.0" styleClass="scroll-pane">
+                                 <children>
+                                    <VBox fx:id="vBoxTidigareKop">
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="20.0" top="80.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
                           </content>
                         </ScrollPane>
                         <Label prefHeight="73.0" prefWidth="400.0" text="Tidigare köp">
                            <padding>
-                              <Insets left="30.0" top="20.0" />
+                              <Insets left="30.0" top="10.0" />
                            </padding>
                            <font>
                               <Font size="36.0" />
                            </font>
                         </Label>
                      </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="898.0" prefWidth="880.0" styleClass="account-pane">
                      <children>
-                        <Pane id="backdrop" layoutX="50.0" layoutY="635.0" prefHeight="235.0" prefWidth="612.0" />
+                        <Pane id="backdrop" layoutX="50.0" layoutY="646.0" prefHeight="220.0" prefWidth="612.0" />
                         <VBox layoutY="73.0" prefHeight="90.0" prefWidth="380.0" AnchorPane.leftAnchor="0.0">
                            <children>
                               <Label text="Förnamn:">
@@ -53,7 +64,7 @@
                         </VBox>
                         <Label prefHeight="73.0" prefWidth="400.0" text="Kontouppgifter">
                            <padding>
-                              <Insets left="70.0" top="20.0" />
+                              <Insets left="70.0" top="10.0" />
                            </padding>
                            <font>
                               <Font size="36.0" />
@@ -124,11 +135,11 @@
                               <Insets left="70.0" top="25.0" />
                            </padding>
                         </VBox>
-                        <HBox layoutY="612.0" prefHeight="286.0" prefWidth="692.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                        <HBox layoutY="613.0" prefHeight="262.0" prefWidth="674.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0">
                            <children>
                               <VBox prefHeight="286.0" prefWidth="379.0">
                                  <children>
-                                    <Label prefHeight="0.0" prefWidth="379.0" text="Betalningssätt:">
+                                    <Label prefHeight="0.0" prefWidth="379.0" text="Betalningsalternativ:">
                                        <padding>
                                           <Insets left="70.0" top="20.0" />
                                        </padding>
@@ -141,7 +152,7 @@
                                           <Font size="20.0" />
                                        </font>
                                        <padding>
-                                          <Insets left="70.0" top="20.0" />
+                                          <Insets left="90.0" top="20.0" />
                                        </padding>
                                     </CheckBox>
                                     <CheckBox id="checkbox" fx:id="checkBoxFaktura" mnemonicParsing="false" text="Faktura">
@@ -149,19 +160,22 @@
                                           <Font size="20.0" />
                                        </font>
                                        <padding>
-                                          <Insets left="70.0" top="20.0" />
+                                          <Insets left="90.0" top="20.0" />
                                        </padding>
                                     </CheckBox>
                                  </children>
                               </VBox>
                            </children>
                            <padding>
-                              <Insets top="20.0" />
+                              <Insets top="40.0" />
                            </padding>
                         </HBox>
                      </children>
                   </AnchorPane>
                </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
             </HBox>
          </children>
       </Pane>
