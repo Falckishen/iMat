@@ -11,21 +11,42 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
-      <AnchorPane style="-fx-background-color: #395d77;" AnchorPane.bottomAnchor="950.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="detailViewAnchorPane" styleClass="detailViewBackground" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="62.0" fitWidth="87.0" layoutX="14.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
-            <TextField layoutX="323.0" layoutY="32.0" prefHeight="48.0" prefWidth="618.0" promptText="Skriv din text här för att söka" />
-            <ImageView fitHeight="48.0" fitWidth="49.0" layoutX="782.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
-            <Text fill="WHITE" layoutX="1646.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Konto" wrappingWidth="34.13671875" />
-            <Text fill="WHITE" layoutX="1769.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inköpslista" wrappingWidth="65.13671875" />
-            <ImageView fitHeight="48.0" fitWidth="49.0" layoutX="882.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </AnchorPane>
-      <SplitPane dividerPositions="0.2, 0.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="130.0">
+            <AnchorPane styleClass="detailView" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="150.0">
+               <children>
+                  <ImageView fx:id="detailViewImage" fitHeight="375.0" fitWidth="500.0" pickOnBounds="true" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
+                     <image>
+                        <Image url="@../../../../.dat215/iMat/images/product_78.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="priceLabel" alignment="CENTER" layoutX="30.0" layoutY="430.0" maxWidth="500.0" minWidth="500.0" prefWidth="500.0" styleClass="detailViewTextBackground" text="999.99 kr" textAlignment="CENTER" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="425.0">
+                     <font>
+                        <Font name="System Bold" size="42.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="productNameLabel" alignment="CENTER" layoutX="560.0" layoutY="35.0" prefHeight="100.0" prefWidth="935.0" styleClass="detailViewTextBackground" text="Label" textAlignment="CENTER" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+                     <font>
+                        <Font name="System Bold" size="50.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" styleClass="detailViewTextBackground" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." wrapText="true" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="150.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="660.0" layoutY="598.0" prefHeight="100.0" prefWidth="200.0" styleClass="detailViewTextBackground" text="99" textAlignment="CENTER" underline="true" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="530.0">
+                     <font>
+                        <Font name="System Bold" size="50.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+         </children></AnchorPane>
+      <SplitPane dividerPositions="0.2, 0.8" minWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <items>
-            <AnchorPane minHeight="950.0">
+            <AnchorPane minHeight="800.0" prefHeight="800.0">
                <children>
                   <ScrollPane prefHeight="950.0" prefWidth="318.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <content>
@@ -58,22 +79,22 @@
                   </ScrollPane>
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="950.0" style="-fx-background-color: #fcfafa;">
+            <AnchorPane minHeight="800.0" prefHeight="800.0" style="-fx-background-color: #fcfafa;">
                <children>
-                  <ScrollPane style="-fx-background-color: #fcfafa;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane layoutY="148.0" prefHeight="802.0" prefWidth="952.0" style="-fx-background-color: #fcfafa;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <content>
                       <AnchorPane style="-fx-background-color: #fcfafa;" />
                     </content>
                   </ScrollPane>
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="950.0" style="-fx-background-color: #fcfafa;">
+            <AnchorPane minHeight="800.0" prefHeight="800.0" style="-fx-background-color: #fcfafa;">
                <children>
                   <AnchorPane layoutY="593.0" style="-fx-background-color: #395d77;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="850.0">
                      <children>
-                        <Text fill="#f8f8f8" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:" wrappingWidth="49.13671875" />
-                        <Text fill="#e8e8e8" layoutX="14.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ändras" wrappingWidth="49.13671875" />
-                        <Button layoutX="63.0" layoutY="11.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="128.0" text="Till Kassan" />
+                        <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:" wrappingWidth="49.13671875" AnchorPane.bottomAnchor="10.0" />
+                        <Text layoutX="14.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ändras" wrappingWidth="49.13671875" AnchorPane.bottomAnchor="30.0" />
+                        <Button layoutX="63.0" layoutY="11.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="128.0" text="Till Kassan" AnchorPane.bottomAnchor="10.0" />
                      </children>
                   </AnchorPane>
                   <ScrollPane prefHeight="851.0" prefWidth="381.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -85,36 +106,14 @@
             </AnchorPane>
          </items>
       </SplitPane>
-      <AnchorPane fx:id="detailViewAnchorPane" styleClass="detailViewBackground" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefHeight="100.0" style="-fx-background-color: #395d77;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane styleClass="detailView" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="150.0">
-               <children>
-                  <ImageView fx:id="detailViewImage" fitHeight="375.0" fitWidth="500.0" pickOnBounds="true" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
-                     <image>
-                        <Image url="@../../../../.dat215/iMat/images/product_78.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="priceLabel" alignment="CENTER" layoutX="30.0" layoutY="430.0" maxWidth="500.0" minWidth="500.0" prefWidth="500.0" styleClass="detailViewTextBackground" text="999.99 kr" textAlignment="CENTER" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="425.0">
-                     <font>
-                        <Font name="System Bold" size="42.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="productNameLabel" alignment="CENTER" layoutX="560.0" layoutY="35.0" prefHeight="100.0" prefWidth="935.0" styleClass="detailViewTextBackground" text="Label" textAlignment="CENTER" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
-                     <font>
-                        <Font name="System Bold" size="50.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="TOP_LEFT" styleClass="detailViewTextBackground" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." wrapText="true" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="150.0">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" layoutX="660.0" layoutY="598.0" prefHeight="100.0" prefWidth="200.0" styleClass="detailViewTextBackground" text="99" textAlignment="CENTER" underline="true" AnchorPane.bottomAnchor="25.0" AnchorPane.topAnchor="530.0">
-                     <font>
-                        <Font name="System Bold" size="50.0" />
-                     </font>
-                  </Label>
-               </children></AnchorPane>
-         </children></AnchorPane>
+            <TextField layoutX="323.0" layoutY="32.0" prefHeight="48.0" prefWidth="618.0" promptText="Skriv din text här för att söka" />
+            <ImageView fitHeight="48.0" fitWidth="49.0" layoutX="975.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+            <Text fill="WHITE" layoutX="1207.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Konto" wrappingWidth="34.13671875" />
+            <Text fill="WHITE" layoutX="1418.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inköpslista" wrappingWidth="65.13671875" />
+            <ImageView fitHeight="48.0" fitWidth="49.0" layoutX="94.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
