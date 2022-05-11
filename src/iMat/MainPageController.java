@@ -24,13 +24,13 @@ public class MainPageController implements Initializable {
     @FXML private ImageView detailViewImage;
     @FXML private Label detailViewProductNameLabel;
     @FXML private Label detailViewPriceLabel;
-    @FXML private Label detailViewUnitLabel;
     @FXML private Label detailViewNumOfItems;
+    @FXML private Label isEco;
 
     // Körs när MainPage.fxml läses in
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        populateProductDetailView(dataHandler.getProduct(38)); // Temporär
+        populateProductDetailView(dataHandler.getProduct(75)); // Temporär
     }
 
     @FXML
@@ -52,8 +52,13 @@ public class MainPageController implements Initializable {
     private void populateProductDetailView(Product product) {
         detailViewImage.setImage(dataHandler.getFXImage(product));
         detailViewProductNameLabel.setText(product.getName());
-        detailViewPriceLabel.setText(String.format("%.2f", product.getPrice()));
-        detailViewUnitLabel.setText(product.getUnit());
+        detailViewPriceLabel.setText(String.format("Pris: %.2f %s", product.getPrice(), product.getUnit()));
+        if (product.isEcological()) {
+            isEco.setText("Produkten är ekologisk");
+        }
+        else {
+            isEco.setText("Produkten är ej ekologisk");
+        }
         detailViewNumOfItems.setText(String.format("%.1f", getNumberOfProductInCart(product)));
     }
 

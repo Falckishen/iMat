@@ -88,25 +88,25 @@
          <children>
             <AnchorPane onMouseClicked="#mouseTrap" styleClass="detailView" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="275.0" AnchorPane.topAnchor="150.0">
                <children>
-                  <ImageView fx:id="detailViewImage" fitHeight="375.0" fitWidth="500.0" pickOnBounds="true" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
+                  <ImageView fx:id="detailViewImage" fitHeight="375.0" fitWidth="500.0" pickOnBounds="true" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
                      <image>
                         <Image url="@../../../../.dat215/iMat/images/product_78.jpg" />
                      </image>
                   </ImageView>
-                  <Label fx:id="detailViewProductNameLabel" alignment="CENTER" layoutX="560.0" layoutY="35.0" prefHeight="175.0" styleClass="detailViewTextBackground" text="Ekologisk kyckling hel" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+                  <Label fx:id="detailViewProductNameLabel" alignment="CENTER" layoutX="560.0" layoutY="35.0" prefHeight="100.0" styleClass="detailViewTextBackground" text="Ekologisk kyckling hel" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
                      <font>
-                        <Font name="System Bold" size="50.0" />
+                        <Font name="System Bold" size="42.0" />
                      </font>
                   </Label>
-                  <Label minWidth="100.0" prefHeight="100.0" styleClass="detailViewTextBackground" text="TextBackground" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="225.0" />
-                  <Label fx:id="detailViewUnitLabel" layoutX="868.0" layoutY="323.0" minHeight="100.0" minWidth="225.0" prefHeight="100.0" styleClass="detailViewTextBackground" text="kg/st" textAlignment="CENTER" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="225.0">
+                  <Label prefHeight="80.0" styleClass="detailViewTextBackground" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="175.0" />
+                  <Label fx:id="detailViewPriceLabel" minHeight="80.0" prefHeight="80.0" styleClass="detailViewTextBackground" text="Pris: 999.99 kr/st" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="175.0">
                      <font>
-                        <Font name="System Bold" size="50.0" />
+                        <Font name="System Bold" size="35.0" />
                      </font>
                   </Label>
-                  <Label fx:id="detailViewPriceLabel" alignment="CENTER_RIGHT" layoutX="555.0" layoutY="259.0" minHeight="100.0" prefHeight="100.0" styleClass="detailViewTextBackground" text="999.99" textAlignment="CENTER" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="225.0">
+                  <Label fx:id="isEco" contentDisplay="CENTER" minHeight="80.0" prefHeight="80.0" styleClass="detailViewTextBackground" text="Produkten är ej ekologisk" textAlignment="CENTER" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="255.0">
                      <font>
-                        <Font name="System Bold" size="50.0" />
+                        <Font name="System Bold" size="35.0" />
                      </font>
                   </Label>
                   <Label fx:id="detailViewNumOfItems" alignment="CENTER" layoutX="481.0" layoutY="475.0" prefHeight="110.0" prefWidth="125.0" styleClass="detailViewTextBackground" text="99" textAlignment="CENTER" underline="true" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="470.0" AnchorPane.rightAnchor="470.0" AnchorPane.topAnchor="440.0">
