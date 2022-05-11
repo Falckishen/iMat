@@ -4,6 +4,7 @@ package iMat;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.event.Event;
 import javafx.fxml.*;
@@ -18,8 +19,9 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 public class MainPageController implements Initializable {
 
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
-
     private final ShoppingCart cart = IMat.getShoppingCart();
+
+    private final ClassLoader classLoader = getClass().getClassLoader();
 
     @FXML private AnchorPane detailViewAnchorPane;
     @FXML private ImageView detailViewImage;
@@ -28,11 +30,12 @@ public class MainPageController implements Initializable {
     @FXML private Label detailViewNumOfItems;
     @FXML private Label isEco;
     @FXML private FlowPane flowpane;
+    @FXML private ImageView closeImageView;
 
     // Körs när MainPage.fxml läses in
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        populateProductDetailView(dataHandler.getProduct(75)); // Temporär
+        populateProductDetailView(dataHandler.getProduct(75)); // Temporär, används för test
         fillFood();
     }
 
@@ -49,10 +52,26 @@ public class MainPageController implements Initializable {
     }
 
     @FXML
+    public void closeButtonMouseEntered(){
+        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close_hover.png"))));
+    }
+
+    @FXML
+    public void closeButtonMousePressed(){
+        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close_pressed.png"))));
+    }
+
+    @FXML
+    public void closeButtonMouseExited(){
+        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close.png"))));
+    }
+
+    @FXML
     public void mouseTrap(Event event){
         event.consume();
     }
 
+    // Fyller upp detalj vyn med rätt produkt
     private void populateProductDetailView(Product product) {
         detailViewImage.setImage(dataHandler.getFXImage(product));
         detailViewProductNameLabel.setText(product.getName());
@@ -87,14 +106,6 @@ public class MainPageController implements Initializable {
         for(Product produkt: produktlista){
             ProductItemController produkten = new ProductItemController(produkt);
             flowpane.getChildren().add(produkten);
-        }
-    }
-
-    // Testfunktion för ShoppingCart, ignorera
-    private void printShoppingCart() {
-        List<ShoppingItem> listOfShoppingItems = cart.getItems();
-        for (ShoppingItem shoppingItem : listOfShoppingItems) {
-            System.out.println(shoppingItem.getProduct() + " " + shoppingItem.getAmount());
         }
     }
 }

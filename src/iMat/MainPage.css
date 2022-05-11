@@ -4,15 +4,16 @@
 
 .detailView {
     -fx-background-color: #C0C0C0;
-    -fx-background-radius: 30px;
     -fx-border-color: #606060;
     -fx-border-width: 5px;
-    -fx-border-radius: 20px;
 }
 
 .detailViewTextBackground {
     -fx-background-color: #f0f0f0;
-    -fx-background-radius: 10px;
     -fx-border-width: 10px;
     -fx-border-color: rgba(0, 0, 0, 0); /* Osynlig border så texten inte är så nära kanten */
+}
+
+.closeButton {
+    -fx-background-color: rgb(255, 30, 30);
 }
