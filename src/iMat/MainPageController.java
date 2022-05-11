@@ -2,6 +2,7 @@
 package iMat;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.Event;
@@ -26,17 +27,20 @@ public class MainPageController implements Initializable {
     @FXML private Label detailViewPriceLabel;
     @FXML private Label detailViewNumOfItems;
     @FXML private Label isEco;
+    @FXML private FlowPane flowpane;
 
     // Körs när MainPage.fxml läses in
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         populateProductDetailView(dataHandler.getProduct(75)); // Temporär
+        fillFood();
     }
 
     @FXML
     public void openProductDetailView(Product product) {
         populateProductDetailView(product);
         detailViewAnchorPane.toFront();
+
     }
 
     @FXML
@@ -74,6 +78,16 @@ public class MainPageController implements Initializable {
             }
         }
         return numOfProductInCart;
+    }
+
+    //Fyller på flowpanen för att bygga all funktionalitet runt
+    private void fillFood(){
+        flowpane.getChildren().clear();
+        ArrayList<Product> produktlista = (ArrayList<Product>) dataHandler.getProducts();
+        for(Product produkt: produktlista){
+            ProductItemController produkten = new ProductItemController(produkt);
+            flowpane.getChildren().add(produkten);
+        }
     }
 
     // Testfunktion för ShoppingCart, ignorera
