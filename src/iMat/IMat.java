@@ -7,10 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.ShoppingCart;
 
 public class IMat extends Application {
 
     private static final IMatDataHandler dataHandler = IMatDataHandler.getInstance();
+    private static final ShoppingCart cart = dataHandler.getShoppingCart();
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -18,10 +20,6 @@ public class IMat extends Application {
         Scene scene = new Scene(root);
         stage.setTitle("iMat");
         stage.setScene(scene);
-        stage.setMinWidth(1600);
-        stage.setMinHeight(900);
-        stage.setWidth(1600);
-        stage.setHeight(900);
         stage.show();
     }
 
@@ -38,5 +36,9 @@ public class IMat extends Application {
 
     public static IMatDataHandler getIMatDataHandler() {
         return dataHandler;
+    }
+
+    public static ShoppingCart getShoppingCart() {
+        return cart;
     }
 }
