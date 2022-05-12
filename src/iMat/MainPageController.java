@@ -6,15 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.image.*;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
-import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingCart;
-import se.chalmers.cse.dat216.project.ShoppingItem;
+import se.chalmers.cse.dat216.project.*;
 
 public class MainPageController implements Initializable {
 
@@ -31,6 +30,7 @@ public class MainPageController implements Initializable {
     @FXML private Label isEco;
     @FXML private FlowPane flowpane;
     @FXML private ImageView closeImageView;
+    @FXML private Button brodKnapp;
 
     // Körs när MainPage.fxml läses in
     @Override
@@ -108,4 +108,16 @@ public class MainPageController implements Initializable {
             flowpane.getChildren().add(produkten);
         }
     }
+
+    /* Knappar below*/
+    @FXML protected void searchForBread (ActionEvent event){
+        flowpane.getChildren().clear();
+        ArrayList<Product> list = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf("BREAD"));
+        for(Product produkt: list){
+            ProductItemController produkten = new ProductItemController(produkt);
+            flowpane.getChildren().add(produkten);
+        }
+
+    }
+
 }
