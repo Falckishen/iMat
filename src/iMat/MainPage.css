@@ -23,3 +23,21 @@
     -fx-border-color: #F3F0F0;
     -fx-border-width: 3px;
 }
+
+.shoppingCart {
+    -fx-background-color: #FCFAFA;
+}
+
+.shoppingCartEdge {
+    -fx-background-color: #274156;
+}
+
+#shoppingCartTextTotal {
+    -fx-font: 19px "Helvetica";
+    -fx-font-fill: #FCFAFA;
+}
+
+#shoppingCartTextTotal {
+    -fx-font: 19px "Helvetica";
+    -fx-font-fill: #FCFAFA;
+}
