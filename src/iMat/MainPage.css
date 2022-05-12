@@ -18,8 +18,37 @@
     -fx-background-color: rgb(255, 30, 30);
 }
 
+.topPanel {
+    -fx-effect: dropshadow( gaussian , rgba(0, 0, 0, 0.2) , 5 , 0.5 , 5 , 5 );
+    -fx-border-width: 0px;
+}
+
 .gridPanel {
     -fx-background-color: #F3F0F0;
-    -fx-border-color: #F3F0F0;
-    -fx-border-width: 3px;
+    -fx-border-width: 0px;
+}
+
+.shoppingCart {
+    -fx-background-color: #FCFAFA;
+    -fx-border-width: 0px;
+}
+
+.categorizes {
+    -fx-background-color: #F3F0F0;
+    -fx-border-width: 0px;
+}
+
+.shoppingCartEdge {
+    -fx-background-color: #274156;
+    -fx-border-width: 0px;
+}
+
+#shoppingCartTextTotal {
+    -fx-font: 19px "Helvetica";
+    -fx-text-fill: #FCFAFA;
+}
+
+#shoppingCartTextAmount {
+    -fx-font: bold 16px "Helvetica";
+    -fx-text-fill: #FCFAFA;
 }

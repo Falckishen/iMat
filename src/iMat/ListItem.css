@@ -1,0 +1,11 @@
+.background {
+    -fx-background-color: #FCFAFA;
+    -fx-font: 14pt "Helvetica";
+    -fx-text-fill: #2E3235;
+}
+
+.button {
+    -fx-background-color: transparent;
+    -fx-font: 0pt "Helvetica";
+    -fx-text-fill: transparent;
+}
