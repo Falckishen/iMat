@@ -47,7 +47,7 @@ public class MainPageController implements Initializable {
     // Körs när MainPage.fxml läses in
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        accountWindowPane.getChildren().add(accountWindowController);
+        //accountWindowPane.getChildren().add(accountWindowController);
         populateProductDetailView(dataHandler.getProduct(75)); // Temporär, används för test
         fillFood();
     }

@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
       <AnchorPane fx:id="detailViewAnchorPane" onMouseClicked="#closeProductDetailView" styleClass="detailViewBackground" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -178,9 +178,9 @@
                               </AnchorPane>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="712.0" prefWidth="400.0">
                                  <children>
-                                    <ScrollPane prefHeight="759.0" prefWidth="952.0">
+                                    <ScrollPane prefHeight="760.0" prefWidth="952.0" stylesheets="@ScrollBar.css">
                                        <content>
-                                          <FlowPane fx:id="productItemsFlowpane" prefHeight="759.0" prefWidth="949.0" />
+                                          <FlowPane fx:id="productItemsFlowpane" prefHeight="764.0" prefWidth="937.0" styleClass="gridPanel" />
                                        </content>
                                     </ScrollPane>
                                  </children>
