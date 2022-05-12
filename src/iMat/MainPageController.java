@@ -3,7 +3,6 @@ package iMat;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -27,8 +26,8 @@ public class MainPageController implements Initializable {
     @FXML private Label detailViewProductNameLabel;
     @FXML private Label detailViewPriceLabel;
     @FXML private Label detailViewNumOfItems;
-    @FXML private Label isEco;
-    @FXML private FlowPane flowpane;
+    @FXML private Label detailViewIsEcoLabel;
+    @FXML private FlowPane productItemsFlowpane;
     @FXML private ImageView closeImageView;
     @FXML private Button brodKnapp;
     @FXML private TextField searchBar;
@@ -44,7 +43,6 @@ public class MainPageController implements Initializable {
     public void openProductDetailView(Product product) {
         populateProductDetailView(product);
         detailViewAnchorPane.toFront();
-
     }
 
     @FXML
@@ -58,18 +56,40 @@ public class MainPageController implements Initializable {
     }
 
     @FXML
-    public void closeButtonMousePressed(){
-        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close_pressed.png"))));
-    }
-
-    @FXML
     public void closeButtonMouseExited(){
         closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close.png"))));
     }
 
     @FXML
+    public void closeButtonMousePressed(){
+        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close_pressed.png"))));
+    }
+
+    @FXML
     public void mouseTrap(Event event){
         event.consume();
+    }
+
+    /* Knappar below tänker att den fungerar som den ska, fortsätter på allt annat och återvänder till det här när mera
+    är färdigt, hoppas det är okej.*/
+    @FXML protected void searchForBread (ActionEvent event){
+        productItemsFlowpane.getChildren().clear();
+        ArrayList<Product> list = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf("BREAD"));
+        for(Product produkt: list){
+            ProductItemController produkten = new ProductItemController(produkt);
+            productItemsFlowpane.getChildren().add(produkten);
+        }
+    }
+
+    @FXML protected void searchBar (ActionEvent event){
+        productItemsFlowpane.getChildren().clear();
+        String text = searchBar.getText();
+        ArrayList<Product> list = (ArrayList<Product>) dataHandler.findProducts(text);
+        for(Product produkt: list){
+            ProductItemController produkten = new ProductItemController(produkt);
+            productItemsFlowpane.getChildren().add(produkten);
+
+        }
     }
 
     // Fyller upp detalj vyn med rätt produkt
@@ -78,59 +98,21 @@ public class MainPageController implements Initializable {
         detailViewProductNameLabel.setText(product.getName());
         detailViewPriceLabel.setText(String.format("Pris: %.2f %s", product.getPrice(), product.getUnit()));
         if (product.isEcological()) {
-            isEco.setText("Produkten är ekologisk");
+            detailViewIsEcoLabel.setText("Produkten är ekologisk");
         }
         else {
-            isEco.setText("Produkten är ej ekologisk");
+            detailViewIsEcoLabel.setText("Produkten är ej ekologisk");
         }
-        detailViewNumOfItems.setText(String.format("%.1f", getNumberOfProductInCart(product)));
-    }
-
-    // Tar en produkt som argument, retunerar antalet av denna product som finns i varukorgen
-    private double getNumberOfProductInCart(Product product) {
-        double numOfProductInCart = 0;
-        List<ShoppingItem> listOfShoppingItems = cart.getItems();
-        Product productInCart;
-        for (ShoppingItem shoppingItem : listOfShoppingItems) {
-            productInCart = shoppingItem.getProduct();
-            if (productInCart.equals(product)) {
-                numOfProductInCart += shoppingItem.getAmount();
-            }
-        }
-        return numOfProductInCart;
+        detailViewNumOfItems.setText(String.format("%.1f", IMat.getNumberOfProductInCart(product)));
     }
 
     //Fyller på flowpanen för att bygga all funktionalitet runt
     private void fillFood(){
-        flowpane.getChildren().clear();
+        productItemsFlowpane.getChildren().clear();
         ArrayList<Product> produktlista = (ArrayList<Product>) dataHandler.getProducts();
         for(Product produkt: produktlista){
             ProductItemController produkten = new ProductItemController(produkt);
-            flowpane.getChildren().add(produkten);
+            productItemsFlowpane.getChildren().add(produkten);
         }
     }
-
-    /* Knappar below tänker att den fungerar som den ska, fortsätter på allt annat och återvänder till det här när mera är färdigt
-    * Hoppas det är okej.*/
-    @FXML protected void searchForBread (ActionEvent event){
-        flowpane.getChildren().clear();
-        ArrayList<Product> list = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf("BREAD"));
-        for(Product produkt: list){
-            ProductItemController produkten = new ProductItemController(produkt);
-            flowpane.getChildren().add(produkten);
-        }
-
-    }
-
-    @FXML protected void searchBar (ActionEvent event){
-        flowpane.getChildren().clear();
-        String text = searchBar.getText();
-        ArrayList<Product> list = (ArrayList<Product>) dataHandler.findProducts(text);
-        for(Product produkt: list){
-            ProductItemController produkten = new ProductItemController(produkt);
-            flowpane.getChildren().add(produkten);
-
-    }}
-
-
 }

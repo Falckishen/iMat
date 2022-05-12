@@ -1,5 +1,6 @@
 package iMat;
 
+import java.util.List;
 import java.util.Objects;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +8,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingCart;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 public class IMat extends Application {
 
@@ -40,5 +43,19 @@ public class IMat extends Application {
 
     public static ShoppingCart getShoppingCart() {
         return cart;
+    }
+
+    // Tar en produkt som argument, retunerar antalet av denna product som finns i varukorgen
+    public static double getNumberOfProductInCart(Product product) {
+        double numOfProductInCart = 0;
+        List<ShoppingItem> listOfShoppingItems = cart.getItems();
+        Product productInCart;
+        for (ShoppingItem shoppingItem : listOfShoppingItems) {
+            productInCart = shoppingItem.getProduct();
+            if (productInCart.equals(product)) {
+                numOfProductInCart += shoppingItem.getAmount();
+            }
+        }
+        return numOfProductInCart;
     }
 }
