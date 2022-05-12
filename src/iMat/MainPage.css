@@ -17,3 +17,9 @@
 .closeButton {
     -fx-background-color: rgb(255, 30, 30);
 }
+
+.gridPanel {
+    -fx-background-color: #F3F0F0;
+    -fx-border-color: #F3F0F0;
+    -fx-border-width: 3px;
+}
