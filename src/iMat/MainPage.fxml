@@ -77,9 +77,9 @@
          <left>
             <AnchorPane minHeight="0.0" minWidth="0.0" BorderPane.alignment="TOP_LEFT">
                <children>
-                  <Accordion layoutY="100.0">
+                  <Accordion layoutY="100.0" prefWidth="318.0" style="-fx-background-color: AAAAAA;" styleClass="categorizes">
                      <panes>
-                        <TitledPane animated="false" prefHeight="476.0" prefWidth="318.0" text="Kolhydrater">
+                        <TitledPane animated="false" text="Kolhydrater">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="316.0">
                                  <children>
@@ -91,7 +91,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" prefWidth="318.0" text="Drycker">
+                        <TitledPane animated="false" text="Drycker">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="316.0">
                                  <children>
@@ -101,7 +101,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" prefHeight="583.0" prefWidth="318.0" text="Frukt">
+                        <TitledPane animated="false" text="Frukt">
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
@@ -176,7 +176,7 @@
                      <content>
                         <AnchorPane prefHeight="627.0" prefWidth="960.0">
                            <children>
-                              <FlowPane fx:id="productItemsFlowpane" prefHeight="789.0" prefWidth="931.0" styleClass="gridPanel" />
+                              <FlowPane fx:id="productItemsFlowpane" prefHeight="778.0" prefWidth="960.0" styleClass="gridPanel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -185,20 +185,23 @@
             </AnchorPane>
          </center>
          <right>
-            <AnchorPane BorderPane.alignment="CENTER">
+            <AnchorPane styleClass="shoppingCart" BorderPane.alignment="CENTER">
                <children>
                   <VBox prefHeight="780.0" prefWidth="320.0" styleClass="shoppingCart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ScrollPane prefHeight="787.0" prefWidth="320.0" stylesheets="@ScrollBar.css" />
+                        <ScrollPane prefHeight="709.0" prefWidth="333.0" styleClass="shoppingCart" stylesheets="@ScrollBar.css">
+                           <content>
+                              <FlowPane prefHeight="668.0" prefWidth="318.0" styleClass="shoppingCart" />
+                           </content></ScrollPane>
                         <HBox alignment="CENTER" prefHeight="150.0" prefWidth="320.0" styleClass="shoppingCartEdge">
                            <children>
                               <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" styleClass="shoppingCartText">
                                  <children>
                                     <Label id="shoppingCartTextTotal" text="Total:" />
-                                    <Label id="shoppingCartTextAmount" text="10000,00 kr" />
+                                    <Label id="shoppingCartTextAmount" text="1000,00 kr" />
                                  </children>
                               </VBox>
-                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="48.0" prefWidth="169.0" text="Till Kassan" />
+                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="48.0" prefWidth="169.0" stylesheets="@GreenButton.css" text="Till Kassan" />
                            </children>
                         </HBox>
                      </children>
