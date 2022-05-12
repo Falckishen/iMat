@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.*;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.image.*;
@@ -51,44 +53,43 @@ public class MainPageController implements Initializable {
     }
 
     @FXML
-    public void closeButtonMouseEntered(){
+    public void closeButtonMouseEntered() {
         closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close_hover.png"))));
     }
 
     @FXML
-    public void closeButtonMouseExited(){
+    public void closeButtonMouseExited() {
         closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close.png"))));
     }
 
     @FXML
-    public void closeButtonMousePressed(){
+    public void closeButtonMousePressed() {
         closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close_pressed.png"))));
     }
 
     @FXML
-    public void mouseTrap(Event event){
+    public void mouseTrap(Event event) {
         event.consume();
     }
 
     /* Knappar below tänker att den fungerar som den ska, fortsätter på allt annat och återvänder till det här när mera
     är färdigt, hoppas det är okej.*/
-    @FXML protected void searchForBread (ActionEvent event){
-        productItemsFlowpane.getChildren().clear();
-        ArrayList<Product> list = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf("BREAD"));
-        for(Product produkt: list){
-            ProductItemController produkten = new ProductItemController(produkt);
-            productItemsFlowpane.getChildren().add(produkten);
+    @FXML protected void searchForBread (ActionEvent event) {
+        ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
+        productItemsList.clear();
+        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf("BREAD"));
+        for(Product product : productList){
+            productItemsList.add(new ProductItemController(product));
         }
     }
 
-    @FXML protected void searchBar (ActionEvent event){
-        productItemsFlowpane.getChildren().clear();
+    @FXML protected void searchBar (ActionEvent event) {
+        ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
+        productItemsList.clear();
         String text = searchBar.getText();
-        ArrayList<Product> list = (ArrayList<Product>) dataHandler.findProducts(text);
-        for(Product produkt: list){
-            ProductItemController produkten = new ProductItemController(produkt);
-            productItemsFlowpane.getChildren().add(produkten);
-
+        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.findProducts(text);
+        for(Product product : productList){
+            productItemsList.add(new ProductItemController(product));
         }
     }
 
@@ -103,16 +104,16 @@ public class MainPageController implements Initializable {
         else {
             detailViewIsEcoLabel.setText("Produkten är ej ekologisk");
         }
-        detailViewNumOfItems.setText(String.format("%.1f", IMat.getNumberOfProductInCart(product)));
+        detailViewNumOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(product)));
     }
 
     //Fyller på flowpanen för att bygga all funktionalitet runt
-    private void fillFood(){
-        productItemsFlowpane.getChildren().clear();
-        ArrayList<Product> produktlista = (ArrayList<Product>) dataHandler.getProducts();
-        for(Product produkt: produktlista){
-            ProductItemController produkten = new ProductItemController(produkt);
-            productItemsFlowpane.getChildren().add(produkten);
+    private void fillFood() {
+        ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
+        productItemsList.clear();
+        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
+        for(Product product: productList){
+            productItemsList.add(new ProductItemController(product));
         }
     }
 }

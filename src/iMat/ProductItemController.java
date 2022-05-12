@@ -1,11 +1,7 @@
-/* Hör ihop med ProductItem.fxml */
+// Hör ihop med ProductItem.fxml
 package iMat;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
