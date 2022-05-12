@@ -2,6 +2,7 @@
 package iMat;
 
 import java.awt.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +28,11 @@ public class MainPageController implements Initializable {
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
     private final ShoppingCart cart = IMat.getShoppingCart();
 
-    private final ClassLoader classLoader = getClass().getClassLoader();
     private final AccountWindowController accountWindowController = new AccountWindowController();
 
-    @FXML private AnchorPane accountWindowPane;
+    private final ClassLoader classLoader = getClass().getClassLoader();
+
+    @FXML private AnchorPane mainPageRootAnchorPane;
     @FXML private AnchorPane detailViewAnchorPane;
     @FXML private ImageView detailViewImage;
     @FXML private Label detailViewProductNameLabel;
@@ -41,13 +43,11 @@ public class MainPageController implements Initializable {
     @FXML private ImageView closeImageView;
     @FXML private Button brodKnapp;
     @FXML private TextField searchBar;
-
     @FXML private Button btnTestKonto;
 
     // Körs när MainPage.fxml läses in
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        accountWindowPane.getChildren().add(accountWindowController);
         populateProductDetailView(dataHandler.getProduct(75)); // Temporär, används för test
         fillFood();
     }
@@ -65,13 +65,10 @@ public class MainPageController implements Initializable {
     }
 
     @FXML
-    public void openAccountWindow(){
+    public void openAccountWindow() throws IOException {
+        AnchorPane accountWindowPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AccountWindow.fxml")));
+        mainPageRootAnchorPane.getChildren().add(accountWindowPane);
         accountWindowPane.toFront();
-    }
-
-    @FXML
-    public void closeAccountWindow() {
-        accountWindowPane.toBack();
     }
 
     @FXML
@@ -129,7 +126,8 @@ public class MainPageController implements Initializable {
         detailViewNumOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(product)));
     }
 
-    private void populateAccountWindow(Product product) { //TODO: Populera med rätt grejor tex. historiken.
+    //TODO: Populera med rätt grejor tex. historiken.
+    private void populateAccountWindow(Product product) {
     }
 
     // Tar en produkt som argument, retunerar antalet av denna product som finns i varukorgen
