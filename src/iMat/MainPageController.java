@@ -27,7 +27,7 @@ public class MainPageController implements Initializable {
     @FXML private ImageView detailViewImage;
     @FXML private Label detailViewProductNameLabel;
     @FXML private Label detailViewPriceLabel;
-    @FXML private Label detailViewNumOfItems;
+    @FXML private TextField detailViewNumOfItems;
     @FXML private Label detailViewIsEcoLabel;
     @FXML private FlowPane productItemsFlowpane;
     @FXML private ImageView closeImageView;
