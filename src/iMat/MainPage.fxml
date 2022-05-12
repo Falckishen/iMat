@@ -15,9 +15,8 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
-      <AnchorPane fx:id="accountWindowPane" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: FFFFFF;" />
       <AnchorPane fx:id="detailViewAnchorPane" onMouseClicked="#closeProductDetailView" styleClass="detailViewBackground" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane onMouseClicked="#mouseTrap" styleClass="detailView" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="275.0" AnchorPane.topAnchor="150.0">
@@ -27,18 +26,17 @@
                         <Image url="@../../../../.dat215/iMat/images/product_78.jpg" />
                      </image>
                   </ImageView>
-                  <Label fx:id="detailViewProductNameLabel" alignment="CENTER" layoutX="565.0" layoutY="40.0" prefHeight="132.0" prefWidth="336.0" styleClass="detailViewTextBackground" text="Ekologisk kyckling" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="25.0">
+                  <Label fx:id="detailViewProductNameLabel" alignment="CENTER" layoutX="565.0" layoutY="40.0" styleClass="detailViewTextBackground" text="Ekologisk kyckling" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="25.0">
                      <font>
                         <Font name="System Bold" size="42.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="80.0" styleClass="detailViewTextBackground" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="235.0" />
-                  <Label fx:id="detailViewPriceLabel" minHeight="80.0" prefHeight="80.0" styleClass="detailViewTextBackground" text="Pris: 999.99 kr/st" AnchorPane.bottomAnchor="275.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="235.0">
+                  <Label fx:id="detailViewPriceLabel" alignment="CENTER" minHeight="80.0" prefHeight="80.0" styleClass="detailViewTextBackground" text="Pris: 999.99 kr/st" AnchorPane.bottomAnchor="275.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="235.0">
                      <font>
                         <Font name="System Bold" size="35.0" />
                      </font>
                   </Label>
-                  <Label fx:id="detailViewIsEcoLabel" contentDisplay="CENTER" minHeight="80.0" prefHeight="80.0" styleClass="detailViewTextBackground" text="Produkten är ej ekologisk" textAlignment="CENTER" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="315.0">
+                  <Label fx:id="detailViewIsEcoLabel" alignment="CENTER" contentDisplay="CENTER" minHeight="80.0" prefHeight="80.0" styleClass="detailViewTextBackground" text="Produkten är ej ekologisk" textAlignment="CENTER" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="315.0">
                      <font>
                         <Font name="System Bold" size="35.0" />
                      </font>
@@ -75,8 +73,10 @@
                         <ImageView fitHeight="99.0" fitWidth="127.0" layoutX="21.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fitHeight="99.0" fitWidth="127.0" layoutX="1133.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fitHeight="99.0" fitWidth="127.0" layoutX="1375.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
-                        <TextField fx:id="searchBar" layoutX="197.0" layoutY="23.0" onAction="#searchBar" prefHeight="83.0" prefWidth="894.0" text="Sök" />
-                        <Button fx:id="btnTestKonto" layoutX="1133.0" layoutY="52.0" mnemonicParsing="false" onAction="#openAccountWindow" text="TESTKNAPP KONTO" AnchorPane.leftAnchor="1133.0" AnchorPane.topAnchor="52.0" />
+                        <TextField fx:id="searchBar" layoutX="197.0" layoutY="23.0" onAction="#searchBar" prefHeight="83.0" prefWidth="894.0" promptText="Sök">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font></TextField>
                      </children>
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
