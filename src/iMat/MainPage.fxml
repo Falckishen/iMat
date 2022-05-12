@@ -74,7 +74,7 @@
                         <ImageView fitHeight="99.0" fitWidth="127.0" layoutX="21.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fitHeight="99.0" fitWidth="127.0" layoutX="1133.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fitHeight="99.0" fitWidth="127.0" layoutX="1375.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
-                        <TextField layoutX="197.0" layoutY="23.0" prefHeight="83.0" prefWidth="894.0" text="Sök" />
+                        <TextField fx:id="searchBar" layoutX="197.0" layoutY="23.0" onAction="#searchBar" prefHeight="83.0" prefWidth="894.0" text="Sök" />
                      </children>
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">

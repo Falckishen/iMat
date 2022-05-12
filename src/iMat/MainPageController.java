@@ -31,6 +31,7 @@ public class MainPageController implements Initializable {
     @FXML private FlowPane flowpane;
     @FXML private ImageView closeImageView;
     @FXML private Button brodKnapp;
+    @FXML private TextField searchBar;
 
     // Körs när MainPage.fxml läses in
     @Override
@@ -109,7 +110,8 @@ public class MainPageController implements Initializable {
         }
     }
 
-    /* Knappar below*/
+    /* Knappar below tänker att den fungerar som den ska, fortsätter på allt annat och återvänder till det här när mera är färdigt
+    * Hoppas det är okej.*/
     @FXML protected void searchForBread (ActionEvent event){
         flowpane.getChildren().clear();
         ArrayList<Product> list = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf("BREAD"));
@@ -119,5 +121,16 @@ public class MainPageController implements Initializable {
         }
 
     }
+
+    @FXML protected void searchBar (ActionEvent event){
+        flowpane.getChildren().clear();
+        String text = searchBar.getText();
+        ArrayList<Product> list = (ArrayList<Product>) dataHandler.findProducts(text);
+        for(Product produkt: list){
+            ProductItemController produkten = new ProductItemController(produkt);
+            flowpane.getChildren().add(produkten);
+
+    }}
+
 
 }
