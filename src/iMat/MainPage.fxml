@@ -17,6 +17,48 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
+      <AnchorPane fx:id="detailViewAnchorPane" onMouseClicked="#closeProductDetailView" styleClass="detailViewBackground" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane onMouseClicked="#mouseTrap" styleClass="detailView" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="275.0" AnchorPane.topAnchor="150.0">
+               <children>
+                  <ImageView fx:id="detailViewImage" fitHeight="375.0" fitWidth="500.0" pickOnBounds="true" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
+                     <image>
+                        <Image url="@../../../../.dat215/iMat/images/product_78.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="detailViewProductNameLabel" alignment="CENTER" layoutX="565.0" layoutY="40.0" styleClass="detailViewTextBackground" text="Ekologisk kyckling" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="25.0">
+                     <font>
+                        <Font name="System Bold" size="42.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="detailViewPriceLabel" alignment="CENTER" minHeight="80.0" prefHeight="80.0" styleClass="detailViewTextBackground" text="Pris: 999.99 kr/st" AnchorPane.bottomAnchor="275.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="235.0">
+                     <font>
+                        <Font name="System Bold" size="35.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="detailViewIsEcoLabel" alignment="CENTER" contentDisplay="CENTER" minHeight="80.0" prefHeight="80.0" styleClass="detailViewTextBackground" text="Produkten är ej ekologisk" textAlignment="CENTER" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="315.0">
+                     <font>
+                        <Font name="System Bold" size="35.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" graphicTextGap="0.0" maxHeight="75.0" maxWidth="75.0" minHeight="75.0" minWidth="75.0" mnemonicParsing="false" onAction="#closeProductDetailView" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" onMousePressed="#closeButtonMousePressed" prefHeight="75.0" prefWidth="75.0" scaleShape="false" styleClass="closeButton" AnchorPane.rightAnchor="-0.5" AnchorPane.topAnchor="-0.5">
+                     <graphic>
+                        <ImageView fx:id="closeImageView" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/icon_close.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <TextField fx:id="detailViewNumOfItems" alignment="CENTER" layoutX="716.0" layoutY="456.0" promptText="99" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="725.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="445.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
       <StackPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #FAFA;">
          <children>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" style="-fx-background-color: #FF0000;">
@@ -161,47 +203,5 @@
             </SplitPane>
          </children>
       </StackPane>
-      <AnchorPane fx:id="detailViewAnchorPane" onMouseClicked="#closeProductDetailView" styleClass="detailViewBackground" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <AnchorPane onMouseClicked="#mouseTrap" styleClass="detailView" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="275.0" AnchorPane.topAnchor="150.0">
-               <children>
-                  <ImageView fx:id="detailViewImage" fitHeight="375.0" fitWidth="500.0" pickOnBounds="true" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
-                     <image>
-                        <Image url="@../../../../.dat215/iMat/images/product_78.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="detailViewProductNameLabel" alignment="CENTER" layoutX="565.0" layoutY="40.0" styleClass="detailViewTextBackground" text="Ekologisk kyckling" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="25.0">
-                     <font>
-                        <Font name="System Bold" size="42.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="detailViewPriceLabel" alignment="CENTER" minHeight="80.0" prefHeight="80.0" styleClass="detailViewTextBackground" text="Pris: 999.99 kr/st" AnchorPane.bottomAnchor="275.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="235.0">
-                     <font>
-                        <Font name="System Bold" size="35.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="detailViewIsEcoLabel" alignment="CENTER" contentDisplay="CENTER" minHeight="80.0" prefHeight="80.0" styleClass="detailViewTextBackground" text="Produkten är ej ekologisk" textAlignment="CENTER" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="315.0">
-                     <font>
-                        <Font name="System Bold" size="35.0" />
-                     </font>
-                  </Label>
-                  <Button alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" graphicTextGap="0.0" maxHeight="75.0" maxWidth="75.0" minHeight="75.0" minWidth="75.0" mnemonicParsing="false" onAction="#closeProductDetailView" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" onMousePressed="#closeButtonMousePressed" prefHeight="75.0" prefWidth="75.0" scaleShape="false" styleClass="closeButton" AnchorPane.rightAnchor="-0.5" AnchorPane.topAnchor="-0.5">
-                     <graphic>
-                        <ImageView fx:id="closeImageView" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/icon_close.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <TextField fx:id="detailViewNumOfItems" alignment="CENTER" layoutX="716.0" layoutY="456.0" promptText="99" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="725.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="445.0">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </TextField>
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
    </children>
 </AnchorPane>
