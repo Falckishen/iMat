@@ -1,0 +1,19 @@
+.detailViewBackground {
+    -fx-background-color: rgba(0, 0, 0, 0.75);
+}
+
+.detailView {
+    -fx-background-color:  #395d77;
+    -fx-border-color: #606060;
+    -fx-border-width: 5px;
+}
+
+.detailViewTextBackground {
+    -fx-background-color: #ffffff;
+    -fx-border-width: 10px;
+    -fx-border-color: rgba(0, 0, 0, 0); /* Osynlig border så texten inte är så nära kanten */
+}
+
+.closeButton {
+    -fx-background-color: rgb(255, 30, 30);
+}
