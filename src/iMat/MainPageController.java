@@ -80,11 +80,6 @@ public class MainPageController implements Initializable {
     }
 
     @FXML
-    public void closeButtonMouseExited() {
-        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close.png"))));
-    }
-
-    @FXML
     public void closeButtonMousePressed() {
         closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close_pressed.png"))));
     }
