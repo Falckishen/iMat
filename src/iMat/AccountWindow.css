@@ -16,16 +16,26 @@
     -fx-background-color: #FCFAFA;
     -fx-border-color: #F3F0F0;
     -fx-border-width: 3px;
-    -fx-split-pane-divider
-
 }
 
 #text-label-dark {
     -fx-background-color: #F3F0F0;
-    -fx-font: italic 14pt "Arial";
+    -fx-font: italic 14pt "Helvetica";
     -fx-font-color: #2E3235;
     -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.2) , 1 , 0.5 , 1 , 1 );
     -fx-background-radius : 0.0em;
+}
+
+#text-small {
+    -fx-font: 16px "Helvetica";
+}
+
+#text-larger {
+    -fx-font: 19px "Helvetica";
+}
+
+#text-large {
+    -fx-font: 36px "Helvetica";
 }
 
 #checkbox .box{
