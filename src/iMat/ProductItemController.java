@@ -15,21 +15,19 @@ public class ProductItemController extends AnchorPane {
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
     private final Product product;
     @FXML ImageView image;
-    Image bild;
+    private Image bild;
 
     public ProductItemController(Product product) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-
         this.product = product;
-        Image bild = dataHandler.getFXImage(product);
+        this.bild = dataHandler.getFXImage(product);
         this.image.setImage(bild);
     }
 }

@@ -63,17 +63,17 @@ public class DetailViewController extends AnchorPane {
 
     @FXML
     public void closeButtonMouseEntered() {
-        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close_hover.png"))));
+        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close_hover.png"))));
     }
 
     @FXML
     public void closeButtonMousePressed() {
-        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close_pressed.png"))));
+        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close_pressed.png"))));
     }
 
     @FXML
     public void closeButtonMouseExited(){
-        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close.png"))));
+        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close.png"))));
     }
 
     @FXML
@@ -83,15 +83,15 @@ public class DetailViewController extends AnchorPane {
 
     // Fyller upp detalj vyn med rätt produkt
     private void populateProductDetailView() {
-        image.setImage(dataHandler.getFXImage(this.product));
-        productNameLabel.setText(this.product.getName());
-        priceLabel.setText(String.format("Pris: %.2f %s", this.product.getPrice(), this.product.getUnit()));
+        this.image.setImage(dataHandler.getFXImage(this.product));
+        this.productNameLabel.setText(this.product.getName());
+        this.priceLabel.setText(String.format("Pris: %.2f %s", this.product.getPrice(), this.product.getUnit()));
         if (this.product.isEcological()) {
-            isEcoLabel.setText("Produkten är ekologisk");
+            this.isEcoLabel.setText("Produkten är ekologisk");
         }
         else {
-            isEcoLabel.setText("Produkten är ej ekologisk");
+            this.isEcoLabel.setText("Produkten är ej ekologisk");
         }
-        numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
+        this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
     }
 }

@@ -5,17 +5,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.ResourceBundle;
-
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
-import javafx.scene.image.*;
 import se.chalmers.cse.dat216.project.*;
 
 public class MainPageController implements Initializable {
@@ -23,54 +18,52 @@ public class MainPageController implements Initializable {
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
     private final ShoppingCart cart = IMat.getShoppingCart();
 
-    private final AccountWindowController accountWindowController = new AccountWindowController();
-
     @FXML private AnchorPane mainPageRootAnchorPane;
     @FXML private FlowPane productItemsFlowpane;
     @FXML private Button brodKnapp;
     @FXML private TextField searchBar;
     @FXML private Button btnTestKonto;
     @FXML private GridPane gridPane;
+
     private int rowx = 0;
     private int coly = 0;
 
     // Körs när MainPage.fxml läses in
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // populateProductDetailView(dataHandler.getProduct(75)); // Temporär, används för test
         fillFood();
     }
 
     @FXML
     public void openProductDetailView(Product product) throws IOException {
         AnchorPane detailViewAnchorPane = new DetailViewController(product);
-        mainPageRootAnchorPane.getChildren().add(detailViewAnchorPane);
+        this.mainPageRootAnchorPane.getChildren().add(detailViewAnchorPane);
         detailViewAnchorPane.toFront();
     }
 
     @FXML
     public void openAccountWindow() throws IOException {
-        AnchorPane accountWindowPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AccountWindow.fxml")));
-        mainPageRootAnchorPane.getChildren().add(accountWindowPane);
+        AnchorPane accountWindowPane = new AccountWindowController();
+        this.mainPageRootAnchorPane.getChildren().add(accountWindowPane);
         accountWindowPane.toFront();
     }
 
     /* Knappar below tänker att den fungerar som den ska, fortsätter på allt annat och återvänder till det här när mera
     är färdigt, hoppas det är okej.*/
     @FXML protected void searchForBread (ActionEvent event) {
-        coly = 0;
-        rowx = 0;
-        gridPane.getChildren().clear();
-        ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.BREAD);
-        for(Product product: productlist){
+        this.coly = 0;
+        this.rowx = 0;
+        this.gridPane.getChildren().clear();
+        ArrayList<Product> productlist = (ArrayList<Product>) this.dataHandler.getProducts(ProductCategory.BREAD);
+        for(Product product: productlist) {
             ProductItemController productt = new ProductItemController(product);
-            gridPane.add(productt,coly,rowx);
-            coly++;
-            if(coly == 2 ){
-                coly = 0;
-                rowx++;
-            }}
-
+            this.gridPane.add(productt, this.coly, this.rowx);
+            this.coly++;
+            if(this.coly == 2 ) {
+                this.coly = 0;
+                this.rowx++;
+            }
+        }
         /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
         productItemsList.clear();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf("BREAD"));
@@ -80,9 +73,9 @@ public class MainPageController implements Initializable {
     }
 
     @FXML protected void searchBar (ActionEvent event) {
-        coly = 0;
-        rowx = 0;
-        gridPane.getChildren().clear();
+        this.coly = 0;
+        this.rowx = 0;
+        this.gridPane.getChildren().clear();
         String text = searchBar.getText();
         ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.findProducts(text);
         for(Product product: productlist){
@@ -92,10 +85,8 @@ public class MainPageController implements Initializable {
             if(coly == 2 ){
                 coly = 0;
                 rowx++;
-            }}
-
-
-
+            }
+        }
         /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
         productItemsList.clear();
         String text = searchBar.getText();
@@ -112,7 +103,7 @@ public class MainPageController implements Initializable {
     // Tar en produkt som argument, retunerar antalet av denna product som finns i varukorgen
     private double getNumberOfProductInCart(Product product) {
         double numOfProductInCart = 0;
-        List<ShoppingItem> listOfShoppingItems = cart.getItems();
+        List<ShoppingItem> listOfShoppingItems = this.cart.getItems();
         Product productInCart;
         for (ShoppingItem shoppingItem : listOfShoppingItems) {
             productInCart = shoppingItem.getProduct();
@@ -125,23 +116,24 @@ public class MainPageController implements Initializable {
 
     //Fyller på flowpanen för att bygga all funktionalitet runt
     private void fillFood() {
-        coly = 0;
-        rowx = 0;
-        gridPane.getChildren().clear();
-        ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.getProducts();
+        this.coly = 0;
+        this.rowx = 0;
+        this.gridPane.getChildren().clear();
+        ArrayList<Product> productlist = (ArrayList<Product>) this.dataHandler.getProducts();
         for(Product product: productlist){
             ProductItemController productt = new ProductItemController(product);
-            gridPane.add(productt,coly,rowx);
-            coly++;
-            if(coly == 2 ){
-                coly = 0;
-                rowx++;
+            this.gridPane.add(productt, this.coly, this.rowx);
+            this.coly++;
+            if(this.coly == 2 ){
+                this.coly = 0;
+                this.rowx++;
             }
-
         /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
         productItemsList.clear();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
         for(Product product: productList){
             productItemsList.add(new ProductItemController(product));
         }*/
-    }}}
+        }
+    }
+}
