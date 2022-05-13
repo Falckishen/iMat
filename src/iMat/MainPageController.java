@@ -34,7 +34,7 @@ public class MainPageController implements Initializable {
         fillFood();
     }
 
-    // Testmetod, ignorera
+    // Testmetod
     @FXML
     public void openDetailViewButton() throws IOException {
         cart.clear();
