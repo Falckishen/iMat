@@ -38,9 +38,6 @@ public class MainPageController implements Initializable {
     @FXML
     public void openDetailViewButton() throws IOException {
         cart.clear();
-        dataHandler.removeFavorite(dataHandler.getProduct(75));
-        //cart.addProduct(dataHandler.getProduct(75), 0);
-        //dataHandler.addFavorite(dataHandler.getProduct(75));
         openProductDetailView(dataHandler.getProduct(75));
     }
 
@@ -61,7 +58,7 @@ public class MainPageController implements Initializable {
     /* Knappar below tänker att den fungerar som den ska, fortsätter på allt annat och återvänder till det här när mera
     är färdigt, hoppas det är okej.*/
     @FXML
-    protected void searchForBread (ActionEvent event) {
+    protected void searchForBread(ActionEvent event) {
         coly = 0;
         rowx = 0;
         gridPane.getChildren().clear();
@@ -84,7 +81,7 @@ public class MainPageController implements Initializable {
     }
 
     @FXML
-    protected void searchBar (ActionEvent event) {
+    protected void searchBar(ActionEvent event) {
         coly = 0;
         rowx = 0;
         gridPane.getChildren().clear();
@@ -112,20 +109,6 @@ public class MainPageController implements Initializable {
     private void populateAccountWindow(Product product) {
     }
 
-    // Tar en produkt som argument, retunerar antalet av denna product som finns i varukorgen
-    private double getNumberOfProductInCart(Product product) {
-        double numOfProductInCart = 0;
-        List<ShoppingItem> listOfShoppingItems = cart.getItems();
-        Product productInCart;
-        for (ShoppingItem shoppingItem : listOfShoppingItems) {
-            productInCart = shoppingItem.getProduct();
-            if (productInCart.equals(product)) {
-                numOfProductInCart += shoppingItem.getAmount();
-            }
-        }
-        return numOfProductInCart;
-    }
-
     //Fyller på flowpanen för att bygga all funktionalitet runt
     private void fillFood() {
         coly = 0;
@@ -136,7 +119,7 @@ public class MainPageController implements Initializable {
             ProductItemController productt = new ProductItemController(product);
             gridPane.add(productt, coly, rowx);
             coly++;
-            if(coly == 2 ){
+            if(coly == 2) {
                 coly = 0;
                 rowx++;
             }

@@ -55,11 +55,6 @@ public class DetailViewController extends AnchorPane {
     }
 
     @FXML
-    public void closeProductDetailView() {
-        this.toBack();
-    }
-
-    @FXML
     public void closeButtonMouseEntered() {
         this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_hover.png"))));
     }
@@ -139,16 +134,11 @@ public class DetailViewController extends AnchorPane {
         event.consume();
     }
 
-    @FXML
-    public void addOneToCart() {
-        cart.addProduct(this.product);
-        this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
-    }
+/*-------------------------------------------------------------------------------------------------------------------*/
 
     @FXML
-    public void minusButtonClicked() {
-        IMat.removeOneFromCart(this.product);
-        this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
+    public void closeProductDetailView() {
+        this.toBack();
     }
 
     @FXML
@@ -163,11 +153,25 @@ public class DetailViewController extends AnchorPane {
     }
 
     @FXML
+    public void plusButtonClicked() {
+        IMat.addOneToCart(this.product);
+        this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
+    }
+
+    @FXML
+    public void minusButtonClicked() {
+        IMat.removeOneFromCart(this.product);
+        this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
+    }
+
+    @FXML
     public void numOfItemsWriteIn() throws InputMismatchException {
         String strAmount = this.numOfItems.getText();
         IMat.writeInNumOfProductAmount(this.product, strAmount);
         this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
     }
+
+/*-------------------------------------------------------------------------------------------------------------------*/
 
     private void populateProductDetailView() {
         this.productImage.setImage(dataHandler.getFXImage(this.product));

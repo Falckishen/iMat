@@ -59,45 +59,58 @@ public class IMat extends Application {
         return numOfProductInCart;
     }
 
-    // OBS EJ HELT KLAR! Tar en produkt som argument, tar bort ett exemplar av denna produkt från varukorgen
+    // Tar en produkt som argument, lägger till ett exemplar av denna produkt i varukorgen
+    public static void addOneToCart(Product product) {
+        double amount = getNumberOfAProductInCart(product);
+        if (amount < 99) {
+            clearCartOfAProduct(product);
+            cart.addProduct(product, amount+1);
+        }
+    }
+
+    // Tar en produkt som argument, tar bort ett exemplar av denna produkt från varukorgen
     public static void removeOneFromCart(Product product) {
+        double amount = getNumberOfAProductInCart(product);
+        clearCartOfAProduct(product);
+        if (amount >= 1) {
+            cart.addProduct(product, amount-1);
+        }
+    }
+
+    /* Tar en produkt och ett antal i string, ändrar så antalet av denna produkt i varukorgen till antalet som gavs som
+    argument */
+    public static void writeInNumOfProductAmount(Product product, String strAmount) {
+        try {
+            double amount = roundToOneDecimal(Double.parseDouble(strAmount));
+            clearCartOfAProduct(product);
+            if (amount > 99.9) {
+                cart.addProduct(product, 99.9);
+            }
+            else if (amount >= 0) {
+                cart.addProduct(product, amount);
+            }
+        }
+        catch (Exception e) {
+            // Invalid input
+        }
+    }
+
+    // Tar en produkt som argument, tömmer varukorgen på denna produkt
+    private static void clearCartOfAProduct(Product product) {
+        while (getNumberOfAProductInCart(product) != 0) {
             List<ShoppingItem> listOfShoppingItems = cart.getItems();
             Product productInCart;
             for (ShoppingItem shoppingItem : listOfShoppingItems) {
                 productInCart = shoppingItem.getProduct();
                 if (productInCart.equals(product)) {
-                    double amount = shoppingItem.getAmount();
                     cart.removeItem(shoppingItem);
-                    if (IMat.getNumberOfAProductInCart(product) >= 1) {
-                        cart.addItem(new ShoppingItem(product, amount-1));
-                    }
                     break;
                 }
             }
         }
-
-    // OBS EJ HELT KLAR!
-    public static void writeInNumOfProductAmount(Product product, String strAmount) {
-        double amount = 0;
-        try {
-            amount = roundToOneDecimal(Double.parseDouble(strAmount));
-        }
-        catch (Exception e) {
-            System.out.println("Fel");
-            // Invalid input
-        }
-        clearCartOfProduct(product);
-        cart.addProduct(product, amount);
     }
 
     private static double roundToOneDecimal(double value) {
         return (double) Math.round(value * 10) / 10;
-    }
-
-    // OBS EJ HELT KLAR!
-    private static void clearCartOfProduct(Product product) {
-        while (getNumberOfAProductInCart(product) > 0) {
-            removeOneFromCart(product);
-        }
     }
 }

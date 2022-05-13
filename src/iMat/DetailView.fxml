@@ -41,7 +41,7 @@
                   <Font name="System Bold" size="35.0" />
                </font>
             </Label>
-            <Button fx:id="minusButton" alignment="CENTER" maxHeight="95.0" maxWidth="155.0" minHeight="95.0" minWidth="155.0" mnemonicParsing="false" onMouseClicked="#minusButtonClicked" onMouseEntered="#minusButtonMouseEntered" onMouseExited="#minusButtonMouseExited" onMousePressed="#minusButtonMousePressed" onMouseReleased="#minusButtonMouseEntered" prefHeight="95.0" prefWidth="155.0" styleClass="numOfItemsButton" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="340.0" AnchorPane.topAnchor="425.0">
+            <Button fx:id="minusButton" alignment="CENTER" maxHeight="95.0" maxWidth="155.0" minHeight="95.0" minWidth="155.0" mnemonicParsing="false" onAction="#minusButtonClicked" onMouseEntered="#minusButtonMouseEntered" onMouseExited="#minusButtonMouseExited" onMousePressed="#minusButtonMousePressed" onMouseReleased="#minusButtonMouseEntered" prefHeight="95.0" prefWidth="155.0" styleClass="numOfItemsButton" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="340.0" AnchorPane.topAnchor="425.0">
                <graphic>
                   <ImageView fx:id="minusImage" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -50,7 +50,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="plusButton" alignment="CENTER" maxHeight="95.0" maxWidth="155.0" minHeight="95.0" minWidth="155.0" mnemonicParsing="false" onMouseClicked="#addOneToCart" onMouseEntered="#plusButtonMouseEntered" onMouseExited="#plusButtonMouseExited" onMousePressed="#plusButtonMousePressed" onMouseReleased="#plusButtonMouseEntered" prefHeight="95.0" prefWidth="155.0" styleClass="numOfItemsButton" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="865.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="425.0">
+            <Button fx:id="plusButton" alignment="CENTER" maxHeight="95.0" maxWidth="155.0" minHeight="95.0" minWidth="155.0" mnemonicParsing="false" onAction="#plusButtonClicked" onMouseEntered="#plusButtonMouseEntered" onMouseExited="#plusButtonMouseExited" onMousePressed="#plusButtonMousePressed" onMouseReleased="#plusButtonMouseEntered" prefHeight="95.0" prefWidth="155.0" styleClass="numOfItemsButton" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="865.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="425.0">
                <graphic>
                   <ImageView fx:id="plusImage" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                      <image>
