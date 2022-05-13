@@ -63,17 +63,17 @@ public class DetailViewController extends AnchorPane {
 
     @FXML
     public void closeButtonMouseEntered() {
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close_hover.png"))));
+        this.closeImageView.setImage(new Image(Objects.requireNonNull(this.classLoader.getResourceAsStream("iMat/images/icon_close_hover.png"))));
     }
 
     @FXML
     public void closeButtonMousePressed() {
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close_pressed.png"))));
+        this.closeImageView.setImage(new Image(Objects.requireNonNull(this.classLoader.getResourceAsStream("iMat/images/icon_close_pressed.png"))));
     }
 
     @FXML
     public void closeButtonMouseExited(){
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/icon_close.png"))));
+        this.closeImageView.setImage(new Image(Objects.requireNonNull(this.classLoader.getResourceAsStream("iMat/images/icon_close.png"))));
     }
 
     @FXML

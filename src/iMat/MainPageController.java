@@ -37,31 +37,31 @@ public class MainPageController implements Initializable {
     @FXML
     public void openProductDetailView(Product product) throws IOException {
         AnchorPane detailViewAnchorPane = new DetailViewController(product);
-        this.mainPageRootAnchorPane.getChildren().add(detailViewAnchorPane);
+        mainPageRootAnchorPane.getChildren().add(detailViewAnchorPane);
         detailViewAnchorPane.toFront();
     }
 
     @FXML
     public void openAccountWindow() throws IOException {
         AnchorPane accountWindowPane = new AccountWindowController();
-        this.mainPageRootAnchorPane.getChildren().add(accountWindowPane);
+        mainPageRootAnchorPane.getChildren().add(accountWindowPane);
         accountWindowPane.toFront();
     }
 
     /* Knappar below tänker att den fungerar som den ska, fortsätter på allt annat och återvänder till det här när mera
     är färdigt, hoppas det är okej.*/
     @FXML protected void searchForBread (ActionEvent event) {
-        this.coly = 0;
-        this.rowx = 0;
-        this.gridPane.getChildren().clear();
-        ArrayList<Product> productlist = (ArrayList<Product>) this.dataHandler.getProducts(ProductCategory.BREAD);
+        coly = 0;
+        rowx = 0;
+        gridPane.getChildren().clear();
+        ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.BREAD);
         for(Product product: productlist) {
             ProductItemController productt = new ProductItemController(product);
-            this.gridPane.add(productt, this.coly, this.rowx);
-            this.coly++;
-            if(this.coly == 2 ) {
-                this.coly = 0;
-                this.rowx++;
+            gridPane.add(productt, coly, rowx);
+            coly++;
+            if(coly == 2 ) {
+                coly = 0;
+                rowx++;
             }
         }
         /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
@@ -73,9 +73,9 @@ public class MainPageController implements Initializable {
     }
 
     @FXML protected void searchBar (ActionEvent event) {
-        this.coly = 0;
-        this.rowx = 0;
-        this.gridPane.getChildren().clear();
+        coly = 0;
+        rowx = 0;
+        gridPane.getChildren().clear();
         String text = searchBar.getText();
         ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.findProducts(text);
         for(Product product: productlist){
@@ -103,7 +103,7 @@ public class MainPageController implements Initializable {
     // Tar en produkt som argument, retunerar antalet av denna product som finns i varukorgen
     private double getNumberOfProductInCart(Product product) {
         double numOfProductInCart = 0;
-        List<ShoppingItem> listOfShoppingItems = this.cart.getItems();
+        List<ShoppingItem> listOfShoppingItems = cart.getItems();
         Product productInCart;
         for (ShoppingItem shoppingItem : listOfShoppingItems) {
             productInCart = shoppingItem.getProduct();
@@ -116,17 +116,17 @@ public class MainPageController implements Initializable {
 
     //Fyller på flowpanen för att bygga all funktionalitet runt
     private void fillFood() {
-        this.coly = 0;
-        this.rowx = 0;
-        this.gridPane.getChildren().clear();
-        ArrayList<Product> productlist = (ArrayList<Product>) this.dataHandler.getProducts();
+        coly = 0;
+        rowx = 0;
+        gridPane.getChildren().clear();
+        ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.getProducts();
         for(Product product: productlist){
             ProductItemController productt = new ProductItemController(product);
-            this.gridPane.add(productt, this.coly, this.rowx);
-            this.coly++;
-            if(this.coly == 2 ){
-                this.coly = 0;
-                this.rowx++;
+            gridPane.add(productt, coly, rowx);
+            coly++;
+            if(coly == 2 ){
+                coly = 0;
+                rowx++;
             }
         /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
         productItemsList.clear();
