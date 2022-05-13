@@ -1,6 +1,9 @@
 // Hör ihop med DetailView.fxml
 package iMat;
 
+import java.util.InputMismatchException;
+import java.util.Objects;
+import java.io.IOException;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -8,40 +11,35 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.fxml.*;
+import javafx.scene.control.Button;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
-import java.util.Objects;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
-
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.*;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.*;
-import javafx.scene.image.*;
-import se.chalmers.cse.dat216.project.*;
+import se.chalmers.cse.dat216.project.ShoppingCart;
 
 public class DetailViewController extends AnchorPane {
 
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
+    private final ShoppingCart cart = IMat.getShoppingCart();
+
     private final ClassLoader classLoader = getClass().getClassLoader();
 
-    private Product product;
+    private final Product product;
 
-    @FXML private ImageView image;
+    @FXML private ImageView closeImageView;
+    @FXML private ImageView productImage;
     @FXML private Label productNameLabel;
     @FXML private Label priceLabel;
-    @FXML private TextField numOfItems;
     @FXML private Label isEcoLabel;
-    @FXML private ImageView closeImageView;
+    @FXML private TextField numOfItems;
+    @FXML private Button plusButton;
+    @FXML private ImageView plusImage;
+    @FXML private Button minusButton;
+    @FXML private ImageView minusImage;
+    @FXML private Button favoriteButton;
+    @FXML private ImageView favoriteImage;
+    @FXML private Button shoppingListButton;
+    @FXML private ImageView shoppingListImage;
 
     public DetailViewController(Product product) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DetailView.fxml"));
@@ -63,17 +61,77 @@ public class DetailViewController extends AnchorPane {
 
     @FXML
     public void closeButtonMouseEntered() {
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(this.classLoader.getResourceAsStream("iMat/images/icon_close_hover.png"))));
+        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_hover.png"))));
     }
 
     @FXML
     public void closeButtonMousePressed() {
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(this.classLoader.getResourceAsStream("iMat/images/icon_close_pressed.png"))));
+        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_pressed.png"))));
     }
 
     @FXML
     public void closeButtonMouseExited(){
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(this.classLoader.getResourceAsStream("iMat/images/icon_close.png"))));
+        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close.png"))));
+    }
+
+    @FXML
+    public void plusButtonMouseEntered(){
+        this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus_hover.png"))));
+    }
+
+    @FXML
+    public void plusButtonMousePressed(){
+        this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus.png"))));
+    }
+
+    @FXML
+    public void plusButtonMouseExited(){
+        this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus.png"))));
+    }
+
+    @FXML
+    public void minusButtonMouseEntered(){
+        this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/minus_hover.png"))));
+    }
+
+    @FXML
+    public void minusButtonMousePressed(){
+        this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/minus.png"))));
+    }
+
+    @FXML
+    public void minusButtonMouseExited(){
+        this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/minus.png"))));
+    }
+
+    @FXML
+    public void favoriteButtonMouseEntered() {
+        this.favoriteButton.setStyle("-fx-background-color: #f0f0f0;");
+    }
+
+    @FXML
+    public void favoriteButtonMousePressed() {
+        this.favoriteButton.setStyle("-fx-background-color: #d0d0d0;");
+    }
+
+    @FXML
+    public void favoriteButtonMouseExitedOrReleased() {
+        this.favoriteButton.setStyle("-fx-background-color: #e0e0e0;");
+    }
+
+    @FXML
+    public void shoppingListButtonMouseEntered() {
+        this.shoppingListButton.setStyle("-fx-background-color: #f0f0f0;");
+    }
+
+    @FXML
+    public void shoppingListButtonMousePressed() {
+        this.shoppingListButton.setStyle("-fx-background-color: #d0d0d0;");
+    }
+
+    @FXML
+    public void shoppingListButtonMouseExitedOrReleased() {
+        this.shoppingListButton.setStyle("-fx-background-color: #e0e0e0;");
     }
 
     @FXML
@@ -81,9 +139,38 @@ public class DetailViewController extends AnchorPane {
         event.consume();
     }
 
-    // Fyller upp detalj vyn med rätt produkt
+    @FXML
+    public void addOneToCart() {
+        cart.addProduct(this.product);
+        this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
+    }
+
+    @FXML
+    public void minusButtonClicked() {
+        IMat.removeOneFromCart(this.product);
+        this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
+    }
+
+    @FXML
+    public void favoriteButtonClicked() {
+        if (dataHandler.isFavorite(this.product)) {
+            dataHandler.removeFavorite(this.product);
+        }
+        else {
+            dataHandler.addFavorite(this.product);
+        }
+        updateFavoriteButton();
+    }
+
+    @FXML
+    public void numOfItemsWriteIn() throws InputMismatchException {
+        String strAmount = this.numOfItems.getText();
+        IMat.writeInNumOfProductAmount(this.product, strAmount);
+        this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
+    }
+
     private void populateProductDetailView() {
-        this.image.setImage(dataHandler.getFXImage(this.product));
+        this.productImage.setImage(dataHandler.getFXImage(this.product));
         this.productNameLabel.setText(this.product.getName());
         this.priceLabel.setText(String.format("Pris: %.2f %s", this.product.getPrice(), this.product.getUnit()));
         if (this.product.isEcological()) {
@@ -93,5 +180,17 @@ public class DetailViewController extends AnchorPane {
             this.isEcoLabel.setText("Produkten är ej ekologisk");
         }
         this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
+        updateFavoriteButton();
+    }
+
+    private void updateFavoriteButton() {
+        if (dataHandler.isFavorite(this.product)) {
+            this.favoriteImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/starSelected.png"))));
+            this.favoriteButton.setText("Ta bort från favoritvaror");
+        }
+        else {
+            this.favoriteImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/starUnselected.png"))));
+            this.favoriteButton.setText("Gör till favoritvara");
+        }
     }
 }

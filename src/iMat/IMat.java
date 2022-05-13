@@ -33,6 +33,7 @@ public class IMat extends Application {
         Scene scene = new Scene(root);
         stage.setTitle("iMat");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -44,7 +45,7 @@ public class IMat extends Application {
         return cart;
     }
 
-    // Tar en produkt som argument, retunerar antalet av denna product som finns i varukorgen
+    // Tar en produkt som argument, retunerar antalet av denna produkt som finns i varukorgen
     public static double getNumberOfAProductInCart(Product product) {
         double numOfProductInCart = 0;
         List<ShoppingItem> listOfShoppingItems = cart.getItems();
@@ -56,5 +57,47 @@ public class IMat extends Application {
             }
         }
         return numOfProductInCart;
+    }
+
+    // OBS EJ HELT KLAR! Tar en produkt som argument, tar bort ett exemplar av denna produkt från varukorgen
+    public static void removeOneFromCart(Product product) {
+            List<ShoppingItem> listOfShoppingItems = cart.getItems();
+            Product productInCart;
+            for (ShoppingItem shoppingItem : listOfShoppingItems) {
+                productInCart = shoppingItem.getProduct();
+                if (productInCart.equals(product)) {
+                    double amount = shoppingItem.getAmount();
+                    cart.removeItem(shoppingItem);
+                    if (IMat.getNumberOfAProductInCart(product) >= 1) {
+                        cart.addItem(new ShoppingItem(product, amount-1));
+                    }
+                    break;
+                }
+            }
+        }
+
+    // OBS EJ HELT KLAR!
+    public static void writeInNumOfProductAmount(Product product, String strAmount) {
+        double amount = 0;
+        try {
+            amount = roundToOneDecimal(Double.parseDouble(strAmount));
+        }
+        catch (Exception e) {
+            System.out.println("Fel");
+            // Invalid input
+        }
+        clearCartOfProduct(product);
+        cart.addProduct(product, amount);
+    }
+
+    private static double roundToOneDecimal(double value) {
+        return (double) Math.round(value * 10) / 10;
+    }
+
+    // OBS EJ HELT KLAR!
+    private static void clearCartOfProduct(Product product) {
+        while (getNumberOfAProductInCart(product) > 0) {
+            removeOneFromCart(product);
+        }
     }
 }

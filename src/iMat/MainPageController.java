@@ -34,6 +34,16 @@ public class MainPageController implements Initializable {
         fillFood();
     }
 
+    // Testmetod, ignorera
+    @FXML
+    public void openDetailViewButton() throws IOException {
+        cart.clear();
+        dataHandler.removeFavorite(dataHandler.getProduct(75));
+        //cart.addProduct(dataHandler.getProduct(75), 0);
+        //dataHandler.addFavorite(dataHandler.getProduct(75));
+        openProductDetailView(dataHandler.getProduct(75));
+    }
+
     @FXML
     public void openProductDetailView(Product product) throws IOException {
         AnchorPane detailViewAnchorPane = new DetailViewController(product);
@@ -50,7 +60,8 @@ public class MainPageController implements Initializable {
 
     /* Knappar below tänker att den fungerar som den ska, fortsätter på allt annat och återvänder till det här när mera
     är färdigt, hoppas det är okej.*/
-    @FXML protected void searchForBread (ActionEvent event) {
+    @FXML
+    protected void searchForBread (ActionEvent event) {
         coly = 0;
         rowx = 0;
         gridPane.getChildren().clear();
@@ -72,7 +83,8 @@ public class MainPageController implements Initializable {
         }*/
     }
 
-    @FXML protected void searchBar (ActionEvent event) {
+    @FXML
+    protected void searchBar (ActionEvent event) {
         coly = 0;
         rowx = 0;
         gridPane.getChildren().clear();
