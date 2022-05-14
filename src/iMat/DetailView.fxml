@@ -8,44 +8,86 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="anchorPane" minHeight="900.0" minWidth="1600.0" onMouseClicked="#closeProductDetailView" prefHeight="900.0" prefWidth="1600.0" styleClass="detailViewBackground" stylesheets="@DetailView.css" type="AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="anchorPane" minHeight="900.0" minWidth="1600.0" onMouseClicked="#closeProductDetailView" prefHeight="900.0" prefWidth="1600.0" styleClass="background" stylesheets="@DetailView.css" type="AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane onMouseClicked="#mouseTrap" styleClass="detailView" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="275.0" AnchorPane.topAnchor="150.0">
+      <AnchorPane onMouseClicked="#mouseTrap" styleClass="pane" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="275.0" AnchorPane.topAnchor="150.0">
          <children>
-            <ImageView fx:id="image" fitHeight="375.0" fitWidth="500.0" pickOnBounds="true" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
-               <image>
-                  <Image url="@../../../../.dat215/iMat/images/product_78.jpg" />
-               </image>
-            </ImageView>
-            <Label fx:id="productNameLabel" alignment="CENTER" styleClass="detailViewTextBackground" text="Ekologisk kyckling" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="25.0">
-               <font>
-                  <Font name="System Bold" size="42.0" />
-               </font>
-            </Label>
-            <Label fx:id="priceLabel" alignment="CENTER" minHeight="80.0" prefHeight="80.0" styleClass="detailViewTextBackground" text="Pris: 999.99 kr/st" AnchorPane.bottomAnchor="275.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="235.0">
-               <font>
-                  <Font name="System Bold" size="35.0" />
-               </font>
-            </Label>
-            <Label fx:id="isEcoLabel" alignment="CENTER" minHeight="80.0" prefHeight="80.0" styleClass="detailViewTextBackground" text="Produkten är ej ekologisk" textAlignment="CENTER" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="315.0">
-               <font>
-                  <Font name="System Bold" size="35.0" />
-               </font>
-            </Label>
-            <Button alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" maxHeight="75.0" maxWidth="75.0" minHeight="75.0" minWidth="75.0" mnemonicParsing="false" onAction="#closeProductDetailView" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" onMousePressed="#closeButtonMousePressed" prefHeight="75.0" prefWidth="75.0" scaleShape="false" styleClass="closeButton" AnchorPane.rightAnchor="-0.5" AnchorPane.topAnchor="-0.5">
+            <Button alignment="CENTER" maxHeight="75.0" maxWidth="75.0" minHeight="75.0" minWidth="75.0" mnemonicParsing="false" onAction="#closeProductDetailView" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" onMousePressed="#closeButtonMousePressed" prefHeight="75.0" prefWidth="75.0" styleClass="closeButton" AnchorPane.rightAnchor="-0.5" AnchorPane.topAnchor="-0.5">
                <graphic>
                   <ImageView fx:id="closeImageView" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/icon_close.png" />
+                        <Image url="@images/cross_close.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <TextField fx:id="numOfItems" alignment="CENTER" promptText="99" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="725.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="445.0">
+            <ImageView fx:id="productImage" fitHeight="375.0" fitWidth="500.0" pickOnBounds="true" styleClass="textBackground" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
+               <image>
+                  <Image url="@../../../../.dat215/iMat/images/product_78.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="productNameLabel" alignment="CENTER" styleClass="textBackground" text="Ekologisk kyckling" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="25.0">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="42.0" />
+               </font>
+            </Label>
+            <Label fx:id="priceLabel" alignment="CENTER" minHeight="80.0" prefHeight="80.0" styleClass="textBackground" text="Pris: 999.99 kr/st" AnchorPane.bottomAnchor="275.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="235.0">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+            <Label fx:id="isEcoLabel" alignment="CENTER" minHeight="80.0" prefHeight="80.0" styleClass="textBackground" text="Produkten är ej ekologisk" textAlignment="CENTER" AnchorPane.bottomAnchor="190.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="315.0">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+            <Button fx:id="minusButton" alignment="CENTER" maxHeight="95.0" maxWidth="155.0" minHeight="95.0" minWidth="155.0" mnemonicParsing="false" onAction="#minusButtonClicked" onMouseEntered="#minusButtonMouseEntered" onMouseExited="#minusButtonMouseExited" onMousePressed="#minusButtonMousePressed" onMouseReleased="#minusButtonMouseEntered" prefHeight="95.0" prefWidth="155.0" styleClass="numOfItemsButton" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="340.0" AnchorPane.topAnchor="425.0">
+               <graphic>
+                  <ImageView fx:id="minusImage" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/minus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="plusButton" alignment="CENTER" maxHeight="95.0" maxWidth="155.0" minHeight="95.0" minWidth="155.0" mnemonicParsing="false" onAction="#plusButtonClicked" onMouseEntered="#plusButtonMouseEntered" onMouseExited="#plusButtonMouseExited" onMousePressed="#plusButtonMousePressed" onMouseReleased="#plusButtonMouseEntered" prefHeight="95.0" prefWidth="155.0" styleClass="numOfItemsButton" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="865.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="425.0">
+               <graphic>
+                  <ImageView fx:id="plusImage" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/plus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField fx:id="numOfItems" alignment="CENTER" onAction="#numOfItemsWriteIn" styleClass="numOfItemsText" text="99.9" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="705.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="425.0">
+               <font>
+                  <Font name="System Bold" size="45.0" />
                </font>
             </TextField>
+            <Button fx:id="favoriteButton" alignment="BASELINE_LEFT" cacheShape="false" centerShape="false" focusTraversable="false" graphicTextGap="10.0" minWidth="500.0" mnemonicParsing="false" onAction="#favoriteButtonClicked" onMouseEntered="#favoriteButtonMouseEntered" onMouseExited="#favoriteButtonMouseExitedOrReleased" onMousePressed="#favoriteButtonMousePressed" onMouseReleased="#favoriteButtonMouseExitedOrReleased" prefWidth="500.0" scaleShape="false" styleClass="textBackground" text="Gör till favoritvara" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="425.0">
+               <graphic>
+                  <ImageView fx:id="favoriteImage" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/starUnselected.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="shoppingListButton" alignment="BASELINE_LEFT" cacheShape="false" centerShape="false" focusTraversable="false" graphicTextGap="5.0" minWidth="500.0" mnemonicParsing="false" onMouseEntered="#shoppingListButtonMouseEntered" onMouseExited="#shoppingListButtonMouseExitedOrReleased" onMousePressed="#shoppingListButtonMousePressed" onMouseReleased="#shoppingListButtonMouseExitedOrReleased" prefWidth="500.0" scaleShape="false" styleClass="textBackground" text="Lägg till i inköpslista" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="505.0">
+               <graphic>
+                  <ImageView fx:id="shoppingListImage" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Shoppinglistadd.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

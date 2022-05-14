@@ -3,35 +3,30 @@ package iMat;
 
 import java.awt.*;
 import java.io.IOException;
-import java.util.EventListener;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
-public class ProductItemController extends AnchorPane {
+public class CartItemController extends AnchorPane {
 
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
-    private final MainPageController mainpagecontroller = new MainPageController();
-    private final Product product;
+    private final ShoppingItem item;
     @FXML ImageView image;
     @FXML ImageView favoriteUnselected;
     @FXML ImageView inkopslistaUnselected;
     @FXML Text nameofProduct;
     @FXML Text priceofItem;
-    @FXML ImageView addtocartButton;
-    @FXML Button addtocart;
 
     private Image bild;
 
-    public ProductItemController(Product product) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductItem.fxml"));
+    public CartItemController(ShoppingItem item) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cartitem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {
@@ -39,19 +34,11 @@ public class ProductItemController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        this.product = product;
-        this.bild = dataHandler.getFXImage(product);
+        this.item = item;
+        this.bild = dataHandler.getFXImage(item.getProduct());
         this.image.setImage(bild);
-        this.nameofProduct.setText(product.getName());
-        this.priceofItem.setText(String.valueOf(product.getPrice()));
-    }
-
-    @FXML public void plusbutton(){
-        IMat.addOneToCart(this.product);
-    }
-
-    @FXML public void removefromCart(){
-        IMat.removeOneFromCart(this.product);
+        //this.nameofProduct.setText(item.getProduct().getName());
+        //this.priceofItem.setText(String.valueOf(item.getProduct().getPrice()));
     }
 
 }

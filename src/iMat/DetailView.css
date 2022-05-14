@@ -1,19 +1,30 @@
-.detailViewBackground {
+.background {
     -fx-background-color: rgba(0, 0, 0, 0.75);
 }
 
-.detailView {
-    -fx-background-color:  #395d77;
+.pane {
+    -fx-background-color: #ffffff;
     -fx-border-color: #606060;
     -fx-border-width: 5px;
 }
 
-.detailViewTextBackground {
-    -fx-background-color: #ffffff;
+.textBackground {
+    -fx-background-color: #e0e0e0;
     -fx-border-width: 10px;
     -fx-border-color: rgba(0, 0, 0, 0); /* Osynlig border så texten inte är så nära kanten */
 }
 
 .closeButton {
     -fx-background-color: rgb(255, 30, 30);
+}
+
+.numOfItemsText {
+    -fx-background-color: #395d77;
+    -fx-font-size: 45;
+    -fx-text-fill: #000000;
+    -fx-font-scale: BOLD;
+}
+
+.numOfItemsButton {
+    -fx-background-color: #395d77;
 }

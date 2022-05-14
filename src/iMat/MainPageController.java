@@ -4,8 +4,8 @@ package iMat;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.EventListener;
 import java.util.List;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 import javafx.collections.ObservableList;
@@ -15,7 +15,6 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
-import javafx.scene.image.*;
 import se.chalmers.cse.dat216.project.*;
 
 public class MainPageController implements Initializable {
@@ -23,22 +22,30 @@ public class MainPageController implements Initializable {
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
     private final ShoppingCart cart = IMat.getShoppingCart();
 
-    private final AccountWindowController accountWindowController = new AccountWindowController();
-
     @FXML private AnchorPane mainPageRootAnchorPane;
     @FXML private FlowPane productItemsFlowpane;
     @FXML private Button brodKnapp;
     @FXML private TextField searchBar;
     @FXML private Button btnTestKonto;
     @FXML private GridPane gridPane;
+    @FXML private Button favoriterKnapp;
+    @FXML private FlowPane cartPanelView;
+    @FXML private Button emptyCart;
+
     private int rowx = 0;
     private int coly = 0;
 
     // Körs när MainPage.fxml läses in
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // populateProductDetailView(dataHandler.getProduct(75)); // Temporär, används för test
         fillFood();
+    }
+
+    // Testmetod
+    @FXML
+    public void openDetailViewButton() throws IOException {
+        cart.clear();
+        openProductDetailView(dataHandler.getProduct(75));
     }
 
     @FXML
@@ -50,27 +57,28 @@ public class MainPageController implements Initializable {
 
     @FXML
     public void openAccountWindow() throws IOException {
-        AnchorPane accountWindowPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AccountWindow.fxml")));
+        AnchorPane accountWindowPane = new AccountWindowController();
         mainPageRootAnchorPane.getChildren().add(accountWindowPane);
         accountWindowPane.toFront();
     }
 
     /* Knappar below tänker att den fungerar som den ska, fortsätter på allt annat och återvänder till det här när mera
     är färdigt, hoppas det är okej.*/
-    @FXML protected void searchForBread (ActionEvent event) {
+    @FXML
+    protected void searchForBread(ActionEvent event) {
         coly = 0;
         rowx = 0;
         gridPane.getChildren().clear();
         ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.BREAD);
-        for(Product product: productlist){
+        for(Product product: productlist) {
             ProductItemController productt = new ProductItemController(product);
-            gridPane.add(productt,coly,rowx);
+            gridPane.add(productt, coly, rowx);
             coly++;
-            if(coly == 2 ){
+            if(coly == 2 ) {
                 coly = 0;
                 rowx++;
-            }}
-
+            }
+        }
         /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
         productItemsList.clear();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf("BREAD"));
@@ -79,7 +87,8 @@ public class MainPageController implements Initializable {
         }*/
     }
 
-    @FXML protected void searchBar (ActionEvent event) {
+    @FXML
+    protected void searchBar(ActionEvent event) {
         coly = 0;
         rowx = 0;
         gridPane.getChildren().clear();
@@ -92,10 +101,8 @@ public class MainPageController implements Initializable {
             if(coly == 2 ){
                 coly = 0;
                 rowx++;
-            }}
-
-
-
+            }
+        }
         /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
         productItemsList.clear();
         String text = searchBar.getText();
@@ -109,39 +116,93 @@ public class MainPageController implements Initializable {
     private void populateAccountWindow(Product product) {
     }
 
-    // Tar en produkt som argument, retunerar antalet av denna product som finns i varukorgen
-    private double getNumberOfProductInCart(Product product) {
-        double numOfProductInCart = 0;
-        List<ShoppingItem> listOfShoppingItems = cart.getItems();
-        Product productInCart;
-        for (ShoppingItem shoppingItem : listOfShoppingItems) {
-            productInCart = shoppingItem.getProduct();
-            if (productInCart.equals(product)) {
-                numOfProductInCart += shoppingItem.getAmount();
-            }
-        }
-        return numOfProductInCart;
-    }
-
     //Fyller på flowpanen för att bygga all funktionalitet runt
     private void fillFood() {
+        updateCart();
         coly = 0;
         rowx = 0;
         gridPane.getChildren().clear();
+        cartPanelView.getChildren().clear();
         ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.getProducts();
         for(Product product: productlist){
             ProductItemController productt = new ProductItemController(product);
-            gridPane.add(productt,coly,rowx);
+            gridPane.add(productt, coly, rowx);
             coly++;
-            if(coly == 2 ){
+            if(coly == 2) {
                 coly = 0;
                 rowx++;
             }
-
         /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
         productItemsList.clear();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
         for(Product product: productList){
             productItemsList.add(new ProductItemController(product));
         }*/
-    }}}
+        }
+    }
+
+    /* ---------------------------------------------------------------------------   */
+
+    @FXML protected void favoriteFill(ActionEvent event){
+        updateCart();
+        coly = 0;
+        rowx = 0;
+        gridPane.getChildren().clear();
+        ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.favorites();
+        for(Product product: productlist){
+            ProductItemController productt = new ProductItemController(product);
+            gridPane.add(productt, coly, rowx);
+            coly++;
+            if(coly == 2) {
+                coly = 0;
+                rowx++;
+            }
+        }
+    }
+
+     void updateCart(){
+        cartPanelView.getChildren().clear();
+        ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
+        for(ShoppingItem item: list){
+            CartItemController cartitem = new CartItemController(item);
+            cartPanelView.getChildren().add(cartitem);
+        }
+                /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
+        productItemsList.clear();
+        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
+        for(Product product: productList){
+            productItemsList.add(new ProductItemController(product));
+        }*/
+    }
+
+    @FXML protected void addtoFavorite(ActionEvent event){
+        gridPane.getChildren().clear();
+        ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.favorites();
+        for(Product product: productlist){
+            ProductItemController productt = new ProductItemController(product);
+            gridPane.add(productt, coly, rowx);
+            coly++;
+            if(coly == 2) {
+                coly = 0;
+                rowx++;
+            }
+        }
+    }
+
+    //Använder denna för att fortsätta testa kassan
+    @FXML private void empty(){
+        dataHandler.getShoppingCart().clear();
+        updateCart();
+    }
+
+
+
+    @FXML private void updatecart(){
+        cartPanelView.getChildren().clear();
+        ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
+        for(ShoppingItem item: list){
+            CartItemController cartitem = new CartItemController(item);
+            cartPanelView.getChildren().add(cartitem);
+        }
+    }
+}

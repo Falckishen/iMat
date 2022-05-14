@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="accountWindowAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeAccountWindow" prefHeight="900.0" prefWidth="1600.0" styleClass="background" stylesheets="@AccountWindow.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.AccountWindowController">
+<fx:root fx:id="accountWindowAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeAccountWindow" prefHeight="900.0" prefWidth="1600.0" styleClass="background" stylesheets="@AccountWindow.css" type="AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="160.0" layoutY="50.0" prefHeight="800.0" prefWidth="1280.0" stylesheets="@AccountWindow.css">
          <children>
@@ -183,4 +183,4 @@
          </children>
       </Pane>
    </children>
-</AnchorPane>
+</fx:root>
