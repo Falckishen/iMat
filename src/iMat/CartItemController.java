@@ -25,8 +25,6 @@ public class CartItemController extends AnchorPane {
 
     private Image bild;
 
-
-
     public CartItemController(ShoppingItem item) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cartitem.fxml"));
         fxmlLoader.setRoot(this);
@@ -39,7 +37,7 @@ public class CartItemController extends AnchorPane {
         this.item = item;
         this.bild = dataHandler.getFXImage(item.getProduct());
         this.image.setImage(bild);
-       //this.nameofProduct.setText(item.getProduct().getName());
+        //this.nameofProduct.setText(item.getProduct().getName());
         //this.priceofItem.setText(String.valueOf(item.getProduct().getPrice()));
     }
 

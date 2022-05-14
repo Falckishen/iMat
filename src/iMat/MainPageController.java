@@ -140,6 +140,7 @@ public class MainPageController implements Initializable {
         }*/
         }
     }
+
     /* ---------------------------------------------------------------------------   */
 
     @FXML protected void favoriteFill(ActionEvent event){
@@ -156,7 +157,8 @@ public class MainPageController implements Initializable {
                 coly = 0;
                 rowx++;
             }
-    }}
+        }
+    }
 
      void updateCart(){
         cartPanelView.getChildren().clear();
@@ -165,17 +167,12 @@ public class MainPageController implements Initializable {
             CartItemController cartitem = new CartItemController(item);
             cartPanelView.getChildren().add(cartitem);
         }
-
-
-
                 /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
         productItemsList.clear();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
         for(Product product: productList){
             productItemsList.add(new ProductItemController(product));
         }*/
-
-
     }
 
     @FXML protected void addtoFavorite(ActionEvent event){
@@ -189,12 +186,12 @@ public class MainPageController implements Initializable {
                 coly = 0;
                 rowx++;
             }
-        }}
+        }
+    }
 
     //Använder denna för att fortsätta testa kassan
     @FXML private void empty(){
         dataHandler.getShoppingCart().clear();
         updateCart();
     }
-
 }
