@@ -24,6 +24,7 @@ public class MainPageController implements Initializable {
     @FXML private TextField searchBar;
     @FXML private Button btnTestKonto;
     @FXML private GridPane gridPane;
+    @FXML private Button favoriterKnapp;
 
     private int rowx = 0;
     private int coly = 0;
@@ -131,4 +132,34 @@ public class MainPageController implements Initializable {
         }*/
         }
     }
+    /* ---------------------------------------------------------------------------   */
+
+    @FXML protected void favoriteFill(ActionEvent event){
+        coly = 0;
+        rowx = 0;
+        gridPane.getChildren().clear();
+        ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.favorites();
+        for(Product product: productlist){
+            ProductItemController productt = new ProductItemController(product);
+            gridPane.add(productt, coly, rowx);
+            coly++;
+            if(coly == 2) {
+                coly = 0;
+                rowx++;
+            }
+    }}
+
+    @FXML protected void addtoFavorite(ActionEvent event){
+        gridPane.getChildren().clear();
+        ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.favorites();
+        for(Product product: productlist){
+            ProductItemController productt = new ProductItemController(product);
+            gridPane.add(productt, coly, rowx);
+            coly++;
+            if(coly == 2) {
+                coly = 0;
+                rowx++;
+            }
+        }}
+
 }

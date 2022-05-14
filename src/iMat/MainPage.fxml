@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
+<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
       <BorderPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: FFFFFF;">
          <top>
@@ -126,7 +126,7 @@
                         </TitledPane>
                      </panes>
                   </Accordion>
-                  <Button fx:id="brodKnapp" mnemonicParsing="false" prefHeight="100.0" prefWidth="318.0" text="Favoriter" />
+                  <Button fx:id="favoriterKnapp" mnemonicParsing="false" onAction="#favoriteFill" prefHeight="100.0" prefWidth="318.0" text="Favoriter" />
                </children>
             </AnchorPane>
          </left>
