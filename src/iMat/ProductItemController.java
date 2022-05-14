@@ -30,8 +30,6 @@ public class ProductItemController extends AnchorPane {
 
     private Image bild;
 
-
-
     public ProductItemController(Product product) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductItem.fxml"));
         fxmlLoader.setRoot(this);
@@ -49,11 +47,11 @@ public class ProductItemController extends AnchorPane {
     }
 
     @FXML public void plusbutton(){
-        dataHandler.getShoppingCart().addProduct(this.product);
+        IMat.addOneToCart(this.product);
     }
 
     @FXML public void removefromCart(){
-        //dataHandler.getShoppingCart().
+        IMat.removeOneFromCart(this.product);
     }
 
 }
