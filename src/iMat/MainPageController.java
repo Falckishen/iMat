@@ -4,10 +4,14 @@ package iMat;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.EventListener;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
@@ -24,6 +28,9 @@ public class MainPageController implements Initializable {
     @FXML private TextField searchBar;
     @FXML private Button btnTestKonto;
     @FXML private GridPane gridPane;
+    @FXML private Button favoriterKnapp;
+    @FXML private FlowPane cartPanelView;
+    @FXML private Button emptyCart;
 
     private int rowx = 0;
     private int coly = 0;
@@ -111,9 +118,11 @@ public class MainPageController implements Initializable {
 
     //Fyller på flowpanen för att bygga all funktionalitet runt
     private void fillFood() {
+        updateCart();
         coly = 0;
         rowx = 0;
         gridPane.getChildren().clear();
+        cartPanelView.getChildren().clear();
         ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.getProducts();
         for(Product product: productlist){
             ProductItemController productt = new ProductItemController(product);
@@ -131,4 +140,61 @@ public class MainPageController implements Initializable {
         }*/
         }
     }
+    /* ---------------------------------------------------------------------------   */
+
+    @FXML protected void favoriteFill(ActionEvent event){
+        updateCart();
+        coly = 0;
+        rowx = 0;
+        gridPane.getChildren().clear();
+        ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.favorites();
+        for(Product product: productlist){
+            ProductItemController productt = new ProductItemController(product);
+            gridPane.add(productt, coly, rowx);
+            coly++;
+            if(coly == 2) {
+                coly = 0;
+                rowx++;
+            }
+    }}
+
+     void updateCart(){
+        cartPanelView.getChildren().clear();
+        ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
+        for(ShoppingItem item: list){
+            CartItemController cartitem = new CartItemController(item);
+            cartPanelView.getChildren().add(cartitem);
+        }
+
+
+
+                /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
+        productItemsList.clear();
+        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
+        for(Product product: productList){
+            productItemsList.add(new ProductItemController(product));
+        }*/
+
+
+    }
+
+    @FXML protected void addtoFavorite(ActionEvent event){
+        gridPane.getChildren().clear();
+        ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.favorites();
+        for(Product product: productlist){
+            ProductItemController productt = new ProductItemController(product);
+            gridPane.add(productt, coly, rowx);
+            coly++;
+            if(coly == 2) {
+                coly = 0;
+                rowx++;
+            }
+        }}
+
+    //Använder denna för att fortsätta testa kassan
+    @FXML private void empty(){
+        dataHandler.getShoppingCart().clear();
+        updateCart();
+    }
+
 }

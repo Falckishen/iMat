@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
+<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
       <BorderPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: FFFFFF;">
          <top>
@@ -32,6 +32,7 @@
                   </TextField>
                   <Button fx:id="btnTestKonto" layoutX="1107.0" layoutY="48.0" mnemonicParsing="false" onAction="#openAccountWindow" text="Button" />
                   <Button layoutX="1189.0" layoutY="79.0" mnemonicParsing="false" onAction="#openDetailViewButton" text="DetailView Test" />
+                  <Button fx:id="emptyCart" layoutX="1411.0" layoutY="48.0" mnemonicParsing="false" onAction="#empty" text="TÖM KASSA" />
                </children>
             </AnchorPane>
          </top>
@@ -126,7 +127,7 @@
                         </TitledPane>
                      </panes>
                   </Accordion>
-                  <Button fx:id="brodKnapp" mnemonicParsing="false" prefHeight="100.0" prefWidth="318.0" text="Favoriter" />
+                  <Button fx:id="favoriterKnapp" mnemonicParsing="false" onAction="#favoriteFill" prefHeight="100.0" prefWidth="318.0" text="Favoriter" />
                </children>
             </AnchorPane>
          </left>
@@ -162,7 +163,7 @@
                      <children>
                         <ScrollPane prefHeight="709.0" prefWidth="333.0" styleClass="shoppingCart" stylesheets="@ScrollBar.css">
                            <content>
-                              <FlowPane prefHeight="668.0" prefWidth="318.0" styleClass="shoppingCart" />
+                              <FlowPane fx:id="cartPanelView" prefHeight="668.0" prefWidth="318.0" styleClass="shoppingCart" />
                            </content></ScrollPane>
                         <HBox alignment="CENTER" prefHeight="150.0" prefWidth="320.0" styleClass="shoppingCartEdge">
                            <children>
