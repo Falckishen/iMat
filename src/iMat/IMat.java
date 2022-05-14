@@ -95,6 +95,7 @@ public class IMat extends Application {
         }
     }
 
+
     // Tar en produkt som argument, tömmer varukorgen på denna produkt
     private static void clearCartOfAProduct(Product product) {
         while (getNumberOfAProductInCart(product) != 0) {
