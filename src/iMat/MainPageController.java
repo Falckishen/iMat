@@ -194,4 +194,15 @@ public class MainPageController implements Initializable {
         dataHandler.getShoppingCart().clear();
         updateCart();
     }
+
+
+
+    @FXML private void updatecart(){
+        cartPanelView.getChildren().clear();
+        ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
+        for(ShoppingItem item: list){
+            CartItemController cartitem = new CartItemController(item);
+            cartPanelView.getChildren().add(cartitem);
+        }
+    }
 }
