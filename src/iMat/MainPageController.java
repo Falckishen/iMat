@@ -54,7 +54,6 @@ public class MainPageController implements Initializable {
         for(ShoppingItem item: list){
             if(item.getAmount() > 0){
                 CartItemController cartItem = new CartItemController(item, this);
-                CartStepOneController cartFlow = new CartStepOneController(item);
                 cartPanelView.getChildren().add(cartItem);
             }
         }
