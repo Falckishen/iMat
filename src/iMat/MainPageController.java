@@ -17,6 +17,7 @@ import se.chalmers.cse.dat216.project.*;
 public class MainPageController implements Initializable {
 
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
+    private final ShoppingCart cart = dataHandler.getShoppingCart();
 
     @FXML private AnchorPane mainPageRootAnchorPane;
     @FXML private FlowPane productItemsFlowpane;
@@ -41,7 +42,6 @@ public class MainPageController implements Initializable {
     // Körs när MainPage.fxml läses in
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //cart.addShoppingCartListener(this);
         setupRegisterPage();
         fillFood();
         updateCart();
@@ -49,7 +49,6 @@ public class MainPageController implements Initializable {
 
     public void updateCart() {
         cartPanelView.getChildren().clear();
-        //registerAnchorPane.getChildren().clear();
         totalPrice.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
         ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
         for(ShoppingItem item: list){
@@ -57,8 +56,6 @@ public class MainPageController implements Initializable {
                 CartItemController cartItem = new CartItemController(item, this);
                 CartStepOneController cartFlow = new CartStepOneController(item);
                 cartPanelView.getChildren().add(cartItem);
-                //cartFlowPane.getChildren().add(cartFlow);
-                //currentpriceinCartOne.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
             }
         }
     }
