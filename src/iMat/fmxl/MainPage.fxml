@@ -18,9 +18,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" onMouseDragged="#updatecart" prefHeight="900.0" prefWidth="1600.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
+<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" onMouseDragged="#updatecart" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
-      <AnchorPane fx:id="cartstepOne" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #FFFFFF;">
+      <AnchorPane fx:id="cartstepOne" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #F3F0F0;">
          <children>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="120.0" prefWidth="1600.0" style="-fx-background-color: #395d77;">
                <children>
@@ -31,13 +31,27 @@
                   </Text>
                </children>
             </AnchorPane>
-            <ScrollPane layoutX="392.0" layoutY="180.0" prefHeight="600.0" prefWidth="800.0">
+            <ScrollPane layoutX="392.0" layoutY="180.0" prefHeight="500.0" prefWidth="800.0">
                <content>
-                  <FlowPane fx:id="cartFlowPane" prefHeight="600.0" prefWidth="780.0" />
+                  <FlowPane fx:id="cartFlowPane" onMouseClicked="#updatecart" prefHeight="600.0" prefWidth="780.0" />
                </content>
             </ScrollPane>
             <Button fx:id="kassa1backButton" layoutX="392.0" layoutY="790.0" mnemonicParsing="false" onAction="#backtoMainPageView" prefHeight="98.0" prefWidth="202.0" text="Tillbaka" />
             <Button layoutX="990.0" layoutY="790.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="202.0" text="Till Betalning" />
+            <AnchorPane layoutX="392.0" layoutY="690.0" prefHeight="57.0" prefWidth="800.0" style="-fx-background-color: #FCFAFA;">
+               <children>
+                  <Text layoutX="344.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Totalt:" wrappingWidth="152.409423828125">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="currentpriceinCartOne" layoutX="580.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="152.409423828125">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
       <BorderPane fx:id="mainborderPane" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: FFFFFF;">
@@ -52,14 +66,15 @@
                      </font>
                   </TextField>
                   <Button fx:id="btnTestKonto" layoutX="1107.0" layoutY="48.0" mnemonicParsing="false" onAction="#openAccountWindow" text="Button" />
+                  <Button layoutX="1189.0" layoutY="79.0" mnemonicParsing="false" onAction="#openDetailViewButton" text="DetailView Test" />
                   <Button fx:id="emptyCart" layoutX="1411.0" layoutY="48.0" mnemonicParsing="false" onAction="#empty" text="TÖM KASSA" />
                </children>
             </AnchorPane>
          </top>
          <left>
-            <AnchorPane minHeight="0.0" minWidth="0.0" BorderPane.alignment="TOP_LEFT">
+            <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="borderpane-container" stylesheets="@../css/CategoryMeny.css" BorderPane.alignment="TOP_LEFT">
                <children>
-                  <Accordion layoutY="100.0" prefWidth="318.0" style="-fx-background-color: AAAAAA;" styleClass="categorizes">
+                  <Accordion layoutY="100.0" prefWidth="318.0" style="-fx-background-color: AAAAAA;" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css">
                      <panes>
                         <TitledPane animated="false" text="Kolhydrater">
                            <content>
@@ -154,7 +169,7 @@
          <center>
             <AnchorPane BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="780.0" prefWidth="962.0" stylesheets="@ScrollBar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="780.0" prefWidth="962.0" stylesheets="@../css/ScrollBar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
                         <AnchorPane prefHeight="627.0" prefWidth="960.0">
                            <children>
@@ -181,7 +196,7 @@
                <children>
                   <VBox prefHeight="780.0" prefWidth="320.0" styleClass="shoppingCart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ScrollPane prefHeight="709.0" prefWidth="333.0" styleClass="shoppingCart" stylesheets="@ScrollBar.css">
+                        <ScrollPane prefHeight="709.0" prefWidth="333.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css">
                            <content>
                               <FlowPane fx:id="cartPanelView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#updatecart" prefHeight="668.0" prefWidth="290.0" styleClass="shoppingCart" />
                            </content>
@@ -191,10 +206,10 @@
                               <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" styleClass="shoppingCartText">
                                  <children>
                                     <Label id="shoppingCartTextTotal" text="Total:" />
-                                    <Label id="shoppingCartTextAmount" fx:id="totalPrice" text="1000,00 kr" />
+                                    <Label id="shoppingCartTextAmount" fx:id="totalPrice" text="0" />
                                  </children>
                               </VBox>
-                              <Button fx:id="tillkassanButton" alignment="CENTER" mnemonicParsing="false" onAction="#toCartView" prefHeight="48.0" prefWidth="169.0" stylesheets="@GreenButton.css" text="Till Kassan" />
+                              <Button fx:id="tillkassanButton" alignment="CENTER" mnemonicParsing="false" onAction="#toCartView" prefHeight="48.0" prefWidth="169.0" stylesheets="@../css/GreenButton.css" text="Till Kassan" />
                            </children>
                         </HBox>
                      </children>

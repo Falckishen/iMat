@@ -29,7 +29,7 @@ public class IMat extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainPage.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fmxl/MainPage.fxml")));
         Scene scene = new Scene(root);
         stage.setTitle("iMat");
         stage.setScene(scene);

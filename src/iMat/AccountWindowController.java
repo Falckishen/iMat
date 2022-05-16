@@ -13,7 +13,7 @@ public class AccountWindowController extends AnchorPane {
     @FXML private Button accountWindowCloseButton;
 
     public AccountWindowController() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AccountWindow.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fmxl/AccountWindow.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {

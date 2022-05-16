@@ -18,12 +18,12 @@
          </font></Text>
       <ImageView fx:id="favoriteUnselected" fitHeight="43.0" fitWidth="47.0" layoutX="133.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/starUnselected.png" />
+            <Image url="@../images/starUnselected.png" />
          </image>
       </ImageView>
       <ImageView fx:id="inkopslistaUnselected" fitHeight="41.0" fitWidth="47.0" layoutX="135.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/Shoppinglist.png" />
+            <Image url="@../images/Shoppinglist.png" />
          </image>
       </ImageView>
       <Text fx:id="priceofItem" layoutX="177.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="19,99" wrappingWidth="86.92280414221511">
@@ -38,7 +38,7 @@
          <children>
             <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#removefromCart" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
-                  <Image url="@images/Wminus.png" />
+                  <Image url="@../images/Wminus.png" />
                </image>
             </ImageView>
          </children>
@@ -55,7 +55,7 @@
          <children>
             <ImageView fx:id="addtocartButton" fitHeight="40.0" fitWidth="40.0" layoutY="-1.0" onMouseClicked="#plusbutton" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
-                  <Image url="@images/Wplus.png" />
+                  <Image url="@../images/Wplus.png" />
                </image>
             </ImageView>
          </children>

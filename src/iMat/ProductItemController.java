@@ -1,9 +1,7 @@
 // Hör ihop med ProductItem.fxml
 package iMat;
 
-import java.awt.*;
 import java.io.IOException;
-import java.util.EventListener;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,7 +29,7 @@ public class ProductItemController extends AnchorPane {
     private Image bild;
 
     public ProductItemController(Product product) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductItem.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fmxl/ProductItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {
