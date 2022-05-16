@@ -19,7 +19,8 @@ public class MainPageController implements Initializable {
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
 
     @FXML private AnchorPane mainPageRootAnchorPane;
-    @FXML private AnchorPane cartstepOne;
+    @FXML private FlowPane productItemsFlowpane;
+    @FXML private Button brodKnapp;
     @FXML private TextField searchBar;
     @FXML private Button btnTestKonto;
     @FXML private GridPane gridPane;
@@ -27,22 +28,28 @@ public class MainPageController implements Initializable {
     @FXML private FlowPane cartPanelView;
     @FXML private Button emptyCart;
     @FXML private Label totalPrice;
-    @FXML private FlowPane cartFlowPane;
     @FXML private Button kassa1backButton;
     @FXML private Button tillkassanButton;
     @FXML private BorderPane mainborderPane;
     @FXML private Text currentpriceinCartOne;
 
+    private AnchorPane registerAnchorPane;
+
+    private int rowx = 0;
+    private int coly = 0;
+
     // Körs när MainPage.fxml läses in
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //cart.addShoppingCartListener(this);
+        setupRegisterPage();
         fillFood();
         updateCart();
     }
 
     public void updateCart() {
         cartPanelView.getChildren().clear();
-        cartFlowPane.getChildren().clear();
+        //registerAnchorPane.getChildren().clear();
         totalPrice.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
         ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
         for(ShoppingItem item: list){
@@ -50,23 +57,27 @@ public class MainPageController implements Initializable {
                 CartItemController cartItem = new CartItemController(item, this);
                 CartStepOneController cartFlow = new CartStepOneController(item);
                 cartPanelView.getChildren().add(cartItem);
-                cartFlowPane.getChildren().add(cartFlow);
-                currentpriceinCartOne.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
+                //cartFlowPane.getChildren().add(cartFlow);
+                //currentpriceinCartOne.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
             }
         }
     }
 
-/*-------------------------------------------------------------------------------------------------------------------*/
-    @FXML
-    private void toCartView(){
-        fillStepOneCart();
-        cartstepOne.toFront();
+    private void setupRegisterPage(){
+        registerAnchorPane = new RegisterController(this);
+        mainPageRootAnchorPane.getChildren().add(registerAnchorPane);
+        registerAnchorPane.toBack();
     }
 
-    @FXML
-    private void backToMainPageView(){
-        emptyStepOneCart();
+    @FXML public void openRegisterView(){
+        registerAnchorPane.toFront();
+    }
+
+    @FXML public void openMainPageView(){
         mainborderPane.toFront();
+    }
+
+    @FXML public void openPurchaseView(){
     }
 
     // Testmetod
@@ -181,18 +192,18 @@ public class MainPageController implements Initializable {
         updateCart();
     }
 
-    private void fillStepOneCart(){
+    /*private void fillStepOneCart(){
         cartFlowPane.getChildren().clear();
         ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
         for(ShoppingItem item: list){
             CartStepOneController cartitem = new CartStepOneController(item);
-            cartFlowPane.getChildren().add(cartitem);
+            registerGridPane.getChildren().add(cartitem);
 
         }}
 
     private void emptyStepOneCart(){
         cartFlowPane.getChildren().clear();
-    }
+    }*/
 
     //TODO: Populera med rätt grejor tex. historiken.
     private void populateAccountWindow(Product product) {
