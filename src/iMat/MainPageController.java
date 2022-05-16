@@ -13,8 +13,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
+import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.*;
 
 public class MainPageController implements Initializable {
@@ -31,6 +33,7 @@ public class MainPageController implements Initializable {
     @FXML private Button favoriterKnapp;
     @FXML private FlowPane cartPanelView;
     @FXML private Button emptyCart;
+    @FXML private Label totalPrice;
 
     private int rowx = 0;
     private int coly = 0;
@@ -199,10 +202,14 @@ public class MainPageController implements Initializable {
 
     @FXML private void updatecart(){
         cartPanelView.getChildren().clear();
+        totalPrice.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
         ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
         for(ShoppingItem item: list){
-            CartItemController cartitem = new CartItemController(item);
-            cartPanelView.getChildren().add(cartitem);
+            if(item.getAmount() > 0){
+                CartItemController cartitem = new CartItemController(item);
+                cartPanelView.getChildren().add(cartitem);
+            }
+
         }
     }
 }
