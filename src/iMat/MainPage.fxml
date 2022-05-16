@@ -20,7 +20,7 @@
 
 <AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" onMouseDragged="#updatecart" prefHeight="900.0" prefWidth="1600.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
-      <AnchorPane fx:id="cartstepOne" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #FFFFFF;">
+      <AnchorPane fx:id="cartstepOne" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #F3F0F0;">
          <children>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="120.0" prefWidth="1600.0" style="-fx-background-color: #395d77;">
                <children>
@@ -33,7 +33,7 @@
             </AnchorPane>
             <ScrollPane layoutX="392.0" layoutY="180.0" prefHeight="600.0" prefWidth="800.0">
                <content>
-                  <FlowPane fx:id="cartFlowPane" prefHeight="600.0" prefWidth="780.0" />
+                  <FlowPane fx:id="cartFlowPane" onMouseClicked="#updatecart" prefHeight="600.0" prefWidth="780.0" />
                </content>
             </ScrollPane>
             <Button fx:id="kassa1backButton" layoutX="392.0" layoutY="790.0" mnemonicParsing="false" onAction="#backtoMainPageView" prefHeight="98.0" prefWidth="202.0" text="Tillbaka" />

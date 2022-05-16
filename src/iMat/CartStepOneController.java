@@ -21,6 +21,11 @@ public class CartStepOneController extends AnchorPane {
         @FXML
         ImageView image;
         private Image bild;
+        @FXML Text nameofProduct;
+        @FXML Text priceofProducts;
+        @FXML Text numberofProducts;
+        @FXML ImageView plus;
+        @FXML ImageView minus;
 
         public CartStepOneController(ShoppingItem item) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("kassaitem.fxml"));
@@ -34,9 +39,9 @@ public class CartStepOneController extends AnchorPane {
             this.item = item;
             this.bild = dataHandler.getFXImage(item.getProduct());
             this.image.setImage(bild);
-            //this.nameofProducts.setText(item.getProduct().getName());
-            //this.priceofProducts.setText(String.valueOf((item.getProduct().getPrice())*item.getAmount()));
-            //this.numberofProducts.setText(String.valueOf(item.getAmount()));
+            this.nameofProduct.setText(item.getProduct().getName());
+            this.priceofProducts.setText(String.valueOf((item.getProduct().getPrice())*item.getAmount()));
+            this.numberofProducts.setText(String.valueOf(item.getAmount()));
 
         }
 

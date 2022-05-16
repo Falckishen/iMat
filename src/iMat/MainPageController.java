@@ -44,6 +44,7 @@ public class MainPageController implements Initializable {
     private int coly = 0;
 
     @FXML public void toCartView(){
+        updatecart();
         fillsteponeCart();
         cartstepOne.toFront();
     }
@@ -233,12 +234,15 @@ public class MainPageController implements Initializable {
 
     @FXML private void updatecart(){
         cartPanelView.getChildren().clear();
+        cartFlowPane.getChildren().clear();
         totalPrice.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
         ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
         for(ShoppingItem item: list){
             if(item.getAmount() > 0){
                 CartItemController cartitem = new CartItemController(item);
+                CartStepOneController cartflow = new CartStepOneController(item);
                 cartPanelView.getChildren().add(cartitem);
+                cartFlowPane.getChildren().add(cartflow);
             }
 
         }
