@@ -68,6 +68,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         }
     }
 
+
     @FXML public void toCartView(){
         fillsteponeCart();
         cartstepOne.toFront();
