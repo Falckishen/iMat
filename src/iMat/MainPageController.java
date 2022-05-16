@@ -19,7 +19,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.*;
 
-public class MainPageController implements Initializable {
+public class MainPageController implements Initializable, ShoppingCartListener {
 
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
     private final ShoppingCart cart = IMat.getShoppingCart();
@@ -44,8 +44,31 @@ public class MainPageController implements Initializable {
     private int rowx = 0;
     private int coly = 0;
 
+    // Körs när MainPage.fxml läses in
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        cart.addShoppingCartListener(this);
+        fillFood();
+    }
+
+    @Override
+    public void shoppingCartChanged(CartEvent cartEvent) {
+        cartPanelView.getChildren().clear();
+        cartFlowPane.getChildren().clear();
+        totalPrice.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
+        ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
+        for(ShoppingItem item: list){
+            if(item.getAmount() > 0){
+                CartItemController cartitem = new CartItemController(item);
+                CartStepOneController cartflow = new CartStepOneController(item);
+                cartPanelView.getChildren().add(cartitem);
+                cartFlowPane.getChildren().add(cartflow);
+                currentpriceinCartOne.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
+            }
+        }
+    }
+
     @FXML public void toCartView(){
-        updatecart();
         fillsteponeCart();
         cartstepOne.toFront();
     }
@@ -53,12 +76,6 @@ public class MainPageController implements Initializable {
     @FXML public void backtoMainPageView(){
         mainborderPane.toFront();
         emptysteponeCart();
-    }
-
-    // Körs när MainPage.fxml läses in
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        fillFood();
     }
 
     // Testmetod
@@ -175,10 +192,6 @@ public class MainPageController implements Initializable {
         cartFlowPane.getChildren().clear();
         }
 
-
-
-
-
     @FXML protected void favoriteFill(ActionEvent event){
         updateCart();
         coly = 0;
@@ -229,24 +242,5 @@ public class MainPageController implements Initializable {
     @FXML private void empty(){
         dataHandler.getShoppingCart().clear();
         updateCart();
-    }
-
-
-
-    @FXML private void updatecart(){
-        cartPanelView.getChildren().clear();
-        cartFlowPane.getChildren().clear();
-        totalPrice.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
-        ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
-        for(ShoppingItem item: list){
-            if(item.getAmount() > 0){
-                CartItemController cartitem = new CartItemController(item);
-                CartStepOneController cartflow = new CartStepOneController(item);
-                cartPanelView.getChildren().add(cartitem);
-                cartFlowPane.getChildren().add(cartflow);
-                currentpriceinCartOne.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
-            }
-
-        }
     }
 }
