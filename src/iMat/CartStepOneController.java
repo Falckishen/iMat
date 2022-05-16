@@ -7,6 +7,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.ShoppingCart;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
@@ -16,6 +17,8 @@ public class CartStepOneController extends AnchorPane {
 
         private final ClassLoader classLoader = getClass().getClassLoader();
         private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
+        private final ShoppingCart cart = dataHandler.getShoppingCart();
+        private final MainPageController mainPageController;
         private final ShoppingItem item;
         @FXML
         ImageView image;
@@ -26,7 +29,8 @@ public class CartStepOneController extends AnchorPane {
         @FXML ImageView plus;
         @FXML ImageView minus;
 
-        public CartStepOneController(ShoppingItem item) {
+
+        public CartStepOneController(ShoppingItem item, MainPageController mainPageController) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fmxl/kassaitem.fxml"));
             fxmlLoader.setRoot(this);
             fxmlLoader.setController(this);
@@ -35,6 +39,7 @@ public class CartStepOneController extends AnchorPane {
             } catch (IOException exception) {
                 throw new RuntimeException(exception);
             }
+            this.mainPageController = mainPageController;
             this.item = item;
             this.bild = dataHandler.getFXImage(item.getProduct());
             this.image.setImage(bild);

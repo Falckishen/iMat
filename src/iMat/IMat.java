@@ -110,6 +110,7 @@ public class IMat extends Application {
             productInCart = shoppingItem.getProduct();
             if (productInCart.equals(product)) {
                 shoppingItem.setAmount(amount);
+                cart.fireShoppingCartChanged(shoppingItem, true);
                 return;
             }
         }

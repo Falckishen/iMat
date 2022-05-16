@@ -49,6 +49,9 @@ public class MainPageController implements Initializable {
         setupPurchasePage();
         setupReceiptPage();
         fillFood();
+        /*ShoppingItem itemz = new ShoppingItem(dataHandler.getProduct(10));
+        CartStepOneController cartFlow = new CartStepOneController(itemz, this);
+        mainPageRootAnchorPane.getChildren().add(cartFlow);*/
         updateCart();
     }
 
