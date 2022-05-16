@@ -1,0 +1,39 @@
+.middle {
+    -fx-background-color: F3F0F0;
+}
+
+.sidePane {
+    -fx-background-color: F3F0F0;
+    -fx-border-width: 0px;
+}
+
+.sidePaneEdge {
+    -fx-background-color: F3F0F0;
+    -fx-border-width: 0px;
+}
+
+.grid {
+    -fx-background-color: F3F0F0;
+    -fx-border-color: FCFAFA;
+    -fx-border-width: 5px;
+}
+
+.gridPane {
+    -fx-background-color: F3F0F0;
+    -fx-border-width: 0px;
+}
+
+#registerTextTotal {
+    -fx-font: 22px "Helvetica";
+    -fx-text-fill: #2E3235;
+}
+
+#registerTextAmount {
+    -fx-font: bold 19px "Helvetica";
+    -fx-text-fill: #2E3235;
+}
+
+#topPaneText {
+    -fx-font: bold 54px "Helvetica";
+    -fx-font-color: #F3F0F0;
+}

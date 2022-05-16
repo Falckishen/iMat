@@ -23,7 +23,7 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
 
     @FXML Button toPurchaseButton;
     @FXML Button toBackButton;
-    @FXML FlowPane registerFlowPane;
+    @FXML GridPane registerGridPane;
 
     public RegisterController(MainPageController mainPageController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fmxl/RegisterPage.fxml"));
@@ -50,12 +50,23 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
     //TODO: Add cart value to the total.
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-        registerFlowPane.getChildren().clear();
+        registerGridPane.getChildren().clear();
         ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) cart.getItems();
+        int x = 0;
+        int y = 0;
         for (ShoppingItem item : list) {
             if (item.getAmount() > 0) {
                 CartStepOneController cartFlow = new CartStepOneController(item);
-                registerFlowPane.getChildren().add(cartFlow);
+                registerGridPane.add(cartFlow, x, y);
+                if(x == 0)
+                {
+                    x++;
+                } else
+                {
+                    y++;
+                    x=0;
+                }
+
             }
         }
     }
