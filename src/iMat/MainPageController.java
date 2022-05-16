@@ -44,11 +44,13 @@ public class MainPageController implements Initializable {
     private int coly = 0;
 
     @FXML public void toCartView(){
+        fillsteponeCart();
         cartstepOne.toFront();
     }
 
     @FXML public void backtoMainPageView(){
         mainborderPane.toFront();
+        emptysteponeCart();
     }
 
     // Körs när MainPage.fxml läses in
@@ -157,6 +159,23 @@ public class MainPageController implements Initializable {
     }
 
     /* ---------------------------------------------------------------------------   */
+
+    private void fillsteponeCart(){
+        cartFlowPane.getChildren().clear();
+        ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
+        for(ShoppingItem item: list){
+            CartStepOneController cartitem = new CartStepOneController(item);
+            cartFlowPane.getChildren().add(cartitem);
+
+    }}
+
+    private void emptysteponeCart(){
+        cartFlowPane.getChildren().clear();
+        }
+
+
+
+
 
     @FXML protected void favoriteFill(ActionEvent event){
         updateCart();
