@@ -35,6 +35,8 @@ public class MainPageController implements Initializable {
     @FXML private Text currentpriceinCartOne;
 
     private AnchorPane registerAnchorPane;
+    private AnchorPane purchaseAnchorPane;
+    private AnchorPane receiptAnchorPane;
 
     private int rowx = 0;
     private int coly = 0;
@@ -43,6 +45,9 @@ public class MainPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         setupRegisterPage();
+        setupAccountPage();
+        setupPurchasePage();
+        setupReceiptPage();
         fillFood();
         updateCart();
     }
@@ -57,6 +62,19 @@ public class MainPageController implements Initializable {
                 cartPanelView.getChildren().add(cartItem);
             }
         }
+    }
+
+    //TODO: Fill in these.
+    private void setupAccountPage() {
+
+    }
+
+    private void setupPurchasePage() {
+
+    }
+
+    private void setupReceiptPage() {
+
     }
 
     private void setupRegisterPage(){
