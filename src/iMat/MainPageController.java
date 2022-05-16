@@ -39,6 +39,7 @@ public class MainPageController implements Initializable {
     @FXML private Button kassa1backButton;
     @FXML private Button tillkassanButton;
     @FXML private BorderPane mainborderPane;
+    @FXML private Text currentpriceinCartOne;
 
     private int rowx = 0;
     private int coly = 0;
@@ -243,6 +244,7 @@ public class MainPageController implements Initializable {
                 CartStepOneController cartflow = new CartStepOneController(item);
                 cartPanelView.getChildren().add(cartitem);
                 cartFlowPane.getChildren().add(cartflow);
+                currentpriceinCartOne.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
             }
 
         }
