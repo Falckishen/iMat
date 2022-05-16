@@ -63,17 +63,21 @@ public class IMat extends Application {
     public static void addOneToCart(Product product) {
         double amount = getNumberOfAProductInCart(product);
         if (amount < 99) {
-            clearCartOfAProduct(product);
-            cart.addProduct(product, amount+1);
+            setProductAmount(product, roundToOneDecimal(amount+1));
+        }
+        else {
+            setProductAmount(product, 99);
         }
     }
 
     // Tar en produkt som argument, tar bort ett exemplar av denna produkt från varukorgen
     public static void removeOneFromCart(Product product) {
         double amount = getNumberOfAProductInCart(product);
-        clearCartOfAProduct(product);
         if (amount >= 1) {
-            cart.addProduct(product, amount-1);
+            setProductAmount(product, roundToOneDecimal(amount-1));
+        }
+        else {
+            clearCartOfAProduct(product);
         }
     }
 
@@ -82,17 +86,34 @@ public class IMat extends Application {
     public static void writeInNumOfProductAmount(Product product, String strAmount) {
         try {
             double amount = roundToOneDecimal(Double.parseDouble(strAmount));
-            clearCartOfAProduct(product);
             if (amount > 99.9) {
-                cart.addProduct(product, 99.9);
+                setProductAmount(product, 99);
             }
             else if (amount >= 0) {
-                cart.addProduct(product, amount);
+                setProductAmount(product, amount);
+            }
+            else {
+                clearCartOfAProduct(product);
             }
         }
         catch (Exception e) {
             // Invalid input
         }
+    }
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+    private static void setProductAmount(Product product, double amount) {
+        List<ShoppingItem> listOfShoppingItems = cart.getItems();
+        Product productInCart;
+        for (ShoppingItem shoppingItem : listOfShoppingItems) {
+            productInCart = shoppingItem.getProduct();
+            if (productInCart.equals(product)) {
+                shoppingItem.setAmount(amount);
+                return;
+            }
+        }
+        cart.addProduct(product, amount);
     }
 
     // Tar en produkt som argument, tömmer varukorgen på denna produkt

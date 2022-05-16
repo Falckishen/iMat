@@ -36,7 +36,7 @@
                   <FlowPane fx:id="cartFlowPane" prefHeight="600.0" prefWidth="780.0" />
                </content>
             </ScrollPane>
-            <Button fx:id="kassa1backButton" layoutX="392.0" layoutY="790.0" mnemonicParsing="false" onAction="#backtoMainPageView" prefHeight="98.0" prefWidth="202.0" text="Tillbaka" />
+            <Button fx:id="kassa1backButton" layoutX="392.0" layoutY="790.0" mnemonicParsing="false" onAction="#backToMainPageView" prefHeight="98.0" prefWidth="202.0" text="Tillbaka" />
             <Button layoutX="990.0" layoutY="790.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="202.0" text="Till Betalning" />
             <AnchorPane layoutX="392.0" layoutY="690.0" prefHeight="57.0" prefWidth="800.0" style="-fx-background-color: #FCFAFA;">
                <children>

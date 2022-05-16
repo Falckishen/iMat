@@ -20,10 +20,9 @@ import se.chalmers.cse.dat216.project.ShoppingCart;
 public class DetailViewController extends AnchorPane {
 
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
-    private final ShoppingCart cart = IMat.getShoppingCart();
+    private final MainPageController mainPageController;
 
     private final ClassLoader classLoader = getClass().getClassLoader();
-
     private final Product product;
 
     @FXML private ImageView closeImageView;
@@ -41,7 +40,7 @@ public class DetailViewController extends AnchorPane {
     @FXML private Button shoppingListButton;
     @FXML private ImageView shoppingListImage;
 
-    public DetailViewController(Product product) {
+    public DetailViewController(Product product, MainPageController mainPageController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fmxl/DetailView.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -50,99 +49,100 @@ public class DetailViewController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+        this.mainPageController = mainPageController;
         this.product = product;
         populateProductDetailView();
     }
 
     @FXML
-    public void closeButtonMouseEntered() {
+    private void closeButtonMouseEntered() {
         this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_hover.png"))));
     }
 
     @FXML
-    public void closeButtonMousePressed() {
+    private void closeButtonMousePressed() {
         this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_pressed.png"))));
     }
 
     @FXML
-    public void closeButtonMouseExited(){
+    private void closeButtonMouseExited(){
         this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close.png"))));
     }
 
     @FXML
-    public void plusButtonMouseEntered(){
+    private void plusButtonMouseEntered(){
         this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus_hover.png"))));
     }
 
     @FXML
-    public void plusButtonMousePressed(){
+    private void plusButtonMousePressed(){
         this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus.png"))));
     }
 
     @FXML
-    public void plusButtonMouseExited(){
+    private void plusButtonMouseExited(){
         this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus.png"))));
     }
 
     @FXML
-    public void minusButtonMouseEntered(){
+    private void minusButtonMouseEntered(){
         this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/minus_hover.png"))));
     }
 
     @FXML
-    public void minusButtonMousePressed(){
+    private void minusButtonMousePressed(){
         this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/minus.png"))));
     }
 
     @FXML
-    public void minusButtonMouseExited(){
+    private void minusButtonMouseExited(){
         this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/minus.png"))));
     }
 
     @FXML
-    public void favoriteButtonMouseEntered() {
+    private void favoriteButtonMouseEntered() {
         this.favoriteButton.setStyle("-fx-background-color: #f0f0f0;");
     }
 
     @FXML
-    public void favoriteButtonMousePressed() {
+    private void favoriteButtonMousePressed() {
         this.favoriteButton.setStyle("-fx-background-color: #d0d0d0;");
     }
 
     @FXML
-    public void favoriteButtonMouseExitedOrReleased() {
+    private void favoriteButtonMouseExitedOrReleased() {
         this.favoriteButton.setStyle("-fx-background-color: #e0e0e0;");
     }
 
     @FXML
-    public void shoppingListButtonMouseEntered() {
+    private void shoppingListButtonMouseEntered() {
         this.shoppingListButton.setStyle("-fx-background-color: #f0f0f0;");
     }
 
     @FXML
-    public void shoppingListButtonMousePressed() {
+    private void shoppingListButtonMousePressed() {
         this.shoppingListButton.setStyle("-fx-background-color: #d0d0d0;");
     }
 
     @FXML
-    public void shoppingListButtonMouseExitedOrReleased() {
+    private void shoppingListButtonMouseExitedOrReleased() {
         this.shoppingListButton.setStyle("-fx-background-color: #e0e0e0;");
     }
 
     @FXML
-    public void mouseTrap(Event event) {
+    private void mouseTrap(Event event) {
         event.consume();
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
     @FXML
-    public void closeProductDetailView() {
+    private void closeProductDetailView() {
         this.toBack();
     }
 
     @FXML
-    public void favoriteButtonClicked() {
+    private void favoriteButtonClicked() {
         if (dataHandler.isFavorite(this.product)) {
             dataHandler.removeFavorite(this.product);
         }
@@ -153,22 +153,25 @@ public class DetailViewController extends AnchorPane {
     }
 
     @FXML
-    public void plusButtonClicked() {
+    private void plusButtonClicked() {
         IMat.addOneToCart(this.product);
         this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
+        this.mainPageController.updateCart();
     }
 
     @FXML
-    public void minusButtonClicked() {
+    private void minusButtonClicked() {
         IMat.removeOneFromCart(this.product);
         this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
+        this.mainPageController.updateCart();
     }
 
     @FXML
-    public void numOfItemsWriteIn() throws InputMismatchException {
+    private void numOfItemsWriteIn() throws InputMismatchException {
         String strAmount = this.numOfItems.getText();
         IMat.writeInNumOfProductAmount(this.product, strAmount);
         this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
+        this.mainPageController.updateCart();
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
