@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="anchorPane" minHeight="900.0" minWidth="1600.0" onMouseClicked="#closeProductDetailView" prefHeight="900.0" prefWidth="1600.0" styleClass="background" stylesheets="@DetailView.css" type="AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="anchorPane" minHeight="900.0" minWidth="1600.0" onMouseClicked="#closeProductDetailView" prefHeight="900.0" prefWidth="1600.0" styleClass="background" stylesheets="@../css/DetailView.css" type="AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane onMouseClicked="#mouseTrap" styleClass="pane" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="275.0" AnchorPane.topAnchor="150.0">
          <children>
@@ -16,7 +16,7 @@
                <graphic>
                   <ImageView fx:id="closeImageView" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/cross_close.png" />
+                        <Image url="@../images/cross_close.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -45,7 +45,7 @@
                <graphic>
                   <ImageView fx:id="minusImage" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/minus.png" />
+                        <Image url="@../images/minus.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -54,7 +54,7 @@
                <graphic>
                   <ImageView fx:id="plusImage" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/plus.png" />
+                        <Image url="@../images/plus.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -68,7 +68,7 @@
                <graphic>
                   <ImageView fx:id="favoriteImage" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/starUnselected.png" />
+                        <Image url="@../images/starUnselected.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -80,7 +80,7 @@
                <graphic>
                   <ImageView fx:id="shoppingListImage" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images/Shoppinglistadd.png" />
+                        <Image url="@../images/Shoppinglistadd.png" />
                      </image>
                   </ImageView>
                </graphic>

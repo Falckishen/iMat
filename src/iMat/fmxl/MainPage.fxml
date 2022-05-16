@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" onMouseDragged="#updatecart" prefHeight="900.0" prefWidth="1600.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
+<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" onMouseDragged="#updatecart" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../MainPage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
       <AnchorPane fx:id="cartstepOne" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #F3F0F0;">
          <children>
@@ -72,9 +72,9 @@
             </AnchorPane>
          </top>
          <left>
-            <AnchorPane minHeight="0.0" minWidth="0.0" BorderPane.alignment="TOP_LEFT">
+            <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="borderpane-container" stylesheets="@../css/CategoryMeny.css" BorderPane.alignment="TOP_LEFT">
                <children>
-                  <Accordion layoutY="100.0" prefWidth="318.0" style="-fx-background-color: AAAAAA;" styleClass="categorizes">
+                  <Accordion layoutY="100.0" prefWidth="318.0" style="-fx-background-color: AAAAAA;" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css">
                      <panes>
                         <TitledPane animated="false" text="Kolhydrater">
                            <content>
@@ -169,7 +169,7 @@
          <center>
             <AnchorPane BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="780.0" prefWidth="962.0" stylesheets="@ScrollBar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="780.0" prefWidth="962.0" stylesheets="@../css/ScrollBar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
                         <AnchorPane prefHeight="627.0" prefWidth="960.0">
                            <children>
@@ -196,7 +196,7 @@
                <children>
                   <VBox prefHeight="780.0" prefWidth="320.0" styleClass="shoppingCart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ScrollPane prefHeight="709.0" prefWidth="333.0" styleClass="shoppingCart" stylesheets="@ScrollBar.css">
+                        <ScrollPane prefHeight="709.0" prefWidth="333.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css">
                            <content>
                               <FlowPane fx:id="cartPanelView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#updatecart" prefHeight="668.0" prefWidth="290.0" styleClass="shoppingCart" />
                            </content>
@@ -209,7 +209,7 @@
                                     <Label id="shoppingCartTextAmount" fx:id="totalPrice" text="0" />
                                  </children>
                               </VBox>
-                              <Button fx:id="tillkassanButton" alignment="CENTER" mnemonicParsing="false" onAction="#toCartView" prefHeight="48.0" prefWidth="169.0" stylesheets="@GreenButton.css" text="Till Kassan" />
+                              <Button fx:id="tillkassanButton" alignment="CENTER" mnemonicParsing="false" onAction="#toCartView" prefHeight="48.0" prefWidth="169.0" stylesheets="@../css/GreenButton.css" text="Till Kassan" />
                            </children>
                         </HBox>
                      </children>

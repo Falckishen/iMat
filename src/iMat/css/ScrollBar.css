@@ -1,12 +1,12 @@
 .scroll-bar:horizontal,
 .scroll-bar:vertical{
-    -fx-font-size: 25px;
+    -fx-font-size: 20px;
 }
 
 .scroll-bar:horizontal .track,
 .scroll-bar:vertical .track{
-    -fx-background-color: #FCFAFA;
-    -fx-border-color: #F3F0F0;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
     -fx-background-radius : 0.0em;
     -fx-border-radius :0.0em;
     -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.2) , 2 , 0.5 , 2 , 2 );
@@ -16,6 +16,7 @@
 .scroll-bar:vertical .increment-button{
     -fx-background-color: #FCFAFA;
     -fx-background-radius : 0.0em;
+    -fx-border-color: transparent;
     -fx-border-radius :0.0em;
 }
 
@@ -37,8 +38,7 @@
 .scroll-bar:horizontal .decrement-button,
 .scroll-bar:vertical .decrement-button{
     -fx-background-color: #FCFAFA;
-    -fx-background-radius : 0.0em;
-    -fx-border-radius :0.0em;
+    -fx-border-color: transparent;
 }
 
 .scroll-bar:horizontal .decrement-button:hover,
@@ -59,8 +59,8 @@
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical .thumb {
     -fx-background-color: #395D77;
-    -fx-background-insets : 2, 0.0, 0.0;
-    -fx-background-radius : 0.0em;
+    -fx-background-insets : 0, 0.0, 0.0;
+    -fx-background-radius : 0.1em;
     -fx-effect: innershadow( gaussian , rgba(255, 255, 255, 0.2) , 1 , 0.3 , -1 , 1 );
 
 }

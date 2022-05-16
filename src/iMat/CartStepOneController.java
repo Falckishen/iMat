@@ -10,7 +10,6 @@ import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class CartStepOneController extends AnchorPane {
 
@@ -28,7 +27,7 @@ public class CartStepOneController extends AnchorPane {
         @FXML ImageView minus;
 
         public CartStepOneController(ShoppingItem item) {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("kassaitem.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fmxl/kassaitem.fxml"));
             fxmlLoader.setRoot(this);
             fxmlLoader.setController(this);
             try {

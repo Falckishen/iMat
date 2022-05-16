@@ -42,7 +42,7 @@ public class DetailViewController extends AnchorPane {
     @FXML private ImageView shoppingListImage;
 
     public DetailViewController(Product product) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DetailView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fmxl/DetailView.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {
