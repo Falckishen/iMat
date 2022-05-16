@@ -25,6 +25,7 @@ public class MainPageController implements Initializable {
     private final ShoppingCart cart = IMat.getShoppingCart();
 
     @FXML private AnchorPane mainPageRootAnchorPane;
+    @FXML private AnchorPane cartstepOne;
     @FXML private FlowPane productItemsFlowpane;
     @FXML private Button brodKnapp;
     @FXML private TextField searchBar;
@@ -34,9 +35,21 @@ public class MainPageController implements Initializable {
     @FXML private FlowPane cartPanelView;
     @FXML private Button emptyCart;
     @FXML private Label totalPrice;
+    @FXML private FlowPane cartFlowPane;
+    @FXML private Button kassa1backButton;
+    @FXML private Button tillkassanButton;
+    @FXML private BorderPane mainborderPane;
 
     private int rowx = 0;
     private int coly = 0;
+
+    @FXML public void toCartView(){
+        cartstepOne.toFront();
+    }
+
+    @FXML public void backtoMainPageView(){
+        mainborderPane.toFront();
+    }
 
     // Körs när MainPage.fxml läses in
     @Override
@@ -121,7 +134,6 @@ public class MainPageController implements Initializable {
 
     //Fyller på flowpanen för att bygga all funktionalitet runt
     private void fillFood() {
-        updateCart();
         coly = 0;
         rowx = 0;
         gridPane.getChildren().clear();
@@ -132,8 +144,8 @@ public class MainPageController implements Initializable {
             gridPane.add(productt, coly, rowx);
             coly++;
             if(coly == 2) {
-                coly = 0;
                 rowx++;
+                coly = 0;
             }
         /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
         productItemsList.clear();
