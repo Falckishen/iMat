@@ -43,25 +43,18 @@ public class MainPageController implements Initializable {
     private int rowx = 0;
     private int coly = 0;
 
-    @FXML public void toCartView(){
-        cartstepOne.toFront();
-    }
-
-    @FXML public void backtoMainPageView(){
-        mainborderPane.toFront();
-    }
-
     // Körs när MainPage.fxml läses in
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         fillFood();
     }
 
-    // Testmetod
-    @FXML
-    public void openDetailViewButton() throws IOException {
-        cart.clear();
-        openProductDetailView(dataHandler.getProduct(75));
+    @FXML public void toCartView(){
+        cartstepOne.toFront();
+    }
+
+    @FXML public void backtoMainPageView(){
+        mainborderPane.toFront();
     }
 
     @FXML
@@ -165,8 +158,7 @@ public class MainPageController implements Initializable {
         gridPane.getChildren().clear();
         ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.favorites();
         for(Product product: productlist){
-            ProductItemController productt = new ProductItemController(product);
-            gridPane.add(productt, coly, rowx);
+            gridPane.add(new ProductItemController(product), coly, rowx);
             coly++;
             if(coly == 2) {
                 coly = 0;
@@ -209,8 +201,6 @@ public class MainPageController implements Initializable {
         dataHandler.getShoppingCart().clear();
         updateCart();
     }
-
-
 
     @FXML private void updatecart(){
         cartPanelView.getChildren().clear();

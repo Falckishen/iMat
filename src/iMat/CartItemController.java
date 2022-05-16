@@ -31,7 +31,6 @@ public class CartItemController extends AnchorPane {
     @FXML ImageView removeProduct;
     @FXML ImageView addedProduct;
 
-
     private Image bild;
 
     public CartItemController(ShoppingItem item) {
