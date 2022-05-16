@@ -13,8 +13,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
+import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.*;
 
 public class MainPageController implements Initializable {
@@ -23,6 +25,7 @@ public class MainPageController implements Initializable {
     private final ShoppingCart cart = IMat.getShoppingCart();
 
     @FXML private AnchorPane mainPageRootAnchorPane;
+    @FXML private AnchorPane cartstepOne;
     @FXML private FlowPane productItemsFlowpane;
     @FXML private Button brodKnapp;
     @FXML private TextField searchBar;
@@ -31,9 +34,25 @@ public class MainPageController implements Initializable {
     @FXML private Button favoriterKnapp;
     @FXML private FlowPane cartPanelView;
     @FXML private Button emptyCart;
+    @FXML private Label totalPrice;
+    @FXML private FlowPane cartFlowPane;
+    @FXML private Button kassa1backButton;
+    @FXML private Button tillkassanButton;
+    @FXML private BorderPane mainborderPane;
 
     private int rowx = 0;
     private int coly = 0;
+
+    @FXML public void toCartView(){
+        updatecart();
+        fillsteponeCart();
+        cartstepOne.toFront();
+    }
+
+    @FXML public void backtoMainPageView(){
+        mainborderPane.toFront();
+        emptysteponeCart();
+    }
 
     // Körs när MainPage.fxml läses in
     @Override
@@ -118,7 +137,6 @@ public class MainPageController implements Initializable {
 
     //Fyller på flowpanen för att bygga all funktionalitet runt
     private void fillFood() {
-        updateCart();
         coly = 0;
         rowx = 0;
         gridPane.getChildren().clear();
@@ -129,8 +147,8 @@ public class MainPageController implements Initializable {
             gridPane.add(productt, coly, rowx);
             coly++;
             if(coly == 2) {
-                coly = 0;
                 rowx++;
+                coly = 0;
             }
         /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
         productItemsList.clear();
@@ -142,6 +160,23 @@ public class MainPageController implements Initializable {
     }
 
     /* ---------------------------------------------------------------------------   */
+
+    private void fillsteponeCart(){
+        cartFlowPane.getChildren().clear();
+        ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
+        for(ShoppingItem item: list){
+            CartStepOneController cartitem = new CartStepOneController(item);
+            cartFlowPane.getChildren().add(cartitem);
+
+    }}
+
+    private void emptysteponeCart(){
+        cartFlowPane.getChildren().clear();
+        }
+
+
+
+
 
     @FXML protected void favoriteFill(ActionEvent event){
         updateCart();
@@ -199,10 +234,17 @@ public class MainPageController implements Initializable {
 
     @FXML private void updatecart(){
         cartPanelView.getChildren().clear();
+        cartFlowPane.getChildren().clear();
+        totalPrice.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
         ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
         for(ShoppingItem item: list){
-            CartItemController cartitem = new CartItemController(item);
-            cartPanelView.getChildren().add(cartitem);
+            if(item.getAmount() > 0){
+                CartItemController cartitem = new CartItemController(item);
+                CartStepOneController cartflow = new CartStepOneController(item);
+                cartPanelView.getChildren().add(cartitem);
+                cartFlowPane.getChildren().add(cartflow);
+            }
+
         }
     }
 }
