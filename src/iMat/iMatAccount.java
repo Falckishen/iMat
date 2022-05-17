@@ -11,7 +11,7 @@ public class iMatAccount {
     private final int telephoneNumber;
     private final PaymentType paymentType;
 
-    public iMatAccount(String firstName, String lastName, String address, int postNumber, int telephoneNumber, PaymentType paymentType){
+    public iMatAccount(String firstName, String lastName, String address, int postNumber, int telephoneNumber, PaymentType paymentType) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;

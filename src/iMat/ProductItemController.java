@@ -18,7 +18,6 @@ public class ProductItemController extends AnchorPane {
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
     private final MainPageController mainpagecontroller = new MainPageController();
     private final Product product;
-    private final MainPageController mainPageController;
     @FXML ImageView image;
     @FXML ImageView favoriteUnselected;
     @FXML ImageView inkopslistaUnselected;
@@ -29,7 +28,7 @@ public class ProductItemController extends AnchorPane {
 
     private Image bild;
 
-    public ProductItemController(Product product, MainPageController mainPageController) {
+    public ProductItemController(Product product) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fmxl/ProductItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -38,7 +37,6 @@ public class ProductItemController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        this.mainPageController = mainPageController;
         this.product = product;
         this.bild = dataHandler.getFXImage(product);
         this.image.setImage(bild);
@@ -48,13 +46,9 @@ public class ProductItemController extends AnchorPane {
 
     @FXML public void plusbutton(){
         IMat.addOneToCart(this.product);
-        this.mainPageController.updateCart();
     }
 
     @FXML public void removefromCart(){
         IMat.removeOneFromCart(this.product);
-        this.mainPageController.updateCart();
-
     }
-
 }

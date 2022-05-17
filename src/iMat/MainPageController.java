@@ -14,7 +14,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.*;
 
-public class MainPageController implements Initializable {
+public class MainPageController implements Initializable, ShoppingCartListener {
 
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
     private final ShoppingCart cart = dataHandler.getShoppingCart();
@@ -38,9 +38,6 @@ public class MainPageController implements Initializable {
     private AnchorPane purchaseAnchorPane;
     private AnchorPane receiptAnchorPane;
 
-    private int rowx = 0;
-    private int coly = 0;
-
     // Körs när MainPage.fxml läses in
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -49,13 +46,29 @@ public class MainPageController implements Initializable {
         setupPurchasePage();
         setupReceiptPage();
         fillFood();
-        /*ShoppingItem itemz = new ShoppingItem(dataHandler.getProduct(10));
+        cart.addShoppingCartListener(this);
+        /*
+        ShoppingItem itemz = new ShoppingItem(dataHandler.getProduct(10));
         CartStepOneController cartFlow = new CartStepOneController(itemz, this);
-        mainPageRootAnchorPane.getChildren().add(cartFlow);*/
-        updateCart();
+        mainPageRootAnchorPane.getChildren().add(cartFlow);
+        */
     }
 
-    public void updateCart() {
+    @Override
+    public void shoppingCartChanged(CartEvent cartEvent) {
+        cartPanelView.getChildren().clear();
+        totalPrice.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
+        ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
+        for(ShoppingItem item: list){
+            if(item.getAmount() > 0){
+                CartItemController cartItem = new CartItemController(item);
+                cartPanelView.getChildren().add(cartItem);
+            }
+        }
+    }
+
+    /*
+    public vo{
         cartPanelView.getChildren().clear();
         totalPrice.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
         ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
@@ -66,6 +79,7 @@ public class MainPageController implements Initializable {
             }
         }
     }
+    */
 
     //TODO: Fill in these.
     private void setupAccountPage() {
@@ -86,15 +100,19 @@ public class MainPageController implements Initializable {
         registerAnchorPane.toBack();
     }
 
-    @FXML public void openRegisterView(){
+    @FXML
+    public void openRegisterView(){
         registerAnchorPane.toFront();
     }
 
-    @FXML public void openMainPageView(){
+    @FXML
+    public void openMainPageView(){
         mainborderPane.toFront();
     }
 
-    @FXML public void openPurchaseView(){
+    @FXML
+    public void openPurchaseView(){
+
     }
 
     // Testmetod
@@ -105,7 +123,7 @@ public class MainPageController implements Initializable {
 
     @FXML
     private void openProductDetailView(Product product) {
-        AnchorPane detailViewAnchorPane = new DetailViewController(product, this);
+        AnchorPane detailViewAnchorPane = new DetailViewController(product);
         mainPageRootAnchorPane.getChildren().add(detailViewAnchorPane);
         detailViewAnchorPane.toFront();
     }
@@ -124,22 +142,24 @@ public class MainPageController implements Initializable {
         int colY = 0;
         int rowX = 0;
         gridPane.getChildren().clear();
-        ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.BREAD);
-        for(Product product: productlist) {
-            ProductItemController productt = new ProductItemController(product, this);
-            gridPane.add(productt, colY, rowX);
+        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.BREAD);
+        for(Product product: productList) {
+            ProductItemController productItem = new ProductItemController(product);
+            gridPane.add(productItem, colY, rowX);
             colY++;
             if(colY == 2 ) {
                 colY = 0;
                 rowX++;
             }
         }
-        /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
+        /*
+        ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
         productItemsList.clear();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf("BREAD"));
         for(Product product : productList){
             productItemsList.add(new ProductItemController(product));
-        }*/
+        }
+        */
     }
 
     @FXML
@@ -148,23 +168,25 @@ public class MainPageController implements Initializable {
         int rowX = 0;
         gridPane.getChildren().clear();
         String text = searchBar.getText();
-        ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.findProducts(text);
-        for(Product product: productlist){
-            ProductItemController productt = new ProductItemController(product, this);
-            gridPane.add(productt, colY, rowX);
+        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.findProducts(text);
+        for(Product product: productList){
+            ProductItemController productItem = new ProductItemController(product);
+            gridPane.add(productItem, colY, rowX);
             colY++;
             if(colY == 2 ){
                 colY = 0;
                 rowX++;
             }
         }
-        /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
+        /*
+        ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
         productItemsList.clear();
         String text = searchBar.getText();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.findProducts(text);
         for(Product product : productList){
             productItemsList.add(new ProductItemController(product));
-        }*/
+        }
+        */
     }
 
     @FXML
@@ -172,28 +194,27 @@ public class MainPageController implements Initializable {
         int colY = 0;
         int rowX = 0;
         gridPane.getChildren().clear();
-        ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.favorites();
-        for(Product product: productlist){
-            ProductItemController productt = new ProductItemController(product, this);
-            gridPane.add(productt, colY, rowX);
+        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.favorites();
+        for(Product product: productList) {
+            ProductItemController productItem = new ProductItemController(product);
+            gridPane.add(productItem, colY, rowX);
             colY++;
             if(colY == 2) {
                 colY = 0;
                 rowX++;
             }
         }
-        updateCart();
     }
 
     @FXML
-    private void addToFavorite(ActionEvent event){
+    private void addToFavorite(ActionEvent event) {
         int colY = 0;
         int rowX = 0;
         gridPane.getChildren().clear();
-        ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.favorites();
-        for(Product product: productlist){
-            ProductItemController productt = new ProductItemController(product, this);
-            gridPane.add(productt, colY, rowX);
+        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.favorites();
+        for(Product product: productList) {
+            ProductItemController productItem = new ProductItemController(product);
+            gridPane.add(productItem, colY, rowX);
             colY++;
             if(colY == 2) {
                 colY = 0;
@@ -206,10 +227,10 @@ public class MainPageController implements Initializable {
     @FXML
     private void empty(){
         dataHandler.getShoppingCart().clear();
-        updateCart();
     }
 
-    /*private void fillStepOneCart(){
+    /*
+    private void fillStepOneCart(){
         cartFlowPane.getChildren().clear();
         ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
         for(ShoppingItem item: list){
@@ -220,10 +241,12 @@ public class MainPageController implements Initializable {
 
     private void emptyStepOneCart(){
         cartFlowPane.getChildren().clear();
-    }*/
+    }
+    */
 
     //TODO: Populera med rätt grejor tex. historiken.
     private void populateAccountWindow(Product product) {
+
     }
 
     //Fyller på flowpanen för att bygga all funktionalitet runt
@@ -232,21 +255,23 @@ public class MainPageController implements Initializable {
         int colX = 0;
         gridPane.getChildren().clear();
         cartPanelView.getChildren().clear();
-        ArrayList<Product> productlist = (ArrayList<Product>) dataHandler.getProducts();
-        for(Product product: productlist){
-            ProductItemController productt = new ProductItemController(product, this);
-            gridPane.add(productt, colY, colX);
+        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
+        for(Product product: productList){
+            ProductItemController productItem = new ProductItemController(product);
+            gridPane.add(productItem, colY, colX);
             colY++;
             if(colY == 2) {
                 colX++;
                 colY = 0;
             }
-        /*ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
+        /*
+        ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
         productItemsList.clear();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
         for(Product product: productList){
             productItemsList.add(new ProductItemController(product));
-        }*/
+        }
+        */
         }
     }
 }

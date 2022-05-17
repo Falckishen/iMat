@@ -61,8 +61,4 @@ public class CartStepOneController extends AnchorPane {
        // public void closeButtonMousePressed() {
        //     this.addedProduct.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus.png"))));
       //  }
-
-
-
-    }
-
+}

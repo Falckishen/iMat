@@ -15,12 +15,10 @@ import javafx.fxml.*;
 import javafx.scene.control.Button;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingCart;
 
 public class DetailViewController extends AnchorPane {
 
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
-    private final MainPageController mainPageController;
 
     private final ClassLoader classLoader = getClass().getClassLoader();
     private final Product product;
@@ -40,7 +38,7 @@ public class DetailViewController extends AnchorPane {
     @FXML private Button shoppingListButton;
     @FXML private ImageView shoppingListImage;
 
-    public DetailViewController(Product product, MainPageController mainPageController) {
+    public DetailViewController(Product product) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fmxl/DetailView.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -49,7 +47,6 @@ public class DetailViewController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        this.mainPageController = mainPageController;
         this.product = product;
         populateProductDetailView();
     }
@@ -156,14 +153,12 @@ public class DetailViewController extends AnchorPane {
     private void plusButtonClicked() {
         IMat.addOneToCart(this.product);
         this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
-        this.mainPageController.updateCart();
     }
 
     @FXML
     private void minusButtonClicked() {
         IMat.removeOneFromCart(this.product);
         this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
-        this.mainPageController.updateCart();
     }
 
     @FXML
@@ -171,7 +166,6 @@ public class DetailViewController extends AnchorPane {
         String strAmount = this.numOfItems.getText();
         IMat.writeInNumOfProductAmount(this.product, strAmount);
         this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
-        this.mainPageController.updateCart();
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/

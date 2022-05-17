@@ -14,7 +14,6 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 public class CartItemController extends AnchorPane {
 
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
-    private final MainPageController mainPageController;
 
     private final Product product;
     private double price;
@@ -24,7 +23,7 @@ public class CartItemController extends AnchorPane {
     @FXML private Text priceText;
     @FXML private Text numberOfProducts;
 
-    public CartItemController(ShoppingItem item, MainPageController mainPageController) {
+    public CartItemController(ShoppingItem item) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fmxl/cartItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -33,7 +32,6 @@ public class CartItemController extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        this.mainPageController = mainPageController;
         this.product = item.getProduct();
         this.price = this.product.getPrice()*item.getAmount();
         this.image.setImage(dataHandler.getFXImage(this.product));
@@ -44,11 +42,9 @@ public class CartItemController extends AnchorPane {
 
     @FXML public void minusButtonClicked(){
         IMat.removeOneFromCart(this.product);
-        mainPageController.updateCart();
     }
 
     @FXML public void plusButtonClicked(){
         IMat.addOneToCart(this.product);
-        mainPageController.updateCart();
     }
 }
