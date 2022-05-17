@@ -12,7 +12,7 @@
          <image>
             <Image url="@../../../download.jpg" />
          </image></ImageView>
-      <Text fx:id="nameofProduct" layoutX="180.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="God kyckling" wrappingWidth="106.78375244140625">
+      <Text fx:id="nameofProduct" layoutX="180.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="God kyckling" wrappingWidth="275.0">
          <font>
             <Font size="19.0" />
          </font></Text>

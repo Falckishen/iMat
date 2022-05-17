@@ -3,34 +3,40 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="115.0" maxWidth="290.0" minHeight="115.0" minWidth="290.0" prefHeight="115.0" prefWidth="290.0" style="-fx-background-color: #E1EFF2;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="115.0" maxWidth="300.0" minHeight="115.0" minWidth="305.0" prefHeight="115.0" prefWidth="300.0" style="-fx-background-color: #E1EFF2;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane maxHeight="5.0" maxWidth="290.0" minHeight="5.0" minWidth="290.0" prefHeight="5.0" prefWidth="290.0" style="-fx-background-color: #FCFAFA;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <ImageView fx:id="image" fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="10.0">
+      <AnchorPane maxHeight="5.0" minHeight="5.0" prefHeight="5.0" style="-fx-background-color: #FCFAFA;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" style="-fx-background-color: #FCFAFA;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane layoutX="20.0" layoutY="20.0" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" style="-fx-background-color: #FCFAFA;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <ImageView fx:id="image" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
          <image>
             <Image url="@../../../download.jpg" />
          </image></ImageView>
-      <Text fx:id="nameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Namn" wrappingWidth="170.0" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="10.0" />
-      <Text fx:id="priceText" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris" wrappingWidth="170.0" AnchorPane.leftAnchor="115.0" AnchorPane.topAnchor="30.0" />
-      <AnchorPane layoutX="146.0" layoutY="60.0" onMouseClicked="#minusButtonClicked" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #274156;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="125.0">
+      <Text fx:id="nameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Namn" wrappingWidth="170.0" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="10.0" />
+      <Text fx:id="priceText" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris" wrappingWidth="170.0" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="30.0" />
+      <AnchorPane layoutX="146.0" layoutY="60.0" onMouseClicked="#minusButtonClicked" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #274156;" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="60.0">
          <children>
-            <ImageView fx:id="removeProduct" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0">
+            <ImageView fx:id="removeProduct" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@../images/Wminus.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="183.0" layoutY="60.0" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #274156 #274156;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="160.0">
+      <AnchorPane layoutX="183.0" layoutY="60.0" minHeight="40.0" minWidth="60.0" prefHeight="40.0" prefWidth="60.0" style="-fx-background-color: #274156 #274156;" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="60.0">
          <children>
-            <Text fx:id="numberOfProducts" fill="WHITE" layoutX="25.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" underline="true" />
+            <Text fx:id="numberOfProducts" fill="WHITE" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" underline="true" wrappingWidth="60.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="248.0" layoutY="60.0" onMouseClicked="#plusButtonClicked" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #274156 #274156;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="225.0">
+      <AnchorPane layoutX="248.0" layoutY="60.0" onMouseClicked="#plusButtonClicked" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #274156 #274156;" AnchorPane.leftAnchor="245.0" AnchorPane.topAnchor="60.0">
          <children>
-            <ImageView fx:id="addProduct" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="addProduct" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@../images/Wplus.png" />
                </image>
