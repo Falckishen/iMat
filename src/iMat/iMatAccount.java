@@ -21,34 +21,51 @@ public class iMatAccount {
         this.paymentType = paymentType;
     };
 
-/*-------------------------------------------------------------------------------------------------------------------*/
+    public int getPostNumber() {
+        return postNumber;
+    }
 
-    private iMatAccount changeFirstName(String newFirstName) {
+    public int getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    public PaymentType getPaymentType() {
+        return paymentType;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public iMatAccount changeFirstName(String newFirstName) {
         return new iMatAccount(newFirstName, this.lastName, this.address, this.postNumber, this.telephoneNumber, this.paymentType);
     }
 
-    private iMatAccount changeLastName(String newLastName) {
+    public iMatAccount changeLastName(String newLastName) {
         return new iMatAccount(this.firstName, newLastName, this.address, this.postNumber, this.telephoneNumber, this.paymentType);
     }
 
-    private iMatAccount changeAddress(String newAddress) {
+    public iMatAccount changeAddress(String newAddress) {
         return new iMatAccount(this.firstName, this.lastName, newAddress, this.postNumber, this.telephoneNumber, this.paymentType);
     }
 
-    private iMatAccount changePostNumber(int newPostNumber) {
+    public iMatAccount changePostNumber(int newPostNumber) {
         return new iMatAccount(this.firstName, this.lastName, this.address, newPostNumber, this.telephoneNumber, this.paymentType);
     }
 
-    private iMatAccount changeTelephoneNumber(int newTelephoneNumber) {
+    public iMatAccount changeTelephoneNumber(int newTelephoneNumber) {
         return new iMatAccount(this.firstName, this.lastName, this.address, this.postNumber, newTelephoneNumber, this.paymentType);
     }
 
-    private iMatAccount changePaymentType(PaymentType newPaymentType) {
+    public iMatAccount changePaymentType(PaymentType newPaymentType) {
         return new iMatAccount(this.firstName, this.lastName, this.address, this.postNumber, this.telephoneNumber, newPaymentType);
-    }
-
-    private enum PaymentType {
-        CARD,
-        INVOICE
     }
 }
