@@ -34,9 +34,9 @@
          <font>
             <Font size="19.0" />
          </font></Text>
-      <AnchorPane layoutX="130.0" layoutY="235.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #395d77 #395d77;">
+      <AnchorPane layoutX="130.0" layoutY="235.0" onMouseClicked="#removeFromCart" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #395d77 #395d77;">
          <children>
-            <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#removefromCart" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@../images/Wminus.png" />
                </image>
@@ -51,9 +51,9 @@
                </font></Text>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="289.0" layoutY="235.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #395d77 #395d77;">
+      <AnchorPane layoutX="289.0" layoutY="235.0" onMouseClicked="#plusButton" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #395d77 #395d77;">
          <children>
-            <ImageView fx:id="addtocartButton" fitHeight="40.0" fitWidth="40.0" layoutY="-1.0" onMouseClicked="#plusbutton" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ImageView fx:id="addtocartButton" fitHeight="40.0" fitWidth="40.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@../images/Wplus.png" />
                </image>

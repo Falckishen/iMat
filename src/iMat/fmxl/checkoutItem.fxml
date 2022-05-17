@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root fx:id="kassaItemAnchorPane" prefHeight="70.0" prefWidth="433.0" style="-fx-background-color: #FCFAFA;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="kassaItemAnchorPane" prefHeight="70.0" prefWidth="433.0" style="-fx-background-color: #FCFAFA;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <SplitPane dividerPositions="0.5" layoutX="302.0" prefHeight="195.0" prefWidth="503.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
@@ -30,9 +30,9 @@
                   </Text>
                   <HBox prefHeight="0.0" prefWidth="247.0" spacing="5.0">
                      <children>
-                        <AnchorPane prefHeight="40.0" prefWidth="0.0" style="-fx-background-color: #274156;">
+                        <AnchorPane onMouseClicked="#removeFromCart" prefHeight="40.0" prefWidth="0.0" style="-fx-background-color: #274156;">
                            <children>
-                              <ImageView fx:id="minus" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#removefromCart" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="minus" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/Wminus.png" />
                                  </image>
@@ -52,9 +52,9 @@
                               </Pane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #274156;">
+                        <AnchorPane onMouseClicked="#addToCart" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #274156;">
                            <children>
-                              <ImageView fx:id="plus" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#addtoCart" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="plus" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/Wplus.png" />
                                  </image>
