@@ -18,6 +18,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
     private final ShoppingCart cart = dataHandler.getShoppingCart();
+    private iMatAccount account;
 
     @FXML private AnchorPane mainPageRootAnchorPane;
     @FXML private FlowPane productItemsFlowpane;
@@ -45,13 +46,9 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         setupAccountPage();
         setupPurchasePage();
         setupReceiptPage();
+        createAccount();
         fillFood();
         cart.addShoppingCartListener(this);
-        /*
-        ShoppingItem itemz = new ShoppingItem(dataHandler.getProduct(10));
-        CartStepOneController cartFlow = new CartStepOneController(itemz, this);
-        mainPageRootAnchorPane.getChildren().add(cartFlow);
-        */
     }
 
     @Override
@@ -80,6 +77,10 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         }
     }
     */
+
+    private void createAccount() {
+        account = new iMatAccount("", "", "", 0, 0, PaymentType.NONE);
+    }
 
     //TODO: Fill in these.
     private void setupAccountPage() {

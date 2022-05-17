@@ -43,9 +43,4 @@ public class iMatAccount {
     public iMatAccount changePaymentType(PaymentType newPaymentType) {
         return new iMatAccount(this.firstName, this.lastName, this.address, this.postNumber, this.telephoneNumber, newPaymentType);
     }
-
-    private enum PaymentType {
-        CARD,
-        INVOICE
-    }
 }
