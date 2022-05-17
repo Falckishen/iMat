@@ -45,7 +45,9 @@ public class IMat extends Application {
         return cart;
     }
 
-    // Tar en produkt som argument, retunerar antalet av denna produkt som finns i varukorgen
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+    // Tar en produkt som argument, returnera antalet av denna produkt som finns i varukorgen
     public static double getNumberOfAProductInCart(Product product) {
         double numOfProductInCart = 0;
         List<ShoppingItem> listOfShoppingItems = cart.getItems();

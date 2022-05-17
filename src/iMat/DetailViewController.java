@@ -51,6 +51,8 @@ public class DetailViewController extends AnchorPane {
         populateProductDetailView();
     }
 
+/*-------------------------------------------------------------------------------------------------------------------*/
+
     @FXML
     private void closeButtonMouseEntered() {
         this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_hover.png"))));

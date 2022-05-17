@@ -4,6 +4,7 @@ package iMat;
  * Account-class with names, address information and payment information.
  */
 public class iMatAccount {
+
     private final String firstName;
     private final String lastName;
     private final String address;
@@ -20,27 +21,29 @@ public class iMatAccount {
         this.paymentType = paymentType;
     };
 
-    public iMatAccount changeFirstName(String newFirstName) {
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+    private iMatAccount changeFirstName(String newFirstName) {
         return new iMatAccount(newFirstName, this.lastName, this.address, this.postNumber, this.telephoneNumber, this.paymentType);
     }
 
-    public iMatAccount changeLastName(String newLastName) {
+    private iMatAccount changeLastName(String newLastName) {
         return new iMatAccount(this.firstName, newLastName, this.address, this.postNumber, this.telephoneNumber, this.paymentType);
     }
 
-    public iMatAccount changeAddress(String newAddress) {
+    private iMatAccount changeAddress(String newAddress) {
         return new iMatAccount(this.firstName, this.lastName, newAddress, this.postNumber, this.telephoneNumber, this.paymentType);
     }
 
-    public iMatAccount changePostNumber(int newPostNumber) {
+    private iMatAccount changePostNumber(int newPostNumber) {
         return new iMatAccount(this.firstName, this.lastName, this.address, newPostNumber, this.telephoneNumber, this.paymentType);
     }
 
-    public iMatAccount changeTelephoneNumber(int newTelephoneNumber) {
+    private iMatAccount changeTelephoneNumber(int newTelephoneNumber) {
         return new iMatAccount(this.firstName, this.lastName, this.address, this.postNumber, newTelephoneNumber, this.paymentType);
     }
 
-    public iMatAccount changePaymentType(PaymentType newPaymentType) {
+    private iMatAccount changePaymentType(PaymentType newPaymentType) {
         return new iMatAccount(this.firstName, this.lastName, this.address, this.postNumber, this.telephoneNumber, newPaymentType);
     }
 

@@ -23,8 +23,10 @@ public class AccountWindowController extends AnchorPane {
         }
     }
 
+/*-------------------------------------------------------------------------------------------------------------------*/
+
     @FXML
-    public void closeAccountWindow() {
+    private void closeAccountWindow() {
         this.accountWindowAnchorPane.toBack();
     }
 }

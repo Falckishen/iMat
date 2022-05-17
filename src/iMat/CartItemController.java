@@ -40,11 +40,15 @@ public class CartItemController extends AnchorPane {
         this.numberOfProducts.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
     }
 
-    @FXML public void minusButtonClicked(){
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+    @FXML
+    private void minusButtonClicked(){
         IMat.removeOneFromCart(this.product);
     }
 
-    @FXML public void plusButtonClicked(){
+    @FXML
+    private void plusButtonClicked(){
         IMat.addOneToCart(this.product);
     }
 }
