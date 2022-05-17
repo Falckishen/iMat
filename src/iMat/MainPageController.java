@@ -259,9 +259,9 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     private void updateCart() {
         this.cartPanelView.getChildren().clear();
-        this.totalPrice.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()));
+        this.totalPrice.setText(String.format("Pris: %.2f", dataHandler.getShoppingCart().getTotal()));
         ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) dataHandler.getShoppingCart().getItems();
-        for(ShoppingItem item: list){
+        for(ShoppingItem item: list) {
             if(item.getAmount() > 0){
                 CartItemController cartItem = new CartItemController(item);
                 this.cartPanelView.getChildren().add(cartItem);
