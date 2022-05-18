@@ -74,12 +74,7 @@ public class DetailViewController extends AnchorPane {
     }
 
     @FXML
-    private void plusButtonMousePressed(){
-        this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus.png"))));
-    }
-
-    @FXML
-    private void plusButtonMouseExited(){
+    private void plusButtonMousePressedOrExited(){
         this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus.png"))));
     }
 
@@ -89,12 +84,7 @@ public class DetailViewController extends AnchorPane {
     }
 
     @FXML
-    private void minusButtonMousePressed(){
-        this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/minus.png"))));
-    }
-
-    @FXML
-    private void minusButtonMouseExited(){
+    private void minusButtonMousePressedOrExited(){
         this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/minus.png"))));
     }
 

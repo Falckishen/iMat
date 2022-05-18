@@ -30,7 +30,7 @@
          <font>
             <Font size="19.0" />
          </font></Text>
-      <AnchorPane layoutX="130.0" layoutY="235.0" onMouseClicked="#removeFromCart" onMouseEntered="#minusButtonMouseEntered" onMouseExited="#minusButtonMouseExited" onMousePressed="#minusButtonMousePressed" onMouseReleased="#minusButtonMouseExited" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #395d77 #395d77;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="140.0">
+      <AnchorPane layoutX="130.0" layoutY="235.0" onMouseClicked="#removeFromCart" onMouseEntered="#minusButtonMouseEntered" onMouseExited="#minusButtonMouseExited" onMouseReleased="#minusButtonMouseEntered" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #395d77 #395d77;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="140.0">
          <children>
             <ImageView fx:id="minusImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
@@ -47,7 +47,7 @@
                </font></Text>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="289.0" layoutY="235.0" onMouseClicked="#plusButton" onMouseEntered="#plusButtonMouseEntered" onMouseExited="#plusButtonMouseExited" onMousePressed="#plusButtonMousePressed" onMouseReleased="#plusButtonMouseExited" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #395d77 #395d77;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="140.0">
+      <AnchorPane layoutX="289.0" layoutY="235.0" onMouseClicked="#plusButton" onMouseEntered="#plusButtonMouseEntered" onMouseExited="#plusButtonMouseExited" onMouseReleased="#plusButtonMouseEntered" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #395d77 #395d77;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="140.0">
          <children>
             <ImageView fx:id="plusImage" fitHeight="40.0" fitWidth="40.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>

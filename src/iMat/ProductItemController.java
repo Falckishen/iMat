@@ -112,22 +112,12 @@ public class ProductItemController extends AnchorPane {
     }
 
     @FXML
-    private void plusButtonMousePressed(){
-        this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus_hover.png"))));
-    }
-
-    @FXML
     private void plusButtonMouseExited(){
         this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/WhitePlus.png"))));
     }
 
     @FXML
     private void minusButtonMouseEntered(){
-        this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/minus_hover.png"))));
-    }
-
-    @FXML
-    private void minusButtonMousePressed(){
         this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/minus_hover.png"))));
     }
 
