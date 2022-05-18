@@ -24,7 +24,7 @@ public class CartItemController extends AnchorPane {
     @FXML private Text numberOfProducts;
 
     public CartItemController(ShoppingItem item) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fmxl/cartItem.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/cartItem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {

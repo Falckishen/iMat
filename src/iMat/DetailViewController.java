@@ -19,6 +19,7 @@ import se.chalmers.cse.dat216.project.Product;
 public class DetailViewController extends AnchorPane {
 
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
+    private final MainPageController mainPageController;
 
     private final ClassLoader classLoader = getClass().getClassLoader();
     private final Product product;
@@ -35,11 +36,9 @@ public class DetailViewController extends AnchorPane {
     @FXML private ImageView minusImage;
     @FXML private Button favoriteButton;
     @FXML private ImageView favoriteImage;
-    @FXML private Button shoppingListButton;
-    @FXML private ImageView shoppingListImage;
 
-    public DetailViewController(Product product) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fmxl/DetailView.fxml"));
+    public DetailViewController(Product product, MainPageController mainPageController) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/DetailView.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {
@@ -48,6 +47,7 @@ public class DetailViewController extends AnchorPane {
             throw new RuntimeException(exception);
         }
         this.product = product;
+        this.mainPageController = mainPageController;
         populateProductDetailView();
     }
 
@@ -114,21 +114,6 @@ public class DetailViewController extends AnchorPane {
     }
 
     @FXML
-    private void shoppingListButtonMouseEntered() {
-        this.shoppingListButton.setStyle("-fx-background-color: #f0f0f0;");
-    }
-
-    @FXML
-    private void shoppingListButtonMousePressed() {
-        this.shoppingListButton.setStyle("-fx-background-color: #d0d0d0;");
-    }
-
-    @FXML
-    private void shoppingListButtonMouseExitedOrReleased() {
-        this.shoppingListButton.setStyle("-fx-background-color: #e0e0e0;");
-    }
-
-    @FXML
     private void mouseTrap(Event event) {
         event.consume();
     }
@@ -149,6 +134,7 @@ public class DetailViewController extends AnchorPane {
             dataHandler.addFavorite(this.product);
         }
         updateFavoriteButton();
+        this.mainPageController.updateProductItemFavoriteButtons();
     }
 
     @FXML

@@ -27,7 +27,7 @@ public class CartStepOneController extends AnchorPane {
         @FXML private ImageView minus;
 
         public CartStepOneController(ShoppingItem item, MainPageController mainPageController) {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fmxl/checkoutItem.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/checkoutItem.fxml"));
             fxmlLoader.setRoot(this);
             fxmlLoader.setController(this);
             try {

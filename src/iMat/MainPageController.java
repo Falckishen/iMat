@@ -20,6 +20,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     private final ShoppingCart cart = dataHandler.getShoppingCart();
     private iMatAccount account;
 
+    private final ArrayList<ProductItemController> productItemsList = new ArrayList<ProductItemController>();
     private AnchorPane registerAnchorPane;
     private AnchorPane purchaseAnchorPane;
     private AnchorPane receiptAnchorPane;
@@ -54,7 +55,8 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
         updateCart();
-        //fillFood();
+        updateProductItems();
+        System.out.println("shoppingCartChanged");
     }
 
     /*
@@ -71,18 +73,20 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
     */
 
-    private void createAccount() {
-        this.account = new iMatAccount("", "", "", 0, 0, PaymentType.NONE);
-    }
-
     public void changeAccount(iMatAccount newAccount) {
         this.account = newAccount;
     }
 
     public void openProductDetailView(Product product) {
-        AnchorPane detailViewAnchorPane = new DetailViewController(product);
+        AnchorPane detailViewAnchorPane = new DetailViewController(product, this);
         this.mainPageRootAnchorPane.getChildren().add(detailViewAnchorPane);
         detailViewAnchorPane.toFront();
+    }
+
+    public void updateProductItemFavoriteButtons(){
+        for(ProductItemController productItemController : this.productItemsList) {
+            productItemController.updateFavoriteButton();
+        }
     }
 
     @FXML
@@ -112,7 +116,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     /* Knappar below tänker att den fungerar som den ska, fortsätter på allt annat och återvänder till det här när mera
     är färdigt, hoppas det är okej.*/
     @FXML
-    private void searchForBread(ActionEvent event) {
+    private void searchForBread() {
         int colY = 0;
         int rowX = 0;
         this.gridPane.getChildren().clear();
@@ -137,7 +141,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
 
     @FXML
-    private void searchBar(ActionEvent event) {
+    private void searchBar() {
         int colY = 0;
         int rowX = 0;
         this.gridPane.getChildren().clear();
@@ -181,7 +185,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
 
     @FXML
-    private void addToFavorite(ActionEvent event) {
+    private void addToFavorite() {
         int colY = 0;
         int rowX = 0;
         this.gridPane.getChildren().clear();
@@ -234,6 +238,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         for(Product product: productList){
             ProductItemController productItem = new ProductItemController(product, this);
             this.gridPane.add(productItem, colY, colX);
+            this.productItemsList.add(productItem);
             colY++;
             if(colY == 2) {
                 colX++;
@@ -251,6 +256,9 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
 
     private void updateProductItems() {
+        for(ProductItemController productItemController : this.productItemsList) {
+            productItemController.updateNumberOfProductsText();
+        }
     }
 
     private void updateCart() {
@@ -282,5 +290,9 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         this.registerAnchorPane = new RegisterController(this);
         this.mainPageRootAnchorPane.getChildren().add(this.registerAnchorPane);
         this.registerAnchorPane.toBack();
+    }
+
+    private void createAccount() {
+        this.account = new iMatAccount("", "", "", 0, 0, PaymentType.NONE);
     }
 }

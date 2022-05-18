@@ -23,7 +23,7 @@ public class AccountWindowController extends AnchorPane {
     private iMatAccount account;
 
     public AccountWindowController(MainPageController mainPageController, iMatAccount account) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fmxl/AccountWindow.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/AccountWindow.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {

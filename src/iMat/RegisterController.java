@@ -24,7 +24,7 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
     @FXML GridPane registerGridPane;
 
     public RegisterController(MainPageController mainPageController) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fmxl/RegisterPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/RegisterPage.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {
