@@ -69,4 +69,11 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
     private void openMainPageView() throws IOException{
         this.mainPageController.openMainPageView();
     }
+
+    @FXML
+    private void openRegisterstep2() throws IOException{
+        this.mainPageController.openRegisterstep2View();
+    }
+
+
 }
