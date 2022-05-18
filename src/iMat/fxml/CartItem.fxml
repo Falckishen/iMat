@@ -8,9 +8,6 @@
 
 <fx:root maxHeight="115.0" maxWidth="300.0" minHeight="115.0" minWidth="305.0" onMouseClicked="#openDetailView" prefHeight="115.0" prefWidth="300.0" styleClass="object-item" stylesheets="@../css/basic-pliancy-testing.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane maxHeight="5.0" minHeight="5.0" prefHeight="5.0" style="-fx-background-color: #FCFAFA;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane layoutX="10.0" layoutY="10.0" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" style="-fx-background-color: #FCFAFA;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane layoutX="20.0" layoutY="20.0" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" style="-fx-background-color: #FCFAFA;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <ImageView fx:id="image" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
          <image>
             <Image url="@../../../download.jpg" />

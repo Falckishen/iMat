@@ -1,7 +1,7 @@
 package iMat;
 
 /**
- * Account-class with names, address information and payment information.
+ * Account-class with names, address information and payment information. Object should be immutable.
  */
 public class iMatAccount {
 
@@ -21,6 +21,10 @@ public class iMatAccount {
         this.paymentType = paymentType;
     };
 
+    /**
+     * Public get-ers for the attributes.
+     * @return the chosen attribute value.
+     */
     public int getPostNumber() {
         return postNumber;
     }
@@ -45,6 +49,10 @@ public class iMatAccount {
         return lastName;
     }
 
+    /**
+     * Public set-ers. Safe-sets the attributes - for immutability.
+     * @return new account with changed attribute.
+     */
     public iMatAccount changeFirstName(String newFirstName) {
         return new iMatAccount(newFirstName, this.lastName, this.address, this.postNumber, this.telephoneNumber, this.paymentType);
     }

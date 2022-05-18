@@ -26,3 +26,9 @@
     -fx-border-width: 0;
     -fx-border-color: transparent;
 }
+
+.categorizes {
+    -fx-background-color: #F3F0F0;
+    -fx-border-width: 2;
+    -fx-border-color: #FCFAFA;
+}
