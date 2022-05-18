@@ -1,0 +1,32 @@
+.static-object-hinting{
+-fx-border-width: 1px;
+-fx-border-color: #999999;
+-fx-border-radius: 1px;
+-fx-background-radius: 1px;}
+
+.object-item{
+    -fx-background-color: #E1EFF2;
+}
+
+.object-item:hover{
+    -fx-background-color: #395D77 ;
+}
+
+.object-item:pressed{
+    -fx-background-color: #D0D0D0;
+}
+
+
+.main-item{
+    -fx-background-color: #FCFAFA;
+}
+
+.main-item:hover{
+    -fx-background-color: #F0F0F0 ;
+}
+
+.main-item:pressed{
+    -fx-background-color: #D0D0D0;
+}
+
+
