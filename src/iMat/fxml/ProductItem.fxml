@@ -1,66 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root onMouseClicked="#openDetailView" prefHeight="310.0" prefWidth="480.0" styleClass="main-item" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root onMouseClicked="#openDetailView" prefHeight="277.0" prefWidth="401.0" styleClass="main-item" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="image" fitWidth="200.0" layoutX="143.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="145.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="35.0">
-         <image>
-            <Image url="@../../../../../.dat215/iMat/images/product_1.jpg" />
-         </image></ImageView>
-      <Text fx:id="nameOfProduct" layoutX="180.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="God kyckling" wrappingWidth="275.0" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="190.0">
-         <font>
-            <Font size="19.0" />
-         </font></Text>
-      <Button fx:id="favoriteButton" alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" graphicTextGap="0.0" layoutX="42.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#favoriteButtonClicked" onMouseEntered="#favoriteButtonMouseEntered" onMouseExited="#favoriteButtonMouseExitedOrReleased" onMousePressed="#favoriteButtonMousePressed" onMouseReleased="#favoriteButtonMouseExitedOrReleased" prefHeight="40.0" prefWidth="40.0" scaleShape="false" styleClass="favoriteButton" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="140.0">
-         <graphic>
-            <ImageView fx:id="favoriteImage" fitHeight="35.0" fitWidth="35.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/starUnselected.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Text fx:id="priceOfItem" layoutX="177.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="19,99 kr/st" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="0.0">
-         <font>
-            <Font size="19.0" />
-         </font></Text>
-      <AnchorPane layoutX="130.0" layoutY="235.0" onMouseClicked="#removeFromCart" onMouseEntered="#minusButtonMouseEntered" onMouseExited="#minusButtonMouseExited" onMouseReleased="#minusButtonMouseEntered" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #395d77 #395d77;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="140.0">
+      <StackPane prefHeight="313.0" prefWidth="401.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="minusImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <image>
-                  <Image url="@../images/WhiteMinus.png" />
-               </image>
-            </ImageView>
+            <AnchorPane>
+               <children>
+                  <Button fx:id="favoriteButton" alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" graphicTextGap="0.0" layoutX="14.0" layoutY="176.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#favoriteButtonClicked" onMouseEntered="#favoriteButtonMouseEntered" onMouseExited="#favoriteButtonMouseExitedOrReleased" onMousePressed="#favoriteButtonMousePressed" onMouseReleased="#favoriteButtonMouseExitedOrReleased" prefHeight="40.0" prefWidth="40.0" scaleShape="false" styleClass="favoriteButton" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="176.0">
+                     <graphic>
+                        <ImageView fx:id="favoriteImage" fitHeight="35.0" fitWidth="35.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/starUnselected.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
-      </AnchorPane>
-      <AnchorPane layoutX="180.0" layoutY="235.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #395d77 #395d77;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="190.0">
-         <children>
-            <Text fx:id="numberOfProductsText" fill="WHITE" layoutX="-1.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="99.9" textAlignment="CENTER" underline="true" wrappingWidth="100.0">
-               <font>
-                  <Font size="19.0" />
-               </font></Text>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="289.0" layoutY="235.0" onMouseClicked="#plusButton" onMouseEntered="#plusButtonMouseEntered" onMouseExited="#plusButtonMouseExited" onMouseReleased="#plusButtonMouseEntered" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #395d77 #395d77;" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="140.0">
-         <children>
-            <ImageView fx:id="plusImage" fitHeight="40.0" fitWidth="40.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <image>
-                  <Image url="@../images/WhitePlus.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <AnchorPane prefWidth="15.0" style="-fx-background-color: #F3F0F0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane layoutX="460.0" prefWidth="15.0" style="-fx-background-color: #F3F0F0;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane prefHeight="15.0" style="-fx-background-color: #F3F0F0;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane layoutY="300.0" prefHeight="15.0" style="-fx-background-color: #F3F0F0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      </StackPane>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <bottom>
+            <AnchorPane prefHeight="0.0" prefWidth="401.0" BorderPane.alignment="TOP_CENTER">
+               <children>
+                  <Button fx:id="minus" layoutX="96.0" layoutY="3.0" minWidth="50.0" mnemonicParsing="false" onAction="#removeFromCart" prefHeight="40.0" prefWidth="50.0" stylesheets="@../css/BlueButton.css" AnchorPane.leftAnchor="96.0" AnchorPane.topAnchor="3.0">
+                     <graphic>
+                        <ImageView fx:id="minusImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/WhiteMinus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="256.0" layoutY="3.0" minWidth="50.0" mnemonicParsing="false" onAction="#plusButton" prefHeight="40.0" prefWidth="50.0" stylesheets="@../css/BlueButton.css" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="3.0">
+                     <graphic>
+                        <ImageView fx:id="plusImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/WhitePlus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <AnchorPane layoutX="151.0" layoutY="3.0" prefHeight="41.0" prefWidth="100.0" style="-fx-background-color: #559CAD;" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="3.0">
+                     <children>
+                        <Text fx:id="numberOfProductsText" fill="WHITE" layoutX="1.0" layoutY="28.740234375" strokeType="OUTSIDE" strokeWidth="0.0" text="99.9" textAlignment="CENTER" underline="true" wrappingWidth="100.0" AnchorPane.bottomAnchor="5.73828125" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="5.0">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </AnchorPane>
+         </bottom>
+         <center>
+            <VBox alignment="TOP_CENTER" prefHeight="216.0" prefWidth="395.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="image" fitHeight="150.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../.dat215/iMat/images/product_1.jpg" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="nameOfProduct" strokeType="OUTSIDE" strokeWidth="0.0" text="God kyckling" textAlignment="CENTER" wrappingWidth="256.24609375">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="priceOfItem" strokeType="OUTSIDE" strokeWidth="0.0" text="19,99 kr/st" textAlignment="CENTER" wrappingWidth="264.24609375">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </center>
+      </BorderPane>
    </children>
    <stylesheets>
       <URL value="@../css/ProductItem.css" />
