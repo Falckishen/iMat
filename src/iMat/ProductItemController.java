@@ -106,7 +106,6 @@ public class ProductItemController extends AnchorPane {
         this.favoriteButton.setStyle("-fx-background-color: #e0e0e0;");
     }
 
-
     @FXML
     private void plusButtonMouseEntered(){
         this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus_hover.png"))));
