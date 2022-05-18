@@ -54,6 +54,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
         updateCart();
+        //fillFood();
     }
 
     /*
@@ -78,6 +79,12 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         this.account = newAccount;
     }
 
+    public void openProductDetailView(Product product) {
+        AnchorPane detailViewAnchorPane = new DetailViewController(product);
+        this.mainPageRootAnchorPane.getChildren().add(detailViewAnchorPane);
+        detailViewAnchorPane.toFront();
+    }
+
     @FXML
     public void openMainPageView(){
         this.mainborderPane.toFront();
@@ -93,19 +100,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @FXML
     private void openRegisterView(){
         this.registerAnchorPane.toFront();
-    }
-
-    // Testmetod
-    @FXML
-    private void openDetailViewButton() {
-        openProductDetailView(dataHandler.getProduct(75));
-    }
-
-    @FXML
-    private void openProductDetailView(Product product) {
-        AnchorPane detailViewAnchorPane = new DetailViewController(product);
-        this.mainPageRootAnchorPane.getChildren().add(detailViewAnchorPane);
-        detailViewAnchorPane.toFront();
     }
 
     @FXML
@@ -124,7 +118,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         this.gridPane.getChildren().clear();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.BREAD);
         for(Product product: productList) {
-            ProductItemController productItem = new ProductItemController(product);
+            ProductItemController productItem = new ProductItemController(product, this);
             this.gridPane.add(productItem, colY, rowX);
             colY++;
             if(colY == 2 ) {
@@ -137,7 +131,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         productItemsList.clear();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf("BREAD"));
         for(Product product : productList){
-            productItemsList.add(new ProductItemController(product));
+            productItemsList.add(new ProductItemController(product, this));
         }
         */
     }
@@ -150,7 +144,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         String text = this.searchBar.getText();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.findProducts(text);
         for(Product product: productList){
-            ProductItemController productItem = new ProductItemController(product);
+            ProductItemController productItem = new ProductItemController(product, this);
             this.gridPane.add(productItem, colY, rowX);
             colY++;
             if(colY == 2 ){
@@ -164,7 +158,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         String text = searchBar.getText();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.findProducts(text);
         for(Product product : productList){
-            productItemsList.add(new ProductItemController(product));
+            productItemsList.add(new ProductItemController(product, this));
         }
         */
     }
@@ -176,7 +170,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         this.gridPane.getChildren().clear();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.favorites();
         for(Product product: productList) {
-            ProductItemController productItem = new ProductItemController(product);
+            ProductItemController productItem = new ProductItemController(product, this);
             this.gridPane.add(productItem, colY, rowX);
             colY++;
             if(colY == 2) {
@@ -193,7 +187,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         this.gridPane.getChildren().clear();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.favorites();
         for(Product product: productList) {
-            ProductItemController productItem = new ProductItemController(product);
+            ProductItemController productItem = new ProductItemController(product, this);
             this.gridPane.add(productItem, colY, rowX);
             colY++;
             if(colY == 2) {
@@ -231,7 +225,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     }
 
-    //Fyller på flowpanen för att bygga all funktionalitet runt
     private void fillFood() {
         int colY = 0;
         int colX = 0;
@@ -239,7 +232,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         this.cartPanelView.getChildren().clear();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
         for(Product product: productList){
-            ProductItemController productItem = new ProductItemController(product);
+            ProductItemController productItem = new ProductItemController(product, this);
             this.gridPane.add(productItem, colY, colX);
             colY++;
             if(colY == 2) {
@@ -251,10 +244,13 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         productItemsList.clear();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
         for(Product product: productList){
-            productItemsList.add(new ProductItemController(product));
+            productItemsList.add(new ProductItemController(product, this));
         }
         */
         }
+    }
+
+    private void updateProductItems() {
     }
 
     private void updateCart() {
@@ -282,7 +278,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     }
 
-    private void setupRegisterPage(){
+    private void setupRegisterPage() {
         this.registerAnchorPane = new RegisterController(this);
         this.mainPageRootAnchorPane.getChildren().add(this.registerAnchorPane);
         this.registerAnchorPane.toBack();

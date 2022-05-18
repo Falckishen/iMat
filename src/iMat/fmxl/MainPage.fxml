@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
+<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
       <BorderPane fx:id="mainborderPane" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: FFFFFF;">
          <top>
@@ -31,7 +31,6 @@
                      </font>
                   </TextField>
                   <Button fx:id="btnTestKonto" layoutX="1107.0" layoutY="48.0" mnemonicParsing="false" onAction="#openAccountWindow" text="Button" />
-                  <Button layoutX="1189.0" layoutY="79.0" mnemonicParsing="false" onAction="#openDetailViewButton" text="DetailView Test" />
                   <Button fx:id="emptyCart" layoutX="1411.0" layoutY="48.0" mnemonicParsing="false" onAction="#empty" text="TÖM KASSA" />
                </children>
             </AnchorPane>
