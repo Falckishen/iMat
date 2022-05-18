@@ -56,7 +56,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     public void shoppingCartChanged(CartEvent cartEvent) {
         updateCart();
         updateProductItems();
-        System.out.println("shoppingCartChanged");
     }
 
     /*
@@ -267,7 +266,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         List<ShoppingItem> listOfShoppingItems = cart.getItems();
         for(ShoppingItem item: listOfShoppingItems) {
             if(item.getAmount() > 0) {
-                CartItemController cartItem = new CartItemController(item);
+                CartItemController cartItem = new CartItemController(item, this);
                 this.cartPanelView.getChildren().add(cartItem);
             }
         }

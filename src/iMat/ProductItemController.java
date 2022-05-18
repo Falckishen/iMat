@@ -18,9 +18,8 @@ import se.chalmers.cse.dat216.project.Product;
 public class ProductItemController extends AnchorPane {
 
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
-    private final MainPageController mainPageController;
     private final ClassLoader classLoader = getClass().getClassLoader();
-
+    private final MainPageController mainPageController;
     private final Product product;
 
     @FXML private ImageView image;
@@ -29,6 +28,8 @@ public class ProductItemController extends AnchorPane {
     @FXML private Text nameOfProduct;
     @FXML private Text priceOfItem;
     @FXML private Text numberOfProductsText;
+    @FXML private ImageView plusImage;
+    @FXML private ImageView minusImage;
 
     public ProductItemController(Product product, MainPageController mainPageController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/ProductItem.fxml"));
@@ -103,6 +104,36 @@ public class ProductItemController extends AnchorPane {
     @FXML
     private void favoriteButtonMouseExitedOrReleased() {
         this.favoriteButton.setStyle("-fx-background-color: #e0e0e0;");
+    }
+
+    @FXML
+    private void plusButtonMouseEntered(){
+        this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus_hover.png"))));
+    }
+
+    @FXML
+    private void plusButtonMousePressed(){
+        this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus_hover.png"))));
+    }
+
+    @FXML
+    private void plusButtonMouseExited(){
+        this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/WhitePlus.png"))));
+    }
+
+    @FXML
+    private void minusButtonMouseEntered(){
+        this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/minus_hover.png"))));
+    }
+
+    @FXML
+    private void minusButtonMousePressed(){
+        this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/minus_hover.png"))));
+    }
+
+    @FXML
+    private void minusButtonMouseExited(){
+        this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/WhiteMinus.png"))));
     }
 
     private void populateProductItem(Product product) {

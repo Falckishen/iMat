@@ -34,7 +34,7 @@
                            <children>
                               <ImageView fx:id="minus" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/Wminus.png" />
+                                    <Image url="@../images/WhiteMinus.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -43,9 +43,9 @@
                            <children>
                               <Pane prefHeight="40.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Text fx:id="numberofProducts" fill="WHITE" layoutX="23.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" underline="true" wrappingWidth="54.0">
+                                    <Text fx:id="numberofProducts" fill="WHITE" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="99.99" textAlignment="CENTER" underline="true" wrappingWidth="100.0">
                                        <font>
-                                          <Font size="34.0" />
+                                          <Font size="32.0" />
                                        </font>
                                     </Text>
                                  </children>
@@ -56,7 +56,7 @@
                            <children>
                               <ImageView fx:id="plus" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/Wplus.png" />
+                                    <Image url="@../images/WhitePlus.png" />
                                  </image>
                               </ImageView>
                            </children>
