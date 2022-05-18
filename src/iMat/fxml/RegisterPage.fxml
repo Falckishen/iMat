@@ -87,7 +87,7 @@
                                     <Label id="registerTextAmount" fx:id="totalPrice" text="1000,00 kr" />
                                  </children>
                               </VBox>
-                              <Button fx:id="toPurchaseButton" alignment="CENTER" mnemonicParsing="false" onAction="#openPurchaseView" prefHeight="48.0" prefWidth="169.0" stylesheets="@../css/GreenButton.css" text="Vidare till Köp" />
+                              <Button fx:id="toPurchaseButton" alignment="CENTER" mnemonicParsing="false" onAction="#openRegisterstep2" prefHeight="48.0" prefWidth="169.0" stylesheets="@../css/GreenButton.css" text="Vidare till Köp" />
                            </children>
                            <VBox.margin>
                               <Insets />

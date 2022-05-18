@@ -22,6 +22,8 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     private final ArrayList<ProductItemController> productItemsList = new ArrayList<ProductItemController>();
     private AnchorPane registerAnchorPane;
+    private AnchorPane registerstep2AnchorPane;
+    private AnchorPane registerfinalAnchorPane;
     private AnchorPane purchaseAnchorPane;
     private AnchorPane receiptAnchorPane;
 
@@ -102,9 +104,17 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 /*-------------------------------------------------------------------------------------------------------------------*/
 
     @FXML
-    private void openRegisterView(){
+    void openRegisterView(){
         this.registerAnchorPane.toFront();
     }
+
+    @FXML
+    void openRegisterstep2View(){this.registerstep2AnchorPane.toFront();}
+
+    @FXML
+    void openRegisterfinalstep(){this.registerfinalAnchorPane.toFront();}
+
+
 
     @FXML
     private void openAccountWindow() {
@@ -279,11 +289,16 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
 
     private void setupPurchasePage() {
+        this.registerstep2AnchorPane = new RegisterStep2controller(this);
+        this.mainPageRootAnchorPane.getChildren().add(this.registerstep2AnchorPane);
+        this.registerstep2AnchorPane.toBack();
 
     }
 
     private void setupReceiptPage() {
-
+        this.registerfinalAnchorPane = new RegisterFinalStepController(this);
+        this.mainPageRootAnchorPane.getChildren().add(this.registerfinalAnchorPane);
+        this.registerfinalAnchorPane.toBack();
     }
 
     private void setupRegisterPage() {
