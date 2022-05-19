@@ -122,6 +122,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     /* Knappar below tänker att den fungerar som den ska, fortsätter på allt annat och återvänder till det här när mera
     är färdigt, hoppas det är okej.*/
+    // Todo fixa det här
     @FXML
     private void searchForBread() {
         int colY = 0;
