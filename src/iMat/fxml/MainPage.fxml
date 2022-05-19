@@ -80,7 +80,7 @@
                            <content>
                               <AnchorPane maxHeight="250.0" maxWidth="300.0" minHeight="250.0" minWidth="300.0" prefHeight="250.0" prefWidth="300.0">
                                  <children>
-                                    <Button fx:id="stenfrukterKnapp1" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForRootVegetable" prefHeight="75.0" prefWidth="300.0" text="Rotfrukter" AnchorPane.topAnchor="0.0" />
+                                    <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForRootVegetable" prefHeight="75.0" prefWidth="300.0" text="Rotfrukter" AnchorPane.topAnchor="0.0" />
                                     <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForVegetableFruit" prefHeight="75.0" prefWidth="300.0" text="Grönsaksfrukter" AnchorPane.topAnchor="75.0" />
                                     <Button layoutY="100.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForCabbage" prefHeight="75.0" prefWidth="300.0" text="Kål" AnchorPane.topAnchor="150.0" />
                                  </children>
