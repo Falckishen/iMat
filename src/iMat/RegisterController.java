@@ -6,8 +6,10 @@ import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.*;
 
 /**
@@ -22,6 +24,8 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
     @FXML Button toPurchaseButton;
     @FXML Button toBackButton;
     @FXML GridPane registerGridPane;
+    @FXML Label totalPriceB;
+
 
     public RegisterController(MainPageController mainPageController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/RegisterPage.fxml"));
@@ -56,6 +60,7 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
                 }
             }
         }
+        this.totalPriceB.setText(String.valueOf(cart.getTotal())+" kr");
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
