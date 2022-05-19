@@ -48,8 +48,8 @@ public class IMat extends Application {
 /*-------------------------------------------------------------------------------------------------------------------*/
 
     // Tar en produkt som argument, returnera antalet av denna produkt som finns i varukorgen
-    public static double getNumberOfAProductInCart(Product product) {
-        double numOfProductInCart = 0;
+    static int getNumberOfAProductInCart(Product product) {
+        int numOfProductInCart = 0;
         List<ShoppingItem> listOfShoppingItems = cart.getItems();
         Product productInCart;
         for (ShoppingItem shoppingItem : listOfShoppingItems) {
@@ -62,10 +62,10 @@ public class IMat extends Application {
     }
 
     // Tar en produkt som argument, lägger till ett exemplar av denna produkt i varukorgen
-    public static void addOneToCart(Product product) {
-        double amount = getNumberOfAProductInCart(product);
+    static void addOneToCart(Product product) {
+        int amount = getNumberOfAProductInCart(product);
         if (amount < 99) {
-            setProductAmount(product, roundToOneDecimal(amount+1));
+            setProductAmount(product, amount+1);
         }
         else {
             setProductAmount(product, 99);
@@ -73,10 +73,10 @@ public class IMat extends Application {
     }
 
     // Tar en produkt som argument, tar bort ett exemplar av denna produkt från varukorgen
-    public static void removeOneFromCart(Product product) {
-        double amount = getNumberOfAProductInCart(product);
+    static void removeOneFromCart(Product product) {
+        int amount = getNumberOfAProductInCart(product);
         if (amount >= 1) {
-            setProductAmount(product, roundToOneDecimal(amount-1));
+            setProductAmount(product, amount-1);
         }
         else {
             clearCartOfAProduct(product);
@@ -85,10 +85,10 @@ public class IMat extends Application {
 
     /* Tar en produkt och ett antal i string, ändrar så antalet av denna produkt i varukorgen till antalet som gavs som
     argument */
-    public static void writeInNumOfProductAmount(Product product, String strAmount) {
+    static void writeInNumOfProductAmount(Product product, String strAmount) {
         try {
-            double amount = roundToOneDecimal(Double.parseDouble(strAmount));
-            if (amount > 99.9) {
+            int amount = Integer.parseInt(strAmount);
+            if (amount > 99) {
                 setProductAmount(product, 99);
             }
             else if (amount >= 0) {
@@ -105,7 +105,7 @@ public class IMat extends Application {
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
-    private static void setProductAmount(Product product, double amount) {
+    private static void setProductAmount(Product product, int amount) {
         List<ShoppingItem> listOfShoppingItems = cart.getItems();
         Product productInCart;
         for (ShoppingItem shoppingItem : listOfShoppingItems) {
@@ -132,9 +132,5 @@ public class IMat extends Application {
                 }
             }
         }
-    }
-
-    private static double roundToOneDecimal(double value) {
-        return (double) Math.round(value * 10) / 10;
     }
 }

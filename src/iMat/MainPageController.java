@@ -229,15 +229,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
                 rowX++;
             }
         }
-        /*
-        ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
-        productItemsList.clear();
-        String text = searchBar.getText();
-        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.findProducts(text);
-        for(Product product : productList){
-            productItemsList.add(new ProductItemController(product, this));
-        }
-        */
     }
 
     @FXML
@@ -307,9 +298,9 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         int colY = 0;
         int rowX = 0;
         this.gridPane.getChildren().clear();
-        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf(category));
+        ArrayList<Product> productsInCategoryList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf(category));
         this.productItemsList.clear();
-        for(Product product: productList) {
+        for(Product product: productsInCategoryList) {
             ProductItemController productItem = new ProductItemController(product, this);
             this.productItemsList.add(productItem);
             this.gridPane.add(productItem, colY, rowX);
@@ -332,10 +323,8 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         this.totalPrice.setText(String.format("Pris: %.2f", cart.getTotal()));
         List<ShoppingItem> listOfShoppingItems = cart.getItems();
         for(ShoppingItem item: listOfShoppingItems) {
-            if(item.getAmount() > 0) {
-                CartItemController cartItem = new CartItemController(item, this);
-                this.cartPanelView.getChildren().add(cartItem);
-            }
+            CartItemController cartItem = new CartItemController(item, this);
+            this.cartPanelView.getChildren().add(cartItem);
         }
     }
 

@@ -130,20 +130,20 @@ public class DetailViewController extends AnchorPane {
     @FXML
     private void plusButtonClicked() {
         IMat.addOneToCart(this.product);
-        this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
+        this.numOfItems.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
     }
 
     @FXML
     private void minusButtonClicked() {
         IMat.removeOneFromCart(this.product);
-        this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
+        this.numOfItems.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
     }
 
     @FXML
     private void numOfItemsWriteIn() throws InputMismatchException {
         String strAmount = this.numOfItems.getText();
         IMat.writeInNumOfProductAmount(this.product, strAmount);
-        this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
+        this.numOfItems.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
@@ -158,7 +158,7 @@ public class DetailViewController extends AnchorPane {
         else {
             this.isEcoLabel.setText("Produkten är ej ekologisk");
         }
-        this.numOfItems.setText(String.format("%.1f", IMat.getNumberOfAProductInCart(this.product)));
+        this.numOfItems.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
         updateFavoriteButton();
     }
 
