@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
+<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
       <BorderPane fx:id="mainborderPane" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css">
          <top>
@@ -36,97 +36,97 @@
             </AnchorPane>
          </top>
          <left>
-            <AnchorPane maxWidth="300.0" minHeight="0.0" minWidth="0.0" styleClass="borderpane-container" stylesheets="@../css/CategoryMeny.css" BorderPane.alignment="TOP_LEFT">
+            <AnchorPane maxHeight="780.0" maxWidth="300.0" minHeight="780.0" minWidth="300.0" prefHeight="780.0" prefWidth="300.0" styleClass="borderpane-container" stylesheets="@../css/CategoryMeny.css" BorderPane.alignment="TOP_LEFT">
                <children>
-                  <Accordion layoutY="100.0" prefWidth="318.0" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css">
+                  <Button fx:id="favoriterKnapp" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#favoriteFill" prefHeight="75.0" prefWidth="300.0" text="Favoriter" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Accordion layoutY="100.0" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
                      <panes>
-                        <TitledPane animated="false" text="Kolhydrater">
+                        <TitledPane animated="false" maxHeight="325.0" maxWidth="300.0" minHeight="325.0" minWidth="300.0" prefHeight="325.0" prefWidth="300.0" text="Kolhydrater">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="316.0">
+                              <AnchorPane maxHeight="325.0" maxWidth="300.0" minHeight="325.0" minWidth="300.0" prefHeight="325.0" prefWidth="300.0">
                                  <children>
-                                    <Button fx:id="brodKnapp1" mnemonicParsing="false" onAction="#searchForBread" prefHeight="99.0" prefWidth="315.0" text="Bröd" />
-                                    <Button fx:id="pastaKnapp1" layoutY="100.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Pasta" />
-                                    <Button fx:id="potatisKnapp1" layoutY="200.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Potatis,ris" />
-                                    <Button fx:id="mjolKnapp1" layoutY="300.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Mjöl,socker,salt" />
+                                    <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForBread" prefHeight="75.0" prefWidth="300.0" text="Bröd" AnchorPane.topAnchor="0.0" />
+                                    <Button layoutY="100.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForPasta" prefHeight="75.0" prefWidth="300.0" text="Pasta" AnchorPane.topAnchor="75.0" />
+                                    <Button layoutY="200.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForPotatoRice" prefHeight="75.0" prefWidth="300.0" text="Potatis och ris" AnchorPane.topAnchor="150.0" />
+                                    <Button layoutY="300.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForFlourSugarSalt" prefHeight="75.0" prefWidth="300.0" text="Mjöl, socker och salt" AnchorPane.topAnchor="225.0" />
                                  </children>
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" text="Drycker">
+                        <TitledPane animated="false" maxHeight="175.0" maxWidth="300.0" minHeight="175.0" minWidth="300.0" prefHeight="175.0" prefWidth="300.0" text="Drycker">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="316.0">
+                              <AnchorPane maxHeight="175.0" maxWidth="300.0" minHeight="175.0" minWidth="300.0" prefHeight="175.0" prefWidth="300.0">
                                  <children>
-                                    <Button fx:id="dryckervarmaKnapp1" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Drycker varma" />
-                                    <Button fx:id="dryckerkallaKnapp1" layoutY="100.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Drycker kalla" />
+                                    <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForHotDrinks" prefHeight="75.0" prefWidth="300.0" text="Varma drycker" AnchorPane.topAnchor="0.0" />
+                                    <Button layoutY="100.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForColdDrinks" prefHeight="75.0" prefWidth="300.0" text="Kalla drycker" AnchorPane.topAnchor="75.0" />
                                  </children>
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" text="Frukt">
+                        <TitledPane animated="false" maxHeight="400.0" maxWidth="300.0" minHeight="400.0" minWidth="300.0" prefHeight="400.0" prefWidth="300.0" text="Frukt">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <AnchorPane maxHeight="400.0" maxWidth="300.0" minHeight="400.0" minWidth="300.0" prefHeight="400.0" prefWidth="300.0">
                                  <children>
-                                    <Button fx:id="exotiskafrukterKnapp1" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Exotiska Frukter" />
-                                    <Button fx:id="melonerKnapp1" layoutY="100.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Meloner" />
-                                    <Button fx:id="stenfrukterKnapp1" layoutY="200.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Stenfrukter" />
-                                    <Button fx:id="citrosfrukterKnapp1" layoutY="300.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Citrosfrukter" />
-                                    <Button fx:id="barKnapp1" layoutY="400.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Bär" />
+                                    <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForFruit" prefHeight="75.0" prefWidth="300.0" text="Frukt" AnchorPane.topAnchor="0.0" />
+                                    <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForExoticFruit" prefHeight="75.0" prefWidth="300.0" text="Exotiska Frukter" AnchorPane.topAnchor="75.0" />
+                                    <Button layoutY="100.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForMelons" prefHeight="75.0" prefWidth="300.0" text="Meloner" AnchorPane.topAnchor="150.0" />
+                                    <Button layoutY="300.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForCitrusFruit" prefHeight="75.0" prefWidth="300.0" text="Citrosfrukter" AnchorPane.topAnchor="225.0" />
+                                    <Button layoutY="400.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForBerry" prefHeight="75.0" prefWidth="300.0" text="Bär" AnchorPane.topAnchor="300.0" />
                                  </children>
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" text="Grönsaker">
+                        <TitledPane animated="false" maxHeight="250.0" maxWidth="300.0" minHeight="250.0" minWidth="300.0" prefHeight="250.0" prefWidth="300.0" text="Grönsaker">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <AnchorPane maxHeight="250.0" maxWidth="300.0" minHeight="250.0" minWidth="300.0" prefHeight="250.0" prefWidth="300.0">
                                  <children>
-                                    <Button fx:id="gronsaksfrukterKnapp1" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Grönsaksfrukter" />
-                                    <Button fx:id="kalKnopp1" layoutY="100.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Kål" />
-                                    <Button fx:id="rotfrukterKnapp1" layoutY="200.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Rotfrukter" />
+                                    <Button fx:id="stenfrukterKnapp1" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForRootVegetable" prefHeight="75.0" prefWidth="300.0" text="Rotfrukter" AnchorPane.topAnchor="0.0" />
+                                    <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForVegetableFruit" prefHeight="75.0" prefWidth="300.0" text="Grönsaksfrukter" AnchorPane.topAnchor="75.0" />
+                                    <Button layoutY="100.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForCabbage" prefHeight="75.0" prefWidth="300.0" text="Kål" AnchorPane.topAnchor="150.0" />
                                  </children>
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" text="Kött">
+                        <TitledPane animated="false" maxHeight="175.0" maxWidth="300.0" minHeight="175.0" minWidth="300.0" prefHeight="175.0" prefWidth="300.0" text="Kött">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <AnchorPane maxHeight="175.0" maxWidth="300.0" minHeight="175.0" minWidth="300.0" prefHeight="175.0" prefWidth="300.0">
                                  <children>
-                                    <Button fx:id="fiskKnapp1" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Fisk" />
-                                    <Button fx:id="kottKnapp1" layoutY="100.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Kött" />
+                                    <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForMeat" prefHeight="75.0" prefWidth="300.0" text="Kött" AnchorPane.topAnchor="0.0" />
+                                    <Button layoutY="100.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForFish" prefHeight="75.0" prefWidth="300.0" text="Fisk" AnchorPane.topAnchor="75.0" />
                                  </children>
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" text="Snacks">
+                        <TitledPane animated="false" maxHeight="175.0" maxWidth="300.0" minHeight="175.0" minWidth="300.0" prefHeight="175.0" prefWidth="300.0" text="Snacks">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <AnchorPane maxHeight="175.0" maxWidth="300.0" minHeight="175.0" minWidth="300.0" prefHeight="175.0" prefWidth="300.0">
                                  <children>
-                                    <Button fx:id="notterKnapp" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Nötter,frön" />
-                                    <Button fx:id="sottsakerKnapp" layoutY="100.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Sötsaker" />
+                                    <Button layoutY="100.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForSweet" prefHeight="75.0" prefWidth="300.0" text="Sötsaker" AnchorPane.topAnchor="0.0" />
+                                    <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForNutsAndSeeds" prefHeight="75.0" prefWidth="300.0" text="Nötter och frön" AnchorPane.topAnchor="75.0" />
                                  </children>
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" text="Krydor">
+                        <TitledPane animated="false" maxHeight="100.0" maxWidth="300.0" minHeight="100.0" minWidth="300.0" prefHeight="100.0" prefWidth="300.0" text="Krydor">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <AnchorPane maxHeight="100.0" maxWidth="300.0" minHeight="100.0" minWidth="300.0" prefHeight="100.0" prefWidth="300.0">
                                  <children>
-                                    <Button fx:id="ortkryddorKnapp1" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Örtkryddor" />
+                                    <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForHerb" prefHeight="75.0" prefWidth="300.0" text="Örter" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" text="Mejeri">
+                        <TitledPane animated="false" maxHeight="100.0" maxWidth="300.0" minHeight="100.0" minWidth="300.0" prefHeight="100.0" prefWidth="300.0" text="Mejeri">
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <AnchorPane maxHeight="100.0" maxWidth="300.0" minHeight="100.0" minWidth="300.0" prefHeight="100.0" prefWidth="300.0">
                                  <children>
-                                    <Button fx:id="mejeriKnapp1" mnemonicParsing="false" prefHeight="99.0" prefWidth="315.0" text="Mejeriprodukter" />
+                                    <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForDairies" prefHeight="75.0" prefWidth="300.0" text="Mejeriprodukter" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </content>
                         </TitledPane>
                      </panes>
                   </Accordion>
-                  <Button fx:id="favoriterKnapp" mnemonicParsing="false" onAction="#favoriteFill" prefHeight="100.0" prefWidth="318.0" text="Favoriter" />
                </children>
             </AnchorPane>
          </left>

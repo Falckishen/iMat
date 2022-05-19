@@ -40,7 +40,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @FXML private Button kassa1backButton;
     @FXML private Button tillkassanButton;
     @FXML private BorderPane mainborderPane;
-    @FXML private Text currentpriceinCartOne;
 
     // Körs när MainPage.fxml läses in
     @Override
@@ -60,89 +59,158 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         updateProductItems();
     }
 
-    /*
-    public vo{
-        cartPanelView.getChildren().clear();
-        totalPrice.setText(String.valueOf(cart.getTotal()));
-        ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) cart.getItems();
-        for(ShoppingItem item: list){
-            if(item.getAmount() > 0){
-                CartItemController cartItem = new CartItemController(item, this);
-                cartPanelView.getChildren().add(cartItem);
-            }
-        }
-    }
-    */
+/*-------------------------------------------------------------------------------------------------------------------*/
 
-    public void changeAccount(iMatAccount newAccount) {
+    void changeAccount(iMatAccount newAccount) {
         this.account = newAccount;
     }
 
-    public void openProductDetailView(Product product) {
+    void openProductDetailView(Product product) {
         AnchorPane detailViewAnchorPane = new DetailViewController(product, this);
         this.mainPageRootAnchorPane.getChildren().add(detailViewAnchorPane);
         detailViewAnchorPane.toFront();
     }
 
-    public void updateProductItemFavoriteButtons(){
+    void updateProductItemFavoriteButtons(){
         for(ProductItemController productItemController : this.productItemsList) {
             productItemController.updateFavoriteButton();
         }
     }
 
+/*-------------------------------------------------------------------------------------------------------------------*/
+
     @FXML
-    public void openMainPageView(){
+    void openMainPageView(){
         this.mainborderPane.toFront();
     }
 
     @FXML
-    public void openPurchaseView(){
+    void openPurchaseView(){
 
+    }
+
+    @FXML
+    void openRegisterView() {
+        this.registerAnchorPane.toFront();
+    }
+
+    @FXML
+    void openRegisterstep2View() {
+        this.registerstep2AnchorPane.toFront();
+    }
+
+    @FXML
+    void openRegisterfinalstep() {
+        this.registerfinalAnchorPane.toFront();
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
     @FXML
-    void openRegisterView(){
-        this.registerAnchorPane.toFront();
+    private void searchForBread() {
+        searchForCategory("BREAD");
     }
 
     @FXML
-    void openRegisterstep2View(){this.registerstep2AnchorPane.toFront();}
+    private void searchForMelons() {
+        searchForCategory("MELONS");
+    }
 
     @FXML
-    void openRegisterfinalstep(){this.registerfinalAnchorPane.toFront();}
+    private void searchForFlourSugarSalt() {
+        searchForCategory("FLOUR_SUGAR_SALT");
+    }
+
+    @FXML
+    private void searchForMeat() {
+        searchForCategory("MEAT");
+    }
+
+    @FXML
+    private void searchForDairies() {
+        searchForCategory("DAIRIES");
+    }
+
+    @FXML
+    private void searchForVegetableFruit() {
+        searchForCategory("VEGETABLE_FRUIT");
+    }
+
+    @FXML
+    private void searchForCabbage() {
+        searchForCategory("CABBAGE");
+    }
+
+    @FXML
+    private void searchForNutsAndSeeds() {
+        searchForCategory("NUTS_AND_SEEDS");
+    }
+
+    @FXML
+    private void searchForPasta() {
+        searchForCategory("PASTA");
+    }
+
+    @FXML
+    private void searchForPotatoRice() {
+        searchForCategory("POTATO_RICE");
+    }
+
+    @FXML
+    private void searchForRootVegetable() {
+        searchForCategory("ROOT_VEGETABLE");
+    }
+
+    @FXML
+    private void searchForFruit() {
+        searchForCategory("FRUIT");
+    }
+
+    @FXML
+    private void searchForSweet() {
+        searchForCategory("SWEET");
+    }
+
+    @FXML
+    private void searchForBerry() {
+        searchForCategory("BERRY");
+    }
+
+    @FXML
+    private void searchForHerb() {
+        searchForCategory("HERB");
+    }
+
+    @FXML
+    private void searchForCitrusFruit() {
+        searchForCategory("CITRUS_FRUIT");
+    }
+
+    @FXML
+    private void searchForHotDrinks() {
+        searchForCategory("HOT_DRINKS");
+    }
+
+    @FXML
+    private void searchForColdDrinks() {
+        searchForCategory("COLD_DRINKS");
+    }
+
+    @FXML
+    private void searchForExoticFruit() {
+        searchForCategory("EXOTIC_FRUIT");
+    }
+
+    @FXML
+    private void searchForFish() {
+        searchForCategory("FISH");
+    }
 
     @FXML
     private void openAccountWindow() {
         AnchorPane accountWindowPane = new AccountWindowController(this, this.account);
         mainPageRootAnchorPane.getChildren().add(accountWindowPane);
         accountWindowPane.toFront();
-    }
-
-    // Todo fixa det här
-    @FXML
-    private void searchForBread() {
-        searchForCategory("BREAD");
-    }
-
-    private void searchForCategory(String category) {
-        int colY = 0;
-        int rowX = 0;
-        this.gridPane.getChildren().clear();
-        //TODO Fixa this.productItemList här
-        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf(category));
-        this.productItemsList.clear();
-        for(Product product: productList) {
-            ProductItemController productItem = new ProductItemController(product, this);
-            this.productItemsList.add(productItem);
-            this.gridPane.add(productItem, colY, rowX);
-            colY++;
-            if(colY == 2 ) {
-                colY = 0;
-                rowX++;
-            }
-        }
     }
 
     @FXML
@@ -189,23 +257,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         }
     }
 
-    @FXML
-    private void addToFavorite() {
-        int colY = 0;
-        int rowX = 0;
-        this.gridPane.getChildren().clear();
-        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.favorites();
-        for(Product product: productList) {
-            ProductItemController productItem = new ProductItemController(product, this);
-            this.gridPane.add(productItem, colY, rowX);
-            colY++;
-            if(colY == 2) {
-                colY = 0;
-                rowX++;
-            }
-        }
-    }
-
     //Använder denna för att fortsätta testa kassan
     @FXML
     private void empty(){
@@ -234,7 +285,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     }
 
-    @FXML
     private void fillFood() {
         int colY = 0;
         int colX = 0;
@@ -250,14 +300,24 @@ public class MainPageController implements Initializable, ShoppingCartListener {
                 colX++;
                 colY = 0;
             }
-        /*
-        ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
-        productItemsList.clear();
-        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
-        for(Product product: productList){
-            productItemsList.add(new ProductItemController(product, this));
         }
-        */
+    }
+
+    private void searchForCategory(String category) {
+        int colY = 0;
+        int rowX = 0;
+        this.gridPane.getChildren().clear();
+        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf(category));
+        this.productItemsList.clear();
+        for(Product product: productList) {
+            ProductItemController productItem = new ProductItemController(product, this);
+            this.productItemsList.add(productItem);
+            this.gridPane.add(productItem, colY, rowX);
+            colY++;
+            if(colY == 2 ) {
+                colY = 0;
+                rowX++;
+            }
         }
     }
 
