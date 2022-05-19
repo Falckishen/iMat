@@ -51,6 +51,8 @@ public class CartStepOneController extends AnchorPane {
             IMat.addOneToCart(shoppingItem.getProduct());
         }
 
+
+
         @FXML
         private void removeFromCart(){
             IMat.removeOneFromCart(shoppingItem.getProduct());
