@@ -120,18 +120,22 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         accountWindowPane.toFront();
     }
 
-    /* Knappar below tänker att den fungerar som den ska, fortsätter på allt annat och återvänder till det här när mera
-    är färdigt, hoppas det är okej.*/
     // Todo fixa det här
     @FXML
     private void searchForBread() {
+        searchForCategory("BREAD");
+    }
+
+    private void searchForCategory(String category) {
         int colY = 0;
         int rowX = 0;
         this.gridPane.getChildren().clear();
         //TODO Fixa this.productItemList här
-        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.BREAD);
+        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf(category));
+        this.productItemsList.clear();
         for(Product product: productList) {
             ProductItemController productItem = new ProductItemController(product, this);
+            this.productItemsList.add(productItem);
             this.gridPane.add(productItem, colY, rowX);
             colY++;
             if(colY == 2 ) {
@@ -139,14 +143,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
                 rowX++;
             }
         }
-        /*
-        ObservableList<Node> productItemsList = productItemsFlowpane.getChildren();
-        productItemsList.clear();
-        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf("BREAD"));
-        for(Product product : productList){
-            productItemsList.add(new ProductItemController(product, this));
-        }
-        */
     }
 
     @FXML

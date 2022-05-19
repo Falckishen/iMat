@@ -81,7 +81,6 @@ public class ProductItemController extends AnchorPane {
 
     @FXML
     private void favoriteButtonClicked() {
-        System.out.println("Klickad");
         if (dataHandler.isFavorite(this.product)) {
             dataHandler.removeFavorite(this.product);
         }
