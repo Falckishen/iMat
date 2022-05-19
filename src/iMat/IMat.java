@@ -105,7 +105,7 @@ public class IMat extends Application {
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
-    private static void setProductAmount(Product product, int amount) {
+    public static void setProductAmount(Product product, int amount) {
         List<ShoppingItem> listOfShoppingItems = cart.getItems();
         Product productInCart;
         for (ShoppingItem shoppingItem : listOfShoppingItems) {
@@ -120,7 +120,7 @@ public class IMat extends Application {
     }
 
     // Tar en produkt som argument, tömmer varukorgen på denna produkt
-    private static void clearCartOfAProduct(Product product) {
+    public static void clearCartOfAProduct(Product product) {
         while (getNumberOfAProductInCart(product) != 0) {
             List<ShoppingItem> listOfShoppingItems = cart.getItems();
             Product productInCart;

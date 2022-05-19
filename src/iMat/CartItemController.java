@@ -61,4 +61,10 @@ public class CartItemController extends AnchorPane {
         event.consume();
         IMat.removeOneFromCart(this.product);
     }
+
+    @FXML
+    private void removeAllItems(Event event) {
+        event.consume();
+        IMat.clearCartOfAProduct(this.product);
+    }
 }
