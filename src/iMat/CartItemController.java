@@ -6,6 +6,7 @@ import java.io.IOException;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -21,9 +22,9 @@ public class CartItemController extends AnchorPane {
     private final Product product;
 
     @FXML private ImageView image;
-    @FXML private Text nameText;
-    @FXML private Text priceText;
-    @FXML private Text numberOfProducts;
+    @FXML private Label nameText;
+    @FXML private Label priceText;
+    @FXML private Label numberOfProducts;
 
     public CartItemController(ShoppingItem item, MainPageController mainPageController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/CartItem.fxml"));
@@ -38,7 +39,7 @@ public class CartItemController extends AnchorPane {
         this.product = item.getProduct();
         this.image.setImage(dataHandler.getFXImage(this.product));
         this.nameText.setText(item.getProduct().getName());
-        this.priceText.setText(String.format("Pris totalt: %.2f kr", item.getTotal()));
+        this.priceText.setText(String.format("%.2f", item.getTotal()));
         this.numberOfProducts.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
     }
 

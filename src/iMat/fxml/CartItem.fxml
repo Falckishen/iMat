@@ -1,44 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="115.0" maxWidth="300.0" minHeight="115.0" minWidth="305.0" onMouseClicked="#openDetailView" prefHeight="115.0" prefWidth="300.0" styleClass="object-item" stylesheets="@../css/basic-pliancy-testing.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="125.0" maxWidth="374.0" minHeight="125.0" minWidth="374.0" onMouseClicked="#openDetailView" prefHeight="125.0" prefWidth="374.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="image" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
-         <image>
-            <Image url="@../../../download.jpg" />
-         </image></ImageView>
-      <Text fx:id="nameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Namn" wrappingWidth="170.0" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="10.0" />
-      <Text fx:id="priceText" strokeType="OUTSIDE" strokeWidth="0.0" text="Pris" wrappingWidth="170.0" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="30.0" />
-      <AnchorPane layoutX="146.0" layoutY="60.0" onMouseClicked="#minusButtonClicked" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #274156;" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="60.0">
-         <children>
-            <ImageView fx:id="removeProduct" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.36363636363636365" prefHeight="125.0" prefWidth="374.0" stylesheets="@../css/CartItem.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <VBox alignment="CENTER">
+               <children>
+                  <ImageView fx:id="image" fitHeight="115.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="nameText" prefHeight="38.0" prefWidth="229.0" text="Superlångt NAMN" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <HBox prefHeight="28.0" prefWidth="229.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="38.0" prefWidth="219.0">
+                                 <children>
+                                    <Label prefHeight="38.0" prefWidth="76.0" text="Totalt:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="38.0" prefWidth="237.0">
+                                 <children>
+                                    <Label fx:id="priceText" layoutX="-21.0" prefHeight="38.0" prefWidth="116.0" text="327,853" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="System Bold" size="22.0" />
+                                       </font>
+                                    </Label>
+                                 </children></AnchorPane>
+                              <AnchorPane prefHeight="38.0" prefWidth="182.0">
+                                 <children>
+                                    <Label prefHeight="38.0" prefWidth="50.0" text="kr" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="40.0" prefWidth="291.0">
+                     <children>
+                        <Button layoutX="24.0" mnemonicParsing="false" onAction="#minusButtonClicked" prefHeight="40.0" prefWidth="50.0" stylesheets="@../css/BlueButton.css" text="Button">
+                           <graphic>
+                              <ImageView fx:id="removeProduct" fitHeight="40.0" fitWidth="101.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/WhiteMinus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Pane layoutX="79.0" prefHeight="40.0" prefWidth="72.0" styleClass="pane" stylesheets="@../css/BlueButtonMiddle.css">
+                           <children>
+                              <Label fx:id="numberOfProducts" layoutX="31.0" prefHeight="40.0" prefWidth="6.0" stylesheets="@../css/WhiteButton.css" text="0" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="1.0" />
+                                 </font></Label>
+                           </children>
+                        </Pane>
+                        <Button layoutX="156.0" mnemonicParsing="false" onAction="#plusButtonClicked" prefHeight="40.0" prefWidth="50.0" stylesheets="@../css/BlueButton.css" text="Button">
+                           <graphic>
+                              <ImageView fx:id="addProduct" fitHeight="40.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/WhitePlus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </items>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </SplitPane>
+      <Button layoutX="334.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="0.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" stylesheets="@../css/FavoriteButton.css">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/WhiteMinus.png" />
+                  <Image url="@../images/Shoppinglist.png" />
                </image>
             </ImageView>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="183.0" layoutY="60.0" minHeight="40.0" minWidth="60.0" prefHeight="40.0" prefWidth="60.0" style="-fx-background-color: #274156 #274156;" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="60.0">
-         <children>
-            <Text fx:id="numberOfProducts" fill="WHITE" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" underline="true" wrappingWidth="60.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <font>
-                  <Font size="20.0" />
-               </font></Text>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="248.0" layoutY="60.0" onMouseClicked="#plusButtonClicked" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #274156 #274156;" AnchorPane.leftAnchor="245.0" AnchorPane.topAnchor="60.0">
-         <children>
-            <ImageView fx:id="addProduct" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <image>
-                  <Image url="@../images/WhitePlus.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
+         </graphic>
+      </Button>
    </children>
 </fx:root>

@@ -150,13 +150,13 @@
             </AnchorPane>
          </center>
          <right>
-            <AnchorPane prefHeight="780.0" prefWidth="370.0" styleClass="shoppingCart" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="780.0" prefWidth="400.0" styleClass="shoppingCart" BorderPane.alignment="CENTER">
                <children>
                   <VBox prefHeight="780.0" prefWidth="320.0" styleClass="shoppingCart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <ScrollPane prefHeight="709.0" prefWidth="333.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css">
                            <content>
-                              <FlowPane fx:id="cartPanelView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="344.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css" vgap="5.0" />
+                              <FlowPane fx:id="cartPanelView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="375.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css" vgap="5.0" />
                            </content>
                         </ScrollPane>
                         <HBox alignment="CENTER" prefHeight="150.0" prefWidth="320.0" styleClass="shoppingCartEdge">
