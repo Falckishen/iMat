@@ -3,9 +3,11 @@ package iMat;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import se.chalmers.cse.dat216.project.CartEvent;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.ShoppingCart;
 import se.chalmers.cse.dat216.project.ShoppingCartListener;
 
@@ -15,6 +17,15 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
 
     private final ShoppingCart cart = IMat.getShoppingCart();
     private final MainPageController mainPageController;
+    private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
+
+    @FXML TextField fName;
+    @FXML TextField lName;
+    @FXML TextField pNumber;
+    @FXML TextField adress;
+    @FXML TextField postalcode;
+    @FXML TextField phonenumber;
+    @FXML TextField cardNumber;
 
 
     public RegisterStep2controller(MainPageController mainPageController) {
@@ -28,6 +39,13 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
         }
         this.cart.addShoppingCartListener(this);
         this.mainPageController = mainPageController;
+
+        fName.setText(dataHandler.getCustomer().getFirstName());
+        lName.setText(dataHandler.getCustomer().getLastName());
+        pNumber.setText(dataHandler.getCustomer().getAddress());
+        adress.setText(dataHandler.getCustomer().getAddress());
+        postalcode.setText(dataHandler.getCustomer().getPostCode());
+        phonenumber.setText(dataHandler.getCustomer().getPhoneNumber());
     }
 
     @FXML
