@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
+<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
       <BorderPane fx:id="mainborderPane" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css">
          <top>
@@ -36,7 +36,7 @@
             </AnchorPane>
          </top>
          <left>
-            <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="borderpane-container" stylesheets="@../css/CategoryMeny.css" BorderPane.alignment="TOP_LEFT">
+            <AnchorPane maxWidth="300.0" minHeight="0.0" minWidth="0.0" styleClass="borderpane-container" stylesheets="@../css/CategoryMeny.css" BorderPane.alignment="TOP_LEFT">
                <children>
                   <Accordion layoutY="100.0" prefWidth="318.0" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css">
                      <panes>
