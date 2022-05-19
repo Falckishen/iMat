@@ -3,21 +3,27 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openDetailView" prefHeight="289.0" prefWidth="411.0" styleClass="main-item" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#openDetailView" prefHeight="300.0" prefWidth="375.0" styleClass="main-item" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0">
+      <BorderPane prefHeight="300.0" prefWidth="375.0">
          <bottom>
-            <AnchorPane prefHeight="0.0" prefWidth="401.0" BorderPane.alignment="TOP_CENTER">
+            <AnchorPane prefHeight="0.0" prefWidth="375.0" BorderPane.alignment="TOP_CENTER">
                <children>
-                  <Button fx:id="minus" layoutX="96.0" layoutY="3.0" minWidth="50.0" mnemonicParsing="false" onAction="#removeFromCart" prefHeight="40.0" prefWidth="50.0" stylesheets="@../css/BlueButton.css" AnchorPane.leftAnchor="96.0" AnchorPane.topAnchor="3.0">
+                  <Button fx:id="minus" layoutX="83.0" layoutY="-6.0" minWidth="50.0" mnemonicParsing="false" onAction="#removeFromCart" prefHeight="40.0" prefWidth="50.0" stylesheets="@../css/BlueButton.css">
                      <graphic>
                         <ImageView fx:id="minusImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -26,7 +32,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="256.0" layoutY="3.0" minWidth="50.0" mnemonicParsing="false" onAction="#plusButton" prefHeight="40.0" prefWidth="50.0" stylesheets="@../css/BlueButton.css" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="3.0">
+                  <Button layoutX="243.0" layoutY="-6.0" minWidth="50.0" mnemonicParsing="false" onAction="#plusButton" prefHeight="40.0" prefWidth="50.0" stylesheets="@../css/BlueButton.css">
                      <graphic>
                         <ImageView fx:id="plusImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -35,13 +41,9 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <AnchorPane layoutX="151.0" layoutY="3.0" prefHeight="41.0" prefWidth="100.0" style="-fx-background-color: #559CAD;" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="3.0">
+                  <AnchorPane layoutX="138.0" layoutY="-6.0" prefHeight="41.0" prefWidth="100.0" styleClass="paneDarker" stylesheets="@../css/BlueButtonMiddle.css">
                      <children>
-                        <Text fx:id="numberOfProductsText" fill="WHITE" layoutX="1.0" layoutY="28.740234375" strokeType="OUTSIDE" strokeWidth="0.0" text="99.9" textAlignment="CENTER" underline="true" wrappingWidth="100.0" AnchorPane.bottomAnchor="5.73828125" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="5.0">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                        </Text>
+                        <Label fx:id="numberOfProductsText" alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="101.0" styleClass="labelDarker" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                </children>
@@ -51,36 +53,71 @@
             </AnchorPane>
          </bottom>
          <center>
-            <VBox alignment="TOP_CENTER" prefHeight="216.0" prefWidth="395.0" BorderPane.alignment="CENTER">
+            <VBox alignment="TOP_CENTER" prefHeight="156.0" prefWidth="375.0">
                <children>
-                  <ImageView fx:id="image" fitHeight="150.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="image" fitHeight="160.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../.dat215/iMat/images/product_1.jpg" />
                      </image>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="20.0" radius="9.5" width="20.0" />
+                     </effect>
                   </ImageView>
-                  <Text fx:id="nameOfProduct" strokeType="OUTSIDE" strokeWidth="0.0" text="God kyckling" textAlignment="CENTER" wrappingWidth="256.24609375">
+                  <Text fx:id="nameOfProduct" strokeType="OUTSIDE" strokeWidth="0.0" text="God kyckling som är GOD" textAlignment="CENTER" wrappingWidth="364.24609375">
                      <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="priceOfItem" strokeType="OUTSIDE" strokeWidth="0.0" text="19,99 kr/st" textAlignment="CENTER" wrappingWidth="264.24609375">
-                     <font>
-                        <Font size="19.0" />
+                        <Font size="24.0" />
                      </font>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets top="5.0" />
                      </VBox.margin>
                   </Text>
+                  <StackPane prefHeight="21.0" prefWidth="375.0">
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="36.0" text="Pris:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets right="140.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="33.0" prefWidth="547.0">
+                           <StackPane.margin>
+                              <Insets left="215.0" />
+                           </StackPane.margin>
+                           <children>
+                              <Label>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="unitLabel" prefHeight="33.0" prefWidth="80.0" text="st">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="3.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Text fx:id="priceOfItem" strokeType="OUTSIDE" strokeWidth="0.0" text="19,99" textAlignment="CENTER" wrappingWidth="95.24609375" StackPane.alignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </StackPane>
                </children>
-               <padding>
+               <BorderPane.margin>
                   <Insets bottom="10.0" top="10.0" />
-               </padding>
+               </BorderPane.margin>
             </VBox>
          </center>
       </BorderPane>
-      <AnchorPane>
+      <AnchorPane layoutX="325.0" layoutY="10.0" prefHeight="40.0" prefWidth="0.0">
          <children>
-            <Button fx:id="favoriteButton" alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" graphicTextGap="0.0" layoutX="14.0" layoutY="176.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#favoriteButtonClicked" onMouseEntered="#favoriteButtonMouseEntered" onMouseExited="#favoriteButtonMouseExitedOrReleased" onMousePressed="#favoriteButtonMousePressed" onMouseReleased="#favoriteButtonMouseExitedOrReleased" prefHeight="40.0" prefWidth="40.0" scaleShape="false" styleClass="favoriteButton" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="176.0">
+            <Button fx:id="favoriteButton" alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" focusTraversable="false" graphicTextGap="0.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#favoriteButtonClicked" onMouseEntered="#favoriteButtonMouseEntered" onMouseExited="#favoriteButtonMouseExitedOrReleased" onMousePressed="#favoriteButtonMousePressed" onMouseReleased="#favoriteButtonMouseExitedOrReleased" prefHeight="50.0" prefWidth="50.0" scaleShape="false" styleClass="favoriteButton">
                <graphic>
                   <ImageView fx:id="favoriteImage" fitHeight="35.0" fitWidth="35.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -96,4 +133,11 @@
       <URL value="@../css/ProductItem.css" />
       <URL value="@../css/basic-pliancy-testing.css" />
    </stylesheets>
+   <effect>
+      <InnerShadow blurType="ONE_PASS_BOX" choke="0.1" height="15.0" radius="7.0" width="15.0">
+         <color>
+            <Color red="1.0" green="1.0" blue="1.0" />
+         </color>
+      </InnerShadow>
+   </effect>
 </fx:root>

@@ -79,9 +79,9 @@
                         </Button>
                         <Pane layoutX="55.0" prefHeight="40.0" prefWidth="72.0" styleClass="pane" stylesheets="@../css/BlueButtonMiddle.css">
                            <children>
-                              <Label fx:id="numberOfProducts" layoutX="31.0" prefHeight="40.0" prefWidth="6.0" stylesheets="@../css/WhiteButton.css" text="0" textAlignment="CENTER">
+                              <Label fx:id="numberOfProducts" alignment="CENTER" layoutX="-1.0" prefHeight="40.0" prefWidth="72.0" text="0" textAlignment="CENTER">
                                  <font>
-                                    <Font size="1.0" />
+                                    <Font size="22.0" />
                                  </font></Label>
                            </children>
                         </Pane>

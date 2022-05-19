@@ -8,7 +8,22 @@
 }
 
 .label {
-    -fx-font: bold 16px "Helvetica";
+    -fx-font: bold 18px "Helvetica";
+    -fx-text-fill: #2E3235;
+    -fx-text-alignment: center;
+}
+
+.paneDarker {
+    -fx-background-color: #DDE9EC;
+    -fx-font: 0pt "Arial";
+    -fx-text-fill: #FCFAFA;
+    -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.25) , 3 , 0.3 , -1 , 1 );
+    -fx-background-radius : 0.0em;
+    -fx-border-width: 0px;
+}
+
+.labelDarker {
+    -fx-font: bold 20px "Helvetica";
     -fx-text-fill: #2E3235;
     -fx-text-alignment: center;
 }

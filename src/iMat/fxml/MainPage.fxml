@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -36,7 +37,7 @@
             </AnchorPane>
          </top>
          <left>
-            <AnchorPane maxHeight="780.0" maxWidth="300.0" minHeight="780.0" minWidth="300.0" prefHeight="780.0" prefWidth="300.0" styleClass="borderpane-container" stylesheets="@../css/CategoryMeny.css" BorderPane.alignment="TOP_LEFT">
+            <AnchorPane maxHeight="780.0" maxWidth="300.0" minHeight="780.0" minWidth="270.0" prefHeight="780.0" prefWidth="270.0" styleClass="borderpane-container" stylesheets="@../css/CategoryMeny.css" BorderPane.alignment="TOP_LEFT">
                <children>
                   <Button fx:id="favoriterKnapp" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#favoriteFill" prefHeight="75.0" prefWidth="300.0" text="Favoriter" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   <Accordion layoutY="100.0" maxHeight="705.0" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
@@ -133,16 +134,19 @@
          <center>
             <AnchorPane prefWidth="960.0" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" stylesheets="@../css/ScrollBar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="780.0" prefWidth="900.0" stylesheets="@../css/ScrollBar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
-                        <GridPane fx:id="gridPane" alignment="TOP_CENTER" prefHeight="846.0" prefWidth="978.0">
+                        <GridPane fx:id="gridPane" alignment="TOP_CENTER" hgap="40.0" prefHeight="698.0" prefWidth="898.0" styleClass="gridPanel" vgap="30.0">
                           <columnConstraints>
-                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                             <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="376.0" />
+                             <ColumnConstraints hgrow="NEVER" maxWidth="400.0" minWidth="10.0" prefWidth="375.0" />
                           </columnConstraints>
                           <rowConstraints>
-                             <RowConstraints maxHeight="300.0" minHeight="0.0" prefHeight="728.0" vgrow="SOMETIMES" />
+                             <RowConstraints maxHeight="300.0" minHeight="0.0" percentHeight="0.0" prefHeight="376.0" vgrow="NEVER" />
                           </rowConstraints>
+                           <padding>
+                              <Insets left="25.0" right="25.0" top="20.0" />
+                           </padding>
                         </GridPane>
                      </content>
                   </ScrollPane>
@@ -154,9 +158,9 @@
                <children>
                   <VBox prefHeight="780.0" prefWidth="320.0" styleClass="shoppingCart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ScrollPane prefHeight="709.0" prefWidth="333.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css">
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="709.0" prefWidth="333.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css">
                            <content>
-                              <FlowPane fx:id="cartPanelView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="375.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css" vgap="5.0" />
+                              <FlowPane fx:id="cartPanelView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="374.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css" vgap="10.0" />
                            </content>
                         </ScrollPane>
                         <HBox alignment="CENTER" prefHeight="150.0" prefWidth="320.0" styleClass="shoppingCartEdge">

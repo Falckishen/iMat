@@ -8,6 +8,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -27,9 +28,10 @@ public class ProductItemController extends AnchorPane {
     @FXML private ImageView favoriteImage;
     @FXML private Text nameOfProduct;
     @FXML private Text priceOfItem;
-    @FXML private Text numberOfProductsText;
+    @FXML private Label numberOfProductsText;
     @FXML private ImageView plusImage;
     @FXML private ImageView minusImage;
+    @FXML private Label unitLabel;
 
     public ProductItemController(Product product, MainPageController mainPageController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/ProductItem.fxml"));
@@ -128,7 +130,8 @@ public class ProductItemController extends AnchorPane {
     private void populateProductItem(Product product) {
         this.image.setImage(dataHandler.getFXImage(product));
         this.nameOfProduct.setText(product.getName());
-        this.priceOfItem.setText(String.format("Pris: %.2f %s", this.product.getPrice(), this.product.getUnit()));
+        this.priceOfItem.setText(String.format("%.2f", this.product.getPrice()));
+        this.unitLabel.setText(this.product.getUnit());
         this.numberOfProductsText.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
         updateFavoriteButton();
     }
