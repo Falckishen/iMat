@@ -113,8 +113,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @FXML
     void openRegisterfinalstep(){this.registerfinalAnchorPane.toFront();}
 
-
-
     @FXML
     private void openAccountWindow() {
         AnchorPane accountWindowPane = new AccountWindowController(this, this.account);
@@ -129,6 +127,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         int colY = 0;
         int rowX = 0;
         this.gridPane.getChildren().clear();
+        //TODO Fixa this.productItemList här
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.BREAD);
         for(Product product: productList) {
             ProductItemController productItem = new ProductItemController(product, this);
@@ -238,6 +237,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     }
 
+    @FXML
     private void fillFood() {
         int colY = 0;
         int colX = 0;
