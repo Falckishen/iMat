@@ -37,7 +37,7 @@ public class CartItemController extends AnchorPane {
         }
         this.mainPageController = mainPageController;
         this.product = item.getProduct();
-        this.image.setImage(dataHandler.getFXImage(this.product));
+        this.image.setImage(Util.getSquareImage(dataHandler.getFXImage(this.product)));
         this.nameText.setText(item.getProduct().getName());
         this.priceText.setText(String.format("%.2f", item.getTotal()));
         this.numberOfProducts.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
