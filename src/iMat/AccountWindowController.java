@@ -40,7 +40,7 @@ public class AccountWindowController extends AnchorPane {
 
     @FXML
     private void closeAccountWindow() {
-        this.accountWindowAnchorPane.toBack();
+        this.toBack();
     }
 
     @FXML
@@ -48,11 +48,8 @@ public class AccountWindowController extends AnchorPane {
         mainPageController.changeAccount(account.changeFirstName(accountFNameTextField.getText()));
     }
 
-
     @FXML
     public void fillTextFields() {
         accountFNameTextField.setText(account.getFirstName());
     }
-
-
 }
