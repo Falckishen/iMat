@@ -39,7 +39,7 @@
             <AnchorPane maxHeight="780.0" maxWidth="300.0" minHeight="780.0" minWidth="300.0" prefHeight="780.0" prefWidth="300.0" styleClass="borderpane-container" stylesheets="@../css/CategoryMeny.css" BorderPane.alignment="TOP_LEFT">
                <children>
                   <Button fx:id="favoriterKnapp" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#favoriteFill" prefHeight="75.0" prefWidth="300.0" text="Favoriter" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <Accordion layoutY="100.0" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+                  <Accordion layoutY="100.0" maxHeight="705.0" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
                      <panes>
                         <TitledPane animated="false" maxHeight="325.0" maxWidth="300.0" minHeight="325.0" minWidth="300.0" prefHeight="325.0" prefWidth="300.0" text="Kolhydrater">
                            <content>
