@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
@@ -32,6 +33,7 @@ public class ProductItemController extends AnchorPane {
     @FXML private ImageView plusImage;
     @FXML private ImageView minusImage;
     @FXML private Label unitLabel;
+    @FXML private StackPane ekologiskPane;
 
     public ProductItemController(Product product, MainPageController mainPageController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/ProductItem.fxml"));
@@ -92,47 +94,14 @@ public class ProductItemController extends AnchorPane {
         updateFavoriteButton();
     }
 
-    @FXML
-    private void favoriteButtonMouseEntered() {
-        this.favoriteButton.setStyle("-fx-background-color: #d0d0d0;");
-    }
-
-    @FXML
-    private void favoriteButtonMousePressed() {
-        this.favoriteButton.setStyle("-fx-background-color: #c0c0c0;");
-    }
-
-    @FXML
-    private void favoriteButtonMouseExitedOrReleased() {
-        this.favoriteButton.setStyle("-fx-background-color: #e0e0e0;");
-    }
-
-    @FXML
-    private void plusButtonMouseEntered(){
-        this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus_hover.png"))));
-    }
-
-    @FXML
-    private void plusButtonMouseExited(){
-        this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/WhitePlus.png"))));
-    }
-
-    @FXML
-    private void minusButtonMouseEntered(){
-        this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/minus_hover.png"))));
-    }
-
-    @FXML
-    private void minusButtonMouseExited(){
-        this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/WhiteMinus.png"))));
-    }
-
     private void populateProductItem(Product product) {
         this.image.setImage(dataHandler.getFXImage(product));
         this.nameOfProduct.setText(product.getName());
         this.priceOfItem.setText(String.format("%.2f", this.product.getPrice()));
         this.unitLabel.setText(this.product.getUnit());
         this.numberOfProductsText.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
+        if(!this.product.isEcological())
+            this.ekologiskPane.setVisible(false);
         updateFavoriteButton();
     }
 }
