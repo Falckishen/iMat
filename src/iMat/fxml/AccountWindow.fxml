@@ -170,7 +170,7 @@
                            </children>
                         </HBox>
                         <Button layoutX="561.0" layoutY="512.0" mnemonicParsing="false" onAction="#saveButton" prefHeight="35.0" prefWidth="99.0" stylesheets="@../css/GreenButton.css" text="Spara" />
-                        <Button fx:id="accountWindowCloseButton" layoutX="619.0" layoutY="-13.0" mnemonicParsing="false" onAction="#closeAccountWindow" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" prefHeight="67.0" prefWidth="67.0" stylesheets="@../css/CloseButton.css">
+                        <Button fx:id="accountWindowCloseButton" layoutX="620.0" layoutY="-13.0" mnemonicParsing="false" onAction="#closeAccountWindow" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" prefHeight="67.0" prefWidth="67.0" stylesheets="@../css/CloseButton.css">
                            <font>
                               <Font size="22.0" />
                            </font>
