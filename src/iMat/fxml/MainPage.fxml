@@ -7,6 +7,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -22,17 +23,31 @@
    <children>
       <BorderPane fx:id="mainborderPane" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css">
          <top>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="120.0" prefWidth="1600.0" style="-fx-background-color: #395d77;" BorderPane.alignment="CENTER">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: #395d77;" BorderPane.alignment="CENTER">
                <children>
                   <ImageView fitHeight="99.0" fitWidth="127.0" layoutX="1133.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fitHeight="99.0" fitWidth="127.0" layoutX="1375.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
-                  <TextField fx:id="searchBar" layoutX="152.0" layoutY="30.0" onAction="#searchBar" prefHeight="61.0" prefWidth="894.0" promptText="Sök här på varor">
+                  <TextField fx:id="searchBar" layoutX="270.0" layoutY="20.0" onAction="#searchBar" prefHeight="61.0" prefWidth="719.0" promptText="Sök här på varor">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="btnTestKonto" layoutX="1107.0" layoutY="48.0" mnemonicParsing="false" onAction="#openAccountWindow" text="Button" />
-                  <Button fx:id="emptyCart" layoutX="1411.0" layoutY="48.0" mnemonicParsing="false" onAction="#empty" text="TÖM KASSA" />
+                  <Button layoutX="916.0" layoutY="24.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="69.0" stylesheets="@../css/SearchButton.css" text="Sök" />
+                  <AnchorPane fx:id="kontoButton" layoutX="1057.0" layoutY="17.0" onMouseClicked="#openAccountWindow" prefHeight="45.0" prefWidth="140.0" AnchorPane.leftAnchor="1057.0" AnchorPane.rightAnchor="403.0" AnchorPane.topAnchor="17.0">
+                     <children>
+                        <Label id="kontoText" layoutX="68.0" layoutY="9.0" prefHeight="50.0" prefWidth="71.0" text="Konto" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="9.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="80.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/AccountcircleVit.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="emptyCart" layoutX="1519.0" layoutY="2.0" mnemonicParsing="false" onAction="#empty" text="TÖM KASSA" />
                </children>
             </AnchorPane>
          </top>
@@ -49,7 +64,7 @@
                                     <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForBread" prefHeight="75.0" prefWidth="300.0" text="Bröd" AnchorPane.topAnchor="0.0" />
                                     <Button layoutY="100.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForPasta" prefHeight="75.0" prefWidth="300.0" text="Pasta" AnchorPane.topAnchor="75.0" />
                                     <Button layoutY="200.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForPotatoRice" prefHeight="75.0" prefWidth="300.0" text="Potatis och ris" AnchorPane.topAnchor="150.0" />
-                                    <Button layoutY="300.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForFlourSugarSalt" prefHeight="75.0" prefWidth="300.0" text="Mjöl, socker och salt" AnchorPane.topAnchor="225.0" />
+                                    <Button layoutX="-3.0" layoutY="244.6" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForFlourSugarSalt" prefHeight="75.0" prefWidth="303.0" text="Mjöl, socker och salt" AnchorPane.topAnchor="235.0" />
                                  </children>
                               </AnchorPane>
                            </content>
@@ -134,7 +149,7 @@
          <center>
             <AnchorPane prefWidth="960.0" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="780.0" prefWidth="900.0" stylesheets="@../css/ScrollBar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="780.0" prefWidth="900.0" stylesheets="@../css/ScrollBar.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
                         <GridPane fx:id="gridPane" alignment="TOP_CENTER" hgap="40.0" prefHeight="698.0" prefWidth="898.0" styleClass="gridPanel" vgap="30.0">
                           <columnConstraints>
@@ -160,12 +175,12 @@
                      <children>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="709.0" prefWidth="333.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css">
                            <content>
-                              <FlowPane fx:id="cartPanelView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="374.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css" vgap="10.0" />
+                              <FlowPane fx:id="cartPanelView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="374.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css" vgap="10.0" />
                            </content>
                         </ScrollPane>
                         <HBox alignment="CENTER" prefHeight="150.0" prefWidth="320.0" styleClass="shoppingCartEdge">
                            <children>
-                              <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" styleClass="shoppingCartText">
+                              <VBox alignment="CENTER_LEFT" prefHeight="111.0" prefWidth="110.0" styleClass="shoppingCartText">
                                  <children>
                                     <Label id="shoppingCartTextTotal" text="Total:" />
                                     <Label id="shoppingCartTextAmount" fx:id="totalPrice" text="0" />

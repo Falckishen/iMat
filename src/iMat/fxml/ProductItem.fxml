@@ -43,7 +43,7 @@
                   </Button>
                   <AnchorPane layoutX="138.0" layoutY="-6.0" prefHeight="41.0" prefWidth="100.0" styleClass="paneDarker" stylesheets="@../css/BlueButtonMiddle.css">
                      <children>
-                        <Label fx:id="numberOfProductsText" alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="101.0" styleClass="labelDarker" text="Label" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Label fx:id="numberOfProductsText" alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="101.0" styleClass="labelDarker" text="0" underline="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                </children>

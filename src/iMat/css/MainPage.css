@@ -52,3 +52,8 @@
     -fx-font: bold 16px "Helvetica";
     -fx-text-fill: #FCFAFA;
 }
+
+#kontoText {
+    -fx-font: bold 24px "Helvetica";
+    -fx-text-fill: #FCFAFA;
+}
