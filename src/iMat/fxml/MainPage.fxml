@@ -32,7 +32,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </TextField>
-                  <Button layoutX="916.0" layoutY="24.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="69.0" stylesheets="@../css/SearchButton.css" text="Sök" />
+                  <Button fx:id="searchButton" layoutX="916.0" layoutY="24.0" mnemonicParsing="false" onAction="#searchBar" prefHeight="53.0" prefWidth="69.0" stylesheets="@../css/SearchButton.css" text="Sök" AnchorPane.leftAnchor="916.0" AnchorPane.topAnchor="24.0" />
                   <AnchorPane fx:id="kontoButton" layoutX="1057.0" layoutY="17.0" onMouseClicked="#openAccountWindow" prefHeight="45.0" prefWidth="140.0" AnchorPane.leftAnchor="1057.0" AnchorPane.rightAnchor="403.0" AnchorPane.topAnchor="17.0">
                      <children>
                         <Label id="kontoText" layoutX="68.0" layoutY="9.0" prefHeight="50.0" prefWidth="71.0" text="Konto" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="9.0">
