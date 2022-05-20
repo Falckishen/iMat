@@ -18,7 +18,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
     private final ShoppingCart cart = dataHandler.getShoppingCart();
-    private iMatAccount account;
 
     private final ArrayList<ProductItemController> productItemsList = new ArrayList<ProductItemController>();
     private AnchorPane registerAnchorPane;
@@ -60,10 +59,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
-
-    void changeAccount(iMatAccount newAccount) {
-        this.account = newAccount;
-    }
 
     void openProductDetailView(Product product) {
         AnchorPane detailViewAnchorPane = new DetailViewController(product, this);
@@ -208,7 +203,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     @FXML
     private void openAccountWindow() {
-        AnchorPane accountWindowPane = new AccountWindowController(this, this.account);
+        AnchorPane accountWindowPane = new AccountWindowController(this);
         mainPageRootAnchorPane.getChildren().add(accountWindowPane);
         accountWindowPane.toFront();
     }
@@ -350,9 +345,5 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         this.registerAnchorPane = new RegisterController(this);
         this.mainPageRootAnchorPane.getChildren().add(this.registerAnchorPane);
         this.registerAnchorPane.toBack();
-    }
-
-    private void createAccount() {
-        this.account = new iMatAccount("", "", "", 0, 0, PaymentType.NONE);
     }
 }
