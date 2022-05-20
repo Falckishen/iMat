@@ -9,18 +9,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="125.0" maxWidth="374.0" minHeight="125.0" minWidth="374.0" onMouseClicked="#openDetailView" prefHeight="125.0" prefWidth="374.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="125.0" maxWidth="374.0" minHeight="125.0" minWidth="374.0" onMouseClicked="#openDetailView" prefHeight="125.0" prefWidth="374.0" styleClass="split-pane" stylesheets="@../css/CartItem.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <SplitPane dividerPositions="0.36363636363636365" prefHeight="125.0" prefWidth="374.0" stylesheets="@../css/CartItem.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.3315508021390374" prefHeight="125.0" prefWidth="374.0" stylesheets="@../css/CartItem.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
-            <VBox alignment="CENTER" maxHeight="123.0" maxWidth="123.0" minHeight="123.0" minWidth="123.0" prefHeight="123.0" prefWidth="123.0" style="-fx-background-color: FFFFFF;">
-               <children>
-                  <ImageView fx:id="image" fitHeight="115.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" />
-               </children>
-            </VBox>
+            <VBox alignment="CENTER" maxHeight="123.0" maxWidth="123.0" minHeight="123.0" minWidth="87.0" prefHeight="123.0" prefWidth="87.0" style="-fx-background-color: FFFFFF;" />
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="646.0">
@@ -47,15 +44,16 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="37.0" prefWidth="232.0">
                                  <children>
-                                    <Label fx:id="priceText" layoutX="-21.0" prefHeight="37.0" prefWidth="84.0" text="327,853" textAlignment="JUSTIFY" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <Label fx:id="priceText" layoutX="-12.0" prefHeight="38.0" prefWidth="110.0" text="327,853" textAlignment="JUSTIFY" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <font>
                                           <Font name="System Bold" size="22.0" />
                                        </font>
                                     </Label>
-                                 </children></AnchorPane>
+                                 </children>
+                              </AnchorPane>
                               <AnchorPane prefHeight="37.0" prefWidth="187.0">
                                  <children>
-                                    <Label prefHeight="38.0" prefWidth="50.0" text="kr" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                                    <Label layoutX="-18.0" prefHeight="38.0" prefWidth="72.0" text="kr" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-18.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -82,7 +80,8 @@
                               <Label fx:id="numberOfProducts" alignment="CENTER" layoutX="-1.0" prefHeight="40.0" prefWidth="72.0" text="0" textAlignment="CENTER">
                                  <font>
                                     <Font size="22.0" />
-                                 </font></Label>
+                                 </font>
+                              </Label>
                            </children>
                         </Pane>
                         <Button layoutX="132.0" mnemonicParsing="false" onAction="#plusButtonClicked" prefHeight="40.0" prefWidth="50.0" stylesheets="@../css/BlueButton.css" text="Button">
@@ -98,19 +97,28 @@
                   </AnchorPane>
                </children>
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
          </items>
       </SplitPane>
-      <Button fx:id="removeButton" layoutX="334.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="0.0" mnemonicParsing="false" onAction="#removeAllItems" prefHeight="40.0" prefWidth="40.0" stylesheets="@../css/FavoriteButton.css">
+      <Button fx:id="removeButton" layoutX="334.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="0.0" mnemonicParsing="false" onAction="#removeAllItems" onMouseEntered="#closeButtonMouseEnter" onMouseExited="#closeButtonMouseExited" prefHeight="40.0" prefWidth="40.0" stylesheets="@../css/CloseButton.css">
          <graphic>
-            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="closeImageView" fitHeight="35.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/Shoppinglist.png" />
+                  <Image url="@../images/cross_close_hover.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
+      <StackPane layoutX="-6.0" layoutY="-1.0" prefHeight="125.0" prefWidth="131.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="image" fitHeight="125.0" fitWidth="125.0" layoutX="6.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="1.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
    </children>
 </fx:root>

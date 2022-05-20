@@ -37,7 +37,10 @@
                         <Pane prefHeight="709.0" prefWidth="0.0" styleClass="sidePane" />
                         <HBox alignment="CENTER" prefHeight="150.0" prefWidth="320.0" styleClass="sidePaneEdge">
                            <children>
-                              <Button fx:id="toBackButtonCart2" alignment="CENTER" mnemonicParsing="false" onAction="#openPurchaseView" prefHeight="48.0" prefWidth="169.0" stylesheets="@../css/WhiteButton.css" text="Tillbaka" />
+                              <Button fx:id="toBackButtonCart2" alignment="CENTER" mnemonicParsing="false" onAction="#openPurchaseView" prefHeight="48.0" prefWidth="169.0" stylesheets="@../css/WhiteButton.css" text="Tillbaka">
+                                 <HBox.margin>
+                                    <Insets left="40.0" />
+                                 </HBox.margin></Button>
                               <VBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="100.0" styleClass="shoppingCartText" />
                            </children>
                         </HBox>
@@ -141,7 +144,10 @@
                                     <Label id="registerTextAmount" fx:id="totalPriceCart2" text="1000,00 kr" />
                                  </children>
                               </VBox>
-                              <Button fx:id="toPurchaseButtonCart2" alignment="CENTER" mnemonicParsing="false" onAction="#openFinalStep" prefHeight="48.0" prefWidth="169.0" stylesheets="@../css/GreenButton.css" text="Betala" />
+                              <Button fx:id="toPurchaseButtonCart2" alignment="CENTER" mnemonicParsing="false" onAction="#openFinalStep" prefHeight="48.0" prefWidth="169.0" stylesheets="@../css/GreenButton.css" text="Betala">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin></Button>
                            </children>
                            <VBox.margin>
                               <Insets />

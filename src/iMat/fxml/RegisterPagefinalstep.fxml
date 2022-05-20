@@ -99,7 +99,10 @@
                                     <Label id="registerTextAmount" fx:id="totalPricefinalpage" text="1000,00 kr" />
                                  </children>
                               </VBox>
-                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#openMainPageView" prefHeight="48.0" prefWidth="169.0" stylesheets="@../css/GreenButton.css" text="Till handla" />
+                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#openMainPageView" prefHeight="48.0" prefWidth="169.0" stylesheets="@../css/GreenButton.css" text="Till handla">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin></Button>
                            </children>
                            <VBox.margin>
                               <Insets />
