@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.*;
 import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 
@@ -36,6 +37,7 @@ public class DetailViewController extends AnchorPane {
     @FXML private ImageView minusImage;
     @FXML private Button favoriteButton;
     @FXML private ImageView favoriteImage;
+    @FXML private StackPane ekoStackPane;
 
     public DetailViewController(Product product, MainPageController mainPageController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/DetailView.fxml"));
@@ -114,9 +116,11 @@ public class DetailViewController extends AnchorPane {
         this.priceLabel.setText(String.format("Pris: %.2f %s", this.product.getPrice(), this.product.getUnit()));
         if (this.product.isEcological()) {
             this.isEcoLabel.setText("Produkten är ekologisk");
+            this.ekoStackPane.setVisible(true);
         }
         else {
             this.isEcoLabel.setText("Produkten är ej ekologisk");
+            this.ekoStackPane.setVisible(false);
         }
         this.numOfItems.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
         updateFavoriteButton();

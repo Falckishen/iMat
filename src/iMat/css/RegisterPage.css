@@ -1,25 +1,30 @@
 .middle {
-    -fx-background-color: F3F0F0;
+    -fx-background-color: #F3F0F0;
 }
 
 .sidePane {
-    -fx-background-color: F3F0F0;
+    -fx-background-color: #F3F0F0;
     -fx-border-width: 0px;
 }
 
 .sidePaneEdge {
-    -fx-background-color: F3F0F0;
+    -fx-background-color: #F3F0F0;
     -fx-border-width: 0px;
 }
 
 .grid {
-    -fx-background-color: F3F0F0;
+    -fx-background-color: #F3F0F0;
     -fx-border-color: FCFAFA;
     -fx-border-width: 5px;
 }
 
 .gridPane {
-    -fx-background-color: F3F0F0;
+    -fx-background-color: #F3F0F0;
+    -fx-border-width: 0px;
+}
+
+.topPane {
+    -fx-background-color: #3b6781;
     -fx-border-width: 0px;
 }
 

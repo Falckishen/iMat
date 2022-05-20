@@ -1,5 +1,5 @@
 .button {
-    -fx-background-color: #395D77;
+    -fx-background-color: #3b6781;
     -fx-font: bold 16pt "Arial";
     -fx-text-fill: #FCFAFA;
     -fx-effect: innershadow( gaussian , rgba(255, 255, 255, 0.25) , 1 , 0.3 , -1 , 1 );

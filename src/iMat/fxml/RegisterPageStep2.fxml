@@ -19,7 +19,7 @@
    <children>
       <BorderPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: FFFFFF;">
          <top>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: #395d77;" stylesheets="@../css/RegisterPage.css" BorderPane.alignment="CENTER">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1600.0" styleClass="topPanel" stylesheets="@../css/RegisterPage.css" BorderPane.alignment="CENTER">
                <children>
                   <Text id="topPaneText" fill="WHITE" layoutX="1.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 2 av 3: Betala" translateX="150.0" wrappingWidth="1092.2105712890625" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="13.728515625">
                      <font>

@@ -5,10 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
@@ -100,6 +102,33 @@
                   <Font name="Arial Bold" size="30.0" />
                </font>
             </Button>
+            <StackPane fx:id="ekoStackPane" layoutX="36.0" layoutY="-8.0" prefHeight="154.0" prefWidth="130.0" style="-fx-background-color: #96B28B;">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label contentDisplay="CENTER" layoutX="17.0" layoutY="77.0" prefHeight="56.0" prefWidth="96.0" styleClass="label-eko" text="Eko">
+                           <font>
+                              <Font name="Arial" size="28.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow blurType="ONE_PASS_BOX" height="23.93" radius="10.6125" width="20.52">
+                                 <color>
+                                    <Color opacity="0.12554112076759338" />
+                                 </color>
+                              </InnerShadow>
+                           </effect>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+               <effect>
+                  <InnerShadow blurType="ONE_PASS_BOX" choke="0.09" height="3.42" offsetX="-2.0" offsetY="2.0" radius="1.2075" width="3.41">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" opacity="0.588744580745697" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </StackPane>
          </children>
       </AnchorPane>
    </children>

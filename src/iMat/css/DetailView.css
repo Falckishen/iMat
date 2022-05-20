@@ -22,6 +22,11 @@
     -fx-text-fill: #2E3235;
 }
 
+.label-eko {
+    -fx-font: bold 52px "Arial";
+    -fx-text-fill: #FCFAFA;
+}
+
 .numOfItemsText {
     -fx-background-color: #395d77;
     -fx-font-size: 45;

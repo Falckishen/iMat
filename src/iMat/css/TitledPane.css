@@ -5,7 +5,7 @@
     -fx-padding: 0.7em 0.7em 0.7em 0.7em;
     -fx-alignment: center;
     -fx-border-width: 0 0 8 0;
-    -fx-border-color: #F3F0F0;
+    -fx-border-color: #eeebeb;
 }
 
 .titled-pane:expanded > .title
@@ -15,7 +15,7 @@
     -fx-padding: 0.7em 0.7em 0.7em 0.7em;
     -fx-alignment: center;
     -fx-border-width: 0 0 8 0;
-    -fx-border-color: #F3F0F0;
+    -fx-border-color: #eeebeb;
 }
 
 .titled-pane:hover > .title
@@ -67,7 +67,7 @@
     -fx-text-fill: #274156;
     -fx-background-radius : 0.0em;
     -fx-border-width: 0;
-    -fx-border-color: #F3F0F0;
+    -fx-border-color: #eeebeb;
 }
 
 .button:focused {
@@ -76,5 +76,5 @@
     -fx-text-fill: #559CAD;
     -fx-background-radius : 0.0em;
     -fx-border-width: 0;
-    -fx-border-color: #F3F0F0;
+    -fx-border-color: #eeebeb;
 }

@@ -205,10 +205,7 @@
                      <children>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="709.0" prefWidth="0.0" vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
                            <content>
-                              <FlowPane fx:id="cartPanelView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="395.0" styleClass="flow-pane" vgap="15.0">
-                                 <padding>
-                                    <Insets left="8.0" />
-                                 </padding></FlowPane>
+                              <FlowPane fx:id="cartPanelView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="395.0" styleClass="flow-pane" vgap="15.0" />
                            </content>
                            <stylesheets>
                               <URL value="@../css/CartPane.css" />
@@ -223,7 +220,10 @@
                                     <Label id="shoppingCartTextAmount" fx:id="totalPrice" text="0" />
                                  </children>
                               </VBox>
-                              <Button fx:id="tillkassanButton" alignment="CENTER" mnemonicParsing="false" onAction="#openRegisterView" prefHeight="48.0" prefWidth="169.0" stylesheets="@../css/GreenButton.css" text="Till Kassan" />
+                              <Button fx:id="tillkassanButton" alignment="CENTER" mnemonicParsing="false" onAction="#openRegisterView" prefHeight="48.0" prefWidth="169.0" stylesheets="@../css/GreenButton.css" text="Till Kassan">
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font></Button>
                            </children>
                         </HBox>
                      </children>

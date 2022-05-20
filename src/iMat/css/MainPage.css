@@ -19,18 +19,18 @@
 }
 
 .topPanel {
-    -fx-background-color: #395d77;
+    -fx-background-color: #3b6781;
     -fx-border-width: 0px;
 }
 
 .gridPanel {
-    -fx-background-color: #F3F0F0;
+    -fx-background-color: #eeebeb;
     -fx-border-width: 0px;
 }
 
 .scrollPanel {
-    -fx-background: #F3F0F0;
-    -fx-background-color: #F3F0F0;
+    -fx-background: #eeebeb;
+    -fx-background-color: #eeebeb;
     -fx-border-width: 0px;
 }
 

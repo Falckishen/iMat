@@ -4,9 +4,10 @@
 }
 
 .scroll-pane {
-    -fx-background: #FCFAFA;
-    -fx-background-color: #FCFAFA;
-    -fx-border-width: 0px;
+    -fx-background: #eeebeb;
+    -fx-background-color: #eeebeb;
+    -fx-border-width: 0 0 0 12;
+    -fx-border-color: #FCFAFA;
 }
 
 .shoppingCartEdge {

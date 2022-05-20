@@ -13,16 +13,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="125.0" maxWidth="374.0" minHeight="125.0" minWidth="374.0" onMouseClicked="#openDetailView" prefHeight="125.0" prefWidth="374.0" styleClass="split-pane" stylesheets="@../css/CartItem.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="125.0" maxWidth="362.0" minHeight="125.0" minWidth="362.0" onMouseClicked="#openDetailView" prefHeight="125.0" prefWidth="362.0" styleClass="split-pane" stylesheets="@../css/CartItem.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <SplitPane dividerPositions="0.3315508021390374" prefHeight="125.0" prefWidth="374.0" stylesheets="@../css/CartItem.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
             <VBox alignment="CENTER" maxHeight="123.0" maxWidth="123.0" minHeight="123.0" minWidth="87.0" prefHeight="123.0" prefWidth="87.0" style="-fx-background-color: FFFFFF;" />
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="646.0">
+                  <AnchorPane prefHeight="28.0" prefWidth="224.0">
                      <children>
-                        <Label fx:id="nameText" layoutX="72.0" prefHeight="37.0" prefWidth="169.0" text="Superlångt NAMN" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Label fx:id="nameText" layoutX="72.0" prefHeight="37.0" prefWidth="169.0" text="Superlångt NAN" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -61,32 +61,35 @@
                                  </children>
                               </AnchorPane>
                            </children>
+                           <padding>
+                              <Insets bottom="8.0" />
+                           </padding>
                         </HBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="40.0" prefWidth="291.0">
+                  <AnchorPane prefHeight="40.0" prefWidth="249.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#minusButtonClicked" prefHeight="40.0" prefWidth="50.0" stylesheets="@../css/BlueButton.css" text="Button">
                            <graphic>
-                              <ImageView fx:id="removeProduct" fitHeight="40.0" fitWidth="101.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="removeProduct" fitHeight="40.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" translateX="2.0">
                                  <image>
                                     <Image url="@../images/WhiteMinus.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Pane layoutX="55.0" prefHeight="40.0" prefWidth="72.0" styleClass="pane" stylesheets="@../css/BlueButtonMiddle.css">
+                        <Pane layoutX="52.0" prefHeight="40.0" prefWidth="72.0" styleClass="paneDarker" stylesheets="@../css/BlueButtonMiddle.css">
                            <children>
-                              <Label fx:id="numberOfProducts" alignment="CENTER" layoutX="-1.0" prefHeight="40.0" prefWidth="72.0" text="0" textAlignment="CENTER">
+                              <Label fx:id="numberOfProducts" alignment="CENTER" layoutX="-1.0" prefHeight="40.0" prefWidth="72.0" text="0" textAlignment="CENTER" underline="true">
                                  <font>
                                     <Font size="22.0" />
                                  </font>
                               </Label>
                            </children>
                         </Pane>
-                        <Button layoutX="132.0" mnemonicParsing="false" onAction="#plusButtonClicked" prefHeight="40.0" prefWidth="50.0" stylesheets="@../css/BlueButton.css" text="Button">
+                        <Button layoutX="126.0" mnemonicParsing="false" onAction="#plusButtonClicked" prefHeight="40.0" prefWidth="50.0" stylesheets="@../css/BlueButton.css" text="Button">
                            <graphic>
-                              <ImageView fx:id="addProduct" fitHeight="40.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="addProduct" fitHeight="40.0" fitWidth="59.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true" translateX="2.0" x="5.0">
                                  <image>
                                     <Image url="@../images/WhitePlus.png" />
                                  </image>
@@ -94,6 +97,9 @@
                            </graphic>
                         </Button>
                      </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                   </AnchorPane>
                </children>
                <padding>
@@ -102,9 +108,9 @@
             </VBox>
          </items>
       </SplitPane>
-      <Button fx:id="removeButton" layoutX="334.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="0.0" mnemonicParsing="false" onAction="#removeAllItems" onMouseEntered="#closeButtonMouseEnter" onMouseExited="#closeButtonMouseExited" prefHeight="40.0" prefWidth="40.0" stylesheets="@../css/CloseButton.css">
+      <Button fx:id="removeButton" layoutX="326.0" layoutY="-1.0" maxHeight="40.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#removeAllItems" onMouseEntered="#closeButtonMouseEnter" onMouseExited="#closeButtonMouseExited" prefHeight="35.0" prefWidth="42.0" stylesheets="@../css/CloseButton.css">
          <graphic>
-            <ImageView fx:id="closeImageView" fitHeight="35.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="closeImageView" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/cross_close_hover.png" />
                </image>
