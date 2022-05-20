@@ -76,7 +76,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane contentDisplay="CENTER" maxHeight="496.0" maxWidth="300.0" minHeight="175.0" minWidth="0.0" prefHeight="274.0" prefWidth="0.0" stylesheets="@../css/TitledPane.css" text="Drycker">
+                        <TitledPane fx:id="dryckerTitledPane" contentDisplay="CENTER" maxHeight="496.0" maxWidth="300.0" minHeight="175.0" minWidth="0.0" prefHeight="274.0" prefWidth="0.0" stylesheets="@../css/TitledPane.css" text="Drycker">
                            <content>
                               <AnchorPane prefHeight="257.0" prefWidth="313.0" styleClass="anchor-pane">
                                  <children>
@@ -90,7 +90,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane maxHeight="400.0" maxWidth="300.0" minHeight="400.0" minWidth="300.0" onKeyPressed="#searchForFruit" prefHeight="400.0" prefWidth="300.0" stylesheets="@../css/TitledPane.css" text="Frukt &amp; Bär">
+                        <TitledPane fx:id="fruktTitledPane" maxHeight="400.0" maxWidth="300.0" minHeight="400.0" minWidth="300.0" onKeyPressed="#searchForFruit" prefHeight="400.0" prefWidth="300.0" stylesheets="@../css/TitledPane.css" text="Frukt &amp; Bär">
                            <content>
                               <AnchorPane maxHeight="400.0" maxWidth="300.0" minHeight="231.0" minWidth="300.0" prefHeight="251.0" prefWidth="300.0" styleClass="anchor-pane" stylesheets="@../css/TitledPane.css">
                                  <children>
@@ -107,7 +107,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane maxHeight="250.0" maxWidth="300.0" minHeight="250.0" minWidth="300.0" prefHeight="250.0" prefWidth="300.0" stylesheets="@../css/TitledPane.css" text="Grönsaker">
+                        <TitledPane fx:id="gronsakerTitledPane" maxHeight="250.0" maxWidth="300.0" minHeight="250.0" minWidth="300.0" prefHeight="250.0" prefWidth="300.0" stylesheets="@../css/TitledPane.css" text="Grönsaker">
                            <content>
                               <AnchorPane maxHeight="250.0" maxWidth="300.0" minHeight="250.0" minWidth="274.0" prefHeight="250.0" prefWidth="274.0" styleClass="anchor-pane">
                                  <children>
@@ -122,7 +122,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane maxHeight="258.0" maxWidth="300.0" minHeight="175.0" minWidth="265.0" prefHeight="258.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Kött &amp; Fisk">
+                        <TitledPane fx:id="kottTitledPane" maxHeight="258.0" maxWidth="300.0" minHeight="175.0" minWidth="265.0" prefHeight="258.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Kött &amp; Fisk">
                            <content>
                               <AnchorPane maxHeight="247.0" maxWidth="300.0" minHeight="175.0" minWidth="300.0" prefHeight="247.0" prefWidth="300.0" styleClass="anchor-pane">
                                  <children>
@@ -136,7 +136,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane maxHeight="175.0" maxWidth="300.0" minHeight="175.0" minWidth="300.0" prefHeight="175.0" prefWidth="300.0" stylesheets="@../css/TitledPane.css" text="Snacks">
+                        <TitledPane fx:id="snacksTitledPane" maxHeight="175.0" maxWidth="300.0" minHeight="175.0" minWidth="300.0" prefHeight="175.0" prefWidth="300.0" stylesheets="@../css/TitledPane.css" text="Snacks">
                            <content>
                               <AnchorPane maxHeight="248.0" maxWidth="300.0" minHeight="175.0" minWidth="300.0" prefHeight="248.0" prefWidth="300.0" styleClass="anchor-pane">
                                  <children>
@@ -150,7 +150,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane graphicTextGap="0.0" maxHeight="406.0" maxWidth="300.0" minHeight="0.0" minWidth="265.0" onMouseClicked="#searchForHerb" prefHeight="0.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Krydor">
+                        <TitledPane fx:id="kryddorTitledPane" graphicTextGap="0.0" maxHeight="406.0" maxWidth="300.0" minHeight="0.0" minWidth="265.0" onMouseClicked="#searchForHerb" prefHeight="0.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Krydor">
                            <content>
                               <AnchorPane prefHeight="235.0" prefWidth="395.0" styleClass="anchor-pane">
                                  <children>
@@ -159,7 +159,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane maxHeight="100.0" maxWidth="300.0" minHeight="0.0" minWidth="265.0" onMouseClicked="#searchForDairy" prefHeight="0.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Mejeri">
+                        <TitledPane fx:id="mejeriTitledPane" maxHeight="100.0" maxWidth="300.0" minHeight="0.0" minWidth="265.0" onMouseClicked="#searchForDairy" prefHeight="0.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Mejeri">
                            <content>
                               <AnchorPane prefHeight="235.0" prefWidth="39.0" styleClass="anchor-pane">
                                  <children>

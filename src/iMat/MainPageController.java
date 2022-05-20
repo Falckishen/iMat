@@ -10,6 +10,7 @@ import javafx.fxml.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TitledPane;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.*;
@@ -39,6 +40,14 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @FXML private Button kassa1backButton;
     @FXML private Button tillkassanButton;
     @FXML private BorderPane mainborderPane;
+
+    @FXML private TitledPane dryckerTitledPane;
+    @FXML private TitledPane snacksTitledPane;
+    @FXML private TitledPane gronsakerTitledPane;
+    @FXML private TitledPane kottTitledPane;
+    @FXML private TitledPane fruktTitledPane;
+    @FXML private TitledPane mejeriTitledPane;
+    @FXML private TitledPane kryddorTitledPane;
 
     // Körs när MainPage.fxml läses in
     @Override
@@ -228,6 +237,8 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     @FXML
     private void favoriteFill(ActionEvent event){
+        collapsAccordion();
+
         int colY = 0;
         int rowX = 0;
         this.gridPane.getChildren().clear();
@@ -241,6 +252,16 @@ public class MainPageController implements Initializable, ShoppingCartListener {
                 rowX++;
             }
         }
+    }
+
+    private void collapsAccordion(){
+        dryckerTitledPane.setExpanded(false);
+        fruktTitledPane.setExpanded(false);
+        gronsakerTitledPane.setExpanded(false);
+        kottTitledPane.setExpanded(false);
+        kryddorTitledPane.setExpanded(false);
+        mejeriTitledPane.setExpanded(false);
+        snacksTitledPane.setExpanded(false);
     }
 
     //Använder denna för att fortsätta testa kassan
