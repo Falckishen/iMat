@@ -127,7 +127,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
 
     @FXML
-    private void searchForDairies() {
+    private void searchForDairy() {
         searchForCategory("DAIRIES");
     }
 
