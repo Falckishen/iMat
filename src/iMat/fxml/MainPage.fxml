@@ -23,7 +23,7 @@
    <children>
       <BorderPane fx:id="mainborderPane" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css">
          <top>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: #395d77;" BorderPane.alignment="CENTER">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1600.0" styleClass="topPanel" BorderPane.alignment="CENTER">
                <children>
                   <ImageView fitHeight="99.0" fitWidth="127.0" layoutX="1133.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fitHeight="99.0" fitWidth="127.0" layoutX="1375.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
@@ -52,12 +52,12 @@
             </AnchorPane>
          </top>
          <left>
-            <AnchorPane maxHeight="780.0" maxWidth="300.0" minHeight="780.0" minWidth="270.0" prefHeight="780.0" prefWidth="270.0" styleClass="borderpane-container" stylesheets="@../css/CategoryMeny.css" BorderPane.alignment="TOP_LEFT">
+            <AnchorPane maxHeight="802.0" maxWidth="300.0" minHeight="780.0" minWidth="270.0" prefHeight="802.0" prefWidth="270.0" styleClass="borderpane-container" stylesheets="@../css/CategoryMeny.css" BorderPane.alignment="TOP_LEFT">
                <children>
-                  <Button fx:id="favoriterKnapp" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#favoriteFill" prefHeight="75.0" prefWidth="300.0" text="Favoriter" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <Accordion layoutY="100.0" maxHeight="705.0" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+                  <Button fx:id="favoriterKnapp" maxHeight="77.0" maxWidth="300.0" minHeight="47.0" minWidth="270.0" mnemonicParsing="false" onAction="#favoriteFill" prefHeight="77.0" prefWidth="270.0" text="Favoriter" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Accordion layoutX="-3.0" layoutY="76.0" maxHeight="726.0" maxWidth="348.0" minWidth="266.0" prefHeight="724.0" prefWidth="273.0" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="76.0">
                      <panes>
-                        <TitledPane animated="false" maxHeight="325.0" maxWidth="300.0" minHeight="325.0" minWidth="300.0" prefHeight="325.0" prefWidth="300.0" text="Kolhydrater">
+                        <TitledPane animated="false" maxHeight="525.0" maxWidth="361.0" minHeight="325.0" minWidth="253.0" prefHeight="525.0" prefWidth="253.0" text="Kolhydrater">
                            <content>
                               <AnchorPane maxHeight="325.0" maxWidth="300.0" minHeight="325.0" minWidth="300.0" prefHeight="325.0" prefWidth="300.0">
                                  <children>
@@ -142,6 +142,9 @@
                            </content>
                         </TitledPane>
                      </panes>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
                   </Accordion>
                </children>
             </AnchorPane>
@@ -173,14 +176,14 @@
                <children>
                   <VBox prefHeight="780.0" prefWidth="320.0" styleClass="shoppingCart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ScrollPane hbarPolicy="NEVER" prefHeight="709.0" prefWidth="333.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css">
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="709.0" prefWidth="400.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css">
                            <content>
-                              <FlowPane fx:id="cartPanelView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="374.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css" vgap="10.0" />
+                              <FlowPane fx:id="cartPanelView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="384.0" styleClass="shoppingCart" stylesheets="@../css/ScrollBar.css" vgap="10.0" />
                            </content>
                         </ScrollPane>
-                        <HBox alignment="CENTER" prefHeight="150.0" prefWidth="320.0" styleClass="shoppingCartEdge">
+                        <HBox alignment="CENTER" prefHeight="150.0" prefWidth="400.0" styleClass="shoppingCartEdge">
                            <children>
-                              <VBox alignment="CENTER_LEFT" prefHeight="111.0" prefWidth="110.0" styleClass="shoppingCartText">
+                              <VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="141.0" styleClass="shoppingCartText">
                                  <children>
                                     <Label id="shoppingCartTextTotal" text="Total:" />
                                     <Label id="shoppingCartTextAmount" fx:id="totalPrice" text="0" />

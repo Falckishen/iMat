@@ -25,6 +25,7 @@
 }
 
 .topPanel {
+    -fx-background-color: #395d77;
     -fx-effect: dropshadow( gaussian , rgba(0, 0, 0, 0.2) , 5 , 0.5 , 5 , 5 );
     -fx-border-width: 0px;
 }
@@ -44,12 +45,12 @@
 }
 
 #shoppingCartTextTotal {
-    -fx-font: 19px "Helvetica";
+    -fx-font: 22px "Helvetica";
     -fx-text-fill: #FCFAFA;
 }
 
 #shoppingCartTextAmount {
-    -fx-font: bold 16px "Helvetica";
+    -fx-font: bold 20px "Helvetica";
     -fx-text-fill: #FCFAFA;
 }
 
