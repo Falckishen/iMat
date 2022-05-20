@@ -2,20 +2,24 @@
     -fx-background-color: rgba(0, 0, 0, 0.75);
 }
 
-.pane {
-    -fx-background-color: #ffffff;
-    -fx-border-color: #606060;
+.main-pane {
+    -fx-background-color: #FCFAFA;
+    -fx-border-color: #FFFFFF;
     -fx-border-width: 5px;
 }
 
-.textBackground {
-    -fx-background-color: #e0e0e0;
-    -fx-border-width: 10px;
-    -fx-border-color: rgba(0, 0, 0, 0); /* Osynlig border så texten inte är så nära kanten */
+.detail-pane {
+    -fx-background-color: #F3F0F0;
 }
 
-.closeButton {
-    -fx-background-color: rgb(255, 30, 30);
+.label {
+    -fx-font: 34px "Arial";
+    -fx-text-fill: #2E3235;
+}
+
+.label-rubrik {
+    -fx-font: bold 36px "Arial";
+    -fx-text-fill: #2E3235;
 }
 
 .numOfItemsText {

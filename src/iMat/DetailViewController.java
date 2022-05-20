@@ -54,53 +54,13 @@ public class DetailViewController extends AnchorPane {
 /*-------------------------------------------------------------------------------------------------------------------*/
 
     @FXML
-    private void closeButtonMouseEntered() {
+    private void closeButtonMouseEnter() {
+        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_white.png"))));
+    }
+
+    @FXML
+    private void closeButtonMouseExited() {
         this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_hover.png"))));
-    }
-
-    @FXML
-    private void closeButtonMousePressed() {
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_pressed.png"))));
-    }
-
-    @FXML
-    private void closeButtonMouseExited(){
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close.png"))));
-    }
-
-    @FXML
-    private void plusButtonMouseEntered(){
-        this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus_hover.png"))));
-    }
-
-    @FXML
-    private void plusButtonMousePressedOrExited(){
-        this.plusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus.png"))));
-    }
-
-    @FXML
-    private void minusButtonMouseEntered(){
-        this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/minus_hover.png"))));
-    }
-
-    @FXML
-    private void minusButtonMousePressedOrExited(){
-        this.minusImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/minus.png"))));
-    }
-
-    @FXML
-    private void favoriteButtonMouseEntered() {
-        this.favoriteButton.setStyle("-fx-background-color: #f0f0f0;");
-    }
-
-    @FXML
-    private void favoriteButtonMousePressed() {
-        this.favoriteButton.setStyle("-fx-background-color: #d0d0d0;");
-    }
-
-    @FXML
-    private void favoriteButtonMouseExitedOrReleased() {
-        this.favoriteButton.setStyle("-fx-background-color: #e0e0e0;");
     }
 
     @FXML

@@ -15,3 +15,7 @@
     -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.7) , 5 , 0.3 , -1 , 1 );
     -fx-background-radius : 0.1em;
 }
+
+.main-item {
+    -fx-background-color: #F3FAFA;
+}
