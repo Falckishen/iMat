@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
+<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
       <BorderPane fx:id="mainborderPane" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css">
          <top>
@@ -96,10 +96,10 @@
                                  <children>
                                     <VBox alignment="TOP_RIGHT" layoutX="16.0" layoutY="-0.40000000000000036" prefHeight="262.0" prefWidth="269.0" spacing="5.0" styleClass="background" stylesheets="@../css/TitledPane.css" AnchorPane.topAnchor="-10.0">
                                        <children>
-                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForBerry" prefHeight="40.0" prefWidth="269.0" stylesheets="@../css/TitledPane.css" text="Bär" />
+                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForFruit" prefHeight="40.0" prefWidth="269.0" stylesheets="@../css/TitledPane.css" text="Frukt" />
                                           <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForCitrusFruit" prefHeight="40.0" prefWidth="322.0" stylesheets="@../css/TitledPane.css" text="Citrosfrukter" />
                                           <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForExoticFruit" prefHeight="40.0" prefWidth="322.0" stylesheets="@../css/TitledPane.css" text="Exotiska Frukter" />
-                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForMelons" prefHeight="40.0" prefWidth="322.0" stylesheets="@../css/TitledPane.css" text="Frukt" />
+                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForBerry" prefHeight="40.0" prefWidth="322.0" stylesheets="@../css/TitledPane.css" text="Bär" />
                                           <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForMelons" prefHeight="40.0" prefWidth="322.0" stylesheets="@../css/TitledPane.css" text="Meloner" />
                                        </children>
                                     </VBox>

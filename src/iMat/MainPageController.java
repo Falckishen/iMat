@@ -12,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.*;
 
 public class MainPageController implements Initializable, ShoppingCartListener {
@@ -49,6 +48,16 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @FXML private TitledPane mejeriTitledPane;
     @FXML private TitledPane kryddorTitledPane;
 
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+    //Använder denna för att fortsätta testa kassan
+    @FXML
+    private void empty(){
+        cart.clear();
+    }
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+
     // Körs när MainPage.fxml läses in
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -56,7 +65,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         setupAccountPage();
         setupPurchasePage();
         setupReceiptPage();
-        fillFood();
+        fillWithAllFood();
         cart.addShoppingCartListener(this);
         updateCart();
     }
@@ -238,39 +247,38 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @FXML
     private void favoriteFill(ActionEvent event){
         collapsAccordion();
+        ArrayList<Product> favoritesProductList = (ArrayList<Product>) dataHandler.favorites();
+        fillWithFood(favoritesProductList);
+    }
 
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+    private void fillWithAllFood() {
+        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
+        fillWithFood(productList);
+    }
+
+    private void searchForCategory(String category) {
+        ArrayList<Product> productsInCategoryList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf(category));
+        fillWithFood(productsInCategoryList);
+    }
+
+    private void fillWithFood(ArrayList<Product> productsList) {
         int colY = 0;
         int rowX = 0;
         this.gridPane.getChildren().clear();
-        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.favorites();
-        for(Product product: productList) {
+        this.productItemsList.clear();
+        for(Product product: productsList) {
             ProductItemController productItem = new ProductItemController(product, this);
+            this.productItemsList.add(productItem);
             this.gridPane.add(productItem, colY, rowX);
             colY++;
-            if(colY == 2) {
+            if(colY == 2 ) {
                 colY = 0;
                 rowX++;
             }
         }
     }
-
-    private void collapsAccordion(){
-        dryckerTitledPane.setExpanded(false);
-        fruktTitledPane.setExpanded(false);
-        gronsakerTitledPane.setExpanded(false);
-        kottTitledPane.setExpanded(false);
-        kryddorTitledPane.setExpanded(false);
-        mejeriTitledPane.setExpanded(false);
-        snacksTitledPane.setExpanded(false);
-    }
-
-    //Använder denna för att fortsätta testa kassan
-    @FXML
-    private void empty(){
-        cart.clear();
-    }
-
-/*-------------------------------------------------------------------------------------------------------------------*/
 
     /*
     private void fillStepOneCart(){
@@ -292,40 +300,14 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     }
 
-    private void fillFood() {
-        int colY = 0;
-        int colX = 0;
-        this.gridPane.getChildren().clear();
-        this.cartPanelView.getChildren().clear();
-        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
-        for(Product product: productList){
-            ProductItemController productItem = new ProductItemController(product, this);
-            this.gridPane.add(productItem, colY, colX);
-            this.productItemsList.add(productItem);
-            colY++;
-            if(colY == 2) {
-                colX++;
-                colY = 0;
-            }
-        }
-    }
-
-    private void searchForCategory(String category) {
-        int colY = 0;
-        int rowX = 0;
-        this.gridPane.getChildren().clear();
-        ArrayList<Product> productsInCategoryList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf(category));
-        this.productItemsList.clear();
-        for(Product product: productsInCategoryList) {
-            ProductItemController productItem = new ProductItemController(product, this);
-            this.productItemsList.add(productItem);
-            this.gridPane.add(productItem, colY, rowX);
-            colY++;
-            if(colY == 2 ) {
-                colY = 0;
-                rowX++;
-            }
-        }
+    private void collapsAccordion(){
+        dryckerTitledPane.setExpanded(false);
+        fruktTitledPane.setExpanded(false);
+        gronsakerTitledPane.setExpanded(false);
+        kottTitledPane.setExpanded(false);
+        kryddorTitledPane.setExpanded(false);
+        mejeriTitledPane.setExpanded(false);
+        snacksTitledPane.setExpanded(false);
     }
 
     private void updateProductItems() {
