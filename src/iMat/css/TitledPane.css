@@ -1,9 +1,21 @@
+.titled-pane > .title
+{
+    -fx-background-color: #FCFAFA;
+    -fx-font: bold 16pt "Arial";
+    -fx-padding: 1em 1em 1em 1em; /* 2 10 3 10 */
+    -fx-alignment: center;
+    -fx-border-width: 0 0 5 0;
+    -fx-border-color: #F3F0F0;
+}
+
 .button {
     -fx-background-color: #FCFAFA;
     -fx-font: 16pt "Arial";
     -fx-text-fill: #2E3235;
     -fx-background-radius : 0.0em;
     -fx-padding: 0.5em 0.5em 0.5em 0.5em; /* 2 10 3 10 */
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #F3F0F0;
 }
 
 .button:hover {
@@ -13,6 +25,8 @@
     -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.25) , 2 , 0.6 , -2 , 2 );
     -fx-padding: 0.5em 0.5em 0.5em 0.5em; /* 2 10 3 10 */
     -fx-background-radius : 0.0em;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #F3F0F0;
 }
 
 .button:pressed {
@@ -22,33 +36,6 @@
     -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.25) , 2 , 0.6 , -2 , 2 );
     -fx-padding: 0.5em 0.5em 0.5em 0.5em; /* 2 10 3 10 */
     -fx-background-radius : 0.0em;
-}
-
-.borderpane-container {
-    -fx-background-color: #F3F0F0;
-    -fx-border-width: 0;
-    -fx-border-color: transparent;
-}
-
-.categorizes-anchor {
-    -fx-background-color: #F3F0F0;
-    -fx-border-width: 0 8 0 0;
-    -fx-border-color: #FCFAFA;
-}
-
-.categorizes {
-    -fx-background-color: #F3F0F0;
-    -fx-border-width: 0;
-}
-
-.categorizes-accordion {
-    -fx-background: #F3F0F0;
-    -fx-background-color: #F3F0F0;
-    -fx-border-width: 0px;
-}
-
-.anchor-pane {
-    -fx-background: #F3F0F0;
-    -fx-background-color: #F3F0F0;
-    -fx-border-width: 0px;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #F3F0F0;
 }
