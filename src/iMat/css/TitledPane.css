@@ -8,6 +8,37 @@
     -fx-border-color: #F3F0F0;
 }
 
+.titled-pane:expanded > .title
+{
+    -fx-background-color: #559CAD;
+    -fx-font: bold 16pt "Arial";
+    -fx-padding: 0.7em 0.7em 0.7em 0.7em;
+    -fx-alignment: center;
+    -fx-border-width: 0 0 8 0;
+    -fx-border-color: #F3F0F0;
+}
+
+.titled-pane:hover > .title
+{
+    -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.25) , 2 , 0.6 , -1 , 1 );
+}
+
+.titled-pane:hover > .title > .text
+{
+    -fx-fill: #2E3235;
+}
+
+.titled-pane:expanded > .title > .text
+{
+    -fx-fill: #FCFAFA;
+}
+
+.titled-pane > .title > .arrow-button .arrow
+{
+    -fx-shape: " ";
+}
+
+
 .background {
     -fx-background-color: transparent;
 }
@@ -32,10 +63,18 @@
 }
 
 .button:pressed {
-    -fx-background-color: #559CAD;
+    -fx-background-color: #FCFAFA;
     -fx-font: 16pt "Arial";
-    -fx-text-fill: #FCFAFA;
-    -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.25) , 2 , 0.6 , -1 , 1 );
+    -fx-text-fill: #274156;
+    -fx-background-radius : 0.0em;
+    -fx-border-width: 0;
+    -fx-border-color: #F3F0F0;
+}
+
+.button:focused {
+    -fx-background-color: #FCFAFA;
+    -fx-font: 16pt "Arial";
+    -fx-text-fill: #559CAD;
     -fx-background-radius : 0.0em;
     -fx-border-width: 0;
     -fx-border-color: #F3F0F0;

@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -121,7 +122,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane maxHeight="175.0" maxWidth="300.0" minHeight="175.0" minWidth="300.0" prefHeight="175.0" prefWidth="300.0" stylesheets="@../css/TitledPane.css" text="Kött &amp; Fisk">
+                        <TitledPane maxHeight="258.0" maxWidth="300.0" minHeight="175.0" minWidth="265.0" prefHeight="258.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Kött &amp; Fisk">
                            <content>
                               <AnchorPane maxHeight="247.0" maxWidth="300.0" minHeight="175.0" minWidth="300.0" prefHeight="247.0" prefWidth="300.0" styleClass="anchor-pane">
                                  <children>
@@ -149,8 +150,24 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" collapsible="false" expanded="false" graphicTextGap="0.0" maxHeight="406.0" maxWidth="300.0" minHeight="0.0" minWidth="265.0" onMouseClicked="#searchForHerb" prefHeight="406.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Krydor" />
-                        <TitledPane animated="false" collapsible="false" expanded="false" maxHeight="100.0" maxWidth="300.0" minHeight="0.0" minWidth="265.0" onMouseClicked="#searchForDairy" prefHeight="0.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Mejeri" />
+                        <TitledPane graphicTextGap="0.0" maxHeight="406.0" maxWidth="300.0" minHeight="0.0" minWidth="265.0" onMouseClicked="#searchForHerb" prefHeight="0.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Krydor">
+                           <content>
+                              <AnchorPane prefHeight="235.0" prefWidth="395.0" styleClass="anchor-pane">
+                                 <children>
+                                    <Pane prefHeight="0.0" prefWidth="258.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane maxHeight="100.0" maxWidth="300.0" minHeight="0.0" minWidth="265.0" onMouseClicked="#searchForDairy" prefHeight="0.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Mejeri">
+                           <content>
+                              <AnchorPane prefHeight="235.0" prefWidth="39.0" styleClass="anchor-pane">
+                                 <children>
+                                    <Pane prefHeight="0.0" prefWidth="258.0" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
                      </panes>
                   </Accordion>
                </children>
