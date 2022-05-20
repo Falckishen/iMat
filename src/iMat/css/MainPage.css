@@ -14,19 +14,12 @@
     -fx-border-width: 5px;
 }
 
-.textBackground {
-    -fx-background-color: #ffffff;
-    -fx-border-width: 10px;
-    -fx-border-color: rgba(0, 0, 0, 0); /* Osynlig border så texten inte är så nära kanten */
-}
-
 .closeButton {
     -fx-background-color: rgb(255, 30, 30);
 }
 
 .topPanel {
     -fx-background-color: #395d77;
-    -fx-effect: dropshadow( gaussian , rgba(0, 0, 0, 0.2) , 5 , 0.5 , 5 , 5 );
     -fx-border-width: 0px;
 }
 
@@ -35,23 +28,10 @@
     -fx-border-width: 0px;
 }
 
-.shoppingCart {
-    -fx-background-color: #FCFAFA;
+.scrollPanel {
+    -fx-background: #F3F0F0;
+    -fx-background-color: #F3F0F0;
     -fx-border-width: 0px;
-}
-.shoppingCartEdge {
-    -fx-background-color: #274156;
-    -fx-border-width: 0px;
-}
-
-#shoppingCartTextTotal {
-    -fx-font: 22px "Helvetica";
-    -fx-text-fill: #FCFAFA;
-}
-
-#shoppingCartTextAmount {
-    -fx-font: bold 20px "Helvetica";
-    -fx-text-fill: #FCFAFA;
 }
 
 #kontoText {

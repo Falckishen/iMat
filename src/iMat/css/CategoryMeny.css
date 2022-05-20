@@ -27,8 +27,19 @@
     -fx-border-color: transparent;
 }
 
+.categorizes-anchor {
+    -fx-background-color: #F3F0F0;
+    -fx-border-width: 0 8 0 0;
+    -fx-border-color: #FCFAFA;
+}
+
 .categorizes {
     -fx-background-color: #F3F0F0;
-    -fx-border-width: 2;
-    -fx-border-color: #FCFAFA;
+    -fx-border-width: 0;
+}
+
+.categorizes-accordion {
+    -fx-background: #F3F0F0;
+    -fx-background-color: #F3F0F0;
+    -fx-border-width: 0px;
 }

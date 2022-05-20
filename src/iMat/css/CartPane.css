@@ -1,0 +1,25 @@
+.flow-pane {
+    -fx-background-color: transparent;
+    -fx-border-width: 0px;
+}
+
+.scroll-pane {
+    -fx-background: #FCFAFA;
+    -fx-background-color: #FCFAFA;
+    -fx-border-width: 0px;
+}
+
+.shoppingCartEdge {
+    -fx-background-color: #274156;
+    -fx-border-width: 0px;
+}
+
+#shoppingCartTextTotal {
+    -fx-font: 22px "Helvetica";
+    -fx-text-fill: #FCFAFA;
+}
+
+#shoppingCartTextAmount {
+    -fx-font: bold 20px "Helvetica";
+    -fx-text-fill: #FCFAFA;
+}
