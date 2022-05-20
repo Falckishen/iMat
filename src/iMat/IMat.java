@@ -63,9 +63,8 @@ public class IMat extends Application {
 
     // Tar en produkt som argument, lägger till ett exemplar av denna produkt i varukorgen
     static void addOneToCart(Product product) {
-        int amount = getNumberOfAProductInCart(product);
-        if (amount < 99) {
-            setProductAmount(product, amount+1);
+        if (getNumberOfAProductInCart(product) < 99) {
+            setProductAmount(product, getNumberOfAProductInCart(product)+1);
         }
         else {
             setProductAmount(product, 99);
@@ -74,13 +73,7 @@ public class IMat extends Application {
 
     // Tar en produkt som argument, tar bort ett exemplar av denna produkt från varukorgen
     static void removeOneFromCart(Product product) {
-        int amount = getNumberOfAProductInCart(product);
-        if (amount >= 1) {
-            setProductAmount(product, amount-1);
-        }
-        else {
-            clearCartOfAProduct(product);
-        }
+        setProductAmount(product, getNumberOfAProductInCart(product)-1);
     }
 
     /* Tar en produkt och ett antal i string, ändrar så antalet av denna produkt i varukorgen till antalet som gavs som
@@ -91,11 +84,8 @@ public class IMat extends Application {
             if (amount > 99) {
                 setProductAmount(product, 99);
             }
-            else if (amount >= 0) {
-                setProductAmount(product, amount);
-            }
             else {
-                clearCartOfAProduct(product);
+                setProductAmount(product, amount);;
             }
         }
         catch (Exception e) {
@@ -110,15 +100,23 @@ public class IMat extends Application {
         Product productInCart;
         for (ShoppingItem shoppingItem : listOfShoppingItems) {
             productInCart = shoppingItem.getProduct();
-            if (productInCart.equals(product)) {
+            if (productInCart.equals(product) && (amount >= 1)) {
                 shoppingItem.setAmount(amount);
                 cart.fireShoppingCartChanged(shoppingItem, true);
                 return;
             }
+            else if(productInCart.equals(product) && (amount < 1)) {
+                cart.removeItem(shoppingItem);
+                cart.fireShoppingCartChanged(shoppingItem, true);
+                return;
+            }
         }
-        cart.addProduct(product, amount);
+        if (amount >= 1) {
+            cart.addProduct(product, amount);
+        }
     }
 
+    /*
     // Tar en produkt som argument, tömmer varukorgen på denna produkt
     public static void clearCartOfAProduct(Product product) {
         while (getNumberOfAProductInCart(product) != 0) {
@@ -133,4 +131,5 @@ public class IMat extends Application {
             }
         }
     }
+    */
 }

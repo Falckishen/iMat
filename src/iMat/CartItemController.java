@@ -65,6 +65,6 @@ public class CartItemController extends AnchorPane {
     @FXML
     private void removeAllItems(Event event) {
         event.consume();
-        IMat.clearCartOfAProduct(this.product);
+        IMat.writeInNumOfProductAmount(this.product, "0");
     }
 }
