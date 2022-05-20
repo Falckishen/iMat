@@ -20,12 +20,11 @@
 
 .titled-pane:hover > .title
 {
-    -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.25) , 2 , 0.6 , -1 , 1 );
 }
 
 .titled-pane:hover > .title > .text
 {
-    -fx-fill: #2E3235;
+    -fx-fill: #559CAD;
 }
 
 .titled-pane:expanded > .title > .text

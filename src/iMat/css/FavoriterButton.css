@@ -8,16 +8,14 @@
 .button:hover {
     -fx-background-color: #FCFAFA;
     -fx-font: bold 16pt "Arial";
-    -fx-text-fill: #2E3235;
-    -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.25) , 2 , 0.6 , -2 , 2 );
+    -fx-text-fill: #559CAD;
     -fx-background-radius : 0.0em;
 }
 
 .button:pressed {
     -fx-background-color: #559CAD;
     -fx-font: bold 16pt "Arial";
-    -fx-text-fill: #FCFAFA;
-    -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.25) , 2 , 0.6 , -2 , 2 );
+    -fx-text-fill: #274156;
     -fx-background-radius : 0.0em;
 }
 
