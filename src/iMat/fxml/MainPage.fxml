@@ -61,7 +61,7 @@
                         <Image url="@../images/starUnselected.png" />
                      </image>
                   </ImageView>
-                  <Accordion layoutX="-3.0" layoutY="91.0" maxHeight="847.0" maxWidth="348.0" minWidth="262.0" prefHeight="709.0" prefWidth="273.0" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="91.0">
+                  <Accordion layoutX="-3.0" layoutY="91.0" maxHeight="847.0" maxWidth="348.0" minHeight="0.0" minWidth="262.0" prefHeight="709.0" prefWidth="273.0" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="91.0">
                      <panes>
                         <TitledPane animated="false" maxHeight="559.0" maxWidth="361.0" minHeight="193.0" minWidth="253.0" prefHeight="193.0" prefWidth="265.0" styleClass="categorizes-accordion" text="Kolhydrater" visible="false">
                            <content>
@@ -149,8 +149,8 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane animated="false" expanded="false" maxHeight="445.0" maxWidth="300.0" minHeight="100.0" minWidth="265.0" onMouseClicked="#searchForHerb" prefHeight="445.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Krydor" />
-                        <TitledPane animated="false" expanded="false" maxHeight="100.0" maxWidth="300.0" minHeight="100.0" minWidth="300.0" onMouseClicked="#searchForDairy" prefHeight="100.0" prefWidth="300.0" stylesheets="@../css/TitledPane.css" text="Mejeri" />
+                        <TitledPane animated="false" collapsible="false" expanded="false" graphicTextGap="0.0" maxHeight="406.0" maxWidth="300.0" minHeight="0.0" minWidth="265.0" onMouseClicked="#searchForHerb" prefHeight="406.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Krydor" />
+                        <TitledPane animated="false" collapsible="false" expanded="false" maxHeight="100.0" maxWidth="300.0" minHeight="0.0" minWidth="265.0" onMouseClicked="#searchForDairy" prefHeight="0.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Mejeri" />
                      </panes>
                   </Accordion>
                </children>
