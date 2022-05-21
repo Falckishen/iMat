@@ -21,11 +21,16 @@
          <top>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1600.0" styleClass="topPanel" stylesheets="@../css/RegisterPage.css" BorderPane.alignment="CENTER">
                <children>
-                  <Text id="topPaneText" fill="WHITE" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 1 av 3: Bekräfta varukorgen" translateX="150.0" wrappingWidth="1092.2105712890625" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="13.728515625">
+                  <Text id="topPaneText" fill="WHITE" layoutX="-4.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 1 av 3: Bekräfta varukorgen" translateX="150.0" wrappingWidth="1092.2105712890625">
                      <font>
                         <Font size="80.0" />
                      </font>
                   </Text>
+                  <Button layoutY="2.0" mnemonicParsing="false" onAction="#openMainPageView" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #3b6781#3b6781;" styleClass="object-item" stylesheets="@../css/basic-pliancy-testing.css" text="iMat" textFill="WHITE">
+                     <font>
+                        <Font name="Futura Medium" size="43.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </top>
@@ -37,7 +42,7 @@
                         <Pane prefHeight="709.0" prefWidth="0.0" styleClass="sidePane" />
                         <HBox alignment="CENTER" prefHeight="150.0" prefWidth="320.0" styleClass="sidePaneEdge">
                            <children>
-                              <Button fx:id="toBackButton" alignment="CENTER" mnemonicParsing="false" onAction="#openMainPageView" prefHeight="48.0" prefWidth="169.0" stylesheets="@../css/WhiteButton.css" text="Tillbaka">
+                              <Button fx:id="toBackButton" alignment="CENTER" mnemonicParsing="false" onAction="#openMainPageView" prefHeight="68.0" prefWidth="190.0" stylesheets="@../css/WhiteButton.css" text="Tillbaka">
                                  <HBox.margin>
                                     <Insets left="40.0" />
                                  </HBox.margin></Button>
@@ -90,7 +95,7 @@
                                     <Label id="registerTextAmount" fx:id="totalPriceB" text="1000,00 kr" />
                                  </children>
                               </VBox>
-                              <Button fx:id="toPurchaseButton" alignment="CENTER" mnemonicParsing="false" onAction="#openRegisterstep2" prefHeight="48.0" prefWidth="169.0" stylesheets="@../css/GreenButton.css" text="Vidare till Köp">
+                              <Button fx:id="toPurchaseButton" alignment="CENTER" mnemonicParsing="false" onAction="#openRegisterstep2" prefHeight="68.0" prefWidth="190.0" stylesheets="@../css/GreenButton.css" text="Vidare till Köp">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin></Button>

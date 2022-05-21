@@ -3,6 +3,7 @@ package iMat;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -26,7 +27,7 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
     @FXML TextField postalcode;
     @FXML TextField phonenumber;
     @FXML TextField cardNumber;
-
+    @FXML Label totalPriceCart2;
 
     public RegisterStep2controller(MainPageController mainPageController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/RegisterPageStep2.fxml"));
@@ -46,6 +47,7 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
         adress.setText(dataHandler.getCustomer().getAddress());
         postalcode.setText(dataHandler.getCustomer().getPostCode());
         phonenumber.setText(dataHandler.getCustomer().getPhoneNumber());
+        totalPriceCart2.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()+" kr"));
     }
 
 
@@ -76,7 +78,10 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
 
 
 
-
+    @FXML
+    private void openMainPageView() throws IOException{
+        this.mainPageController.openMainPageView();
+    }
 
 
 

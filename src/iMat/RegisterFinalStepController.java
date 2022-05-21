@@ -43,6 +43,8 @@ public class RegisterFinalStepController extends AnchorPane implements ShoppingC
 
 
 
+
+
         @Override
         public void shoppingCartChanged(CartEvent cartEvent) {
 
