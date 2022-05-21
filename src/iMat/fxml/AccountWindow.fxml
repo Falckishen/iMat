@@ -27,7 +27,7 @@
                           <content>
                             <AnchorPane prefHeight="770.0" prefWidth="544.0" styleClass="scroll-pane">
                                  <children>
-                                    <FlowPane fx:id="orderHistoryFlowPane" layoutX="8.0" layoutY="77.0" onMouseClicked="#mouseTrap" prefHeight="693.0" prefWidth="536.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="73.0" />
+                                    <FlowPane fx:id="orderHistoryFlowPane" alignment="CENTER" layoutX="8.0" layoutY="77.0" onMouseClicked="#mouseTrap" prefHeight="693.0" prefWidth="536.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="73.0" />
                                  </children>
                               </AnchorPane>
                           </content>

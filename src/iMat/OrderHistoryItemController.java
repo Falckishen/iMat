@@ -23,6 +23,11 @@ public class OrderHistoryItemController extends AnchorPane {
     private Label labelPurchaseTotal;
     @FXML
     private TextArea orderTextArea;
+    @FXML
+    private TextArea orderTextArea2;
+    @FXML
+    private TextArea orderTextArea3;
+
 
     public OrderHistoryItemController(Order order) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/OrderHistoryItem.fxml"));
@@ -40,12 +45,18 @@ public class OrderHistoryItemController extends AnchorPane {
     }
 
     private void fillOrder() {
-        String text = "";
+        StringBuilder textName = new StringBuilder();
+        StringBuilder textAmount = new StringBuilder();
+        StringBuilder textMoney = new StringBuilder();
         for (ShoppingItem item : order.getItems()) {
-            text = text + item.getProduct().getName() + "   " + (int)item.getAmount() + " " + item.getProduct().getUnit().substring(3) + ",   " + item.getTotal() + " kr\n";
+            textName.append(item.getProduct().getName()).append("\n");
+            textAmount.append((int)item.getAmount()).append(" ").append(item.getProduct().getUnit().substring(3)).append(", \n");
+            textMoney.append(String.format("%.2f", item.getTotal())).append(" kr\n");
             this.total = this.total + item.getTotal();
         }
-        orderTextArea.setText(text);
+        orderTextArea.setText(textName.toString());
+        orderTextArea2.setText(textAmount.toString());
+        orderTextArea3.setText(textMoney.toString());
         labelPurchaseDate.setText(order.getDate().toLocaleString());
         labelPurchaseTotal.setText(this.total + "");
     }

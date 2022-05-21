@@ -49,11 +49,25 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
          <center>
-            <TextArea id="text-area" fx:id="orderTextArea" editable="false" focusTraversable="false" prefHeight="349.0" prefWidth="0.0" text="Gurka - 3st, 139 " wrapText="true">
-               <font>
-                  <Font name="Arial" size="24.0" />
-               </font>
-            </TextArea>
+            <HBox>
+               <children>
+                  <TextArea id="text-area" fx:id="orderTextArea" editable="false" focusTraversable="false" prefHeight="349.0" prefWidth="348.0" text="Gurka - 3st, 139 " wrapText="true">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </TextArea>
+                  <TextArea id="text-area" fx:id="orderTextArea2" editable="false" focusTraversable="false" prefHeight="349.0" prefWidth="232.0" styleClass="text-area2" text="Gurka - 3st, 139 " wrapText="true">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </TextArea>
+                  <TextArea id="text-area" fx:id="orderTextArea3" editable="false" focusTraversable="false" prefHeight="349.0" prefWidth="232.0" styleClass="text-area3" text="Gurka - 3st, 139 " wrapText="true">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </TextArea>
+               </children>
+            </HBox>
          </center>
       </BorderPane>
    </children>
