@@ -25,12 +25,12 @@
          <top>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1600.0" styleClass="topPanel" stylesheets="@../css/RegisterPage.css" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="25.0" onMouseClicked="#openMainPageView" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="150.0" fitWidth="155.0" layoutX="10.0" layoutY="25.0" onMouseClicked="#openMainPageView" pickOnBounds="true" preserveRatio="true" translateX="44.0">
                      <image>
                         <Image url="@../images/iMatLoggaVit.png" />
                      </image>
                   </ImageView>
-                  <Text id="topPaneText" fill="WHITE" layoutX="30.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 2 av 3: Betala" translateX="150.0" wrappingWidth="460.1810302734375">
+                  <Text id="topPaneText" fill="WHITE" layoutX="170.0" layoutY="70.271484375" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 2 av 3: Betala" translateX="150.0" wrappingWidth="962.1810302734375" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="12.0">
                      <font>
                         <Font size="80.0" />
                      </font>
@@ -43,7 +43,7 @@
                <children>
                   <VBox prefHeight="800.0" prefWidth="320.0" styleClass="shoppingCart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Pane prefHeight="709.0" prefWidth="0.0" styleClass="sidePane" />
+                        <Pane minHeight="678.0" prefHeight="678.0" prefWidth="0.0" styleClass="sidePane" />
                         <HBox alignment="CENTER" prefHeight="150.0" prefWidth="320.0" styleClass="sidePaneEdge">
                            <children>
                               <Button fx:id="toBackButtonCart2" alignment="CENTER" mnemonicParsing="false" onAction="#openPurchaseView" prefHeight="70.0" prefWidth="190.0" stylesheets="@../css/WhiteButton.css" text="Tillbaka">
@@ -63,10 +63,10 @@
                <children>
                   <ScrollPane hbarPolicy="NEVER" layoutX="-128.0" layoutY="50.0" prefHeight="779.0" prefWidth="960.0" styleClass="grid" AnchorPane.bottomAnchor="-24.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                      <content>
-                        <AnchorPane prefHeight="636.0" prefWidth="960.0" style="-fx-background-color: #FFFF;">
+                        <AnchorPane prefHeight="636.0" prefWidth="960.0" style="-fx-background-color: #FFFF;" stylesheets="@../css/AccountWindow.css">
                            <children>
                               <TextField fx:id="fName" layoutX="50.0" layoutY="100.0" prefHeight="26.0" prefWidth="260.0" />
-                              <Text layoutX="50.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personuppgifter:" wrappingWidth="277.86956787109375">
+                              <Text layoutX="50.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personuppgifter:" wrappingWidth="304.86956787109375">
                                  <font>
                                     <Font size="40.0" />
                                  </font>
@@ -136,7 +136,7 @@
                                                 <Font size="20.0" />
                                              </font>
                                           </CheckBox>
-                                          <CheckBox id="checkbox" layoutX="20.0" layoutY="90.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="108.0" text="Klarna">
+                                          <CheckBox id="checkbox" layoutX="20.0" layoutY="90.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="108.0" text="Faktura">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
@@ -161,7 +161,7 @@
                <children>
                   <VBox prefHeight="780.0" prefWidth="320.0" styleClass="shoppingCart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Pane prefHeight="709.0" prefWidth="309.0" styleClass="sidePane" />
+                        <Pane minHeight="678.0" prefHeight="678.0" prefWidth="320.0" styleClass="sidePane" />
                         <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="320.0" styleClass="sidePaneEdge">
                            <children>
                               <VBox alignment="CENTER_LEFT" prefHeight="130.0" prefWidth="125.0" styleClass="shoppingCartText">

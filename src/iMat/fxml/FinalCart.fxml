@@ -10,13 +10,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #F3F0F0;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #F3F0F0;" stylesheets="@../css/RegisterPage.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0">
          <children>
             <AnchorPane prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: #3b6781#3b6781 #3b6781#3b6781 #3b6781#3b6781 #3b6781#3b6781;">
                <children>
-                  <Text fill="WHITE" layoutX="180.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 3 av 3: Köp utfört!" wrappingWidth="783.7530212402344">
+                  <Text id="topPaneText" fill="WHITE" layoutX="170.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 3 av 3: Köp utfört!" translateX="150.0" wrappingWidth="1055.7530212402344">
                      <font>
                         <Font size="80.0" />
                      </font>
@@ -29,7 +29,7 @@
                </children>
             </AnchorPane>
             <Button alignment="CENTER" layoutX="1370.0" layoutY="792.0" mnemonicParsing="false" onAction="#openMainPageView" prefHeight="70.0" prefWidth="190.0" stylesheets="@../css/GreenButton.css" text="Till handla" />
-            <Label layoutX="624.5" layoutY="730.0" text="Tack för ditt köp!">
+            <Label layoutX="597.0" layoutY="754.0" text="Tack för ditt köp!">
                <font>
                   <Font size="50.0" />
                </font>
@@ -39,7 +39,7 @@
                   <FlowPane fx:id="flowpane" prefHeight="600.0" prefWidth="900.0" />
                </content>
             </ScrollPane>
-            <Label layoutX="402.5" layoutY="780.0" text="Tidigare köp och kvitton kan nås via kontosidan." textAlignment="CENTER">
+            <Label layoutX="375.0" layoutY="804.0" text="Tidigare köp och kvitton kan nås via kontosidan." textAlignment="CENTER">
                <font>
                   <Font size="40.0" />
                </font>

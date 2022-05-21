@@ -21,15 +21,24 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
     private final MainPageController mainPageController;
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
 
-    @FXML TextField fName;
-    @FXML TextField lName;
-    @FXML TextField pNumber;
-    @FXML TextField adress;
-    @FXML TextField postalcode;
-    @FXML TextField phonenumber;
-    @FXML TextField cardNumber;
-    @FXML Label totalPriceCart2;
-    @FXML ComboBox combobox;
+    @FXML
+    TextField fName;
+    @FXML
+    TextField lName;
+    @FXML
+    TextField pNumber;
+    @FXML
+    TextField adress;
+    @FXML
+    TextField postalcode;
+    @FXML
+    TextField phonenumber;
+    @FXML
+    TextField cardNumber;
+    @FXML
+    Label totalPriceCart2;
+    @FXML
+    ComboBox combobox;
 
     public RegisterStep2controller(MainPageController mainPageController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/RegisterPageStep2.fxml"));
@@ -49,43 +58,42 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
         adress.setText(dataHandler.getCustomer().getAddress());
         postalcode.setText(dataHandler.getCustomer().getPostCode());
         phonenumber.setText(dataHandler.getCustomer().getPhoneNumber());
-        totalPriceCart2.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()+" kr"));
-        combobox.getItems().addAll("Visa","Mastercard");
+        totalPriceCart2.setText(String.valueOf(dataHandler.getShoppingCart().getTotal() + " kr"));
+        combobox.getItems().addAll("Visa", "Mastercard");
     }
 
 
     @FXML
-    private void updateCostumer() throws IOException{
+    private void updateCostumer() throws IOException {
         fName.setText(dataHandler.getCustomer().getFirstName());
         lName.setText(dataHandler.getCustomer().getLastName());
         pNumber.setText(dataHandler.getCustomer().getPhoneNumber());
         adress.setText(dataHandler.getCustomer().getAddress());
         postalcode.setText(dataHandler.getCustomer().getPostCode());
         phonenumber.setText(dataHandler.getCustomer().getPhoneNumber());
-        totalPriceCart2.setText(String.valueOf(dataHandler.getShoppingCart().getTotal()+" kr"));
+        totalPriceCart2.setText(String.valueOf(dataHandler.getShoppingCart().getTotal() + " kr"));
     }
 
     @FXML
-    private void openPurchaseView() throws IOException{
+    private void openPurchaseView() throws IOException {
         this.mainPageController.openRegisterView();
     }
 
     @FXML
-    private void openFinalStep() throws IOException{
+    private void openFinalStep() throws IOException {
+        registerBuy();
         this.mainPageController.openRegisterfinalstep();
     }
 
-
-
-
-
-
-
     @FXML
-    private void openMainPageView() throws IOException{
-        this.mainPageController.openMainPageView();
+    private void registerBuy() {
+        dataHandler.placeOrder(false);
     }
 
+    @FXML
+    private void openMainPageView() throws IOException {
+        this.mainPageController.openMainPageView();
+    }
 
 
     @Override
