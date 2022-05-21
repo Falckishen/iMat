@@ -2,25 +2,29 @@ package iMat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import se.chalmers.cse.dat216.project.CartEvent;
-import se.chalmers.cse.dat216.project.ShoppingCart;
-import se.chalmers.cse.dat216.project.ShoppingCartListener;
+import javafx.scene.text.Text;
+import se.chalmers.cse.dat216.project.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class RegisterFinalStepController extends AnchorPane implements ShoppingCartListener {
 
 
         private final ShoppingCart cart = IMat.getShoppingCart();
         private final MainPageController mainPageController;
+        private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
 
         @FXML GridPane gridPane;
+        @FXML
+        Text antalkop;
 
 
         public RegisterFinalStepController(MainPageController mainPageController) {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/RegisterPagefinalstep.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/FinalCart.fxml"));
             fxmlLoader.setRoot(this);
             fxmlLoader.setController(this);
             try {
@@ -44,7 +48,22 @@ public class RegisterFinalStepController extends AnchorPane implements ShoppingC
 
 
 
-
+    @FXML
+    private void fillfinalRecipe() throws IOException{
+        int colY = 0;
+        int rowX = 0;
+        this.gridPane.getChildren().clear();
+        ArrayList<ShoppingItem> productList = (ArrayList<ShoppingItem>) cart.getItems();
+        for(ShoppingItem product: productList){
+           finalcartItem productItem = new finalcartItem(product);
+            this.gridPane.add(productItem, colY, rowX);
+            colY++;
+            if(colY == 2 ){
+                colY = 0;
+                rowX++;
+            }
+        }
+    }
 
 
 

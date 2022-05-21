@@ -128,7 +128,7 @@
                                                 <Font size="19.0" />
                                              </font>
                                           </Text>
-                                          <ComboBox layoutX="200.0" layoutY="55.0" prefWidth="150.0" />
+                                          <ComboBox fx:id="combobox" layoutX="200.0" layoutY="55.0" prefWidth="150.0" />
                                           <CheckBox id="checkbox" layoutX="20.0" layoutY="33.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="190.0" text="Kort">
                                              <font>
                                                 <Font size="20.0" />
@@ -165,7 +165,7 @@
                               <VBox alignment="CENTER_LEFT" prefHeight="130.0" prefWidth="125.0" styleClass="shoppingCartText">
                                  <children>
                                     <Label id="registerTextTotal" fx:id="Total" text="Total:" />
-                                    <Label id="registerTextAmount" fx:id="totalPriceCart2" text="1000,00 kr" />
+                                    <Label id="registerTextAmount" fx:id="totalPriceCart2" text="0 kr" />
                                  </children>
                               </VBox>
                               <Button fx:id="toPurchaseButtonCart2" alignment="CENTER" mnemonicParsing="false" onAction="#openFinalStep" prefHeight="70.0" prefWidth="190.0" stylesheets="@../css/GreenButton.css" text="Betala">
