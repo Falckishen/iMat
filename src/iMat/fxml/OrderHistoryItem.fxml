@@ -9,14 +9,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" stylesheets="@../css/PurchaseHistoryItem.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="accountWindowAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" stylesheets="@../css/PurchaseHistoryItem.css" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="500.0" prefWidth="500.0" styleClass="item" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <VBox prefHeight="105.0" prefWidth="460.0" spacing="20.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label id="label-date" fx:id="labelPurchaseDate" text="2022-02-02">
+                  <Label id="label-date" fx:id="labelPurchaseDate" prefHeight="31.0" prefWidth="446.0" text="2022-02-02">
                      <font>
                         <Font name="Arial" size="16.0" />
                      </font>
@@ -25,7 +24,7 @@
                      <children>
                         <Label id="label" text="Totalt:">
                            <font>
-                              <Font name="Arial" size="16.0" />
+                              <Font name="Arial" size="14.0" />
                            </font>
                            <padding>
                               <Insets right="20.0" />
@@ -50,12 +49,12 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
          <center>
-            <TextArea id="text-area" editable="false" focusTraversable="false" prefHeight="349.0" prefWidth="0.0" text="Gurka - 3st, 139 " wrapText="true">
+            <TextArea id="text-area" fx:id="orderTextArea" editable="false" focusTraversable="false" prefHeight="349.0" prefWidth="0.0" text="Gurka - 3st, 139 " wrapText="true">
                <font>
-                  <Font size="1.0" />
+                  <Font name="Arial" size="24.0" />
                </font>
             </TextArea>
          </center>
       </BorderPane>
    </children>
-</AnchorPane>
+</fx:root>

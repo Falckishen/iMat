@@ -12,8 +12,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.Order;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -36,9 +38,13 @@ public class AccountWindowController extends AnchorPane {
     private TextField accountPNumberTextField;
     @FXML
     private TextField accountTNumberTextField;
-    @FXML private ImageView closeImageView;
+    @FXML
+    private ImageView closeImageView;
+    @FXML
+    private FlowPane orderHistoryFlowPane;
     @FXML
     private Label savedLabel;
+    @FXML Label resetLabel;
 
     private final ClassLoader classLoader = getClass().getClassLoader();
 
@@ -57,7 +63,8 @@ public class AccountWindowController extends AnchorPane {
 
         addListeners();
         fillTextFields();
-        resetSavedText();
+        resetText();
+        addOrderHistory();
     }
 
     /*-------------------------------------------------------------------------------------------------------------------*/
@@ -90,12 +97,38 @@ public class AccountWindowController extends AnchorPane {
         showSavedText();
     }
 
+    private void addOrderHistory() {
+        orderHistoryFlowPane.getChildren().clear();
+        for(Order order : dataHandler.getOrders())
+        {
+            orderHistoryFlowPane.getChildren().add(new OrderHistoryItemController(order));
+        }
+    }
+
     private void showSavedText() {
         savedLabel.setVisible(true);
     }
 
-    private void resetSavedText() {
+    private void showResetText() {
+        resetLabel.setVisible(true);
+    }
+
+    private void resetText() {
         savedLabel.setVisible(false);
+        resetLabel.setVisible(false);
+    }
+
+    @FXML
+    private void resetAccount() {
+        dataHandler.getOrders().clear();
+        customer.setPhoneNumber("");
+        customer.setAddress("");
+        customer.setPostCode("");
+        customer.setPostAddress("");
+        customer.setFirstName("");
+        customer.setLastName("");
+        showResetText();
+        orderHistoryFlowPane.getChildren().clear();
     }
 
 
@@ -138,7 +171,7 @@ public class AccountWindowController extends AnchorPane {
         public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
             if (!newValue) {
                 saveFields();
-                resetSavedText();
+                resetText();
             }
         }
     }

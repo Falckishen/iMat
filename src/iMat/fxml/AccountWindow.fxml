@@ -9,6 +9,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -22,20 +23,16 @@
                <children>
                 <AnchorPane minHeight="0.0" minWidth="580.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <ScrollPane id="#scroll" focusTraversable="false" prefHeight="857.0" prefWidth="580.0" stylesheets="@../css/ScrollBar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ScrollPane id="#scroll" focusTraversable="false" onMouseClicked="#mouseTrap" prefHeight="857.0" prefWidth="580.0" stylesheets="@../css/ScrollBar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <content>
                             <AnchorPane prefHeight="770.0" prefWidth="544.0" styleClass="scroll-pane">
                                  <children>
-                                    <VBox fx:id="vBoxTidigareKop">
-                                       <padding>
-                                          <Insets bottom="10.0" left="10.0" right="20.0" top="80.0" />
-                                       </padding>
-                                    </VBox>
+                                    <FlowPane fx:id="orderHistoryFlowPane" layoutX="8.0" layoutY="77.0" onMouseClicked="#mouseTrap" prefHeight="693.0" prefWidth="536.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="73.0" />
                                  </children>
                               </AnchorPane>
                           </content>
                         </ScrollPane>
-                        <Label id="text-large" prefHeight="73.0" prefWidth="400.0" text="Tidigare köp">
+                        <Label id="text-large" prefHeight="73.0" prefWidth="548.0" style="-fx-background-color: #eeebeb;" text="Tidigare köp">
                            <padding>
                               <Insets left="30.0" top="10.0" />
                            </padding>
@@ -50,7 +47,7 @@
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" onMouseClicked="#mouseTrap" prefHeight="898.0" prefWidth="880.0" styleClass="account-pane">
                      <children>
-                        <Pane id="backdrop" layoutX="50.0" layoutY="584.0" prefHeight="191.0" prefWidth="612.0" />
+                        <Pane id="backdrop" layoutX="50.0" layoutY="583.0" prefHeight="191.0" prefWidth="474.0" />
                         <Label id="text-large" prefHeight="73.0" prefWidth="400.0" text="Kontouppgifter">
                            <padding>
                               <Insets left="70.0" top="10.0" />
@@ -137,7 +134,7 @@
                               <Insets left="70.0" top="15.0" />
                            </padding>
                         </VBox>
-                        <HBox layoutY="613.0" prefHeight="184.0" prefWidth="674.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0">
+                        <HBox layoutY="584.0" prefHeight="184.0" prefWidth="525.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0">
                            <children>
                               <VBox prefHeight="286.0" prefWidth="379.0">
                                  <children>
@@ -169,7 +166,8 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <Button layoutX="561.0" layoutY="512.0" mnemonicParsing="false" onAction="#saveButton" prefHeight="35.0" prefWidth="99.0" stylesheets="@../css/GreenButton.css" text="Spara" />
+                        <Button layoutX="425.0" layoutY="510.0" mnemonicParsing="false" onAction="#saveButton" prefHeight="35.0" prefWidth="99.0" stylesheets="@../css/GreenButton.css" text="Spara" />
+                        <Button layoutX="555.0" layoutY="701.0" mnemonicParsing="false" onAction="#resetAccount" prefHeight="73.0" prefWidth="105.0" stylesheets="@../css/WhiteButton.css" text="Ta bort uppgif." textAlignment="CENTER" wrapText="true" />
                         <Button fx:id="accountWindowCloseButton" layoutX="620.0" layoutY="-13.0" mnemonicParsing="false" onAction="#closeAccountWindow" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" prefHeight="67.0" prefWidth="67.0" stylesheets="@../css/CloseButton.css">
                            <font>
                               <Font size="22.0" />
@@ -182,7 +180,12 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Label fx:id="savedLabel" layoutX="565.0" layoutY="430.0" prefHeight="82.0" prefWidth="91.0" text="Uppgifter sparade!" textFill="#5c944b" wrapText="true">
+                        <Label fx:id="savedLabel" layoutX="429.0" layoutY="428.0" prefHeight="82.0" prefWidth="91.0" text="Uppgifter sparade!" textFill="#5c944b" wrapText="true">
+                           <font>
+                              <Font name="Arial Italic" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="resetLabel" alignment="CENTER" layoutX="568.0" layoutY="583.0" prefHeight="112.0" prefWidth="79.0" text="Sparat innehåll bort-    taget" textFill="#2e3235" wrapText="true">
                            <font>
                               <Font name="Arial Italic" size="22.0" />
                            </font>

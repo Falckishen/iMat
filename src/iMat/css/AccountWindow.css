@@ -3,8 +3,8 @@
 }
 
 .scroll-pane {
-    -fx-background-color: #F3F0F0;
-    -fx-border-color: #F3F0F0;
+    -fx-background-color: #eeebeb;
+    -fx-border-color: #eeebeb;
     -fx-border-width: 3px;
 }
 
@@ -14,12 +14,12 @@
 
 .complete-window {
     -fx-background-color: #FCFAFA;
-    -fx-border-color: #F3F0F0;
+    -fx-border-color: #eeebeb;
     -fx-border-width: 3px;
 }
 
 #text-label-dark {
-    -fx-background-color: #F3F0F0;
+    -fx-background-color: #eeebeb;
     -fx-font: italic 14pt "Helvetica";
     -fx-font-color: #2E3235;
     -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.2) , 1 , 0.5 , 1 , 1 );
@@ -45,5 +45,5 @@
 }
 
 #backdrop {
-    -fx-background-color: #F3F0F0;
+    -fx-background-color: #eeebeb;
 }
