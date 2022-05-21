@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -21,16 +23,16 @@
          <top>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1600.0" styleClass="topPanel" stylesheets="@../css/RegisterPage.css" BorderPane.alignment="CENTER">
                <children>
-                  <Text id="topPaneText" fill="WHITE" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 1 av 3: Bekräfta varukorgen" translateX="150.0" wrappingWidth="1092.2105712890625">
+                  <Text id="topPaneText" fill="WHITE" layoutX="30.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 1 av 3: Bekräfta varukorgen" translateX="150.0" wrappingWidth="1092.2105712890625">
                      <font>
                         <Font size="80.0" />
                      </font>
                   </Text>
-                  <Button mnemonicParsing="false" onAction="#openMainPageView" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #3b6781#3b6781;" styleClass="object-item" stylesheets="@../css/basic-pliancy-testing.css" text="iMat" textFill="WHITE">
-                     <font>
-                        <Font name="Futura Medium" size="43.0" />
-                     </font>
-                  </Button>
+                  <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="25.0" onMouseClicked="#openMainPageView" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/iMatLoggaVit.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </top>

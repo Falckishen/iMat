@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.*;
@@ -18,7 +19,8 @@ public class RegisterFinalStepController extends AnchorPane implements ShoppingC
         private final MainPageController mainPageController;
         private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
 
-        @FXML GridPane gridPane;
+        @FXML
+    FlowPane flowpane;
         @FXML
         Text antalkop;
 
@@ -42,28 +44,13 @@ public class RegisterFinalStepController extends AnchorPane implements ShoppingC
 
     @FXML
     private void openMainPageView() throws IOException{
+            this.dataHandler.placeOrder();
             cart.clear();
             this.mainPageController.openMainPageView();
     }
 
 
 
-    @FXML
-    private void fillfinalRecipe() throws IOException{
-        int colY = 0;
-        int rowX = 0;
-        this.gridPane.getChildren().clear();
-        ArrayList<ShoppingItem> productList = (ArrayList<ShoppingItem>) cart.getItems();
-        for(ShoppingItem product: productList){
-           finalcartItem productItem = new finalcartItem(product);
-            this.gridPane.add(productItem, colY, rowX);
-            colY++;
-            if(colY == 2 ){
-                colY = 0;
-                rowX++;
-            }
-        }
-    }
 
 
 
@@ -71,7 +58,12 @@ public class RegisterFinalStepController extends AnchorPane implements ShoppingC
 
         @Override
         public void shoppingCartChanged(CartEvent cartEvent) {
-
+            this.flowpane.getChildren().clear();
+            ArrayList<ShoppingItem> productList = (ArrayList<ShoppingItem>) cart.getItems();
+            for(ShoppingItem product: productList){
+                finalcartItem productItem = new finalcartItem(product);
+                this.flowpane.getChildren().add(productItem);
+            }
         }
 
 

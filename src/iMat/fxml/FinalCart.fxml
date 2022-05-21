@@ -3,30 +3,29 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onContextMenuRequested="#fillfinalRecipe" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #F3F0F0;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #F3F0F0;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0">
          <children>
             <AnchorPane prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: #3b6781#3b6781 #3b6781#3b6781 #3b6781#3b6781 #3b6781#3b6781;">
                <children>
-                  <Button mnemonicParsing="false" onAction="#openMainPageView" prefHeight="95.0" prefWidth="150.0" style="-fx-background-color: #3b6781#3b6781 #3b6781#3b6781;" styleClass="object-item" stylesheets="@../css/basic-pliancy-testing.css" text="iMat" textFill="WHITE">
-                     <font>
-                        <Font name="Futura Medium" size="43.0" />
-                     </font>
-                  </Button>
                   <Text fill="WHITE" layoutX="180.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 3 av 3: Köp utfört!" wrappingWidth="783.7530212402344">
                      <font>
                         <Font size="80.0" />
                      </font>
                   </Text>
+                  <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="25.0" onMouseClicked="#openMainPageView" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/iMatLoggaVit.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <Button alignment="CENTER" layoutX="1370.0" layoutY="792.0" mnemonicParsing="false" onAction="#openMainPageView" prefHeight="70.0" prefWidth="190.0" stylesheets="@../css/GreenButton.css" text="Till handla" />
@@ -35,21 +34,9 @@
                   <Font size="50.0" />
                </font>
             </Label>
-            <ScrollPane layoutX="350.0" layoutY="130.0" prefHeight="600.0" prefWidth="900.0">
+            <ScrollPane hbarPolicy="NEVER" layoutX="350.0" layoutY="130.0" prefHeight="600.0" prefWidth="900.0" vbarPolicy="NEVER">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="895.0">
-                     <children>
-                        <GridPane fx:id="gridPane" prefHeight="300.0" prefWidth="890.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                        </GridPane>
-                     </children>
-                  </AnchorPane>
+                  <FlowPane fx:id="flowpane" prefHeight="600.0" prefWidth="900.0" />
                </content>
             </ScrollPane>
             <Label layoutX="402.5" layoutY="780.0" text="Tidigare köp och kvitton kan nås via kontosidan." textAlignment="CENTER">
@@ -57,7 +44,6 @@
                   <Font size="40.0" />
                </font>
             </Label>
-            <Text fx:id="antalkop" layoutX="1326.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="97.615478515625" />
          </children>
       </AnchorPane>
    </children>

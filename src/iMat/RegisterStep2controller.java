@@ -72,7 +72,6 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
 
     @FXML
     private void openFinalStep() throws IOException{
-        this.dataHandler.placeOrder();
         this.mainPageController.openRegisterfinalstep();
     }
 
