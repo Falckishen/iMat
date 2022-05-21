@@ -3,6 +3,7 @@ package iMat;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.ShoppingCart;
 import se.chalmers.cse.dat216.project.ShoppingCartListener;
@@ -14,6 +15,8 @@ public class RegisterFinalStepController extends AnchorPane implements ShoppingC
 
         private final ShoppingCart cart = IMat.getShoppingCart();
         private final MainPageController mainPageController;
+
+        @FXML GridPane gridPane;
 
 
         public RegisterFinalStepController(MainPageController mainPageController) {
@@ -27,6 +30,7 @@ public class RegisterFinalStepController extends AnchorPane implements ShoppingC
             }
             this.cart.addShoppingCartListener(this);
             this.mainPageController = mainPageController;
+
         }
 
 
@@ -34,7 +38,8 @@ public class RegisterFinalStepController extends AnchorPane implements ShoppingC
 
     @FXML
     private void openMainPageView() throws IOException{
-        this.mainPageController.openMainPageView();
+            cart.clear();
+            this.mainPageController.openMainPageView();
     }
 
 
