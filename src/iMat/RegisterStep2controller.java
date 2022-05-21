@@ -48,6 +48,17 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
         phonenumber.setText(dataHandler.getCustomer().getPhoneNumber());
     }
 
+
+    @FXML
+    private void updateCostumer() throws IOException{
+        fName.setText(dataHandler.getCustomer().getFirstName());
+        lName.setText(dataHandler.getCustomer().getLastName());
+        pNumber.setText(dataHandler.getCustomer().getPhoneNumber());
+        adress.setText(dataHandler.getCustomer().getAddress());
+        postalcode.setText(dataHandler.getCustomer().getPostCode());
+        phonenumber.setText(dataHandler.getCustomer().getPhoneNumber());
+    }
+
     @FXML
     private void openPurchaseView() throws IOException{
         this.mainPageController.openRegisterView();
@@ -55,6 +66,7 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
 
     @FXML
     private void openFinalStep() throws IOException{
+        this.dataHandler.placeOrder();
         this.mainPageController.openRegisterfinalstep();
     }
 

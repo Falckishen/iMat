@@ -21,6 +21,7 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
     private final ShoppingCart cart = IMat.getShoppingCart();
     private final MainPageController mainPageController;
 
+
     @FXML Button toPurchaseButton;
     @FXML Button toBackButton;
     @FXML GridPane registerGridPane;
@@ -38,6 +39,7 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
         }
         this.cart.addShoppingCartListener(this);
         this.mainPageController = mainPageController;
+
     }
 
     //TODO: Add cart value to the total.
