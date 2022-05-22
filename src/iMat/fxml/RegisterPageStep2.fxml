@@ -30,7 +30,7 @@
                         <Image url="@../images/iMatLoggaVit.png" />
                      </image>
                   </ImageView>
-                  <Text id="topPaneText" fill="WHITE" layoutX="170.0" layoutY="70.271484375" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 2 av 3: Betala" translateX="150.0" wrappingWidth="962.1810302734375" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="12.0">
+                  <Text id="topPaneText" fill="WHITE" layoutX="170.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 2 av 3: Betala" translateX="150.0" wrappingWidth="962.1810302734375">
                      <font>
                         <Font size="80.0" />
                      </font>

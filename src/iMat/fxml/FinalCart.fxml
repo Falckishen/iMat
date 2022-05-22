@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #F3F0F0;" stylesheets="@../css/RegisterPage.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #F3F0F0;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0">
-         <children>
-            <AnchorPane prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: #3b6781#3b6781 #3b6781#3b6781 #3b6781#3b6781 #3b6781#3b6781;">
+      <BorderPane prefHeight="900.0" prefWidth="1600.0">
+         <top>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: #3b6781#3b6781 #3b6781#3b6781 #3b6781#3b6781 #3b6781#3b6781;" styleClass="topPanel" stylesheets="@../css/RegisterPage.css" BorderPane.alignment="CENTER">
                <children>
                   <Text id="topPaneText" fill="WHITE" layoutX="170.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 3 av 3: Köp utfört!" translateX="150.0" wrappingWidth="1055.7530212402344">
                      <font>
                         <Font size="80.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="10.0" layoutY="25.0" onMouseClicked="#openMainPageView" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="48.0" fitWidth="155.0" layoutX="10.0" layoutY="25.0" onMouseClicked="#openMainPageView" pickOnBounds="true" preserveRatio="true" translateX="44.0">
                      <image>
                         <Image url="@../images/iMatLoggaVit.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
+         </top>
+      </BorderPane>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0">
+         <children>
             <Button alignment="CENTER" layoutX="1370.0" layoutY="792.0" mnemonicParsing="false" onAction="#openMainPageView" prefHeight="70.0" prefWidth="190.0" stylesheets="@../css/GreenButton.css" text="Till handla" />
             <Label layoutX="597.0" layoutY="754.0" text="Tack för ditt köp!">
                <font>
@@ -47,4 +53,8 @@
          </children>
       </AnchorPane>
    </children>
+   <stylesheets>
+      <URL value="@../css/RegisterPage.css" />
+      <URL value="@../css/MainPage.css" />
+   </stylesheets>
 </fx:root>
