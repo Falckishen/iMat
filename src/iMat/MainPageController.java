@@ -1,4 +1,5 @@
 // Hör ihop med MainPage.fxml
+// TODO: Fixa scrollen i varukorgen
 package iMat;
 
 import java.net.URL;
