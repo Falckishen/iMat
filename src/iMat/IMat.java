@@ -115,21 +115,4 @@ public class IMat extends Application {
             cart.addProduct(product, amount);
         }
     }
-
-    /*
-    // Tar en produkt som argument, tömmer varukorgen på denna produkt
-    public static void clearCartOfAProduct(Product product) {
-        while (getNumberOfAProductInCart(product) != 0) {
-            List<ShoppingItem> listOfShoppingItems = cart.getItems();
-            Product productInCart;
-            for (ShoppingItem shoppingItem : listOfShoppingItems) {
-                productInCart = shoppingItem.getProduct();
-                if (productInCart.equals(product)) {
-                    cart.removeItem(shoppingItem);
-                    break;
-                }
-            }
-        }
-    }
-    */
 }
