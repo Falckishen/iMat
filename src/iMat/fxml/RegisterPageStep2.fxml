@@ -166,7 +166,7 @@
                            <children>
                               <VBox alignment="CENTER_LEFT" prefHeight="130.0" prefWidth="125.0" styleClass="shoppingCartText">
                                  <children>
-                                    <Label id="registerTextTotal" fx:id="Total" text="Total:" />
+                                    <Label id="registerTextTotal" fx:id="Total" text="Totalt:" />
                                     <Label id="registerTextAmount" fx:id="totalPriceCart2" text="0 kr" />
                                  </children>
                               </VBox>

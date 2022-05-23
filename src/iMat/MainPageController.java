@@ -27,6 +27,8 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     private AnchorPane purchaseAnchorPane;
     private AnchorPane receiptAnchorPane;
 
+    private boolean onlyEco = false;
+
     @FXML private AnchorPane mainPageRootAnchorPane;
     @FXML private FlowPane productItemsFlowpane;
     @FXML private Button brodKnapp;
@@ -81,12 +83,12 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     void openProductDetailView(Product product) {
         AnchorPane detailViewAnchorPane = new DetailViewController(product, this);
-        this.mainPageRootAnchorPane.getChildren().add(detailViewAnchorPane);
+        mainPageRootAnchorPane.getChildren().add(detailViewAnchorPane);
         detailViewAnchorPane.toFront();
     }
 
     void updateProductItemFavoriteButtons(){
-        for(ProductItemController productItemController : this.productItemsList) {
+        for(ProductItemController productItemController : productItemsList) {
             productItemController.updateFavoriteButton();
         }
     }
@@ -95,7 +97,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     @FXML
     void openMainPageView(){
-        this.mainborderPane.toFront();
+        mainborderPane.toFront();
     }
 
     @FXML
@@ -105,17 +107,17 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     @FXML
     void openRegisterView() {
-        this.registerAnchorPane.toFront();
+        registerAnchorPane.toFront();
     }
 
     @FXML
     void openRegisterstep2View() {
-        this.registerstep2AnchorPane.toFront();
+        registerstep2AnchorPane.toFront();
     }
 
     @FXML
     void openRegisterfinalstep() {
-        this.registerfinalAnchorPane.toFront();
+        registerfinalAnchorPane.toFront();
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
@@ -231,12 +233,12 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     private void searchBar() {
         int colY = 0;
         int rowX = 0;
-        this.gridPane.getChildren().clear();
-        String text = this.searchBar.getText();
+        gridPane.getChildren().clear();
+        String text = searchBar.getText();
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.findProducts(text);
         for(Product product: productList){
             ProductItemController productItem = new ProductItemController(product, this);
-            this.gridPane.add(productItem, colY, rowX);
+            gridPane.add(productItem, colY, rowX);
             colY++;
             if(colY == 2 ){
                 colY = 0;
@@ -256,23 +258,38 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     private void fillWithAllFood() {
         ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
-        fillWithFood(productList);
+        if (onlyEco) {
+            fillWithOnlyEcoFood(productList);
+        }
+        else {
+            fillWithFood(productList);
+        }
     }
 
     private void searchForCategory(String category) {
         ArrayList<Product> productsInCategoryList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf(category));
-        fillWithFood(productsInCategoryList);
+        if (onlyEco) {
+            fillWithOnlyEcoFood(productsInCategoryList);
+        }
+        else {
+            fillWithFood(productsInCategoryList);
+        }
+    }
+
+    private void fillWithOnlyEcoFood(ArrayList<Product> productsList) {
+        productsList.removeIf(Product::isEcological);
+        fillWithFood(productsList);
     }
 
     private void fillWithFood(ArrayList<Product> productsList) {
         int colY = 0;
         int rowX = 0;
-        this.gridPane.getChildren().clear();
-        this.productItemsList.clear();
+        gridPane.getChildren().clear();
+        productItemsList.clear();
         for(Product product: productsList) {
             ProductItemController productItem = new ProductItemController(product, this);
-            this.productItemsList.add(productItem);
-            this.gridPane.add(productItem, colY, rowX);
+            productItemsList.add(productItem);
+            gridPane.add(productItem, colY, rowX);
             colY++;
             if(colY == 2 ) {
                 colY = 0;
@@ -312,18 +329,18 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
 
     private void updateProductItems() {
-        for(ProductItemController productItemController : this.productItemsList) {
+        for(ProductItemController productItemController : productItemsList) {
             productItemController.updateNumberOfProductsText();
         }
     }
 
     private void updateCart() {
-        this.cartPanelView.getChildren().clear();
-        this.totalPrice.setText(String.format("Pris: %.2f", cart.getTotal()));
+        cartPanelView.getChildren().clear();
+        totalPrice.setText(String.format("Pris: %.2f kr", cart.getTotal()));
         List<ShoppingItem> listOfShoppingItems = cart.getItems();
         for(ShoppingItem item: listOfShoppingItems) {
             CartItemController cartItem = new CartItemController(item, this);
-            this.cartPanelView.getChildren().add(cartItem);
+            cartPanelView.getChildren().add(cartItem);
         }
     }
 
@@ -333,21 +350,21 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
 
     private void setupPurchasePage() {
-        this.registerstep2AnchorPane = new RegisterStep2controller(this);
-        this.mainPageRootAnchorPane.getChildren().add(this.registerstep2AnchorPane);
-        this.registerstep2AnchorPane.toBack();
+        registerstep2AnchorPane = new RegisterStep2controller(this);
+        mainPageRootAnchorPane.getChildren().add(registerstep2AnchorPane);
+        registerstep2AnchorPane.toBack();
 
     }
 
     private void setupReceiptPage() {
-        this.registerfinalAnchorPane = new RegisterFinalStepController(this);
-        this.mainPageRootAnchorPane.getChildren().add(this.registerfinalAnchorPane);
-        this.registerfinalAnchorPane.toBack();
+        registerfinalAnchorPane = new RegisterFinalStepController(this);
+        mainPageRootAnchorPane.getChildren().add(registerfinalAnchorPane);
+        registerfinalAnchorPane.toBack();
     }
 
     private void setupRegisterPage() {
-        this.registerAnchorPane = new RegisterController(this);
-        this.mainPageRootAnchorPane.getChildren().add(this.registerAnchorPane);
-        this.registerAnchorPane.toBack();
+        registerAnchorPane = new RegisterController(this);
+        mainPageRootAnchorPane.getChildren().add(registerAnchorPane);
+        registerAnchorPane.toBack();
     }
 }
