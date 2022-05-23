@@ -27,12 +27,12 @@
          <top>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1600.0" styleClass="topPanel" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="searchBar" layoutX="270.0" layoutY="20.0" onAction="#searchBar" prefHeight="61.0" prefWidth="719.0" promptText="Sök här på varor" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="20.0">
+                  <TextField fx:id="searchBar" layoutX="270.0" layoutY="20.0" onAction="#searchBar" prefHeight="61.0" prefWidth="719.0" promptText="Sök här på varor" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="searchButton" layoutX="916.0" layoutY="24.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="69.0" stylesheets="@../css/SearchButton.css" text="Sök" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="986.0" AnchorPane.topAnchor="24.0" />
+                  <Button fx:id="searchButton" layoutX="916.0" layoutY="24.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="69.0" stylesheets="@../css/SearchButton.css" text="Sök" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="996.0" AnchorPane.topAnchor="24.0" />
                   <AnchorPane fx:id="kontoButton" layoutX="1310.0" layoutY="16.0" maxHeight="68.0" minHeight="68.0" onMouseClicked="#openAccountWindow" prefHeight="68.0" prefWidth="140.0" AnchorPane.leftAnchor="1310.0" AnchorPane.rightAnchor="149.0" AnchorPane.topAnchor="16.0">
                      <children>
                         <Label id="kontoText" layoutX="68.0" layoutY="9.0" prefHeight="50.0" prefWidth="71.0" text="Konto" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="9.0">
