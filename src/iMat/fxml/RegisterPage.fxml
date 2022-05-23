@@ -60,7 +60,7 @@
          <center>
             <AnchorPane prefHeight="780.0" prefWidth="353.0" styleClass="middle" stylesheets="@../css/RegisterPage.css" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="-128.0" layoutY="50.0" prefHeight="779.0" prefWidth="960.0" styleClass="grid" AnchorPane.bottomAnchor="-24.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                  <ScrollPane fx:id="scrollPane" layoutX="-128.0" layoutY="50.0" prefHeight="779.0" prefWidth="960.0" styleClass="grid" AnchorPane.bottomAnchor="-24.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                      <content>
                         <GridPane fx:id="registerGridPane" alignment="TOP_CENTER" hgap="80.0" prefHeight="642.0" prefWidth="952.0" vgap="20.0">
                            <columnConstraints>
