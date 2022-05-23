@@ -123,8 +123,30 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 /*-------------------------------------------------------------------------------------------------------------------*/
 
     @FXML
-    private void searchForBread() {
-        searchForCategory("BREAD");
+    private void searchForColdDrinks() {
+        searchForCategory("COLD_DRINKS");
+    }
+
+    @FXML
+    private void searchForHotDrinks() {
+        searchForCategory("HOT_DRINKS");
+    }
+
+    /*-----*/
+
+    @FXML
+    private void searchForFruit() {
+        searchForCategory("FRUIT");
+    }
+
+    @FXML
+    private void searchForCitrusFruit() {
+        searchForCategory("CITRUS_FRUIT");
+    }
+
+    @FXML
+    private void searchForExoticFruit() {
+        searchForCategory("EXOTIC_FRUIT");
     }
 
     @FXML
@@ -133,19 +155,11 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
 
     @FXML
-    private void searchForFlourSugarSalt() {
-        searchForCategory("FLOUR_SUGAR_SALT");
+    private void searchForBerry() {
+        searchForCategory("BERRY");
     }
 
-    @FXML
-    private void searchForMeat() {
-        searchForCategory("MEAT");
-    }
-
-    @FXML
-    private void searchForDairy() {
-        searchForCategory("DAIRIES");
-    }
+    /*-----*/
 
     @FXML
     private void searchForVegetableFruit() {
@@ -158,8 +172,63 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
 
     @FXML
+    private void searchForRootVegetable() {
+        searchForCategory("ROOT_VEGETABLE");
+    }
+
+    @FXML
+    private void searchForPod() {
+        searchForCategory("POD");
+    }
+
+    /*-----*/
+
+    @FXML
+    private void searchForMeat() {
+        searchForCategory("MEAT");
+    }
+
+    @FXML
+    private void searchForFish() {
+        searchForCategory("FISH");
+    }
+
+    /*-----*/
+
+    @FXML
     private void searchForNutsAndSeeds() {
         searchForCategory("NUTS_AND_SEEDS");
+    }
+
+    @FXML
+    private void searchForSweet() {
+        searchForCategory("SWEET");
+    }
+
+    /*-----*/
+
+    @FXML
+    private void searchForHerb() {
+        searchForCategory("HERB");
+    }
+
+    /*-----*/
+
+    @FXML
+    private void searchForDairy() {
+        searchForCategory("DAIRIES");
+    }
+
+    /*-----*/
+
+    @FXML
+    private void searchForBread() {
+        searchForCategory("BREAD");
+    }
+
+    @FXML
+    private void searchForFlourSugarSalt() {
+        searchForCategory("FLOUR_SUGAR_SALT");
     }
 
     @FXML
@@ -170,56 +239,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @FXML
     private void searchForPotatoRice() {
         searchForCategory("POTATO_RICE");
-    }
-
-    @FXML
-    private void searchForRootVegetable() {
-        searchForCategory("ROOT_VEGETABLE");
-    }
-
-    @FXML
-    private void searchForFruit() {
-        searchForCategory("FRUIT");
-    }
-
-    @FXML
-    private void searchForSweet() {
-        searchForCategory("SWEET");
-    }
-
-    @FXML
-    private void searchForBerry() {
-        searchForCategory("BERRY");
-    }
-
-    @FXML
-    private void searchForHerb() {
-        searchForCategory("HERB");
-    }
-
-    @FXML
-    private void searchForCitrusFruit() {
-        searchForCategory("CITRUS_FRUIT");
-    }
-
-    @FXML
-    private void searchForHotDrinks() {
-        searchForCategory("HOT_DRINKS");
-    }
-
-    @FXML
-    private void searchForColdDrinks() {
-        searchForCategory("COLD_DRINKS");
-    }
-
-    @FXML
-    private void searchForExoticFruit() {
-        searchForCategory("EXOTIC_FRUIT");
-    }
-
-    @FXML
-    private void searchForFish() {
-        searchForCategory("FISH");
     }
 
     @FXML
@@ -248,8 +267,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
 
     @FXML
-    private void favoriteFill(ActionEvent event){
-        collapsAccordion();
+    private void favoriteFill(ActionEvent event) {
         ArrayList<Product> favoritesProductList = (ArrayList<Product>) dataHandler.favorites();
         fillWithFood(favoritesProductList);
     }
@@ -316,16 +334,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     //TODO: Populera med rätt grejor tex. historiken.
     private void populateAccountWindow(Product product) {
 
-    }
-
-    private void collapsAccordion(){
-        dryckerTitledPane.setExpanded(false);
-        fruktTitledPane.setExpanded(false);
-        gronsakerTitledPane.setExpanded(false);
-        kottTitledPane.setExpanded(false);
-        kryddorTitledPane.setExpanded(false);
-        mejeriTitledPane.setExpanded(false);
-        snacksTitledPane.setExpanded(false);
     }
 
     private void updateProductItems() {
