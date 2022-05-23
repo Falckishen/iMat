@@ -1,0 +1,32 @@
+.button {
+    -fx-background-color: #FCFAFA;
+    -fx-font: 16pt "Arial";
+    -fx-text-fill: #2E3235;
+    -fx-effect: innershadow( gaussian , rgba(255, 255, 255, 0.25) , 1 , 0.3 , -1 , 1 );
+    -fx-background-radius : 0.1em;
+    -fx-border-radius: 0.1em;
+    -fx-border-width: 2px;
+    -fx-border-color: #8E4A4A;
+}
+
+.button:hover {
+    -fx-background-color: #FFFFFF;
+    -fx-font: 16pt "Arial";
+    -fx-text-fill: #2E3235;
+    -fx-effect: innershadow( gaussian , rgba(255, 255, 255, 0.25) , 1 , 0.3 , -1 , 1 );
+    -fx-background-radius : 0.1em;
+    -fx-border-radius: 0.1em;
+    -fx-border-width: 2px;
+    -fx-border-color: #8E4A4A;
+}
+
+.button:pressed {
+    -fx-background-color: #FFFFFF;
+    -fx-font: 16pt "Arial";
+    -fx-text-fill: #2E3235;
+    -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.25) , 3 , 0.3 , 1 , 1 );
+    -fx-background-radius : 0.1em;
+    -fx-border-radius: 0.1em;
+    -fx-border-width: 2px;
+    -fx-border-color: #8E4A4A;
+}

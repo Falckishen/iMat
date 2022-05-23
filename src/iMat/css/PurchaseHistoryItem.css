@@ -23,6 +23,7 @@
     -fx-background-color: #FCFAFA;
     -fx-font: 14pt "Arial";
     -fx-font-color: #2E3235;
+    -fx-border-width: 0px;
     -fx-padding: 0px;
 }
 
