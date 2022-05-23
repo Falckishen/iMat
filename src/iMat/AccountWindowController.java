@@ -129,6 +129,7 @@ public class AccountWindowController extends AnchorPane {
         customer.setLastName("");
         showResetText();
         orderHistoryFlowPane.getChildren().clear();
+        fillTextFields();
     }
 
 

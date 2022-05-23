@@ -65,7 +65,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         setupRegisterPage();
-        setupAccountPage();
         setupPurchasePage();
         setupReceiptPage();
         fillWithAllFood();
@@ -331,11 +330,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
     */
 
-    //TODO: Populera med rätt grejor tex. historiken.
-    private void populateAccountWindow(Product product) {
-
-    }
-
     private void updateProductItems() {
         for(ProductItemController productItemController : productItemsList) {
             productItemController.updateNumberOfProductsText();
@@ -350,11 +344,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
             CartItemController cartItem = new CartItemController(item, this);
             cartPanelView.getChildren().add(cartItem);
         }
-    }
-
-    //TODO: Fill in these.
-    private void setupAccountPage() {
-
     }
 
     private void setupPurchasePage() {
