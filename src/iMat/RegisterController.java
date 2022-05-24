@@ -51,7 +51,7 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
         int y = 0;
         for (ShoppingItem item : list) {
             if (item.getAmount() > 0) {
-                CartStepOneController cartFlow = new CartStepOneController(item, this.mainPageController);
+                CartItemController cartFlow = new CartItemController(item, this.mainPageController);
                 this.registerGridPane.add(cartFlow, x, y);
                 if(x == 0) {
                     x++;

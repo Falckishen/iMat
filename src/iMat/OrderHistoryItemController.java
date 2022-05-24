@@ -50,14 +50,14 @@ public class OrderHistoryItemController extends AnchorPane {
         StringBuilder textMoney = new StringBuilder();
         for (ShoppingItem item : order.getItems()) {
             textName.append(item.getProduct().getName()).append("\n");
-            textAmount.append((int)item.getAmount()).append(" ").append(item.getProduct().getUnit().substring(3)).append(", \n");
+            textAmount.append((int)item.getAmount()).append(" ").append(item.getProduct().getUnit().substring(3)).append("\n");
             textMoney.append(String.format("%.2f", item.getTotal())).append(" kr\n");
             this.total = this.total + item.getTotal();
         }
         orderTextArea.setText(textName.toString());
         orderTextArea2.setText(textAmount.toString());
         orderTextArea3.setText(textMoney.toString());
-        labelPurchaseDate.setText(order.getDate().toLocaleString());
+        labelPurchaseDate.setText(order.getDate().toLocaleString().substring(0,order.getDate().toLocaleString().length() - 8));
         labelPurchaseTotal.setText(this.total + "");
     }
 }

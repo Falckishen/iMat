@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="accountWindowAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" stylesheets="@../css/PurchaseHistoryItem.css" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="accountWindowAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="540.0" stylesheets="@../css/PurchaseHistoryItem.css" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="500.0" prefWidth="500.0" styleClass="item" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -51,17 +51,17 @@
          <center>
             <HBox>
                <children>
-                  <TextArea id="text-area" fx:id="orderTextArea" editable="false" focusTraversable="false" prefHeight="349.0" prefWidth="348.0" text="Gurka - 3st, 139 " wrapText="true">
+                  <TextArea id="text-area" fx:id="orderTextArea" editable="false" focusTraversable="false" prefHeight="349.0" prefWidth="348.0" text="Ekologisk svensk Gurka" wrapText="true">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
                   </TextArea>
-                  <TextArea id="text-area" fx:id="orderTextArea2" editable="false" focusTraversable="false" prefHeight="349.0" prefWidth="232.0" styleClass="text-area2" text="Gurka - 3st, 139 " wrapText="true">
+                  <TextArea id="text-area" fx:id="orderTextArea2" editable="false" focusTraversable="false" prefHeight="349.0" prefWidth="232.0" styleClass="text-area2" text="300 st" wrapText="true">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
                   </TextArea>
-                  <TextArea id="text-area" fx:id="orderTextArea3" editable="false" focusTraversable="false" prefHeight="349.0" prefWidth="232.0" styleClass="text-area3" text="Gurka - 3st, 139 " wrapText="true">
+                  <TextArea id="text-area" fx:id="orderTextArea3" editable="false" focusTraversable="false" prefHeight="349.0" prefWidth="232.0" styleClass="text-area3" text="1500 kr" wrapText="true">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>

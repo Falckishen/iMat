@@ -21,18 +21,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
+<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
       <BorderPane fx:id="mainborderPane" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css">
          <top>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1600.0" styleClass="topPanel" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="searchBar" layoutX="270.0" layoutY="20.0" onAction="#searchBar" prefHeight="61.0" prefWidth="719.0" promptText="Sök här på varor" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="20.0">
+                  <TextField fx:id="searchBar" layoutX="270.0" layoutY="20.0" onAction="#searchBar" prefHeight="61.0" prefWidth="719.0" promptText="Sök här på varor" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="20.0">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="searchButton" layoutX="916.0" layoutY="24.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="69.0" stylesheets="@../css/SearchButton.css" text="Sök" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="986.0" AnchorPane.topAnchor="24.0" />
+                  <Button fx:id="searchButton" layoutX="916.0" layoutY="24.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="69.0" stylesheets="@../css/SearchButton.css" text="Sök" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="996.0" AnchorPane.topAnchor="24.0" />
                   <AnchorPane fx:id="kontoButton" layoutX="1310.0" layoutY="16.0" maxHeight="68.0" minHeight="68.0" onMouseClicked="#openAccountWindow" prefHeight="68.0" prefWidth="140.0" AnchorPane.leftAnchor="1310.0" AnchorPane.rightAnchor="149.0" AnchorPane.topAnchor="16.0">
                      <children>
                         <Label id="kontoText" layoutX="68.0" layoutY="9.0" prefHeight="50.0" prefWidth="71.0" text="Konto" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="9.0">
@@ -60,103 +60,109 @@
             </AnchorPane>
          </top>
          <left>
-            <AnchorPane maxHeight="806.0" maxWidth="300.0" minHeight="780.0" minWidth="270.0" prefHeight="802.0" prefWidth="270.0" styleClass="categorizes-anchor" stylesheets="@../css/CategoryMeny.css" BorderPane.alignment="TOP_LEFT">
+            <AnchorPane maxHeight="800.0" maxWidth="300.0" minHeight="800.0" minWidth="270.0" prefHeight="800.0" prefWidth="270.0" styleClass="categorizes-anchor" stylesheets="@../css/CategoryMeny.css" BorderPane.alignment="TOP_LEFT">
                <children>
-                  <Button fx:id="favoriterKnapp" layoutX="-2.0" layoutY="14.0" maxHeight="94.0" maxWidth="300.0" minHeight="47.0" minWidth="246.0" mnemonicParsing="false" onAction="#favoriteFill" prefHeight="76.0" prefWidth="274.0" stylesheets="@../css/FavoriterButton.css" text="Favoriter" AnchorPane.bottomAnchor="710.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="14.0" />
-                  <ImageView fitHeight="39.0" fitWidth="47.0" layoutX="44.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/starUnselected.png" />
-                     </image>
-                  </ImageView>
-                  <Accordion layoutX="-3.0" layoutY="91.0" maxHeight="847.0" maxWidth="348.0" minHeight="0.0" minWidth="262.0" prefHeight="709.0" prefWidth="273.0" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="91.0">
+                  <Button fx:id="favoriterKnapp" layoutX="-2.0" layoutY="14.0" maxHeight="50.0" maxWidth="270.0" minHeight="50.0" minWidth="270.0" mnemonicParsing="false" onAction="#favoriteFill" prefHeight="50.0" prefWidth="270.0" stylesheets="@../css/FavoriterButton.css" text="Favoriter" AnchorPane.bottomAnchor="710.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <graphic>
+                        <ImageView fitHeight="39.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/starUnselected.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Accordion maxHeight="710.0" maxWidth="270.0" minWidth="270.0" prefHeight="710.0" prefWidth="270.0" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
                      <panes>
-                        <TitledPane animated="false" maxHeight="559.0" maxWidth="361.0" minHeight="193.0" minWidth="253.0" prefHeight="193.0" prefWidth="265.0" styleClass="categorizes-accordion" text="Kolhydrater" visible="false">
+                        <TitledPane contentDisplay="CENTER" maxWidth="270.0" minWidth="270.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Kolhydrater">
                            <content>
-                              <AnchorPane maxHeight="325.0" maxWidth="300.0" minHeight="325.0" minWidth="300.0" prefHeight="325.0" prefWidth="300.0">
+                              <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="270.0" styleClass="anchor-pane">
                                  <children>
-                                    <Button maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForBread" prefHeight="75.0" prefWidth="300.0" text="Bröd" AnchorPane.topAnchor="0.0" />
-                                    <Button layoutY="100.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForPasta" prefHeight="75.0" prefWidth="300.0" text="Pasta" AnchorPane.topAnchor="75.0" />
-                                    <Button layoutY="200.0" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForPotatoRice" prefHeight="75.0" prefWidth="300.0" text="Potatis och ris" AnchorPane.topAnchor="150.0" />
-                                    <Button layoutX="-3.0" layoutY="244.6" maxHeight="75.0" maxWidth="300.0" minHeight="75.0" minWidth="300.0" mnemonicParsing="false" onAction="#searchForFlourSugarSalt" prefHeight="75.0" prefWidth="303.0" text="Mjöl, socker och salt" AnchorPane.topAnchor="235.0" />
-                                 </children>
-                              </AnchorPane>
-                           </content>
-                        </TitledPane>
-                        <TitledPane fx:id="dryckerTitledPane" contentDisplay="CENTER" maxHeight="496.0" maxWidth="300.0" minHeight="175.0" minWidth="0.0" prefHeight="274.0" prefWidth="0.0" stylesheets="@../css/TitledPane.css" text="Drycker">
-                           <content>
-                              <AnchorPane prefHeight="257.0" prefWidth="313.0" styleClass="anchor-pane">
-                                 <children>
-                                    <VBox layoutX="24.0" prefHeight="48.0" prefWidth="269.0" spacing="5.0" styleClass="anchor-pane" stylesheets="@../css/TitledPane.css">
+                                    <VBox spacing="5.0" styleClass="anchor-pane" stylesheets="@../css/TitledPane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-5.0">
                                        <children>
-                                          <Button minHeight="40.0" mnemonicParsing="false" onAction="#searchForColdDrinks" prefHeight="40.0" prefWidth="269.0" text="Kalla drycker" />
-                                          <Button contentDisplay="RIGHT" minHeight="40.0" mnemonicParsing="false" onAction="#searchForHotDrinks" prefHeight="40.0" prefWidth="322.0" stylesheets="@../css/TitledPane.css" text="Varma drycker" />
+                                          <Button minHeight="40.0" mnemonicParsing="false" onAction="#searchForBread" prefHeight="40.0" prefWidth="270.0" text="Bröd" />
+                                          <Button contentDisplay="RIGHT" minHeight="40.0" mnemonicParsing="false" onAction="#searchForFlourSugarSalt" prefHeight="40.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Mjöl, socker och salt" />
+                                          <Button contentDisplay="RIGHT" layoutY="55.0" minHeight="40.0" mnemonicParsing="false" onAction="#searchForPasta" prefHeight="40.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Pasta" />
+                                          <Button contentDisplay="RIGHT" layoutY="100.0" minHeight="40.0" mnemonicParsing="false" onAction="#searchForPotatoRice" prefHeight="40.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Potatis och ris" />
                                        </children>
                                     </VBox>
                                  </children>
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane fx:id="fruktTitledPane" maxHeight="400.0" maxWidth="300.0" minHeight="400.0" minWidth="300.0" onKeyPressed="#searchForFruit" prefHeight="400.0" prefWidth="300.0" stylesheets="@../css/TitledPane.css" text="Frukt &amp; Bär">
+                        <TitledPane contentDisplay="CENTER" maxWidth="270.0" minWidth="270.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Drycker">
                            <content>
-                              <AnchorPane maxHeight="400.0" maxWidth="300.0" minHeight="231.0" minWidth="300.0" prefHeight="251.0" prefWidth="300.0" styleClass="anchor-pane" stylesheets="@../css/TitledPane.css">
+                              <AnchorPane maxHeight="190.0" maxWidth="-Infinity" minHeight="190.0" minWidth="-Infinity" prefHeight="190.0" prefWidth="270.0" styleClass="anchor-pane">
                                  <children>
-                                    <VBox alignment="TOP_RIGHT" layoutX="16.0" layoutY="-0.40000000000000036" prefHeight="262.0" prefWidth="269.0" spacing="5.0" styleClass="background" stylesheets="@../css/TitledPane.css" AnchorPane.topAnchor="-10.0">
+                                    <VBox layoutX="24.0" spacing="5.0" styleClass="anchor-pane" stylesheets="@../css/TitledPane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-5.0">
                                        <children>
-                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForFruit" prefHeight="40.0" prefWidth="269.0" stylesheets="@../css/TitledPane.css" text="Frukt" />
-                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForCitrusFruit" prefHeight="40.0" prefWidth="322.0" stylesheets="@../css/TitledPane.css" text="Citrosfrukter" />
-                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForExoticFruit" prefHeight="40.0" prefWidth="322.0" stylesheets="@../css/TitledPane.css" text="Exotiska Frukter" />
-                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForBerry" prefHeight="40.0" prefWidth="322.0" stylesheets="@../css/TitledPane.css" text="Bär" />
-                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForMelons" prefHeight="40.0" prefWidth="322.0" stylesheets="@../css/TitledPane.css" text="Meloner" />
+                                          <Button minHeight="40.0" mnemonicParsing="false" onAction="#searchForColdDrinks" prefHeight="40.0" prefWidth="270.0" text="Kalla drycker" />
+                                          <Button contentDisplay="RIGHT" minHeight="40.0" mnemonicParsing="false" onAction="#searchForHotDrinks" prefHeight="40.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Varma drycker" />
                                        </children>
                                     </VBox>
                                  </children>
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane fx:id="gronsakerTitledPane" maxHeight="250.0" maxWidth="300.0" minHeight="250.0" minWidth="300.0" prefHeight="250.0" prefWidth="300.0" stylesheets="@../css/TitledPane.css" text="Grönsaker">
+                        <TitledPane maxWidth="270.0" minWidth="270.0" onKeyPressed="#searchForFruit" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Frukt &amp; Bär">
                            <content>
-                              <AnchorPane maxHeight="250.0" maxWidth="300.0" minHeight="250.0" minWidth="274.0" prefHeight="250.0" prefWidth="274.0" styleClass="anchor-pane">
+                              <AnchorPane maxHeight="190.0" maxWidth="-Infinity" minHeight="190.0" minWidth="-Infinity" prefHeight="190.0" prefWidth="270.0" styleClass="anchor-pane" stylesheets="@../css/TitledPane.css">
                                  <children>
-                                    <VBox alignment="TOP_RIGHT" layoutX="3.0" layoutY="7.0" prefHeight="262.0" prefWidth="269.0" spacing="5.0" styleClass="background" stylesheets="@../css/TitledPane.css">
+                                    <VBox alignment="TOP_RIGHT" spacing="5.0" styleClass="background" stylesheets="@../css/TitledPane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-5.0">
                                        <children>
-                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForVegetableFruit" prefHeight="40.0" prefWidth="322.0" stylesheets="@../css/TitledPane.css" text="Grönsaksfrukter" />
-                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForCabbage" prefHeight="40.0" prefWidth="322.0" stylesheets="@../css/TitledPane.css" text="Kål" />
-                                          <Button contentDisplay="RIGHT" maxHeight="40.0" minHeight="40.0" mnemonicParsing="false" onAction="#searchForRootVegetable" prefHeight="65.0" prefWidth="269.0" stylesheets="@../css/TitledPane.css" text="Rotfrukter" />
+                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForCitrusFruit" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Citrosfrukter" />
+                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForExoticFruit" prefHeight="40.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Exotiska Frukter" />
+                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForMelons" prefHeight="40.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Meloner" />
+                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForBerry" prefHeight="40.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Bär" />
                                        </children>
                                     </VBox>
                                  </children>
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane fx:id="kottTitledPane" maxHeight="258.0" maxWidth="300.0" minHeight="175.0" minWidth="265.0" prefHeight="258.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Kött &amp; Fisk">
+                        <TitledPane maxWidth="270.0" minWidth="270.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Grönsaker">
                            <content>
-                              <AnchorPane maxHeight="247.0" maxWidth="300.0" minHeight="175.0" minWidth="300.0" prefHeight="247.0" prefWidth="300.0" styleClass="anchor-pane">
+                              <AnchorPane maxHeight="190.0" maxWidth="-Infinity" minHeight="190.0" minWidth="-Infinity" prefHeight="190.0" prefWidth="270.0" styleClass="anchor-pane">
                                  <children>
-                                    <VBox alignment="TOP_RIGHT" layoutX="16.0" prefHeight="262.0" prefWidth="269.0" spacing="5.0" styleClass="background" stylesheets="@../css/TitledPane.css">
+                                    <VBox alignment="TOP_RIGHT" spacing="5.0" styleClass="background" stylesheets="@../css/TitledPane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-5.0">
                                        <children>
-                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForFish" prefHeight="40.0" prefWidth="322.0" stylesheets="@../css/TitledPane.css" text="Fisk" />
-                                          <Button contentDisplay="RIGHT" maxHeight="40.0" minHeight="40.0" mnemonicParsing="false" onAction="#searchForMeat" prefHeight="65.0" prefWidth="269.0" stylesheets="@../css/TitledPane.css" text="Kött" />
+                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForVegetableFruit" prefHeight="40.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Grönsaksfrukter" />
+                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForCabbage" prefHeight="40.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Kål" />
+                                          <Button contentDisplay="RIGHT" maxHeight="40.0" minHeight="40.0" mnemonicParsing="false" onAction="#searchForRootVegetable" prefHeight="65.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Rotfrukter" />
+                                          <Button contentDisplay="RIGHT" maxHeight="40.0" minHeight="40.0" mnemonicParsing="false" onAction="#searchForPod" prefHeight="65.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Ärter, linser och bönor" />
                                        </children>
                                     </VBox>
                                  </children>
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane fx:id="snacksTitledPane" maxHeight="175.0" maxWidth="300.0" minHeight="175.0" minWidth="300.0" prefHeight="175.0" prefWidth="300.0" stylesheets="@../css/TitledPane.css" text="Snacks">
+                        <TitledPane maxWidth="270.0" minWidth="270.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Kött &amp; Fisk">
                            <content>
-                              <AnchorPane maxHeight="248.0" maxWidth="300.0" minHeight="175.0" minWidth="300.0" prefHeight="248.0" prefWidth="300.0" styleClass="anchor-pane">
+                              <AnchorPane maxHeight="247.0" maxWidth="-Infinity" minHeight="175.0" minWidth="-Infinity" prefHeight="247.0" prefWidth="270.0" styleClass="anchor-pane">
                                  <children>
-                                    <VBox alignment="TOP_RIGHT" layoutX="16.0" prefHeight="262.0" prefWidth="269.0" spacing="5.0" styleClass="background" stylesheets="@../css/TitledPane.css">
+                                    <VBox alignment="TOP_RIGHT" layoutX="16.0" spacing="5.0" styleClass="background" stylesheets="@../css/TitledPane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-5.0">
                                        <children>
-                                          <Button contentDisplay="RIGHT" maxHeight="40.0" minHeight="40.0" mnemonicParsing="false" onAction="#searchForNutsAndSeeds" prefHeight="65.0" prefWidth="269.0" stylesheets="@../css/TitledPane.css" text="Nötter och frön" />
-                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForSweet" prefHeight="40.0" prefWidth="322.0" stylesheets="@../css/TitledPane.css" text="Sötsaker" />
+                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForMeat" prefHeight="40.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Kött" />
+                                          <Button contentDisplay="RIGHT" maxHeight="40.0" minHeight="40.0" mnemonicParsing="false" onAction="#searchForFish" prefHeight="65.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Fisk" />
                                        </children>
                                     </VBox>
                                  </children>
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane fx:id="kryddorTitledPane" graphicTextGap="0.0" maxHeight="406.0" maxWidth="300.0" minHeight="0.0" minWidth="265.0" onMouseClicked="#searchForHerb" prefHeight="0.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Kryddor">
+                        <TitledPane maxWidth="270.0" minWidth="270.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Snacks">
+                           <content>
+                              <AnchorPane maxHeight="248.0" maxWidth="-Infinity" minHeight="175.0" minWidth="-Infinity" prefHeight="248.0" prefWidth="270.0" styleClass="anchor-pane">
+                                 <children>
+                                    <VBox alignment="TOP_RIGHT" layoutX="16.0" spacing="5.0" styleClass="background" stylesheets="@../css/TitledPane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="-5.0">
+                                       <children>
+                                          <Button contentDisplay="RIGHT" maxHeight="40.0" minHeight="40.0" mnemonicParsing="false" onAction="#searchForNutsAndSeeds" prefHeight="65.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Nötter och frön" />
+                                          <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#searchForSweet" prefHeight="40.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Sötsaker" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane graphicTextGap="0.0" maxWidth="270.0" minWidth="270.0" onMouseClicked="#searchForHerb" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Örtor">
                            <content>
                               <AnchorPane prefHeight="235.0" prefWidth="395.0" styleClass="anchor-pane">
                                  <children>
@@ -165,7 +171,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane fx:id="mejeriTitledPane" maxHeight="100.0" maxWidth="300.0" minHeight="0.0" minWidth="265.0" onMouseClicked="#searchForDairy" prefHeight="0.0" prefWidth="265.0" stylesheets="@../css/TitledPane.css" text="Mejeri">
+                        <TitledPane maxWidth="270.0" minWidth="270.0" onMouseClicked="#searchForDairy" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Mejeri">
                            <content>
                               <AnchorPane prefHeight="235.0" prefWidth="39.0" styleClass="anchor-pane">
                                  <children>

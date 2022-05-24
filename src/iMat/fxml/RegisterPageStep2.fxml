@@ -32,7 +32,7 @@
                   </ImageView>
                   <Text id="topPaneText" fill="WHITE" layoutX="170.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steg 2 av 3: Betala" translateX="150.0" wrappingWidth="962.1810302734375">
                      <font>
-                        <Font size="80.0" />
+                        <Font name="Arial Bold" size="80.0" />
                      </font>
                   </Text>
                </children>
@@ -65,17 +65,17 @@
                      <content>
                         <AnchorPane prefHeight="636.0" prefWidth="960.0" style="-fx-background-color: #FFFF;" stylesheets="@../css/AccountWindow.css">
                            <children>
-                              <TextField fx:id="fName" layoutX="50.0" layoutY="100.0" prefHeight="26.0" prefWidth="260.0" />
+                              <TextField fx:id="fName" layoutX="50.0" layoutY="100.0" prefHeight="26.0" prefWidth="260.0" promptText="Ditt förnamn" />
                               <Text layoutX="50.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personuppgifter:" wrappingWidth="304.86956787109375">
                                  <font>
                                     <Font size="40.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="lName" layoutX="50.0" layoutY="180.0" prefWidth="260.0" />
-                              <TextField fx:id="pNumber" layoutX="50.0" layoutY="260.0" prefWidth="260.0" />
-                              <TextField fx:id="adress" layoutX="50.0" layoutY="340.0" prefWidth="260.0" />
-                              <TextField fx:id="postalcode" layoutX="50.0" layoutY="430.0" prefWidth="260.0" />
-                              <TextField fx:id="phonenumber" layoutX="50.0" layoutY="510.0" prefWidth="260.0" />
+                              <TextField fx:id="lName" layoutX="50.0" layoutY="180.0" prefWidth="260.0" promptText="Ditt efternamn" />
+                              <TextField fx:id="pNumber" layoutX="50.0" layoutY="260.0" prefWidth="260.0" promptText="XXXXXX-XXXX" />
+                              <TextField fx:id="adress" layoutX="50.0" layoutY="340.0" prefWidth="260.0" promptText="Din adress" />
+                              <TextField fx:id="postalcode" layoutX="50.0" layoutY="430.0" prefWidth="260.0" promptText="Ditt postnummer" />
+                              <TextField fx:id="phonenumber" layoutX="50.0" layoutY="510.0" prefWidth="260.0" promptText="XXX-XXXXXXX" />
                               <Text layoutX="50.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Förnamn:" wrappingWidth="277.86956787109375">
                                  <font>
                                     <Font size="30.0" />
@@ -141,7 +141,7 @@
                                                 <Font size="20.0" />
                                              </font>
                                           </CheckBox>
-                                          <TextField fx:id="cardNumber" layoutX="200.0" layoutY="132.0" />
+                                          <TextField fx:id="cardNumber" layoutX="200.0" layoutY="132.0" promptText="XXXX-XXXXXX" />
                                        </children>
                                     </AnchorPane>
                                  </children>

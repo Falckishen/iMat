@@ -2,9 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,187 +20,289 @@
 
 <fx:root fx:id="accountWindowAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeAccountWindow" prefHeight="900.0" prefWidth="1600.0" styleClass="background" stylesheets="@../css/AccountWindow.css" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane layoutX="160.0" layoutY="50.0" prefHeight="800.0" prefWidth="1280.0" stylesheets="@../css/AccountWindow.css">
-         <children>
-            <HBox prefHeight="800.0" prefWidth="1280.0" styleClass="complete-window">
-               <children>
-                <AnchorPane minHeight="0.0" minWidth="580.0" prefHeight="160.0" prefWidth="100.0">
+      <TabPane layoutX="160.0" layoutY="49.0" prefHeight="800.0" prefWidth="1288.0">
+         <tabs>
+            <Tab closable="false" text="Kontouppgifter">
+               <content>
+                  <AnchorPane maxWidth="1288.0" minWidth="1288.0" prefHeight="738.0" prefWidth="1288.0" styleClass="complete-window">
                      <children>
-                        <ScrollPane id="#scroll" focusTraversable="false" onMouseClicked="#mouseTrap" prefHeight="857.0" prefWidth="580.0" stylesheets="@../css/ScrollBar.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <content>
-                            <AnchorPane prefHeight="770.0" prefWidth="544.0" styleClass="scroll-pane">
+                        <HBox layoutX="6.0" layoutY="6.0" prefHeight="251.0" prefWidth="1282.0">
+                           <children>
+                            <AnchorPane maxWidth="644.0" minHeight="0.0" minWidth="644.0" onMouseClicked="#mouseTrap" prefHeight="720.0" prefWidth="644.0" styleClass="account-pane">
                                  <children>
-                                    <FlowPane fx:id="orderHistoryFlowPane" alignment="CENTER" layoutX="8.0" layoutY="77.0" onMouseClicked="#mouseTrap" prefHeight="693.0" prefWidth="536.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="73.0" />
+                                    <Label id="text-large" prefHeight="80.0" prefWidth="644.0" text="Leveransuppgifter" AnchorPane.bottomAnchor="664.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <padding>
+                                          <Insets left="70.0" top="10.0" />
+                                       </padding>
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <VBox layoutY="73.0" prefHeight="13.0" prefWidth="380.0" AnchorPane.leftAnchor="0.0">
+                                       <children>
+                                          <Label id="text-larger" text="Förnamn:">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField id="text-label-dark" fx:id="accountFNameTextField" minHeight="50.0" prefHeight="50.0" prefWidth="360.0" promptText="Förnamn">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="70.0" top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox layoutY="169.0" prefHeight="30.0" prefWidth="380.0">
+                                       <children>
+                                          <Label id="text-larger" text="Efternamn:">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField id="text-label-dark" fx:id="accountLNameTextField" minHeight="50.0" prefHeight="54.0" prefWidth="360.0" promptText="Efternamn">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="70.0" top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox layoutY="265.0" prefHeight="16.0" prefWidth="380.0">
+                                       <children>
+                                          <Label id="text-larger" text="Adress:">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField id="text-label-dark" fx:id="accountAddressTextField" minHeight="50.0" prefHeight="54.0" prefWidth="360.0" promptText="Adressvägen XX">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="70.0" top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox layoutY="361.0" prefHeight="12.0" prefWidth="380.0">
+                                       <children>
+                                          <Label id="text-larger" text="Postadress:">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField id="text-label-dark" fx:id="accountPAddressTextField" minHeight="50.0" prefHeight="54.0" prefWidth="360.0" promptText="Leveransadress XX">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="70.0" top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox layoutY="457.0" prefHeight="22.0" prefWidth="380.0">
+                                       <children>
+                                          <Label id="text-larger" text="Postnummer:">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField id="text-label-dark" fx:id="accountPNumberTextField" minHeight="50.0" prefHeight="54.0" prefWidth="360.0" promptText="XXX-XX">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="70.0" top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox layoutY="553.0" prefHeight="50.0" prefWidth="380.0">
+                                       <children>
+                                          <Label id="text-larger" text="Telefonnummer:">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField id="text-label-dark" fx:id="accountTNumberTextField" minHeight="50.0" prefHeight="54.0" prefWidth="360.0" promptText="07-XXXXXX">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets left="70.0" top="15.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="747.0" prefWidth="588.0">
+                                 <children>
+                                    <Label id="text-large" prefHeight="75.0" prefWidth="558.0" text="Betalalternativ">
+                                       <padding>
+                                          <Insets left="70.0" top="10.0" />
+                                       </padding>
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Pane layoutX="49.0" layoutY="79.0" prefHeight="165.0" prefWidth="480.0" styleClass="scroll-pane" />
+                                    <VBox prefHeight="744.0" prefWidth="588.0" spacing="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <RadioButton fx:id="checkBoxKort" mnemonicParsing="false" text="Kort">
+                                             <VBox.margin>
+                                                <Insets left="70.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font>
+                                          </RadioButton>
+                                          <RadioButton fx:id="checkBoxFaktura" mnemonicParsing="false" text="Faktura">
+                                             <VBox.margin>
+                                                <Insets left="70.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font>
+                                          </RadioButton>
+                                          <AnchorPane prefHeight="340.0" prefWidth="518.0" stylesheets="@../css/AccountWindow.css">
+                                             <children>
+                                                <VBox layoutY="-9.0" prefHeight="379.0" prefWidth="367.0" spacing="40.0">
+                                                   <children>
+                                                      <AnchorPane>
+                                                         <children>
+                                                            <Label id="text-larger" text="Korttyp:" />
+                                                            <ComboBox id="text-label-dark" fx:id="cardComboBox" layoutY="22.0" minHeight="40.0" prefWidth="150.0" />
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets />
+                                                         </VBox.margin>
+                                                      </AnchorPane>
+                                                      <AnchorPane>
+                                                         <children>
+                                                            <Label id="text-larger" text="Kortnummer:" />
+                                                            <TextField id="text-label-dark" fx:id="cardNumberTextField" layoutY="22.0" minHeight="50.0" prefWidth="310.0" promptText="XXXX-XXXX-XXXX-XXXX" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="70.0" top="85.0" />
+                                             </VBox.margin>
+                                          </AnchorPane>
+                                       </children>
+                                       <padding>
+                                          <Insets top="111.0" />
+                                       </padding>
+                                    </VBox>
+                                    <AnchorPane layoutX="369.0" layoutY="597.0" prefHeight="122.0" prefWidth="154.0">
+                                       <children>
+                                          <Button layoutY="82.0" mnemonicParsing="false" onAction="#saveButton" prefHeight="44.0" prefWidth="99.0" stylesheets="@../css/GreenButton.css" text="Spara" />
+                                          <Label fx:id="savedLabel" layoutX="4.0" prefHeight="82.0" prefWidth="91.0" text="Uppgifter sparade!" textFill="#5c944b" wrapText="true">
+                                             <font>
+                                                <Font name="Arial Italic" size="22.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets right="120.0" />
+                                       </padding>
+                                    </AnchorPane>
+                                    <AnchorPane layoutY="561.0" prefHeight="145.0" prefWidth="273.0">
+                                       <children>
+                                          <Button layoutX="74.0" layoutY="118.0" mnemonicParsing="false" onAction="#resetAccount" prefHeight="44.0" prefWidth="183.0" stylesheets="@../css/RedButton.css" text="Rensa uppgifter" textAlignment="CENTER" wrapText="true" />
+                                          <Label fx:id="resetLabel" contentDisplay="CENTER" layoutX="72.0" layoutY="36.0" prefHeight="82.0" prefWidth="185.0" text="Sparade uppgifter borttaget." textAlignment="CENTER" textFill="#8e4a4a" wrapText="true">
+                                             <font>
+                                                <Font name="Arial Italic" size="22.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets left="70.0" />
+                                       </padding>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Tidigare köp">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="580.0" prefHeight="728.0" prefWidth="1288.0" styleClass="complete-window">
+                     <children>
+                        <ScrollPane id="#scroll" focusTraversable="false" hbarPolicy="NEVER" layoutX="322.0" layoutY="17.0" maxHeight="799.0" minHeight="716.0" onMouseClicked="#mouseTrap" prefHeight="716.0" prefWidth="644.0" stylesheets="@../css/ScrollBar.css" AnchorPane.leftAnchor="322.0" AnchorPane.topAnchor="17.0">
+                          <content>
+                            <AnchorPane prefHeight="712.0" prefWidth="644.0" styleClass="scroll-pane">
+                                 <children>
+                                    <FlowPane fx:id="orderHistoryFlowPane" alignment="CENTER" layoutX="12.0" layoutY="8.0" onMouseClicked="#mouseTrap" prefHeight="712.0" prefWidth="628.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="4.0" />
                                  </children>
                               </AnchorPane>
                           </content>
                         </ScrollPane>
-                        <Label id="text-large" prefHeight="73.0" prefWidth="548.0" style="-fx-background-color: #eeebeb;" text="Tidigare köp">
-                           <padding>
-                              <Insets left="30.0" top="10.0" />
-                           </padding>
-                           <font>
-                              <Font size="36.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" onMouseClicked="#mouseTrap" prefHeight="898.0" prefWidth="880.0" styleClass="account-pane">
-                     <children>
-                        <Pane id="backdrop" layoutX="50.0" layoutY="583.0" prefHeight="191.0" prefWidth="474.0" />
-                        <Label id="text-large" prefHeight="73.0" prefWidth="400.0" text="Kontouppgifter">
-                           <padding>
-                              <Insets left="70.0" top="10.0" />
-                           </padding>
-                           <font>
-                              <Font size="36.0" />
-                           </font>
-                        </Label>
-                        <VBox layoutY="73.0" prefHeight="13.0" prefWidth="380.0" AnchorPane.leftAnchor="0.0">
-                           <children>
-                              <Label id="text-larger" text="Förnamn:">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextField id="text-label-dark" fx:id="accountFNameTextField" prefHeight="54.0" prefWidth="360.0" />
-                           </children>
-                           <padding>
-                              <Insets left="70.0" top="15.0" />
-                           </padding>
-                        </VBox>
-                        <VBox layoutY="152.0" prefHeight="30.0" prefWidth="380.0">
-                           <children>
-                              <Label id="text-larger" text="Efternamn:">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextField id="text-label-dark" fx:id="accountLNameTextField" prefHeight="54.0" prefWidth="360.0" />
-                           </children>
-                           <padding>
-                              <Insets left="70.0" top="15.0" />
-                           </padding>
-                        </VBox>
-                        <VBox layoutY="231.0" prefHeight="16.0" prefWidth="380.0">
-                           <children>
-                              <Label id="text-larger" text="Adress:">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextField id="text-label-dark" fx:id="accountAddressTextField" prefHeight="54.0" prefWidth="360.0" />
-                           </children>
-                           <padding>
-                              <Insets left="70.0" top="15.0" />
-                           </padding>
-                        </VBox>
-                        <VBox layoutY="310.0" prefHeight="12.0" prefWidth="380.0">
-                           <children>
-                              <Label id="text-larger" text="Postadress:">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextField id="text-label-dark" fx:id="accountPAddressTextField" prefHeight="54.0" prefWidth="360.0" />
-                           </children>
-                           <padding>
-                              <Insets left="70.0" top="15.0" />
-                           </padding>
-                        </VBox>
-                        <VBox layoutY="389.0" prefHeight="22.0" prefWidth="380.0">
-                           <children>
-                              <Label id="text-larger" text="Postnummer:">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextField id="text-label-dark" fx:id="accountPNumberTextField" prefHeight="54.0" prefWidth="360.0" />
-                           </children>
-                           <padding>
-                              <Insets left="70.0" top="15.0" />
-                           </padding>
-                        </VBox>
-                        <VBox layoutY="468.0" prefHeight="50.0" prefWidth="380.0">
-                           <children>
-                              <Label id="text-larger" text="Telefonnummer:">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextField id="text-label-dark" fx:id="accountTNumberTextField" prefHeight="54.0" prefWidth="360.0" />
-                           </children>
-                           <padding>
-                              <Insets left="70.0" top="15.0" />
-                           </padding>
-                        </VBox>
-                        <HBox layoutY="584.0" prefHeight="184.0" prefWidth="525.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0">
-                           <children>
-                              <VBox prefHeight="286.0" prefWidth="379.0">
-                                 <children>
-                                    <Label prefHeight="0.0" prefWidth="379.0" text="Betalningsalternativ:">
-                                       <padding>
-                                          <Insets left="70.0" top="20.0" />
-                                       </padding>
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <CheckBox id="checkbox" fx:id="checkBoxKort" mnemonicParsing="false" text="Kort">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                       <padding>
-                                          <Insets left="90.0" top="20.0" />
-                                       </padding>
-                                    </CheckBox>
-                                    <CheckBox id="checkbox" fx:id="checkBoxFaktura" mnemonicParsing="false" text="Faktura">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                       <padding>
-                                          <Insets left="90.0" top="20.0" />
-                                       </padding>
-                                    </CheckBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                        <Button layoutX="425.0" layoutY="510.0" mnemonicParsing="false" onAction="#saveButton" prefHeight="35.0" prefWidth="99.0" stylesheets="@../css/GreenButton.css" text="Spara" />
-                        <Button layoutX="555.0" layoutY="701.0" mnemonicParsing="false" onAction="#resetAccount" prefHeight="73.0" prefWidth="105.0" stylesheets="@../css/WhiteButton.css" text="Ta bort uppgif." textAlignment="CENTER" wrapText="true" />
-                        <Button fx:id="accountWindowCloseButton" layoutX="620.0" layoutY="-13.0" mnemonicParsing="false" onAction="#closeAccountWindow" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" prefHeight="67.0" prefWidth="67.0" stylesheets="@../css/CloseButton.css">
+                        <Label id="text-large" alignment="TOP_LEFT" layoutX="3.0" layoutY="32.0" prefHeight="101.0" prefWidth="254.0" text="I listan kan du se dina tidigare köp." wrapText="true">
                            <font>
                               <Font size="22.0" />
                            </font>
-                           <graphic>
-                              <ImageView fx:id="closeImageView" fitHeight="40.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/cross_close_hover.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Label fx:id="savedLabel" layoutX="429.0" layoutY="428.0" prefHeight="82.0" prefWidth="91.0" text="Uppgifter sparade!" textFill="#5c944b" wrapText="true">
-                           <font>
-                              <Font name="Arial Italic" size="22.0" />
-                           </font>
+                           <padding>
+                              <Insets left="70.0" />
+                           </padding>
                         </Label>
-                        <Label fx:id="resetLabel" alignment="CENTER" layoutX="568.0" layoutY="583.0" prefHeight="112.0" prefWidth="79.0" text="Sparat innehåll bort-    taget" textFill="#2e3235" wrapText="true">
-                           <font>
-                              <Font name="Arial Italic" size="22.0" />
-                           </font>
-                        </Label>
+                        <AnchorPane layoutX="-1.0" layoutY="167.0">
+                           <children>
+                              <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="255.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label id="text-larger" alignment="TOP_LEFT" prefHeight="15.0" prefWidth="248.0" text="Sök på datum:" wrapText="true">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField id="text-label-dark" minHeight="50.0" prefHeight="50.0" prefWidth="167.0" promptText="yyyy-mm-dd">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="69.0" stylesheets="@../css/WhiteButton.css" text="Sök">
+                                       <VBox.margin>
+                                          <Insets top="15.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets left="70.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </HBox>
-         </children>
-      </Pane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Button fx:id="accountWindowCloseButton" layoutX="1381.0" layoutY="49.0" mnemonicParsing="false" onAction="#closeAccountWindow" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" prefHeight="67.0" prefWidth="67.0" stylesheets="@../css/CloseButton.css">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="closeImageView" fitHeight="40.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/cross_close_hover.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </fx:root>

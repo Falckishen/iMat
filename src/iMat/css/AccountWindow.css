@@ -20,28 +20,66 @@
 
 #text-label-dark {
     -fx-background-color: #eeebeb;
-    -fx-font: italic 14pt "Helvetica";
+    -fx-font: italic 14pt "Arial";
     -fx-font-color: #2E3235;
     -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.2) , 1 , 0.5 , 1 , 1 );
     -fx-background-radius : 0.0em;
 }
 
+.tab-pane *.tab-header-area *.tab-header-background {
+  -fx-background-color:transparent;
+}
+
+.tab-pane {
+  -fx-tab-min-width:591px;
+  -fx-tab-max-width:591px;
+  -fx-tab-min-height:40px;
+  -fx-tab-max-height:40px;
+  -fx-background-radius : 0.0em;
+  -fx-border-width : 0px;
+
+}
+
+.tab {
+  -fx-font: 24pt "Arial";
+  -fx-text-fill: #FCFAFA;
+  -fx-background-color: #eeebeb ;
+  -fx-background-radius : 0.0em;
+
+}
+
+.tab .tab-label {
+	-fx-text-fill: #2E3235;
+}
+
+.tab:selected {
+    -fx-background-color: #559CAD ;
+}
+
+.tab:selected .tab-label {
+	-fx-text-fill: #FCFAFA;
+}
+
 #text-small {
-    -fx-font: 16px "Helvetica";
+    -fx-font: 16px "Arial";
 }
 
 #text-larger {
-    -fx-font: 19px "Helvetica";
+    -fx-font: 18px "Arial";
 }
 
 #text-large {
-    -fx-font: 36px "Helvetica";
+    -fx-font: bold 22px "Arial";
 }
 
-#checkbox .box{
+#text-largest {
+    -fx-font: 26px "Arial";
+}
+
+.radio-button .radio{
     -fx-background-color: #FCFAFA;
+    -fx-font: bold 22px "Arial";
     -fx-effect: innershadow( gaussian , rgba(0, 0, 0, 0.2) , 1 , 0.5 , 1 , 1 );
-    -fx-background-radius : 0.0em;
 }
 
 #backdrop {
