@@ -38,9 +38,9 @@
       </BorderPane>
       <AnchorPane layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="800.0" minWidth="1600.0" prefHeight="800.0" prefWidth="1600.0">
          <children>
-            <ScrollPane hbarPolicy="NEVER" layoutX="320.0" layoutY="150.0" prefHeight="600.0" prefWidth="960.0" stylesheets="@../css/ScrollBar.css">
+            <ScrollPane hbarPolicy="NEVER" layoutX="320.0" layoutY="50.0" prefHeight="649.0" prefWidth="960.0" stylesheets="@../css/ScrollBar.css">
                <content>
-                  <FlowPane fx:id="flowpane" prefHeight="624.0" prefWidth="952.0" />
+                  <FlowPane fx:id="flowpane" prefHeight="649.0" prefWidth="960.0" />
                </content>
                <styleClass>
                   <String fx:value="scroll-bar" />
@@ -69,6 +69,26 @@
                   </HBox>
                </children>
             </VBox>
+            <VBox prefHeight="800.0" prefWidth="320.0" styleClass="shoppingCart">
+               <children>
+                  <Pane minHeight="678.0" prefHeight="678.0" prefWidth="0.0" styleClass="sidePane" />
+                  <HBox alignment="CENTER" prefHeight="150.0" prefWidth="320.0" styleClass="sidePaneEdge">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="100.0" styleClass="shoppingCartText" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Text layoutX="618.0" layoutY="739.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tack för ditt köp!" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="40.0" />
+               </font>
+            </Text>
+            <Text layoutX="479.0" layoutY="780.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ni kan se tidigare köp på er konto-sida." textAlignment="CENTER">
+               <font>
+                  <Font name="Arial" size="35.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>
