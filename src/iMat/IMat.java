@@ -22,6 +22,7 @@ public class IMat extends Application {
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override
             public void run() {
+                cart.clear();
                 dataHandler.shutDown();
             }
         }));

@@ -23,7 +23,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     private final ClassLoader classLoader = getClass().getClassLoader();
 
-    private ArrayList<ProductItemController> productItemsList = new ArrayList<ProductItemController>();
+    private ArrayList<ProductItemController> productItemsToShowList = new ArrayList<ProductItemController>();
 
     private boolean onlyEco = false;
 
@@ -66,7 +66,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
 
     void updateProductItemFavoriteButtons(){
-        for(ProductItemController productItemController : productItemsList) {
+        for(ProductItemController productItemController : productItemsToShowList) {
             productItemController.updateFavoriteButton();
         }
     }
@@ -106,7 +106,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
             onlyEco = true;
             isEcoImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/check_mark.png"))));
         }
-        //Uppdatera products
     }
 
     /*-----*/
@@ -242,61 +241,35 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @FXML
     private void searchBar() {
         String text = searchBar.getText();
-        productsList = (ArrayList<Product>) dataHandler.findProducts(text);
-        if(onlyEco) {
-            productsList.removeIf(product -> !product.isEcological());
-            fillWithFood();
-        }
-        else {
-            fillWithFood();
-        }
+        fillWithFood((ArrayList<Product>) dataHandler.findProducts(text));
     }
 
     @FXML
     private void fillWithFavorites(ActionEvent event) {
-        ArrayList<Product> favoritesProductList = (ArrayList<Product>) dataHandler.favorites();
-        if(onlyEco) {
-            productsList.removeIf(product -> !product.isEcological());
-            fillWithFood();
-        }
-        else {
-            fillWithFood();
-        }
+        fillWithFood((ArrayList<Product>) dataHandler.favorites());
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
     private void searchForCategory(String category) {
-        ArrayList<Product> productsInCategoryList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf(category));
-
-        if(onlyEco) {
-            productsList.removeIf(product -> !product.isEcological());
-            fillWithFood();
-        }
-        else {
-            fillWithFood();
-        }
+        fillWithFood((ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf(category)));
     }
 
     private void fillWithAllFood() {
-        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
-        if(onlyEco) {
-            productsList.removeIf(product -> !product.isEcological());
-            fillWithFood();
-        }
-        else {
-            fillWithFood();
-        }
+        fillWithFood((ArrayList<Product>) dataHandler.getProducts());
     }
 
-    private void fillWithFood() {
+    private void fillWithFood(ArrayList<Product> productsToShowList) {
         int colY = 0;
         int rowX = 0;
         gridPane.getChildren().clear();
-        productItemsList.clear();
-        for(Product product: productsList) {
+        productItemsToShowList.clear();
+        for(Product product: productsToShowList) {
+            if(onlyEco && !product.isEcological()) {
+                continue;
+            }
             ProductItemController productItem = new ProductItemController(product, this);
-            productItemsList.add(productItem);
+            productItemsToShowList.add(productItem);
             gridPane.add(productItem, colY, rowX);
             colY++;
             if(colY == 2 ) {
@@ -309,7 +282,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     /*-----*/
 
     private void updateProductItemsNumText() {
-        for(ProductItemController productItemController : productItemsList) {
+        for(ProductItemController productItemController : productItemsToShowList) {
             productItemController.updateNumberOfProductsText();
         }
     }
