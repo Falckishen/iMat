@@ -36,16 +36,19 @@
             </AnchorPane>
          </top>
       </BorderPane>
-      <AnchorPane layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="800.0" minWidth="1600.0" prefHeight="800.0" prefWidth="1600.0">
+      <AnchorPane layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="800.0" minWidth="1600.0" prefHeight="800.0" prefWidth="1600.0" styleClass="middle" stylesheets="@../css/RegisterPage.css">
          <children>
-            <ScrollPane hbarPolicy="NEVER" layoutX="320.0" layoutY="150.0" prefHeight="600.0" prefWidth="960.0" stylesheets="@../css/ScrollBar.css">
+            <ScrollPane hbarPolicy="NEVER" layoutX="320.0" layoutY="50.0" prefHeight="649.0" prefWidth="960.0" stylesheets="@../css/ScrollBar.css">
                <content>
-                  <FlowPane fx:id="flowpane" prefHeight="624.0" prefWidth="952.0" />
+                  <FlowPane fx:id="flowpane" prefHeight="649.0" prefWidth="960.0" style="-fx-background-color: #FFFF;">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding></FlowPane>
                </content>
                <styleClass>
                   <String fx:value="scroll-bar" />
                   <String fx:value="scrollPanel" />
-                  <String fx:value="scr" />
+                  <String fx:value="grid" />
                </styleClass>
             </ScrollPane>
             <VBox layoutX="1280.0" prefHeight="800.0" prefWidth="320.0" styleClass="shoppingCart">
@@ -54,7 +57,7 @@
                   <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="374.0" styleClass="sidePaneEdge">
                      <children>
                         <VBox alignment="CENTER_LEFT" prefHeight="130.0" prefWidth="125.0" styleClass="shoppingCartText" />
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#openMainPageView" prefHeight="70.0" prefWidth="190.0" stylesheets="@../css/GreenButton.css" text="Vidare till Köp">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#openMainPageView" prefHeight="70.0" prefWidth="190.0" stylesheets="@../css/GreenButton.css" text="Till huvudsida">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
@@ -69,6 +72,26 @@
                   </HBox>
                </children>
             </VBox>
+            <VBox prefHeight="800.0" prefWidth="320.0" styleClass="shoppingCart">
+               <children>
+                  <Pane minHeight="678.0" prefHeight="678.0" prefWidth="0.0" styleClass="sidePane" />
+                  <HBox alignment="CENTER" prefHeight="150.0" prefWidth="320.0" styleClass="sidePaneEdge">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="100.0" styleClass="shoppingCartText" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Text layoutX="618.0" layoutY="739.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tack för ditt köp!" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="40.0" />
+               </font>
+            </Text>
+            <Text layoutX="479.0" layoutY="780.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ni kan se tidigare köp på er konto-sida." textAlignment="CENTER">
+               <font>
+                  <Font name="Arial" size="35.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>
