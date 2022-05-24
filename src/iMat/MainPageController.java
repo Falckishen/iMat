@@ -5,13 +5,14 @@ package iMat;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import se.chalmers.cse.dat216.project.*;
 
@@ -20,44 +21,22 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
     private final ShoppingCart cart = dataHandler.getShoppingCart();
 
-    private final ArrayList<ProductItemController> productItemsList = new ArrayList<ProductItemController>();
-    private AnchorPane registerAnchorPane;
-    private AnchorPane registerstep2AnchorPane;
-    private AnchorPane registerfinalAnchorPane;
-    private AnchorPane purchaseAnchorPane;
-    private AnchorPane receiptAnchorPane;
+    private final ClassLoader classLoader = getClass().getClassLoader();
+
+    private ArrayList<ProductItemController> productItemsList = new ArrayList<ProductItemController>();
 
     private boolean onlyEco = false;
 
+    @FXML private ImageView isEcoImage;
     @FXML private AnchorPane mainPageRootAnchorPane;
-    @FXML private FlowPane productItemsFlowpane;
-    @FXML private Button brodKnapp;
     @FXML private TextField searchBar;
-    @FXML private Button btnTestKonto;
     @FXML private GridPane gridPane;
-    @FXML private Button favoriterKnapp;
     @FXML private FlowPane cartPanelView;
-    @FXML private Button emptyCart;
     @FXML private Label totalPrice;
-    @FXML private Button kassa1backButton;
-    @FXML private Button tillkassanButton;
     @FXML private BorderPane mainborderPane;
-
-    @FXML private TitledPane dryckerTitledPane;
-    @FXML private TitledPane snacksTitledPane;
-    @FXML private TitledPane gronsakerTitledPane;
-    @FXML private TitledPane kottTitledPane;
-    @FXML private TitledPane fruktTitledPane;
-    @FXML private TitledPane mejeriTitledPane;
-    @FXML private TitledPane kryddorTitledPane;
-
-/*-------------------------------------------------------------------------------------------------------------------*/
-
-    //Använder denna för att fortsätta testa kassan
-    @FXML
-    private void empty(){
-        cart.clear();
-    }
+    @FXML private AnchorPane registerAnchorPane;
+    @FXML private AnchorPane registerstep2AnchorPane;
+    @FXML private AnchorPane registerfinalAnchorPane;
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
@@ -75,7 +54,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
         updateCart();
-        updateProductItems();
+        updateProductItemsNumText();
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
@@ -92,34 +71,45 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         }
     }
 
-/*-------------------------------------------------------------------------------------------------------------------*/
-
-    @FXML
     void openMainPageView(){
         mainborderPane.toFront();
     }
 
-    @FXML
     void openPurchaseView(){
 
     }
+
+    void openRegisterstep2View() {
+        registerstep2AnchorPane.toFront();
+    }
+
+    void openRegisterfinalstep() {
+        registerfinalAnchorPane.toFront();
+    }
+
+/*-------------------------------------------------------------------------------------------------------------------*/
 
     @FXML
     void openRegisterView() {
         registerAnchorPane.toFront();
     }
 
-    @FXML
-    void openRegisterstep2View() {
-        registerstep2AnchorPane.toFront();
-    }
-
-    @FXML
-    void openRegisterfinalstep() {
-        registerfinalAnchorPane.toFront();
-    }
-
 /*-------------------------------------------------------------------------------------------------------------------*/
+
+    @FXML
+    private void ecoButtonPressed() {
+        if (onlyEco) {
+            onlyEco = false;
+            isEcoImage.setImage(null);
+        }
+        else {
+            onlyEco = true;
+            isEcoImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/check_mark.png"))));
+        }
+        //Uppdatera products
+    }
+
+    /*-----*/
 
     @FXML
     private void searchForColdDrinks() {
@@ -240,6 +230,8 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         searchForCategory("POTATO_RICE");
     }
 
+    /*-----*/
+
     @FXML
     private void openAccountWindow() {
         AnchorPane accountWindowPane = new AccountWindowController(this);
@@ -249,56 +241,55 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     @FXML
     private void searchBar() {
-        int colY = 0;
-        int rowX = 0;
-        gridPane.getChildren().clear();
         String text = searchBar.getText();
-        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.findProducts(text);
-        for(Product product: productList){
-            ProductItemController productItem = new ProductItemController(product, this);
-            gridPane.add(productItem, colY, rowX);
-            colY++;
-            if(colY == 2 ){
-                colY = 0;
-                rowX++;
-            }
+        productsList = (ArrayList<Product>) dataHandler.findProducts(text);
+        if(onlyEco) {
+            productsList.removeIf(product -> !product.isEcological());
+            fillWithFood();
+        }
+        else {
+            fillWithFood();
         }
     }
 
     @FXML
-    private void favoriteFill(ActionEvent event) {
+    private void fillWithFavorites(ActionEvent event) {
         ArrayList<Product> favoritesProductList = (ArrayList<Product>) dataHandler.favorites();
-        fillWithFood(favoritesProductList);
+        if(onlyEco) {
+            productsList.removeIf(product -> !product.isEcological());
+            fillWithFood();
+        }
+        else {
+            fillWithFood();
+        }
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
-    private void fillWithAllFood() {
-        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
-        if (onlyEco) {
-            fillWithOnlyEcoFood(productList);
-        }
-        else {
-            fillWithFood(productList);
-        }
-    }
-
     private void searchForCategory(String category) {
         ArrayList<Product> productsInCategoryList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf(category));
-        if (onlyEco) {
-            fillWithOnlyEcoFood(productsInCategoryList);
+
+        if(onlyEco) {
+            productsList.removeIf(product -> !product.isEcological());
+            fillWithFood();
         }
         else {
-            fillWithFood(productsInCategoryList);
+            fillWithFood();
         }
     }
 
-    private void fillWithOnlyEcoFood(ArrayList<Product> productsList) {
-        productsList.removeIf(Product::isEcological);
-        fillWithFood(productsList);
+    private void fillWithAllFood() {
+        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
+        if(onlyEco) {
+            productsList.removeIf(product -> !product.isEcological());
+            fillWithFood();
+        }
+        else {
+            fillWithFood();
+        }
     }
 
-    private void fillWithFood(ArrayList<Product> productsList) {
+    private void fillWithFood() {
         int colY = 0;
         int rowX = 0;
         gridPane.getChildren().clear();
@@ -315,22 +306,9 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         }
     }
 
-    /*
-    private void fillStepOneCart(){
-        cartFlowPane.getChildren().clear();
-        ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) cart.getItems();
-        for(ShoppingItem item: list){
-            CartStepOneController cartitem = new CartStepOneController(item);
-            registerGridPane.getChildren().add(cartitem);
+    /*-----*/
 
-        }}
-
-    private void emptyStepOneCart(){
-        cartFlowPane.getChildren().clear();
-    }
-    */
-
-    private void updateProductItems() {
+    private void updateProductItemsNumText() {
         for(ProductItemController productItemController : productItemsList) {
             productItemController.updateNumberOfProductsText();
         }
@@ -345,6 +323,8 @@ public class MainPageController implements Initializable, ShoppingCartListener {
             cartPanelView.getChildren().add(cartItem);
         }
     }
+
+    /*-----*/
 
     private void setupPurchasePage() {
         registerstep2AnchorPane = new RegisterStep2controller(this);
