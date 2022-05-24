@@ -65,11 +65,11 @@
                      <content>
                         <GridPane fx:id="registerGridPane" alignment="TOP_CENTER" hgap="80.0" prefHeight="170.0" prefWidth="952.0" styleClass="gridPanel" vgap="20.0">
                            <columnConstraints>
-                              <ColumnConstraints hgrow="NEVER" maxWidth="977.0" minWidth="10.0" prefWidth="363.0" />
-                              <ColumnConstraints hgrow="NEVER" maxWidth="791.0" minWidth="10.0" prefWidth="363.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="977.0" minWidth="10.0" prefWidth="363.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="791.0" minWidth="10.0" prefWidth="363.0" />
                            </columnConstraints>
                            <rowConstraints>
-                              <RowConstraints maxHeight="201.0" minHeight="10.0" prefHeight="125.0" vgrow="NEVER" />
+                              <RowConstraints maxHeight="201.0" minHeight="10.0" prefHeight="125.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <padding>
                               <Insets bottom="15.0" left="10.0" right="10.0" top="20.0" />
