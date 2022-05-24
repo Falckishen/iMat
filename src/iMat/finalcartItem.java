@@ -32,7 +32,9 @@ public class finalcartItem extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        amount.setText(String.valueOf(shoppingitem.getAmount()));
+
+        int amountint = (int) shoppingitem.getAmount();
+        amount.setText(String.valueOf(amountint));
         price.setText(String.valueOf(shoppingitem.getProduct().getPrice())+" kr");
         bild.setImage(dataHandler.getFXImage(shoppingitem.getProduct()));
 

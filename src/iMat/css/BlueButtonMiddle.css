@@ -8,7 +8,7 @@
 }
 
 .label {
-    -fx-font: bold 18px "Helvetica";
+    -fx-font: bold 18px "Arial";
     -fx-text-fill: #2E3235;
     -fx-text-alignment: center;
 }
@@ -23,7 +23,7 @@
 }
 
 .labelDarker {
-    -fx-font: bold 20px "Helvetica";
+    -fx-font: bold 20px "Arial";
     -fx-text-fill: #2E3235;
     -fx-text-alignment: center;
 }
