@@ -5,6 +5,20 @@
 
 -fx-background-radius: 1px;}
 
+.frame-image-wrapper{
+    -fx-border-color: #999999;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+}
+
+/*Ignorera nedanför*/
+.static-object-hintingThicc{
+    -fx-border-width: 1px;
+    -fx-border-color: #999999;
+    -fx-border-radius: 1px;
+
+    -fx-background-radius: 5px;}
+
 .object-item{
     -fx-background-color: #E1EFF2;
     -fx-border-width: 0px;

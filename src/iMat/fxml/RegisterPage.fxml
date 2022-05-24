@@ -61,9 +61,9 @@
          <center>
             <AnchorPane prefHeight="780.0" prefWidth="353.0" styleClass="middle" stylesheets="@../css/RegisterPage.css" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="-128.0" layoutY="50.0" prefHeight="779.0" prefWidth="960.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="-24.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                  <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="-128.0" layoutY="50.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="-24.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                      <content>
-                        <GridPane fx:id="registerGridPane" alignment="TOP_CENTER" hgap="80.0" prefHeight="170.0" prefWidth="952.0" styleClass="gridPanel" vgap="20.0">
+                        <GridPane fx:id="registerGridPane" alignment="TOP_CENTER" hgap="80.0" styleClass="gridPanel" vgap="20.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="977.0" minWidth="10.0" prefWidth="363.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="791.0" minWidth="10.0" prefWidth="363.0" />
