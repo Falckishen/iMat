@@ -315,21 +315,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         }
     }
 
-    /*
-    private void fillStepOneCart(){
-        cartFlowPane.getChildren().clear();
-        ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) cart.getItems();
-        for(ShoppingItem item: list){
-            CartStepOneController cartitem = new CartStepOneController(item);
-            registerGridPane.getChildren().add(cartitem);
-
-        }}
-
-    private void emptyStepOneCart(){
-        cartFlowPane.getChildren().clear();
-    }
-    */
-
     private void updateProductItems() {
         for(ProductItemController productItemController : productItemsList) {
             productItemController.updateNumberOfProductsText();

@@ -1,3 +1,15 @@
+.ecoButton {
+    -fx-background-color: #cccccc;
+}
+
+.ecoButton:hover {
+    -fx-background-color: #eeeeee;
+}
+
+.ecoButton:pressed {
+    -fx-background-color: #bbbbbb;
+}
+
 .borderPane {
     -fx-border-width: 0px;
     -fx-border-color: transparent;
