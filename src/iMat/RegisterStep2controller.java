@@ -49,7 +49,7 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        this.cart.addShoppingCartListener(this);
+        cart.addShoppingCartListener(this);
         this.mainPageController = mainPageController;
 
         fName.setText(dataHandler.getCustomer().getFirstName());
@@ -76,13 +76,13 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
 
     @FXML
     private void openPurchaseView() throws IOException {
-        this.mainPageController.openRegisterView();
+        mainPageController.openRegisterView();
     }
 
     @FXML
     private void openFinalStep() throws IOException {
         registerBuy();
-        this.mainPageController.openRegisterfinalstep();
+        mainPageController.openRegisterfinalstep();
     }
 
     @FXML
@@ -92,7 +92,7 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
 
     @FXML
     private void openMainPageView() throws IOException {
-        this.mainPageController.openMainPageView();
+        mainPageController.openMainPageView();
     }
 
 

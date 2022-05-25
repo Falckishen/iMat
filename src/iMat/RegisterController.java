@@ -21,9 +21,6 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
     private final ShoppingCart cart = IMat.getShoppingCart();
     private final MainPageController mainPageController;
 
-
-    @FXML Button toPurchaseButton;
-    @FXML Button toBackButton;
     @FXML GridPane registerGridPane;
     @FXML Label totalPriceB;
 
@@ -37,7 +34,7 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        this.cart.addShoppingCartListener(this);
+        cart.addShoppingCartListener(this);
         this.mainPageController = mainPageController;
 
     }
@@ -45,14 +42,14 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
     //TODO: Add cart value to the total.
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-        this.registerGridPane.getChildren().clear();
+        registerGridPane.getChildren().clear();
         ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) cart.getItems();
         int x = 0;
         int y = 0;
         for (ShoppingItem item : list) {
             if (item.getAmount() > 0) {
-                CartItemController cartFlow = new CartItemController(item, this.mainPageController);
-                this.registerGridPane.add(cartFlow, x, y);
+                CartItemController cartFlow = new CartItemController(item, mainPageController);
+                registerGridPane.add(cartFlow, x, y);
                 if(x == 0) {
                     x++;
                 }
@@ -62,24 +59,24 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
                 }
             }
         }
-        this.totalPriceB.setText(String.valueOf(cart.getTotal())+" kr");
+        totalPriceB.setText(String.valueOf(cart.getTotal())+" kr");
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
     @FXML
     private void openPurchaseView() throws IOException{
-        this.mainPageController.openPurchaseView();
+        mainPageController.openPurchaseView();
     }
 
     @FXML
     private void openMainPageView() throws IOException{
-        this.mainPageController.openMainPageView();
+        mainPageController.openMainPageView();
     }
 
     @FXML
     private void openRegisterstep2() throws IOException{
-        this.mainPageController.openRegisterstep2View();
+        mainPageController.openRegisterstep2View();
     }
 
 

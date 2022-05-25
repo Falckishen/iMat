@@ -38,10 +38,10 @@ public class CartStepOneController extends AnchorPane {
             }
             this.mainPageController = mainPageController;
             this.shoppingItem = shoppingItem;
-            this.image.setImage(dataHandler.getFXImage(shoppingItem.getProduct()));
-            this.nameofProduct.setText(shoppingItem.getProduct().getName());
-            this.priceofProducts.setText(String.format("Pris: %.2f", shoppingItem.getTotal()));
-            this.numberofProducts.setText(String.valueOf(shoppingItem.getAmount()));
+            image.setImage(dataHandler.getFXImage(shoppingItem.getProduct()));
+            nameofProduct.setText(shoppingItem.getProduct().getName());
+            priceofProducts.setText(String.format("Pris: %.2f", shoppingItem.getTotal()));
+            numberofProducts.setText(String.valueOf(shoppingItem.getAmount()));
         }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
@@ -61,7 +61,7 @@ public class CartStepOneController extends AnchorPane {
         /*
         @FXML
         private void closeButtonMousePressed() {
-            this.addedProduct.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus.png"))));
+            addedProduct.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/plus.png"))));
         }
         */
 }

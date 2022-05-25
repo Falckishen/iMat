@@ -71,19 +71,19 @@ public class AccountWindowController extends AnchorPane {
 
     @FXML
     private void closeButtonMouseEntered() {
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_white.png"))));
+        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_white.png"))));
     }
 
     @FXML
     private void closeButtonMouseExited() {
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_hover.png"))));
+        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_hover.png"))));
     }
 
     /*-------------------------------------------------------------------------------------------------------------------*/
 
     @FXML
     private void closeAccountWindow() {
-        this.toBack();
+        toBack();
     }
 
     @FXML
@@ -165,7 +165,7 @@ public class AccountWindowController extends AnchorPane {
         private TextField textField;
 
         public TextFieldListener(TextField textField) {
-            this.textField = textField;
+            textField = textField;
         }
 
         @Override

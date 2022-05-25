@@ -41,45 +41,45 @@ public class CartItemController extends AnchorPane {
             throw new RuntimeException(exception);
         }
         this.mainPageController = mainPageController;
-        this.product = item.getProduct();
-        this.image.setImage(Util.getSquareImage(dataHandler.getFXImage(this.product)));
-        this.nameText.setText(item.getProduct().getName());
-        this.priceText.setText(String.format("%.2f", item.getTotal()));
-        this.numberOfProducts.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
+        product = item.getProduct();
+        image.setImage(Util.getSquareImage(dataHandler.getFXImage(product)));
+        nameText.setText(item.getProduct().getName());
+        priceText.setText(String.format("%.2f", item.getTotal()));
+        numberOfProducts.setText(String.valueOf(IMat.getNumberOfAProductInCart(product)));
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
     @FXML
     private void openDetailView() {
-        this.mainPageController.openProductDetailView(this.product);
+        mainPageController.openProductDetailView(product);
     }
 
     @FXML
     private void plusButtonClicked(Event event) {
         event.consume();
-        IMat.addOneToCart(this.product);
+        IMat.addOneToCart(product);
     }
 
     @FXML
     private void minusButtonClicked(Event event) {
         event.consume();
-        IMat.removeOneFromCart(this.product);
+        IMat.removeOneFromCart(product);
     }
 
     @FXML
     private void closeButtonMouseEnter() {
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_white.png"))));
+        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_white.png"))));
     }
 
     @FXML
     private void closeButtonMouseExited() {
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_hover.png"))));
+        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_hover.png"))));
     }
 
     @FXML
     private void removeAllItems(Event event) {
         event.consume();
-        IMat.writeInNumOfProductAmount(this.product, "0");
+        IMat.writeInNumOfProductAmount(product, "0");
     }
 }
