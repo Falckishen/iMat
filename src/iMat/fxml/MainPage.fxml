@@ -82,7 +82,7 @@
                      </graphic></Button>
                   <Accordion maxHeight="710.0" maxWidth="270.0" minWidth="270.0" prefHeight="710.0" prefWidth="270.0" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
                      <panes>
-                        <TitledPane contentDisplay="CENTER" maxWidth="270.0" minWidth="270.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Kolhydrater">
+                        <TitledPane contentDisplay="CENTER" maxWidth="270.0" minWidth="270.0" onMouseClicked="#searchForCarbs" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Kolhydrater">
                            <content>
                               <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="270.0" styleClass="anchor-pane">
                                  <children>
@@ -98,7 +98,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane contentDisplay="CENTER" maxWidth="270.0" minWidth="270.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Drycker">
+                        <TitledPane contentDisplay="CENTER" maxWidth="270.0" minWidth="270.0" onMouseClicked="#searchForDrinks" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Drycker">
                            <content>
                               <AnchorPane maxHeight="190.0" maxWidth="-Infinity" minHeight="190.0" minWidth="-Infinity" prefHeight="190.0" prefWidth="270.0" styleClass="anchor-pane">
                                  <children>
@@ -112,7 +112,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane maxWidth="270.0" minWidth="270.0" onKeyPressed="#searchForFruit" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Frukt &amp; Bär">
+                        <TitledPane maxWidth="270.0" minWidth="270.0" onMouseClicked="#searchForFruitAndBerrys" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Frukt &amp; Bär">
                            <content>
                               <AnchorPane maxHeight="190.0" maxWidth="-Infinity" minHeight="190.0" minWidth="-Infinity" prefHeight="190.0" prefWidth="270.0" styleClass="anchor-pane" stylesheets="@../css/TitledPane.css">
                                  <children>
@@ -128,7 +128,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane maxWidth="270.0" minWidth="270.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Grönsaker">
+                        <TitledPane maxWidth="270.0" minWidth="270.0" onMouseClicked="#searchForVegetable" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Grönsaker">
                            <content>
                               <AnchorPane maxHeight="190.0" maxWidth="-Infinity" minHeight="190.0" minWidth="-Infinity" prefHeight="190.0" prefWidth="270.0" styleClass="anchor-pane">
                                  <children>
@@ -144,7 +144,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane maxWidth="270.0" minWidth="270.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Kött &amp; Fisk">
+                        <TitledPane maxWidth="270.0" minWidth="270.0" onMouseClicked="#searchForMeatAndFish" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Kött &amp; Fisk">
                            <content>
                               <AnchorPane maxHeight="247.0" maxWidth="-Infinity" minHeight="175.0" minWidth="-Infinity" prefHeight="247.0" prefWidth="270.0" styleClass="anchor-pane">
                                  <children>
@@ -158,7 +158,7 @@
                               </AnchorPane>
                            </content>
                         </TitledPane>
-                        <TitledPane maxWidth="270.0" minWidth="270.0" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Snacks">
+                        <TitledPane maxWidth="270.0" minWidth="270.0" onMouseClicked="#searchForSnacks" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Snacks">
                            <content>
                               <AnchorPane maxHeight="248.0" maxWidth="-Infinity" minHeight="175.0" minWidth="-Infinity" prefHeight="248.0" prefWidth="270.0" styleClass="anchor-pane">
                                  <children>

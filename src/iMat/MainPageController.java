@@ -111,122 +111,173 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     /*-----*/
 
     @FXML
+    private void searchForCarbs() {
+        String[] categories = {"BREAD", "FLOUR_SUGAR_SALT", "PASTA", "POTATO_RICE"};
+        searchForCategories(categories);
+    }
+
+    @FXML
+    private void searchForBread() {
+        String[] categories = {"BREAD"};
+        searchForCategories(categories);
+    }
+
+    @FXML
+    private void searchForFlourSugarSalt() {
+        String[] categories = {"FLOUR_SUGAR_SALT"};
+        searchForCategories(categories);
+    }
+
+    @FXML
+    private void searchForPasta() {
+        String[] categories = {"PASTA"};
+        searchForCategories(categories);
+    }
+
+    @FXML
+    private void searchForPotatoRice() {
+        String[] categories = {"POTATO_RICE"};
+        searchForCategories(categories);
+    }
+
+    /*-----*/
+
+    @FXML
+    private void searchForDrinks() {
+        String[] categories = {"COLD_DRINKS", "HOT_DRINKS"};
+        searchForCategories(categories);
+    }
+
+    @FXML
     private void searchForColdDrinks() {
-        searchForCategory("COLD_DRINKS");
+        String[] categories = {"COLD_DRINKS"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForHotDrinks() {
-        searchForCategory("HOT_DRINKS");
+        String[] categories = {"HOT_DRINKS"};
+        searchForCategories(categories);
     }
 
     /*-----*/
 
     @FXML
-    private void searchForFruit() {
-        searchForCategory("FRUIT");
+    private void searchForFruitAndBerrys() {
+        String[] categories = {"FRUIT", "CITRUS_FRUIT", "EXOTIC_FRUIT", "MELONS", "BERRY"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForCitrusFruit() {
-        searchForCategory("CITRUS_FRUIT");
+        String[] categories = {"CITRUS_FRUIT"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForExoticFruit() {
-        searchForCategory("EXOTIC_FRUIT");
+        String[] categories = {"EXOTIC_FRUIT"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForMelons() {
-        searchForCategory("MELONS");
+        String[] categories = {"MELONS"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForBerry() {
-        searchForCategory("BERRY");
+        String[] categories = {"BERRY"};
+        searchForCategories(categories);
     }
 
     /*-----*/
 
     @FXML
+    private void searchForVegetable() {
+        String[] categories = {"VEGETABLE_FRUIT", "CABBAGE", "ROOT_VEGETABLE", "POD"};
+        searchForCategories(categories);
+    }
+
+    @FXML
     private void searchForVegetableFruit() {
-        searchForCategory("VEGETABLE_FRUIT");
+        String[] categories = {"VEGETABLE_FRUIT"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForCabbage() {
-        searchForCategory("CABBAGE");
+        String[] categories = {"CABBAGE"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForRootVegetable() {
-        searchForCategory("ROOT_VEGETABLE");
+        String[] categories = {"ROOT_VEGETABLE"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForPod() {
-        searchForCategory("POD");
+        String[] categories = {"POD"};
+        searchForCategories(categories);
     }
 
     /*-----*/
 
     @FXML
+    private void searchForMeatAndFish() {
+        String[] categories = {"MEAT", "FISH"};
+        searchForCategories(categories);
+    }
+
+    @FXML
     private void searchForMeat() {
-        searchForCategory("MEAT");
+        String[] categories = {"MEAT"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForFish() {
-        searchForCategory("FISH");
+        String[] categories = {"FISH"};
+        searchForCategories(categories);
     }
 
     /*-----*/
 
     @FXML
+    private void searchForSnacks() {
+        String[] categories = {"NUTS_AND_SEEDS", "SWEET"};
+        searchForCategories(categories);
+    }
+
+    @FXML
     private void searchForNutsAndSeeds() {
-        searchForCategory("NUTS_AND_SEEDS");
+        String[] categories = {"NUTS_AND_SEEDS"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForSweet() {
-        searchForCategory("SWEET");
+        String[] categories = {"SWEET"};
+        searchForCategories(categories);
     }
 
     /*-----*/
 
     @FXML
     private void searchForHerb() {
-        searchForCategory("HERB");
+        String[] categories = {"HERB"};
+        searchForCategories(categories);
     }
 
     /*-----*/
 
     @FXML
     private void searchForDairy() {
-        searchForCategory("DAIRIES");
-    }
-
-    /*-----*/
-
-    @FXML
-    private void searchForBread() {
-        searchForCategory("BREAD");
-    }
-
-    @FXML
-    private void searchForFlourSugarSalt() {
-        searchForCategory("FLOUR_SUGAR_SALT");
-    }
-
-    @FXML
-    private void searchForPasta() {
-        searchForCategory("PASTA");
-    }
-
-    @FXML
-    private void searchForPotatoRice() {
-        searchForCategory("POTATO_RICE");
+        String[] categories = {"DAIRIES"};
+        searchForCategories(categories);
     }
 
     /*-----*/
@@ -251,8 +302,12 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
-    private void searchForCategory(String category) {
-        fillWithFood((ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf(category)));
+    private void searchForCategories(String[] categories) {
+        ArrayList<Product> productsToShowList = new ArrayList<Product>(5);
+        for (String category : categories) {
+            productsToShowList.addAll(dataHandler.getProducts(ProductCategory.valueOf(category)));
+        }
+        fillWithFood(productsToShowList);
     }
 
     private void fillWithAllFood() {
