@@ -10,6 +10,23 @@
     -fx-background-color: #bbbbbb;
 }
 
+.logoButton {
+    -fx-background-color:  transparent;
+}
+
+.logoButton:hover {
+    -fx-border-color: #467993;
+}
+
+.logoButton:pressed {
+    -fx-border-color: #305b72;
+}
+
+.topPanel {
+    -fx-background-color: #3b6781;
+    -fx-border-width: 0px;
+}
+
 .borderPane {
     -fx-border-width: 0px;
     -fx-border-color: transparent;
@@ -19,19 +36,16 @@
     -fx-background-color: rgba(0, 0, 0, 0.75);
 }
 
+/*
 .pane {
     -fx-background-color:  #395d77;
     -fx-border-color: #606060;
     -fx-border-width: 5px;
 }
+*/
 
 .closeButton {
     -fx-background-color: rgb(255, 30, 30);
-}
-
-.topPanel {
-    -fx-background-color: #3b6781;
-    -fx-border-width: 0px;
 }
 
 .gridPanel {

@@ -95,8 +95,7 @@ public class IMat extends Application {
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
-
-    public static void setProductAmount(Product product, int amount) {
+    private static void setProductAmount(Product product, int amount) {
         List<ShoppingItem> listOfShoppingItems = cart.getItems();
         Product productInCart;
         for (ShoppingItem shoppingItem : listOfShoppingItems) {

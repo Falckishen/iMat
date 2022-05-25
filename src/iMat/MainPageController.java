@@ -97,6 +97,11 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 /*-------------------------------------------------------------------------------------------------------------------*/
 
     @FXML
+    private void logoClicked() {
+        fillWithAllFood();
+    }
+
+    @FXML
     private void ecoButtonPressed() {
         if (onlyEco) {
             onlyEco = false;

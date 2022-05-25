@@ -47,7 +47,7 @@
                         </ImageView>
                      </children>
                   </AnchorPane>
-                  <Button layoutX="44.0" layoutY="22.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: transparent;">
+                  <Button layoutX="44.0" layoutY="22.0" mnemonicParsing="false" onAction="#logoClicked" prefHeight="50.0" prefWidth="150.0" styleClass="logoButton">
                      <graphic>
                         <ImageView fitHeight="48.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
                            <image>
