@@ -50,6 +50,8 @@ public class CartItemController extends AnchorPane {
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
+    /**/
+
     @FXML
     private void openDetailView() {
         mainPageController.openProductDetailView(product);
