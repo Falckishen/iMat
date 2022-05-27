@@ -85,18 +85,18 @@
                                     <Font name="Arial" size="30.0" />
                                  </font>
                               </Label>
-                              <StackPane layoutX="546.0" layoutY="84.0" prefHeight="177.0" prefWidth="400.0">
+                              <StackPane layoutX="546.0" layoutY="84.0" prefHeight="311.0" prefWidth="400.0">
                                  <children>
                                     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="177.0" prefWidth="400.0" StackPane.alignment="CENTER">
                                        <children>
                                           <AnchorPane layoutX="174.0" layoutY="-12.0" prefHeight="200.0" prefWidth="200.0" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefHeight="177.0" prefWidth="400.0">
+                                    <AnchorPane prefHeight="244.0" prefWidth="400.0">
                                        <children>
-                                          <ComboBox id="text-label-dark" fx:id="combobox" layoutX="200.0" layoutY="55.0" prefWidth="150.0" promptText="Välj typ" />
-                                          <TextField id="text-label-dark" fx:id="cardNumber" layoutX="200.0" layoutY="132.0" prefHeight="34.0" prefWidth="159.0" promptText="XXXX-XXXXXX" />
-                                          <RadioButton layoutX="20.0" layoutY="59.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" text="Kort">
+                                          <ComboBox id="text-label-dark" fx:id="combobox" layoutX="154.0" layoutY="113.0" prefWidth="150.0" promptText="Välj typ" />
+                                          <TextField id="text-label-dark" fx:id="cardNumber" layoutX="154.0" layoutY="164.0" prefHeight="34.0" prefWidth="150.0" promptText="XXXX-XXXXX" />
+                                          <RadioButton layoutX="70.0" layoutY="60.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="78.0" text="Kort">
                                              <font>
                                                 <Font name="Arial" size="18.0" />
                                              </font>
@@ -104,12 +104,12 @@
                                                 <InnerShadow blurType="TWO_PASS_BOX" height="5.0" radius="2.0" width="5.0" />
                                              </effect>
                                           </RadioButton>
-                                          <Label layoutX="150.0" layoutY="64.0" prefHeight="17.0" prefWidth="40.0" text="Kort:">
+                                          <Label layoutX="104.0" layoutY="122.0" prefHeight="17.0" prefWidth="40.0" text="Kort:">
                                              <font>
                                                 <Font name="Arial" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="86.0" layoutY="136.0" prefHeight="27.0" prefWidth="111.0" text="Kortnummer:">
+                                          <Label layoutX="35.0" layoutY="164.0" prefHeight="27.0" prefWidth="111.0" text="Kortnummer:">
                                              <font>
                                                 <Font size="18.0" />
                                              </font>
@@ -119,6 +119,14 @@
                                                 <Font name="System Bold" size="18.0" />
                                              </font>
                                           </Label>
+                                          <RadioButton layoutX="216.0" layoutY="60.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.0" text="Faktura">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font>
+                                             <effect>
+                                                <InnerShadow blurType="TWO_PASS_BOX" height="5.0" radius="2.0" width="5.0" />
+                                             </effect>
+                                          </RadioButton>
                                        </children>
                                     </AnchorPane>
                                  </children>
