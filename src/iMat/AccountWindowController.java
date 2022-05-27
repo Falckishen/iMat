@@ -165,7 +165,7 @@ public class AccountWindowController extends AnchorPane {
         private TextField textField;
 
         public TextFieldListener(TextField textField) {
-            textField = textField;
+            this.textField = textField;
         }
 
         @Override
