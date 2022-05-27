@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
+<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
       <BorderPane fx:id="mainborderPane" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css">
          <top>
@@ -201,9 +201,9 @@
          <center>
             <AnchorPane prefWidth="960.0" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="780.0" prefWidth="900.0" styleClass="scrollPanel" stylesheets="@../css/ScrollBar.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="800.0" prefWidth="930.0" styleClass="scrollPanel" stylesheets="@../css/ScrollBar.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
-                        <GridPane fx:id="gridPane" alignment="TOP_CENTER" hgap="50.0" prefHeight="698.0" prefWidth="898.0" styleClass="gridPanel" vgap="30.0">
+                        <GridPane fx:id="gridPane" alignment="TOP_CENTER" hgap="50.0" prefHeight="807.0" prefWidth="910.0" styleClass="gridPanel" vgap="30.0">
                           <columnConstraints>
                              <ColumnConstraints hgrow="NEVER" maxWidth="351.0" minWidth="10.0" prefWidth="363.0" />
                              <ColumnConstraints hgrow="NEVER" maxWidth="351.0" minWidth="10.0" prefWidth="363.0" />
