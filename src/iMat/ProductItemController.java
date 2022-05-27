@@ -3,7 +3,6 @@ package iMat;
 
 import java.io.IOException;
 import java.util.Objects;
-
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,8 +29,6 @@ public class ProductItemController extends AnchorPane {
     @FXML private Text nameOfProduct;
     @FXML private Text priceOfItem;
     @FXML private Label numberOfProductsText;
-    @FXML private ImageView plusImage;
-    @FXML private ImageView minusImage;
     @FXML private Label unitLabel;
     @FXML private StackPane ekologiskPane;
 

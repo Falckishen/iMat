@@ -1,6 +1,8 @@
 // Hör ihop med AccountWindow.fxml
 package iMat;
 
+import java.io.IOException;
+import java.util.Objects;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
@@ -16,9 +18,6 @@ import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Order;
-
-import java.io.IOException;
-import java.util.Objects;
 
 public class AccountWindowController extends AnchorPane {
 

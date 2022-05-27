@@ -101,7 +101,7 @@
                                     <Label id="registerTextAmount" fx:id="totalPriceB" text="0" />
                                  </children>
                               </VBox>
-                              <Button fx:id="toPurchaseButton" alignment="CENTER" mnemonicParsing="false" onAction="#openRegisterstep2" prefHeight="70.0" prefWidth="190.0" stylesheets="@../css/GreenButton.css" text="Vidare till Köp">
+                              <Button fx:id="toPurchaseButton" alignment="CENTER" mnemonicParsing="false" onAction="#openRegisterStep2" prefHeight="70.0" prefWidth="190.0" stylesheets="@../css/GreenButton.css" text="Vidare till Köp">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin></Button>

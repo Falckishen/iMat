@@ -1,32 +1,24 @@
 package iMat;
 
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
-import java.io.IOException;
-import java.util.Calendar;
-
 public class OrderHistoryItemController extends AnchorPane {
-    private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
+
     private Order order;
     private double total;
 
-    @FXML
-    private Label labelPurchaseDate;
-    @FXML
-    private Label labelPurchaseTotal;
-    @FXML
-    private TextArea orderTextArea;
-    @FXML
-    private TextArea orderTextArea2;
-    @FXML
-    private TextArea orderTextArea3;
+    @FXML private Label labelPurchaseDate;
+    @FXML private Label labelPurchaseTotal;
+    @FXML private TextArea orderTextArea;
+    @FXML private TextArea orderTextArea2;
+    @FXML private TextArea orderTextArea3;
 
 
     public OrderHistoryItemController(Order order) {

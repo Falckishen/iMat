@@ -75,10 +75,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         mainborderPane.toFront();
     }
 
-    void openPurchaseView(){
-
-    }
-
     void openRegisterstep2View() {
         registerstep2AnchorPane.toFront();
     }

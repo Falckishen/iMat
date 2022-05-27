@@ -1,26 +1,20 @@
 package iMat;
 
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
-import java.io.IOException;
-
 public class finalcartItem extends AnchorPane {
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
 
-    @FXML
-    Text price;
-    @FXML
-    Text amount;
-    @FXML
-    ImageView bild;
+    @FXML private Text price;
+    @FXML private Text amount;
+    @FXML private ImageView bild;
 
 
     public finalcartItem(ShoppingItem shoppingitem) {
@@ -32,13 +26,8 @@ public class finalcartItem extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-
-        int amountint = (int) shoppingitem.getAmount();
-        amount.setText(String.valueOf(amountint));
-        price.setText(String.valueOf(shoppingitem.getProduct().getPrice())+" kr");
+        amount.setText(String.valueOf((int) shoppingitem.getAmount()));
+        price.setText(shoppingitem.getProduct().getPrice() +" kr");
         bild.setImage(dataHandler.getFXImage(shoppingitem.getProduct()));
-
     }
-
-
 }

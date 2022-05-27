@@ -5,11 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.*;
 
 /**
@@ -59,15 +57,10 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
                 }
             }
         }
-        totalPriceB.setText(String.valueOf(cart.getTotal())+" kr");
+        totalPriceB.setText(cart.getTotal() +" kr");
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
-
-    @FXML
-    private void openPurchaseView() throws IOException{
-        mainPageController.openPurchaseView();
-    }
 
     @FXML
     private void openMainPageView() throws IOException{
@@ -75,9 +68,7 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
     }
 
     @FXML
-    private void openRegisterstep2() throws IOException{
+    private void openRegisterStep2() throws IOException{
         mainPageController.openRegisterstep2View();
     }
-
-
 }
