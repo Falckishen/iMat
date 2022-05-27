@@ -24,7 +24,7 @@
                      <children>
                         <Label fx:id="nameText" layoutX="72.0" prefHeight="37.0" prefWidth="169.0" text="Superlångt NAN" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
-                              <Font size="24.0" />
+                              <Font name="Arial" size="24.0" />
                            </font>
                         </Label>
                      </children>
