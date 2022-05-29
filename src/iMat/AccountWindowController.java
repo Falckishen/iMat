@@ -73,11 +73,9 @@ public class AccountWindowController extends AnchorPane {
         addOrderHistory();
         setupRadioButtons();
         setupCardBox();
-        if (dataHandler.getCreditCard().getCardType().equals("Faktura")) {
-            checkBoxKort.setSelected(false);
-            checkBoxFaktura.setSelected(true);
-        } else
-            checkBoxKort.setSelected(true);
+        setRadioButtons();
+
+
     }
 
     /*-------------------------------------------------------------------------------------------------------------------*/
@@ -154,6 +152,19 @@ public class AccountWindowController extends AnchorPane {
                 saveFields();
             }
         });
+    }
+
+    private void setRadioButtons(){
+        if (dataHandler.getCreditCard().getCardType().equals("Faktura")) {
+            checkBoxKort.setSelected(false);
+            checkBoxFaktura.setSelected(true);
+        } else if (dataHandler.getCreditCard().getCardType().equals("")) {
+            checkBoxKort.setSelected(false);
+            checkBoxFaktura.setSelected(false);
+        } else {
+            checkBoxKort.setSelected(true);
+            checkBoxFaktura.setSelected(false);
+        }
     }
 
     private void toggleBehavior() {
