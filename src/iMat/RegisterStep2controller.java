@@ -20,14 +20,24 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
     private final MainPageController mainPageController;
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
 
-    @FXML private TextField fName;
-    @FXML private TextField lName;
-    @FXML private TextField adress;
-    @FXML private TextField postalcode;
-    @FXML private TextField phonenumber;
-    @FXML private TextField cardNumber;
-    @FXML private Label totalPriceCart2;
-    @FXML private ComboBox combobox;
+    @FXML
+    private TextField fName;
+    @FXML
+    private TextField lName;
+    @FXML
+    private TextField adress;
+    @FXML
+    private TextField postalcode;
+    @FXML
+    private TextField phonenumber;
+    @FXML
+    private TextField cardNumber;
+    @FXML
+    private TextField postAdress;
+    @FXML
+    private Label totalPriceCart2;
+    @FXML
+    private ComboBox combobox;
     @FXML
     RadioButton checkboxfaktura;
 
@@ -52,20 +62,64 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
         cart.addShoppingCartListener(this);
         this.mainPageController = mainPageController;
 
+        addListeners();
+
         fName.setText(dataHandler.getCustomer().getFirstName());
         lName.setText(dataHandler.getCustomer().getLastName());
-        pNumber.setText(dataHandler.getCustomer().getAddress());
         adress.setText(dataHandler.getCustomer().getAddress());
+        postAdress.setText(dataHandler.getCustomer().getPostAddress());
         postalcode.setText(dataHandler.getCustomer().getPostCode());
         phonenumber.setText(dataHandler.getCustomer().getPhoneNumber());
         totalPriceCart2.setText(String.valueOf(dataHandler.getShoppingCart().getTotal() + " kr"));
-        combobox.getItems().addAll("Visa", "Mastercard");
+        cardNumber.setText(dataHandler.getCreditCard().getCardNumber());
+        combobox.getItems().addAll(CardType.MASTER_CARD.toString(), CardType.VISA.toString());
+        combobox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                dataHandler.getCreditCard().setCardType(newValue);
+            }
+        });
 
         checkboxkort.setSelected(true);
         setupRadioButtons();
 
     }
 
+    private void addListeners() {
+        fName.focusedProperty().addListener(new TextFieldListener(fName));
+        lName.focusedProperty().addListener(new TextFieldListener(lName));
+        adress.focusedProperty().addListener(new TextFieldListener(adress));
+        postAdress.focusedProperty().addListener(new TextFieldListener(postAdress));
+        postalcode.focusedProperty().addListener(new TextFieldListener(postalcode));
+        phonenumber.focusedProperty().addListener(new TextFieldListener(phonenumber));
+    }
+
+    private class TextFieldListener implements ChangeListener<Boolean> {
+
+        private TextField textField;
+
+        public TextFieldListener(TextField textField) {
+            this.textField = textField;
+        }
+
+        @Override
+        public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+            if (!newValue) {
+                saveFields();
+            }
+        }
+    }
+
+    private void saveFields() {
+        dataHandler.getCustomer().setFirstName(fName.getText());
+        dataHandler.getCustomer().setLastName(lName.getText());
+        dataHandler.getCustomer().setAddress(adress.getText());
+        dataHandler.getCustomer().setPostAddress(postAdress.getText());
+        dataHandler.getCustomer().setPostCode(postalcode.getText());
+        dataHandler.getCustomer().setPhoneNumber(phonenumber.getText());
+
+        dataHandler.getCreditCard().setCardNumber(cardNumber.getText());
+    }
 
     @FXML
     private void updateCostumer() throws IOException {
@@ -87,7 +141,22 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
     @FXML
     private void openFinalStep() throws IOException {
         registerBuy();
+        saveAccount();
         mainPageController.openRegisterfinalstep();
+    }
+
+    private void saveAccount() {
+        dataHandler.getCustomer().setFirstName(fName.getText());
+        dataHandler.getCustomer().setLastName(lName.getText());
+        dataHandler.getCustomer().setAddress(postAdress.getText());
+        dataHandler.getCustomer().setPostAddress(adress.getText());
+        dataHandler.getCustomer().setPostCode(postalcode.getText());
+        dataHandler.getCustomer().setPhoneNumber(phonenumber.getText());
+
+        if (paymentToggleGroup.getSelectedToggle().equals(checkboxkort)) {
+            dataHandler.getCreditCard().setCardNumber(cardNumber.getText());
+        } else
+            dataHandler.getCreditCard().setCardNumber("");
     }
 
     @FXML
