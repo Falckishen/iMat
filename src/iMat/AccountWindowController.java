@@ -93,7 +93,8 @@ public class AccountWindowController extends AnchorPane {
     private void setupCardBox() {
         cardComboBox.getItems().addAll(CardType.MasterCard.toString(), CardType.Visa.toString());
         cardNumberTextField.focusedProperty().addListener(new TextFieldListener(cardNumberTextField));
-        if(dataHandler.getCreditCard().getCardType() != null)
+
+        if(dataHandler.getCreditCard().getCardType() != null || !Objects.equals(dataHandler.getCreditCard().getCardType(), ""))
             cardComboBox.getSelectionModel().select(dataHandler.getCreditCard().getCardType());
 
         cardComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
@@ -103,6 +104,12 @@ public class AccountWindowController extends AnchorPane {
                 dataHandler.getCreditCard().setCardType(newValue);
             }
         });
+
+        if(dataHandler.getCreditCard().equals("")) {
+            checkBoxFaktura.setSelected(true);
+            checkBoxKort.setSelected(false);
+        } else
+            checkBoxKort.setSelected(true);
     }
 
     private void setupRadioButtons() {
@@ -157,6 +164,18 @@ public class AccountWindowController extends AnchorPane {
         showResetText();
         orderHistoryFlowPane.getChildren().clear();
         fillTextFields();
+
+        dataHandler.getCreditCard().setCardType("");
+        dataHandler.getCreditCard().setCardNumber("");
+        dataHandler.getCreditCard().setHoldersName("");
+        dataHandler.getCreditCard().setValidMonth(2);
+        dataHandler.getCreditCard().setValidYear(2011);
+        dataHandler.getCreditCard().setVerificationCode(0);
+
+        checkBoxKort.setSelected(false);
+        checkBoxFaktura.setSelected(false);
+        cardComboBox.getSelectionModel().select("Välj korttyp");
+        cardNumberTextField.setText("");
     }
 
 
@@ -167,6 +186,8 @@ public class AccountWindowController extends AnchorPane {
         accountPAddressTextField.setText(dataHandler.getCustomer().getPostAddress());
         accountPNumberTextField.setText(dataHandler.getCustomer().getPostCode());
         accountTNumberTextField.setText(dataHandler.getCustomer().getPhoneNumber());
+
+        cardNumberTextField.setText(dataHandler.getCreditCard().getCardNumber());
     }
 
     private void addListeners() {
@@ -186,6 +207,7 @@ public class AccountWindowController extends AnchorPane {
         customer.setPostCode(accountPNumberTextField.getText());
         customer.setPhoneNumber(accountTNumberTextField.getText());
 
+        dataHandler.getCreditCard().setCardNumber(cardNumberTextField.getText());
     }
 
     private class TextFieldListener implements ChangeListener<Boolean> {

@@ -331,6 +331,11 @@ public class MainPageController implements Initializable, ShoppingCartListener {
                 rowX++;
             }
         }
+        if(gridPane.getChildren().size() %2 == 1) {
+            ProductItemController productItem = new ProductItemController(dataHandler.getProduct(1), this);
+            productItem.setVisible(false);
+            gridPane.add(productItem, 1, gridPane.getRowCount());
+        }
     }
 
     /*-----*/
