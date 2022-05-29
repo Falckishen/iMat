@@ -57,7 +57,7 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
                 }
             }
         }
-        totalPriceB.setText(cart.getTotal() +" kr");
+        totalPriceB.setText(String.format("%.2f kr", cart.getTotal()));
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
@@ -69,6 +69,8 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
 
     @FXML
     private void openRegisterStep2() throws IOException{
-        mainPageController.openRegisterstep2View();
+        if (cart.getTotal() > 0) {
+            mainPageController.openRegisterstep2View();
+        }
     }
 }

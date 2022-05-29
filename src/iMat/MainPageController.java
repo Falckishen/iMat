@@ -26,6 +26,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     private final ArrayList<ProductItemController> productItemsToShowList = new ArrayList<>();
 
     private boolean onlyEco = false;
+    private boolean registerPageOpen = false;
 
     @FXML private ImageView isEcoImage;
     @FXML private AnchorPane mainPageRootAnchorPane;
@@ -63,7 +64,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
 
     public void disableEnableButton(){
-        if(cart.getTotal() > 0) {
+        if((cart.getTotal() > 0) && !registerPageOpen) {
             checkoutButton.setDisable(false);
             checkoutButton.setVisible(true);
 
@@ -71,7 +72,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
             disabledButtonAnhorPane.setDisable(true);
             disabledButtonAnhorPane.setVisible(false);
         }
-        else {
+        else if(!registerPageOpen) {
             checkoutButton.setDisable(true);
             checkoutButton.setVisible(false);
 
@@ -95,7 +96,8 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         }
     }
 
-    void openMainPageView(){
+    void openMainPageView() {
+        registerPageOpen = false;
         mainborderPane.toFront();
         Product tempProduct = dataHandler.getProduct(1);
         IMat.addOneToCart(tempProduct);
@@ -116,6 +118,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     void openRegisterView() {
         if(cart.getTotal() > 0) {
             registerAnchorPane.toFront();
+            registerPageOpen = true;
         }
     }
 
