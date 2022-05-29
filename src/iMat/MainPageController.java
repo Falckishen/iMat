@@ -330,7 +330,8 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     @FXML
     private void fillWithFavorites() {
-        accordion.getExpandedPane().setExpanded(false);
+        if(accordion.getExpandedPane() != null)
+            accordion.getExpandedPane().setExpanded(false);
         fillWithFood((ArrayList<Product>) dataHandler.favorites());
     }
 
