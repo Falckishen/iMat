@@ -67,7 +67,7 @@
                         <String fx:value="scrollPanel" />
                      </styleClass>
                      <content>
-                        <AnchorPane prefHeight="628.0" prefWidth="950.0" style="-fx-background-color: #FFFF;">
+                        <AnchorPane prefHeight="637.0" prefWidth="950.0" style="-fx-background-color: #FFFF;">
                            <children>
                               <GridPane fx:id="registerGridPane" alignment="TOP_CENTER" hgap="80.0" layoutX="62.0" vgap="20.0">
                                  <columnConstraints>
