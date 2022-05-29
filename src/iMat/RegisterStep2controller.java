@@ -1,11 +1,12 @@
 package iMat;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.ShoppingCart;
@@ -25,8 +26,20 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
     @FXML private TextField adress;
     @FXML private TextField postalcode;
     @FXML private TextField phonenumber;
+    @FXML private TextField cardNumber;
     @FXML private Label totalPriceCart2;
     @FXML private ComboBox combobox;
+    @FXML
+    RadioButton checkboxfaktura;
+
+    @FXML
+    RadioButton checkboxkort;
+
+    @FXML
+    VBox kortbox;
+
+    ToggleGroup paymentToggleGroup;
+
 
     public RegisterStep2controller(MainPageController mainPageController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/RegisterPageStep2.fxml"));
@@ -48,6 +61,10 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
         phonenumber.setText(dataHandler.getCustomer().getPhoneNumber());
         totalPriceCart2.setText(String.valueOf(dataHandler.getShoppingCart().getTotal() + " kr"));
         combobox.getItems().addAll("Visa", "Mastercard");
+
+        checkboxkort.setSelected(true);
+        setupRadioButtons();
+
     }
 
 
@@ -60,6 +77,8 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
         postalcode.setText(dataHandler.getCustomer().getPostCode());
         phonenumber.setText(dataHandler.getCustomer().getPhoneNumber());
         totalPriceCart2.setText(dataHandler.getShoppingCart().getTotal() + " kr");
+        cardNumber.setText(dataHandler.getCreditCard().getCardNumber());
+        combobox.getSelectionModel().select(dataHandler.getCreditCard().getCardType());
     }
 
     @FXML
@@ -83,6 +102,25 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
         mainPageController.openMainPageView();
     }
 
+    private void setupRadioButtons() {
+        paymentToggleGroup = new ToggleGroup();
+        checkboxfaktura.setToggleGroup(paymentToggleGroup);
+        checkboxkort.setToggleGroup(paymentToggleGroup);
+        paymentToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                toggleBehavior();
+            }
+        });
+    }
+
+    private void toggleBehavior() {
+        if (paymentToggleGroup.getSelectedToggle() != null)
+            kortbox.setVisible(paymentToggleGroup.getSelectedToggle().equals(checkboxkort));
+        else
+            kortbox.setVisible(false);
+    }
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {

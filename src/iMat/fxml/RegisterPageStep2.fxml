@@ -66,7 +66,7 @@
                      <content>
                         <AnchorPane prefHeight="636.0" prefWidth="960.0" style="-fx-background-color: #FFFF;" styleClass="account-pane" stylesheets="@../css/AccountWindow.css">
                            <children>
-                              <TextField id="text-label-dark" fx:id="fName" layoutX="272.0" layoutY="90.0" prefHeight="26.0" prefWidth="260.0" promptText="Ditt förnamn">
+                              <TextField id="text-label-dark" fx:id="fName" layoutX="249.0" layoutY="89.0" prefHeight="26.0" prefWidth="260.0" promptText="Ditt förnamn">
                                  <font>
                                     <Font name="Arial" size="12.0" />
                                  </font></TextField>
@@ -75,28 +75,22 @@
                                     <Font name="Arial" size="40.0" />
                                  </font>
                               </Text>
-                              <TextField id="text-label-dark" fx:id="lName" layoutX="272.0" layoutY="160.0" prefWidth="260.0" promptText="Ditt efternamn" />
-                              <TextField id="text-label-dark" fx:id="pNumber" layoutX="272.0" layoutY="230.0" prefWidth="260.0" promptText="XXXXXX-XXXX" />
-                              <TextField id="text-label-dark" fx:id="adress" layoutX="272.0" layoutY="300.0" prefWidth="260.0" promptText="Din adress" />
-                              <TextField id="text-label-dark" fx:id="postalcode" layoutX="272.0" layoutY="370.0" prefWidth="260.0" promptText="Ditt postnummer" />
-                              <TextField id="text-label-dark" fx:id="phonenumber" layoutX="272.0" layoutY="440.0" prefWidth="260.0" promptText="XXX-XXXXXXX" />
-                              <Label layoutX="45.0" layoutY="435.0" prefHeight="36.0" prefWidth="220.0" text="Telefonnummer:">
+                              <TextField id="text-label-dark" fx:id="lName" layoutX="249.0" layoutY="159.0" prefWidth="260.0" promptText="Ditt efternamn" />
+                              <TextField id="text-label-dark" fx:id="pNumber" layoutX="249.0" layoutY="229.0" prefWidth="260.0" promptText="XXXXXX-XXXX" />
+                              <TextField id="text-label-dark" fx:id="adress" layoutX="249.0" layoutY="299.0" prefWidth="260.0" promptText="Din adress" />
+                              <TextField id="text-label-dark" fx:id="postalcode" layoutX="249.0" layoutY="370.0" prefWidth="260.0" promptText="Ditt postnummer" />
+                              <TextField id="text-label-dark" fx:id="phonenumber" layoutX="244.0" layoutY="440.0" prefWidth="260.0" promptText="XXX-XXXXXXX" />
+                              <Label layoutX="22.0" layoutY="435.0" prefHeight="36.0" prefWidth="220.0" text="Telefonnummer:">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
                               </Label>
-                              <StackPane layoutX="546.0" layoutY="84.0" prefHeight="311.0" prefWidth="400.0">
+                              <StackPane layoutX="517.0" layoutY="87.0" prefHeight="311.0" prefWidth="400.0">
                                  <children>
-                                    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="177.0" prefWidth="400.0" StackPane.alignment="CENTER">
-                                       <children>
-                                          <AnchorPane layoutX="174.0" layoutY="-12.0" prefHeight="200.0" prefWidth="200.0" />
-                                       </children>
-                                    </AnchorPane>
+                                    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="177.0" prefWidth="400.0" StackPane.alignment="CENTER" />
                                     <AnchorPane prefHeight="244.0" prefWidth="400.0">
                                        <children>
-                                          <ComboBox id="text-label-dark" fx:id="combobox" layoutX="154.0" layoutY="113.0" prefWidth="150.0" promptText="Välj typ" />
-                                          <TextField id="text-label-dark" fx:id="cardNumber" layoutX="154.0" layoutY="164.0" prefHeight="34.0" prefWidth="150.0" promptText="XXXX-XXXXX" />
-                                          <RadioButton layoutX="70.0" layoutY="60.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="78.0" text="Kort">
+                                          <RadioButton fx:id="checkboxkort" layoutX="70.0" layoutY="60.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="78.0" text="Kort">
                                              <font>
                                                 <Font name="Arial" size="18.0" />
                                              </font>
@@ -104,22 +98,12 @@
                                                 <InnerShadow blurType="TWO_PASS_BOX" height="5.0" radius="2.0" width="5.0" />
                                              </effect>
                                           </RadioButton>
-                                          <Label layoutX="104.0" layoutY="122.0" prefHeight="17.0" prefWidth="40.0" text="Kort:">
-                                             <font>
-                                                <Font name="Arial" size="18.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="35.0" layoutY="164.0" prefHeight="27.0" prefWidth="111.0" text="Kortnummer:">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Label>
                                           <Label layoutX="5.0" layoutY="3.0" prefHeight="17.0" prefWidth="152.0" text="Kortuppgifter:">
                                              <font>
                                                 <Font name="System Bold" size="18.0" />
                                              </font>
                                           </Label>
-                                          <RadioButton layoutX="216.0" layoutY="60.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.0" text="Faktura">
+                                          <RadioButton fx:id="checkboxfaktura" layoutX="216.0" layoutY="60.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.0" text="Faktura">
                                              <font>
                                                 <Font name="Arial" size="18.0" />
                                              </font>
@@ -127,31 +111,55 @@
                                                 <InnerShadow blurType="TWO_PASS_BOX" height="5.0" radius="2.0" width="5.0" />
                                              </effect>
                                           </RadioButton>
+                                          <VBox fx:id="kortbox" layoutY="150.0" prefHeight="162.0" prefWidth="396.0" style="-fx-background-color: 262626;">
+                                             <children>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label layoutY="101.0" prefHeight="27.0" prefWidth="111.0" text="Kortnummer:">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField id="text-label-dark" fx:id="cardNumber" layoutX="111.0" layoutY="90.0" prefHeight="50.0" prefWidth="247.0" promptText="XXXX-XXXX-XXXX-XXXX">
+                                                         <font>
+                                                            <Font name="Arial" size="12.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Label layoutX="62.0" layoutY="46.0" prefHeight="17.0" prefWidth="40.0" text="Kort:">
+                                                         <font>
+                                                            <Font name="Arial" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox id="text-label-dark" fx:id="combobox" layoutX="111.0" layoutY="40.0" prefHeight="34.0" prefWidth="197.0" promptText="Välj typ av kort" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </VBox>
                                        </children>
                                     </AnchorPane>
                                  </children>
                               </StackPane>
-                              <Label layoutX="86.0" layoutY="365.0" prefHeight="36.0" prefWidth="179.0" text="Postnummer:">
+                              <Label layoutX="51.0" layoutY="369.0" prefHeight="36.0" prefWidth="179.0" text="Postnummer:">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="163.0" layoutY="295.0" prefHeight="36.0" prefWidth="102.0" text="Adress:">
+                              <Label layoutX="140.0" layoutY="294.0" prefHeight="36.0" prefWidth="102.0" text="Adress:">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="45.0" layoutY="225.0" prefHeight="36.0" prefWidth="220.0" text="Personnummer:">
+                              <Label layoutX="22.0" layoutY="224.0" prefHeight="36.0" prefWidth="220.0" text="Personnummer:">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="118.0" layoutY="155.0" prefHeight="36.0" prefWidth="147.0" text="Efternamn:">
+                              <Label layoutX="92.0" layoutY="154.0" prefHeight="36.0" prefWidth="147.0" text="Efternamn:">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="132.0" layoutY="85.0" prefHeight="36.0" prefWidth="132.0" text="Förnamn:">
+                              <Label layoutX="109.0" layoutY="84.0" prefHeight="36.0" prefWidth="132.0" text="Förnamn:">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
