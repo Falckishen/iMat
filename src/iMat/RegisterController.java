@@ -37,7 +37,6 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
 
     }
 
-    //TODO: Add cart value to the total.
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
         registerGridPane.getChildren().clear();
