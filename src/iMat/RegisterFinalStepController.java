@@ -42,6 +42,7 @@ public class RegisterFinalStepController extends AnchorPane implements ShoppingC
     @FXML
     private void openMainPageView() throws IOException {
         cart.clear();
+        mainPageController.disableEnableButton();
         mainPageController.openMainPageView();
     }
 

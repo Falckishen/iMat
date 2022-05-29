@@ -39,6 +39,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @FXML private AnchorPane registerfinalAnchorPane;
     @FXML private Button checkoutButton;
     @FXML private Accordion accordion;
+    @FXML private AnchorPane disabledButtonAnhorPane;
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
@@ -47,6 +48,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     public void initialize(URL url, ResourceBundle rb) {
         checkoutButton.setDisable(true);
         checkoutButton.setVisible(false);
+        disabledButtonAnhorPane.setVisible(true);
         setupRegisterPage();
         setupPurchasePage();
         setupReceiptPage();
@@ -59,17 +61,24 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     public void shoppingCartChanged(CartEvent cartEvent) {
         updateCart();
         updateProductItemsNumText();
+        disableEnableButton();
+
+    }
+
+    public void disableEnableButton(){
         if(cart.getTotal() > 0) {
             checkoutButton.setDisable(false);
             checkoutButton.setVisible(true);
 
-            //Disable andra knappen
+            disabledButtonAnhorPane.setVisible(false);
         }
         else {
             checkoutButton.setDisable(true);
             checkoutButton.setVisible(false);
 
-            //Visa andra knappen
+            disabledButtonAnhorPane.toFront();
+            disabledButtonAnhorPane.setVisible(false);
+            disabledButtonAnhorPane.setVisible(true);
         }
     }
 
