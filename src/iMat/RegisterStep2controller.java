@@ -72,6 +72,7 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
         phonenumber.setText(dataHandler.getCustomer().getPhoneNumber());
         totalPriceCart2.setText(String.valueOf(dataHandler.getShoppingCart().getTotal() + " kr"));
         cardNumber.setText(dataHandler.getCreditCard().getCardNumber());
+
         combobox.getItems().addAll(CardType.MASTER_CARD.toString(), CardType.VISA.toString());
         combobox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -80,8 +81,8 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
             }
         });
 
-        checkboxkort.setSelected(true);
         setupRadioButtons();
+        setRadioButtons();
 
     }
 
@@ -119,6 +120,12 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
         dataHandler.getCustomer().setPhoneNumber(phonenumber.getText());
 
         dataHandler.getCreditCard().setCardNumber(cardNumber.getText());
+        if (checkboxfaktura.isSelected())
+            dataHandler.getCreditCard().setCardType("Faktura");
+        else if (checkboxkort.isSelected()){
+            dataHandler.getCreditCard().setCardNumber(cardNumber.getText());
+        } else
+            dataHandler.getCreditCard().setCardType("");
     }
 
     @FXML
@@ -126,11 +133,26 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
         fName.setText(dataHandler.getCustomer().getFirstName());
         lName.setText(dataHandler.getCustomer().getLastName());
         adress.setText(dataHandler.getCustomer().getAddress());
+        postAdress.setText(dataHandler.getCustomer().getPostAddress());
         postalcode.setText(dataHandler.getCustomer().getPostCode());
         phonenumber.setText(dataHandler.getCustomer().getPhoneNumber());
         totalPriceCart2.setText(dataHandler.getShoppingCart().getTotal() + " kr");
         cardNumber.setText(dataHandler.getCreditCard().getCardNumber());
+
         combobox.getSelectionModel().select(dataHandler.getCreditCard().getCardType());
+    }
+
+    private void setRadioButtons() {
+        if (dataHandler.getCreditCard().getCardType().equals("Faktura")) {
+            checkboxkort.setSelected(false);
+            checkboxfaktura.setSelected(true);
+        } else if (dataHandler.getCreditCard().getCardType().equals("")) {
+            checkboxkort.setSelected(false);
+            checkboxfaktura.setSelected(false);
+        } else {
+            checkboxkort.setSelected(true);
+            checkboxfaktura.setSelected(false);
+        }
     }
 
     @FXML
@@ -177,7 +199,12 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
 
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                if (paymentToggleGroup.getSelectedToggle() != null && paymentToggleGroup.getSelectedToggle().equals(checkboxfaktura)) {
+                    RadioButton selected = (RadioButton) paymentToggleGroup.getSelectedToggle();
+                    dataHandler.getCreditCard().setCardType("Faktura");
+                }
                 toggleBehavior();
+                saveFields();
             }
         });
     }
