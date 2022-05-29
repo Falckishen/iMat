@@ -223,7 +223,7 @@
          <right>
             <AnchorPane prefHeight="780.0" prefWidth="400.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox prefHeight="800.0" prefWidth="400.0" style="-fx-background-color: #FCFAFA;" stylesheets="@../css/CartPane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox prefHeight="800.0" prefWidth="400.0" styleClass="vBox" stylesheets="@../css/CartPane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <ScrollPane hbarPolicy="NEVER" prefHeight="709.0" prefWidth="0.0" vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
                            <content>

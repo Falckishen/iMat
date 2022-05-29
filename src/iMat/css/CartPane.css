@@ -3,6 +3,10 @@
     -fx-border-width: 0px;
 }
 
+.vBox {
+    -fx-background-color: #FCFAFA;
+}
+
 .scroll-pane {
     -fx-background: #eeebeb;
     -fx-background-color: #eeebeb;
