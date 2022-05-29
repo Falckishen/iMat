@@ -6,13 +6,12 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Order;
@@ -44,7 +43,21 @@ public class AccountWindowController extends AnchorPane {
     private FlowPane orderHistoryFlowPane;
     @FXML
     private Label savedLabel;
-    @FXML Label resetLabel;
+    @FXML
+    Label resetLabel;
+    @FXML
+    RadioButton checkBoxFaktura;
+    @FXML
+    VBox kortBox;
+    @FXML
+    ComboBox cardComboBox;
+    @FXML
+    TextField cardNumberTextField;
+    @FXML
+    RadioButton checkBoxKort;
+
+
+    ToggleGroup paymentToggleGroup;
 
     private final ClassLoader classLoader = getClass().getClassLoader();
 
@@ -65,6 +78,9 @@ public class AccountWindowController extends AnchorPane {
         fillTextFields();
         resetText();
         addOrderHistory();
+        setupRadioButtons();
+        toggleBehavior();
+        setupCardBox();
     }
 
     /*-------------------------------------------------------------------------------------------------------------------*/
@@ -97,10 +113,44 @@ public class AccountWindowController extends AnchorPane {
         showSavedText();
     }
 
+    private void setupCardBox() {
+        cardComboBox.getItems().addAll(CardType.MasterCard.toString(), CardType.Visa.toString());
+        cardNumberTextField.focusedProperty().addListener(new TextFieldListener(cardNumberTextField));
+        if(dataHandler.getCreditCard().getCardType() != null)
+            cardComboBox.getSelectionModel().select(dataHandler.getCreditCard().getCardType());
+
+        cardComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                saveFields();
+                dataHandler.getCreditCard().setCardType(newValue);
+            }
+        });
+    }
+
+    private void setupRadioButtons() {
+        paymentToggleGroup = new ToggleGroup();
+        checkBoxFaktura.setToggleGroup(paymentToggleGroup);
+        checkBoxKort.setToggleGroup(paymentToggleGroup);
+        paymentToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                toggleBehavior();
+            }
+        });
+    }
+
+    private void toggleBehavior() {
+        if (paymentToggleGroup.getSelectedToggle() != null)
+            kortBox.setVisible(paymentToggleGroup.getSelectedToggle().equals(checkBoxKort));
+        else
+            kortBox.setVisible(false);
+    }
+
     private void addOrderHistory() {
         orderHistoryFlowPane.getChildren().clear();
-        for(Order order : dataHandler.getOrders())
-        {
+        for (Order order : dataHandler.getOrders()) {
             orderHistoryFlowPane.getChildren().add(new OrderHistoryItemController(order));
         }
     }
@@ -158,6 +208,7 @@ public class AccountWindowController extends AnchorPane {
         customer.setPostAddress(accountPAddressTextField.getText());
         customer.setPostCode(accountPNumberTextField.getText());
         customer.setPhoneNumber(accountTNumberTextField.getText());
+
     }
 
     private class TextFieldListener implements ChangeListener<Boolean> {
