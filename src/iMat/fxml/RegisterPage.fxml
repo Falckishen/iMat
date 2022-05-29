@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: FFFFFF;">
          <top>
@@ -105,7 +105,7 @@
                                     <Label id="registerTextAmount" fx:id="totalPriceB" text="0" />
                                  </children>
                               </VBox>
-                              <Button fx:id="toPurchaseButton" alignment="CENTER" mnemonicParsing="false" onAction="#openRegisterStep2" prefHeight="55.0" prefWidth="170.0" stylesheets="@../css/GreenButton.css" text="Vidare till Köp">
+                              <Button fx:id="toPurchaseButton" alignment="CENTER" mnemonicParsing="false" onAction="#openRegisterStep2" prefHeight="70.0" prefWidth="190.0" stylesheets="@../css/GreenButton.css" text="Vidare till Köp">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin></Button>
