@@ -34,7 +34,6 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
         }
         cart.addShoppingCartListener(this);
         this.mainPageController = mainPageController;
-
     }
 
     @Override

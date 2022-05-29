@@ -127,6 +127,9 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @FXML
     private void logoClicked() {
         fillWithAllFood();
+        if(accordion.getExpandedPane() != null) {
+            accordion.getExpandedPane().setExpanded(false);
+        }
     }
 
     @FXML
