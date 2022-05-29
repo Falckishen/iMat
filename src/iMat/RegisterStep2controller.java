@@ -22,7 +22,6 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
 
     @FXML private TextField fName;
     @FXML private TextField lName;
-    @FXML private TextField pNumber;
     @FXML private TextField adress;
     @FXML private TextField postalcode;
     @FXML private TextField phonenumber;
@@ -72,7 +71,6 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
     private void updateCostumer() throws IOException {
         fName.setText(dataHandler.getCustomer().getFirstName());
         lName.setText(dataHandler.getCustomer().getLastName());
-        pNumber.setText(dataHandler.getCustomer().getPhoneNumber());
         adress.setText(dataHandler.getCustomer().getAddress());
         postalcode.setText(dataHandler.getCustomer().getPostCode());
         phonenumber.setText(dataHandler.getCustomer().getPhoneNumber());

@@ -76,11 +76,10 @@
                                  </font>
                               </Text>
                               <TextField id="text-label-dark" fx:id="lName" layoutX="249.0" layoutY="159.0" prefWidth="260.0" promptText="Ditt efternamn" />
-                              <TextField id="text-label-dark" fx:id="pNumber" layoutX="249.0" layoutY="229.0" prefWidth="260.0" promptText="XXXXXX-XXXX" />
-                              <TextField id="text-label-dark" fx:id="adress" layoutX="249.0" layoutY="299.0" prefWidth="260.0" promptText="Din adress" />
-                              <TextField id="text-label-dark" fx:id="postalcode" layoutX="249.0" layoutY="440.0" prefWidth="260.0" promptText="Ditt postnummer" />
-                              <TextField id="text-label-dark" fx:id="phonenumber" layoutX="249.0" layoutY="510.0" prefWidth="260.0" promptText="XXX-XXXXXXX" />
-                              <Label alignment="CENTER_RIGHT" layoutX="20.0" layoutY="505.0" prefHeight="36.0" prefWidth="225.0" text="Telefonnummer:">
+                              <TextField id="text-label-dark" fx:id="adress" layoutX="249.0" layoutY="230.0" prefWidth="260.0" promptText="Din adress" />
+                              <TextField id="text-label-dark" fx:id="postalcode" layoutX="249.0" layoutY="370.0" prefWidth="260.0" promptText="Ditt postnummer" />
+                              <TextField id="text-label-dark" fx:id="phonenumber" layoutX="249.0" layoutY="440.0" prefWidth="260.0" promptText="XXX-XXXXXXX" />
+                              <Label alignment="CENTER_RIGHT" layoutX="20.0" layoutY="440.0" prefHeight="36.0" prefWidth="225.0" text="Telefonnummer:">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
@@ -139,17 +138,12 @@
                                     </AnchorPane>
                                  </children>
                               </StackPane>
-                              <Label alignment="CENTER_RIGHT" layoutX="20.0" layoutY="435.0" prefHeight="36.0" prefWidth="225.0" text="Postnummer:">
+                              <Label alignment="CENTER_RIGHT" layoutX="20.0" layoutY="370.0" prefHeight="36.0" prefWidth="225.0" text="Postnummer:">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER_RIGHT" layoutX="20.0" layoutY="294.0" prefHeight="36.0" prefWidth="225.0" text="Adress:">
-                                 <font>
-                                    <Font name="Arial" size="30.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="CENTER_RIGHT" layoutX="20.0" layoutY="224.0" prefHeight="36.0" prefWidth="225.0" text="Personnummer:">
+                              <Label alignment="CENTER_RIGHT" layoutX="20.0" layoutY="230.0" prefHeight="36.0" prefWidth="225.0" text="Adress:">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
@@ -164,8 +158,8 @@
                                     <Font name="Arial" size="30.0" />
                                  </font>
                               </Label>
-                              <TextField id="text-label-dark" fx:id="postAdress" layoutX="249.0" layoutY="370.0" prefWidth="260.0" promptText="Din postadress" />
-                              <Label alignment="CENTER_RIGHT" layoutX="20.0" layoutY="369.0" prefHeight="36.0" prefWidth="225.0" text="Postadress:">
+                              <TextField id="text-label-dark" fx:id="postAdress" layoutX="249.0" layoutY="300.0" prefWidth="260.0" promptText="Din postadress" />
+                              <Label alignment="CENTER_RIGHT" layoutX="20.0" layoutY="300.0" prefHeight="36.0" prefWidth="225.0" text="Postadress:">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
