@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.fxml.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.Accordion;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -37,6 +38,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @FXML private AnchorPane registerstep2AnchorPane;
     @FXML private AnchorPane registerfinalAnchorPane;
     @FXML private Button checkoutButton;
+    @FXML private Accordion accordion;
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
@@ -314,6 +316,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     @FXML
     private void fillWithFavorites() {
+        accordion.getExpandedPane().setExpanded(false);
         fillWithFood((ArrayList<Product>) dataHandler.favorites());
     }
 
