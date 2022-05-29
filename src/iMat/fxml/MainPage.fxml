@@ -80,7 +80,7 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <Accordion maxHeight="710.0" maxWidth="270.0" minWidth="270.0" prefHeight="710.0" prefWidth="270.0" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
+                  <Accordion fx:id="accordion" maxHeight="710.0" maxWidth="270.0" minWidth="270.0" prefHeight="710.0" prefWidth="270.0" styleClass="categorizes" stylesheets="@../css/CategoryMeny.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
                      <panes>
                         <TitledPane contentDisplay="CENTER" maxWidth="270.0" minWidth="270.0" onMouseClicked="#searchForCarbs" prefWidth="270.0" stylesheets="@../css/TitledPane.css" text="Kolhydrater">
                            <content>
