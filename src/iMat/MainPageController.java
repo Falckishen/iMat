@@ -46,9 +46,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     // Körs när MainPage.fxml läses in
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        checkoutButton.setDisable(true);
-        checkoutButton.setVisible(false);
-        disabledButtonAnhorPane.setVisible(true);
+        disableEnableButton();
         setupRegisterPage();
         setupPurchasePage();
         setupReceiptPage();
@@ -62,7 +60,6 @@ public class MainPageController implements Initializable, ShoppingCartListener {
         updateCart();
         updateProductItemsNumText();
         disableEnableButton();
-
     }
 
     public void disableEnableButton(){
@@ -70,6 +67,8 @@ public class MainPageController implements Initializable, ShoppingCartListener {
             checkoutButton.setDisable(false);
             checkoutButton.setVisible(true);
 
+            disabledButtonAnhorPane.toBack();
+            disabledButtonAnhorPane.setDisable(true);
             disabledButtonAnhorPane.setVisible(false);
         }
         else {
@@ -77,7 +76,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
             checkoutButton.setVisible(false);
 
             disabledButtonAnhorPane.toFront();
-            disabledButtonAnhorPane.setVisible(false);
+            disabledButtonAnhorPane.setDisable(false);
             disabledButtonAnhorPane.setVisible(true);
         }
     }
@@ -98,6 +97,9 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     void openMainPageView(){
         mainborderPane.toFront();
+        Product tempProduct = dataHandler.getProduct(1);
+        IMat.addOneToCart(tempProduct);
+        IMat.removeOneFromCart(tempProduct);
     }
 
     void openRegisterstep2View() {
