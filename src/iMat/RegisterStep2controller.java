@@ -2,12 +2,10 @@ package iMat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.ShoppingCart;
@@ -21,24 +19,14 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
     private final MainPageController mainPageController;
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
 
-    @FXML
-    TextField fName;
-    @FXML
-    TextField lName;
-    @FXML
-    TextField pNumber;
-    @FXML
-    TextField adress;
-    @FXML
-    TextField postalcode;
-    @FXML
-    TextField phonenumber;
-    @FXML
-    TextField cardNumber;
-    @FXML
-    Label totalPriceCart2;
-    @FXML
-    ComboBox combobox;
+    @FXML private TextField fName;
+    @FXML private TextField lName;
+    @FXML private TextField pNumber;
+    @FXML private TextField adress;
+    @FXML private TextField postalcode;
+    @FXML private TextField phonenumber;
+    @FXML private Label totalPriceCart2;
+    @FXML private ComboBox combobox;
 
     public RegisterStep2controller(MainPageController mainPageController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/RegisterPageStep2.fxml"));
@@ -71,7 +59,7 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
         adress.setText(dataHandler.getCustomer().getAddress());
         postalcode.setText(dataHandler.getCustomer().getPostCode());
         phonenumber.setText(dataHandler.getCustomer().getPhoneNumber());
-        totalPriceCart2.setText(String.valueOf(dataHandler.getShoppingCart().getTotal() + " kr"));
+        totalPriceCart2.setText(dataHandler.getShoppingCart().getTotal() + " kr");
     }
 
     @FXML

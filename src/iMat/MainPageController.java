@@ -1,5 +1,4 @@
 // Hör ihop med MainPage.fxml
-// TODO: Fixa scrollen i varukorgen
 package iMat;
 
 import java.net.URL;
@@ -7,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -23,7 +21,7 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     private final ClassLoader classLoader = getClass().getClassLoader();
 
-    private ArrayList<ProductItemController> productItemsToShowList = new ArrayList<ProductItemController>();
+    private final ArrayList<ProductItemController> productItemsToShowList = new ArrayList<>();
 
     private boolean onlyEco = false;
 
@@ -297,14 +295,14 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
 
     @FXML
-    private void fillWithFavorites(ActionEvent event) {
+    private void fillWithFavorites() {
         fillWithFood((ArrayList<Product>) dataHandler.favorites());
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
     private void searchForCategories(String[] categories) {
-        ArrayList<Product> productsToShowList = new ArrayList<Product>(5);
+        ArrayList<Product> productsToShowList = new ArrayList<>(5);
         for (String category : categories) {
             productsToShowList.addAll(dataHandler.getProducts(ProductCategory.valueOf(category)));
         }

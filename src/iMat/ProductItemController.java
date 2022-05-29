@@ -6,7 +6,6 @@ import java.util.Objects;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,7 +23,6 @@ public class ProductItemController extends AnchorPane {
     private final Product product;
 
     @FXML private ImageView image;
-    @FXML private Button favoriteButton;
     @FXML private ImageView favoriteImage;
     @FXML private Text nameOfProduct;
     @FXML private Text priceOfItem;

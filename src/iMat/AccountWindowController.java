@@ -20,48 +20,26 @@ import se.chalmers.cse.dat216.project.Order;
 
 public class AccountWindowController extends AnchorPane {
 
-    @FXML
-    private AnchorPane accountWindowAnchorPane;
-    @FXML
-    private Button accountWindowCloseButton;
-    @FXML
-    private TextField accountFNameTextField;
-    @FXML
-    private TextField accountLNameTextField;
-    @FXML
-    private TextField accountAddressTextField;
-    @FXML
-    private TextField accountPAddressTextField;
-    @FXML
-    private TextField accountPNumberTextField;
-    @FXML
-    private TextField accountTNumberTextField;
-    @FXML
-    private ImageView closeImageView;
-    @FXML
-    private FlowPane orderHistoryFlowPane;
-    @FXML
-    private Label savedLabel;
-    @FXML
-    Label resetLabel;
-    @FXML
-    RadioButton checkBoxFaktura;
-    @FXML
-    VBox kortBox;
-    @FXML
-    ComboBox cardComboBox;
-    @FXML
-    TextField cardNumberTextField;
-    @FXML
-    RadioButton checkBoxKort;
-
-
-    ToggleGroup paymentToggleGroup;
-
+    private ToggleGroup paymentToggleGroup;
     private final ClassLoader classLoader = getClass().getClassLoader();
-
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
     private final Customer customer = dataHandler.getCustomer();
+
+    @FXML private TextField accountFNameTextField;
+    @FXML private TextField accountLNameTextField;
+    @FXML private TextField accountAddressTextField;
+    @FXML private TextField accountPAddressTextField;
+    @FXML private TextField accountPNumberTextField;
+    @FXML private TextField accountTNumberTextField;
+    @FXML private ImageView closeImageView;
+    @FXML private FlowPane orderHistoryFlowPane;
+    @FXML private Label savedLabel;
+    @FXML private Label resetLabel;
+    @FXML private RadioButton checkBoxFaktura;
+    @FXML private VBox kortBox;
+    @FXML private ComboBox cardComboBox;
+    @FXML private TextField cardNumberTextField;
+    @FXML private RadioButton checkBoxKort;
 
     public AccountWindowController(MainPageController mainPageController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/AccountWindow.fxml"));

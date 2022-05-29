@@ -19,7 +19,7 @@ public class iMatAccount {
         this.postNumber = postNumber;
         this.telephoneNumber = telephoneNumber;
         this.paymentType = paymentType;
-    };
+    }
 
     /**
      * Public get-ers for the attributes.

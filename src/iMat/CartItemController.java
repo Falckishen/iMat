@@ -16,7 +16,6 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 public class CartItemController extends AnchorPane {
 
-    private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
     private final MainPageController mainPageController;
     private final ClassLoader classLoader = getClass().getClassLoader();
 
@@ -39,6 +38,7 @@ public class CartItemController extends AnchorPane {
         }
         this.mainPageController = mainPageController;
         product = item.getProduct();
+        IMatDataHandler dataHandler = IMat.getIMatDataHandler();
         image.setImage(Util.getSquareImage(dataHandler.getFXImage(product)));
         nameText.setText(item.getProduct().getName());
         priceText.setText(String.format("%.2f", item.getTotal()));

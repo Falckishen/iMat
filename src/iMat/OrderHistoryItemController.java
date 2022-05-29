@@ -11,7 +11,7 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 public class OrderHistoryItemController extends AnchorPane {
 
-    private Order order;
+    private final Order order;
     private double total;
 
     @FXML private Label labelPurchaseDate;
@@ -49,7 +49,7 @@ public class OrderHistoryItemController extends AnchorPane {
         orderTextArea.setText(textName.toString());
         orderTextArea2.setText(textAmount.toString());
         orderTextArea3.setText(textMoney.toString());
-        labelPurchaseDate.setText(order.getDate().toLocaleString().substring(0,order.getDate().toLocaleString().length() - 8));
+        labelPurchaseDate.setText(order.getDate().toString().substring(0, order.getDate().toString().length() - 8));
         labelPurchaseTotal.setText(total + "");
     }
 }

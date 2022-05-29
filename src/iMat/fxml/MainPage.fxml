@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
+<AnchorPane fx:id="mainPageRootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMat.MainPageController">
    <children>
       <BorderPane fx:id="mainborderPane" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../css/MainPage.css">
          <top>
@@ -32,7 +32,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="searchButton" layoutX="665.0" layoutY="24.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="69.0" stylesheets="@../css/SearchButton.css" text="Sök" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="1105.0" AnchorPane.topAnchor="24.0" />
+                  <Button layoutX="665.0" layoutY="24.0" mnemonicParsing="false" onAction="#searchBar" prefHeight="53.0" prefWidth="69.0" stylesheets="@../css/SearchButton.css" text="Sök" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="1105.0" AnchorPane.topAnchor="24.0" />
                   <AnchorPane fx:id="kontoButton" layoutX="1310.0" layoutY="16.0" maxHeight="68.0" minHeight="68.0" onMouseClicked="#openAccountWindow" prefHeight="68.0" prefWidth="140.0" AnchorPane.leftAnchor="1310.0" AnchorPane.rightAnchor="149.0" AnchorPane.topAnchor="16.0">
                      <children>
                         <Label id="kontoText" layoutX="68.0" layoutY="9.0" prefHeight="50.0" prefWidth="71.0" text="Konto" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="9.0">

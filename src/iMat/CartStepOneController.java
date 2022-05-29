@@ -13,20 +13,17 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 public class CartStepOneController extends AnchorPane {
 
-        private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
-        private final ShoppingCart cart = dataHandler.getShoppingCart();
-        private final MainPageController mainPageController;
+    private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
+    private final ShoppingCart cart = dataHandler.getShoppingCart();
 
-        private final ShoppingItem shoppingItem;
+    private final ShoppingItem shoppingItem;
 
         @FXML private ImageView image;
         @FXML private Text nameofProduct;
         @FXML private Text priceofProducts;
         @FXML private Text numberofProducts;
-        @FXML private ImageView plus;
-        @FXML private ImageView minus;
 
-        public CartStepOneController(ShoppingItem shoppingItem, MainPageController mainPageController) {
+        public CartStepOneController(ShoppingItem shoppingItem) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/CheckoutItem.fxml"));
             fxmlLoader.setRoot(this);
             fxmlLoader.setController(this);
@@ -35,7 +32,6 @@ public class CartStepOneController extends AnchorPane {
             } catch (IOException exception) {
                 throw new RuntimeException(exception);
             }
-            this.mainPageController = mainPageController;
             this.shoppingItem = shoppingItem;
             image.setImage(dataHandler.getFXImage(shoppingItem.getProduct()));
             nameofProduct.setText(shoppingItem.getProduct().getName());
