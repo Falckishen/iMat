@@ -3,7 +3,6 @@ package iMat;
 
 import java.io.IOException;
 import java.util.Objects;
-
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,15 +10,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
-import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 public class CartItemController extends AnchorPane {
 
-    private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
     private final MainPageController mainPageController;
     private final ClassLoader classLoader = getClass().getClassLoader();
 
@@ -41,45 +37,48 @@ public class CartItemController extends AnchorPane {
             throw new RuntimeException(exception);
         }
         this.mainPageController = mainPageController;
-        this.product = item.getProduct();
-        this.image.setImage(Util.getSquareImage(dataHandler.getFXImage(this.product)));
-        this.nameText.setText(item.getProduct().getName());
-        this.priceText.setText(String.format("%.2f", item.getTotal()));
-        this.numberOfProducts.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
+        product = item.getProduct();
+        IMatDataHandler dataHandler = IMat.getIMatDataHandler();
+        image.setImage(Util.getSquareImage(dataHandler.getFXImage(product)));
+        nameText.setText(item.getProduct().getName());
+        priceText.setText(String.format("%.2f", item.getTotal()));
+        numberOfProducts.setText(String.valueOf(IMat.getNumberOfAProductInCart(product)));
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
+    /**/
+
     @FXML
     private void openDetailView() {
-        this.mainPageController.openProductDetailView(this.product);
+        mainPageController.openProductDetailView(product);
     }
 
     @FXML
     private void plusButtonClicked(Event event) {
         event.consume();
-        IMat.addOneToCart(this.product);
+        IMat.addOneToCart(product);
     }
 
     @FXML
     private void minusButtonClicked(Event event) {
         event.consume();
-        IMat.removeOneFromCart(this.product);
+        IMat.removeOneFromCart(product);
     }
 
     @FXML
     private void closeButtonMouseEnter() {
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_white.png"))));
+        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_white.png"))));
     }
 
     @FXML
     private void closeButtonMouseExited() {
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_hover.png"))));
+        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_hover.png"))));
     }
 
     @FXML
     private void removeAllItems(Event event) {
         event.consume();
-        IMat.writeInNumOfProductAmount(this.product, "0");
+        IMat.writeInNumOfProductAmount(product, "0");
     }
 }

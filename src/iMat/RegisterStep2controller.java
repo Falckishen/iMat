@@ -1,13 +1,12 @@
 package iMat;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.ShoppingCart;
@@ -22,23 +21,34 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
     private final IMatDataHandler dataHandler = IMat.getIMatDataHandler();
 
     @FXML
-    TextField fName;
+    private TextField fName;
     @FXML
-    TextField lName;
+    private TextField lName;
     @FXML
-    TextField pNumber;
+    private TextField adress;
     @FXML
-    TextField adress;
+    private TextField postalcode;
     @FXML
-    TextField postalcode;
+    private TextField phonenumber;
     @FXML
-    TextField phonenumber;
+    private TextField cardNumber;
     @FXML
-    TextField cardNumber;
+    private TextField postAdress;
     @FXML
-    Label totalPriceCart2;
+    private Label totalPriceCart2;
     @FXML
-    ComboBox combobox;
+    private ComboBox combobox;
+    @FXML
+    RadioButton checkboxfaktura;
+
+    @FXML
+    RadioButton checkboxkort;
+
+    @FXML
+    VBox kortbox;
+
+    ToggleGroup paymentToggleGroup;
+
 
     public RegisterStep2controller(MainPageController mainPageController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/RegisterPageStep2.fxml"));
@@ -49,40 +59,126 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        this.cart.addShoppingCartListener(this);
+        cart.addShoppingCartListener(this);
         this.mainPageController = mainPageController;
+
+        addListeners();
 
         fName.setText(dataHandler.getCustomer().getFirstName());
         lName.setText(dataHandler.getCustomer().getLastName());
-        pNumber.setText(dataHandler.getCustomer().getAddress());
         adress.setText(dataHandler.getCustomer().getAddress());
+        postAdress.setText(dataHandler.getCustomer().getPostAddress());
         postalcode.setText(dataHandler.getCustomer().getPostCode());
         phonenumber.setText(dataHandler.getCustomer().getPhoneNumber());
         totalPriceCart2.setText(String.valueOf(dataHandler.getShoppingCart().getTotal() + " kr"));
-        combobox.getItems().addAll("Visa", "Mastercard");
+        cardNumber.setText(dataHandler.getCreditCard().getCardNumber());
+
+        combobox.getItems().addAll(CardType.MASTER_CARD.toString(), CardType.VISA.toString());
+        combobox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                dataHandler.getCreditCard().setCardType(newValue);
+            }
+        });
+
+        setupRadioButtons();
+        setRadioButtons();
+
     }
 
+    private void addListeners() {
+        fName.focusedProperty().addListener(new TextFieldListener(fName));
+        lName.focusedProperty().addListener(new TextFieldListener(lName));
+        adress.focusedProperty().addListener(new TextFieldListener(adress));
+        postAdress.focusedProperty().addListener(new TextFieldListener(postAdress));
+        postalcode.focusedProperty().addListener(new TextFieldListener(postalcode));
+        phonenumber.focusedProperty().addListener(new TextFieldListener(phonenumber));
+    }
+
+    private class TextFieldListener implements ChangeListener<Boolean> {
+
+        private TextField textField;
+
+        public TextFieldListener(TextField textField) {
+            this.textField = textField;
+        }
+
+        @Override
+        public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+            if (!newValue) {
+                saveFields();
+            }
+        }
+    }
+
+    private void saveFields() {
+        dataHandler.getCustomer().setFirstName(fName.getText());
+        dataHandler.getCustomer().setLastName(lName.getText());
+        dataHandler.getCustomer().setAddress(adress.getText());
+        dataHandler.getCustomer().setPostAddress(postAdress.getText());
+        dataHandler.getCustomer().setPostCode(postalcode.getText());
+        dataHandler.getCustomer().setPhoneNumber(phonenumber.getText());
+
+        dataHandler.getCreditCard().setCardNumber(cardNumber.getText());
+        if (checkboxfaktura.isSelected())
+            dataHandler.getCreditCard().setCardType("Faktura");
+        else if (checkboxkort.isSelected()){
+            dataHandler.getCreditCard().setCardNumber(cardNumber.getText());
+        } else
+            dataHandler.getCreditCard().setCardType("");
+    }
 
     @FXML
     private void updateCostumer() throws IOException {
         fName.setText(dataHandler.getCustomer().getFirstName());
         lName.setText(dataHandler.getCustomer().getLastName());
-        pNumber.setText(dataHandler.getCustomer().getPhoneNumber());
         adress.setText(dataHandler.getCustomer().getAddress());
+        postAdress.setText(dataHandler.getCustomer().getPostAddress());
         postalcode.setText(dataHandler.getCustomer().getPostCode());
         phonenumber.setText(dataHandler.getCustomer().getPhoneNumber());
-        totalPriceCart2.setText(String.valueOf(dataHandler.getShoppingCart().getTotal() + " kr"));
+        totalPriceCart2.setText(dataHandler.getShoppingCart().getTotal() + " kr");
+        cardNumber.setText(dataHandler.getCreditCard().getCardNumber());
+
+        combobox.getSelectionModel().select(dataHandler.getCreditCard().getCardType());
+    }
+
+    private void setRadioButtons() {
+        if (dataHandler.getCreditCard().getCardType().equals("Faktura")) {
+            checkboxkort.setSelected(false);
+            checkboxfaktura.setSelected(true);
+        } else if (dataHandler.getCreditCard().getCardType().equals("")) {
+            checkboxkort.setSelected(false);
+            checkboxfaktura.setSelected(false);
+        } else {
+            checkboxkort.setSelected(true);
+            checkboxfaktura.setSelected(false);
+        }
     }
 
     @FXML
     private void openPurchaseView() throws IOException {
-        this.mainPageController.openRegisterView();
+        mainPageController.openRegisterView();
     }
 
     @FXML
     private void openFinalStep() throws IOException {
         registerBuy();
-        this.mainPageController.openRegisterfinalstep();
+        saveAccount();
+        mainPageController.openRegisterfinalstep();
+    }
+
+    private void saveAccount() {
+        dataHandler.getCustomer().setFirstName(fName.getText());
+        dataHandler.getCustomer().setLastName(lName.getText());
+        dataHandler.getCustomer().setAddress(postAdress.getText());
+        dataHandler.getCustomer().setPostAddress(adress.getText());
+        dataHandler.getCustomer().setPostCode(postalcode.getText());
+        dataHandler.getCustomer().setPhoneNumber(phonenumber.getText());
+
+        if (paymentToggleGroup.getSelectedToggle().equals(checkboxkort)) {
+            dataHandler.getCreditCard().setCardNumber(cardNumber.getText());
+        } else
+            dataHandler.getCreditCard().setCardNumber("");
     }
 
     @FXML
@@ -92,9 +188,33 @@ public class RegisterStep2controller extends AnchorPane implements ShoppingCartL
 
     @FXML
     private void openMainPageView() throws IOException {
-        this.mainPageController.openMainPageView();
+        mainPageController.openMainPageView();
     }
 
+    private void setupRadioButtons() {
+        paymentToggleGroup = new ToggleGroup();
+        checkboxfaktura.setToggleGroup(paymentToggleGroup);
+        checkboxkort.setToggleGroup(paymentToggleGroup);
+        paymentToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                if (paymentToggleGroup.getSelectedToggle() != null && paymentToggleGroup.getSelectedToggle().equals(checkboxfaktura)) {
+                    RadioButton selected = (RadioButton) paymentToggleGroup.getSelectedToggle();
+                    dataHandler.getCreditCard().setCardType("Faktura");
+                }
+                toggleBehavior();
+                saveFields();
+            }
+        });
+    }
+
+    private void toggleBehavior() {
+        if (paymentToggleGroup.getSelectedToggle() != null)
+            kortbox.setVisible(paymentToggleGroup.getSelectedToggle().equals(checkboxkort));
+        else
+            kortbox.setVisible(false);
+    }
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {

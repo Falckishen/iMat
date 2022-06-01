@@ -3,11 +3,9 @@ package iMat;
 
 import java.io.IOException;
 import java.util.Objects;
-
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,13 +23,10 @@ public class ProductItemController extends AnchorPane {
     private final Product product;
 
     @FXML private ImageView image;
-    @FXML private Button favoriteButton;
     @FXML private ImageView favoriteImage;
     @FXML private Text nameOfProduct;
     @FXML private Text priceOfItem;
     @FXML private Label numberOfProductsText;
-    @FXML private ImageView plusImage;
-    @FXML private ImageView minusImage;
     @FXML private Label unitLabel;
     @FXML private StackPane ekologiskPane;
 
@@ -52,15 +47,15 @@ public class ProductItemController extends AnchorPane {
     /*-------------------------------------------------------------------------------------------------------------------*/
 
     public void updateNumberOfProductsText() {
-        this.numberOfProductsText.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
+        numberOfProductsText.setText(String.valueOf(IMat.getNumberOfAProductInCart(product)));
     }
 
     public void updateFavoriteButton() {
-        if (dataHandler.isFavorite(this.product)) {
-            this.favoriteImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/starSelected.png"))));
+        if (dataHandler.isFavorite(product)) {
+            favoriteImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/starSelected.png"))));
         }
         else {
-            this.favoriteImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/starUnselected.png"))));
+            favoriteImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/starUnselected.png"))));
         }
     }
 
@@ -68,40 +63,40 @@ public class ProductItemController extends AnchorPane {
 
     @FXML
     private void openDetailView() {
-        this.mainPageController.openProductDetailView(this.product);
+        mainPageController.openProductDetailView(product);
     }
 
     @FXML
     private void plusButton(Event event){
         event.consume();
-        IMat.addOneToCart(this.product);
+        IMat.addOneToCart(product);
     }
 
     @FXML
     private void removeFromCart(Event event){
         event.consume();
-        IMat.removeOneFromCart(this.product);
+        IMat.removeOneFromCart(product);
     }
 
     @FXML
     private void favoriteButtonClicked() {
-        if (dataHandler.isFavorite(this.product)) {
-            dataHandler.removeFavorite(this.product);
+        if (dataHandler.isFavorite(product)) {
+            dataHandler.removeFavorite(product);
         }
         else {
-            dataHandler.addFavorite(this.product);
+            dataHandler.addFavorite(product);
         }
         updateFavoriteButton();
     }
 
     private void populateProductItem(Product product) {
-        this.image.setImage(dataHandler.getFXImage(product));
-        this.nameOfProduct.setText(product.getName());
-        this.priceOfItem.setText(String.format("%.2f", this.product.getPrice()));
-        this.unitLabel.setText(this.product.getUnit());
-        this.numberOfProductsText.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
-        if(!this.product.isEcological())
-            this.ekologiskPane.setVisible(false);
+        image.setImage(dataHandler.getFXImage(product));
+        nameOfProduct.setText(product.getName());
+        priceOfItem.setText(String.format("%.2f", product.getPrice()));
+        unitLabel.setText(product.getUnit());
+        numberOfProductsText.setText(String.valueOf(IMat.getNumberOfAProductInCart(product)));
+        if(!product.isEcological())
+            ekologiskPane.setVisible(false);
         updateFavoriteButton();
     }
 }

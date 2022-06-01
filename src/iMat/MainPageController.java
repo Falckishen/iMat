@@ -1,5 +1,4 @@
 // Hör ihop med MainPage.fxml
-// TODO: Fixa scrollen i varukorgen
 package iMat;
 
 import java.net.URL;
@@ -7,8 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Accordion;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -23,9 +23,10 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     private final ClassLoader classLoader = getClass().getClassLoader();
 
-    private ArrayList<ProductItemController> productItemsList = new ArrayList<ProductItemController>();
+    private final ArrayList<ProductItemController> productItemsToShowList = new ArrayList<>();
 
     private boolean onlyEco = false;
+    private boolean registerPageOpen = false;
 
     @FXML private ImageView isEcoImage;
     @FXML private AnchorPane mainPageRootAnchorPane;
@@ -37,12 +38,16 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @FXML private AnchorPane registerAnchorPane;
     @FXML private AnchorPane registerstep2AnchorPane;
     @FXML private AnchorPane registerfinalAnchorPane;
+    @FXML private Button checkoutButton;
+    @FXML private Accordion accordion;
+    @FXML private AnchorPane disabledButtonAnhorPane;
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
     // Körs när MainPage.fxml läses in
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        disableEnableButton();
         setupRegisterPage();
         setupPurchasePage();
         setupReceiptPage();
@@ -55,6 +60,26 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     public void shoppingCartChanged(CartEvent cartEvent) {
         updateCart();
         updateProductItemsNumText();
+        disableEnableButton();
+    }
+
+    public void disableEnableButton(){
+        if((cart.getTotal() > 0) && !registerPageOpen) {
+            checkoutButton.setDisable(false);
+            checkoutButton.setVisible(true);
+
+            disabledButtonAnhorPane.toBack();
+            disabledButtonAnhorPane.setDisable(true);
+            disabledButtonAnhorPane.setVisible(false);
+        }
+        else if(!registerPageOpen) {
+            checkoutButton.setDisable(true);
+            checkoutButton.setVisible(false);
+
+            disabledButtonAnhorPane.toFront();
+            disabledButtonAnhorPane.setDisable(false);
+            disabledButtonAnhorPane.setVisible(true);
+        }
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
@@ -66,17 +91,17 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     }
 
     void updateProductItemFavoriteButtons(){
-        for(ProductItemController productItemController : productItemsList) {
+        for(ProductItemController productItemController : productItemsToShowList) {
             productItemController.updateFavoriteButton();
         }
     }
 
-    void openMainPageView(){
+    void openMainPageView() {
+        registerPageOpen = false;
         mainborderPane.toFront();
-    }
-
-    void openPurchaseView(){
-
+        Product tempProduct = dataHandler.getProduct(1);
+        IMat.addOneToCart(tempProduct);
+        IMat.removeOneFromCart(tempProduct);
     }
 
     void openRegisterstep2View() {
@@ -91,10 +116,21 @@ public class MainPageController implements Initializable, ShoppingCartListener {
 
     @FXML
     void openRegisterView() {
-        registerAnchorPane.toFront();
+        if(cart.getTotal() > 0) {
+            registerAnchorPane.toFront();
+            registerPageOpen = true;
+        }
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
+
+    @FXML
+    private void logoClicked() {
+        fillWithAllFood();
+        if(accordion.getExpandedPane() != null) {
+            accordion.getExpandedPane().setExpanded(false);
+        }
+    }
 
     @FXML
     private void ecoButtonPressed() {
@@ -106,128 +142,178 @@ public class MainPageController implements Initializable, ShoppingCartListener {
             onlyEco = true;
             isEcoImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/check_mark.png"))));
         }
-        //Uppdatera products
     }
 
     /*-----*/
 
     @FXML
+    private void searchForCarbs() {
+        String[] categories = {"BREAD", "FLOUR_SUGAR_SALT", "PASTA", "POTATO_RICE"};
+        searchForCategories(categories);
+    }
+
+    @FXML
+    private void searchForBread() {
+        String[] categories = {"BREAD"};
+        searchForCategories(categories);
+    }
+
+    @FXML
+    private void searchForFlourSugarSalt() {
+        String[] categories = {"FLOUR_SUGAR_SALT"};
+        searchForCategories(categories);
+    }
+
+    @FXML
+    private void searchForPasta() {
+        String[] categories = {"PASTA"};
+        searchForCategories(categories);
+    }
+
+    @FXML
+    private void searchForPotatoRice() {
+        String[] categories = {"POTATO_RICE"};
+        searchForCategories(categories);
+    }
+
+    /*-----*/
+
+    @FXML
+    private void searchForDrinks() {
+        String[] categories = {"COLD_DRINKS", "HOT_DRINKS"};
+        searchForCategories(categories);
+    }
+
+    @FXML
     private void searchForColdDrinks() {
-        searchForCategory("COLD_DRINKS");
+        String[] categories = {"COLD_DRINKS"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForHotDrinks() {
-        searchForCategory("HOT_DRINKS");
+        String[] categories = {"HOT_DRINKS"};
+        searchForCategories(categories);
     }
 
     /*-----*/
 
     @FXML
-    private void searchForFruit() {
-        searchForCategory("FRUIT");
+    private void searchForFruitAndBerrys() {
+        String[] categories = {"FRUIT", "CITRUS_FRUIT", "EXOTIC_FRUIT", "MELONS", "BERRY"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForCitrusFruit() {
-        searchForCategory("CITRUS_FRUIT");
+        String[] categories = {"CITRUS_FRUIT"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForExoticFruit() {
-        searchForCategory("EXOTIC_FRUIT");
+        String[] categories = {"EXOTIC_FRUIT"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForMelons() {
-        searchForCategory("MELONS");
+        String[] categories = {"MELONS"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForBerry() {
-        searchForCategory("BERRY");
+        String[] categories = {"BERRY"};
+        searchForCategories(categories);
     }
 
     /*-----*/
 
     @FXML
+    private void searchForVegetable() {
+        String[] categories = {"VEGETABLE_FRUIT", "CABBAGE", "ROOT_VEGETABLE", "POD"};
+        searchForCategories(categories);
+    }
+
+    @FXML
     private void searchForVegetableFruit() {
-        searchForCategory("VEGETABLE_FRUIT");
+        String[] categories = {"VEGETABLE_FRUIT"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForCabbage() {
-        searchForCategory("CABBAGE");
+        String[] categories = {"CABBAGE"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForRootVegetable() {
-        searchForCategory("ROOT_VEGETABLE");
+        String[] categories = {"ROOT_VEGETABLE"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForPod() {
-        searchForCategory("POD");
+        String[] categories = {"POD"};
+        searchForCategories(categories);
     }
 
     /*-----*/
 
     @FXML
+    private void searchForMeatAndFish() {
+        String[] categories = {"MEAT", "FISH"};
+        searchForCategories(categories);
+    }
+
+    @FXML
     private void searchForMeat() {
-        searchForCategory("MEAT");
+        String[] categories = {"MEAT"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForFish() {
-        searchForCategory("FISH");
+        String[] categories = {"FISH"};
+        searchForCategories(categories);
     }
 
     /*-----*/
 
     @FXML
+    private void searchForSnacks() {
+        String[] categories = {"NUTS_AND_SEEDS", "SWEET"};
+        searchForCategories(categories);
+    }
+
+    @FXML
     private void searchForNutsAndSeeds() {
-        searchForCategory("NUTS_AND_SEEDS");
+        String[] categories = {"NUTS_AND_SEEDS"};
+        searchForCategories(categories);
     }
 
     @FXML
     private void searchForSweet() {
-        searchForCategory("SWEET");
+        String[] categories = {"SWEET"};
+        searchForCategories(categories);
     }
 
     /*-----*/
 
     @FXML
     private void searchForHerb() {
-        searchForCategory("HERB");
+        String[] categories = {"HERB"};
+        searchForCategories(categories);
     }
 
     /*-----*/
 
     @FXML
     private void searchForDairy() {
-        searchForCategory("DAIRIES");
-    }
-
-    /*-----*/
-
-    @FXML
-    private void searchForBread() {
-        searchForCategory("BREAD");
-    }
-
-    @FXML
-    private void searchForFlourSugarSalt() {
-        searchForCategory("FLOUR_SUGAR_SALT");
-    }
-
-    @FXML
-    private void searchForPasta() {
-        searchForCategory("PASTA");
-    }
-
-    @FXML
-    private void searchForPotatoRice() {
-        searchForCategory("POTATO_RICE");
+        String[] categories = {"DAIRIES"};
+        searchForCategories(categories);
     }
 
     /*-----*/
@@ -242,61 +328,41 @@ public class MainPageController implements Initializable, ShoppingCartListener {
     @FXML
     private void searchBar() {
         String text = searchBar.getText();
-        productsList = (ArrayList<Product>) dataHandler.findProducts(text);
-        if(onlyEco) {
-            productsList.removeIf(product -> !product.isEcological());
-            fillWithFood();
-        }
-        else {
-            fillWithFood();
-        }
+        fillWithFood((ArrayList<Product>) dataHandler.findProducts(text));
     }
 
     @FXML
-    private void fillWithFavorites(ActionEvent event) {
-        ArrayList<Product> favoritesProductList = (ArrayList<Product>) dataHandler.favorites();
-        if(onlyEco) {
-            productsList.removeIf(product -> !product.isEcological());
-            fillWithFood();
-        }
-        else {
-            fillWithFood();
-        }
+    private void fillWithFavorites() {
+        if(accordion.getExpandedPane() != null)
+            accordion.getExpandedPane().setExpanded(false);
+        fillWithFood((ArrayList<Product>) dataHandler.favorites());
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
-    private void searchForCategory(String category) {
-        ArrayList<Product> productsInCategoryList = (ArrayList<Product>) dataHandler.getProducts(ProductCategory.valueOf(category));
-
-        if(onlyEco) {
-            productsList.removeIf(product -> !product.isEcological());
-            fillWithFood();
+    private void searchForCategories(String[] categories) {
+        ArrayList<Product> productsToShowList = new ArrayList<>(5);
+        for (String category : categories) {
+            productsToShowList.addAll(dataHandler.getProducts(ProductCategory.valueOf(category)));
         }
-        else {
-            fillWithFood();
-        }
+        fillWithFood(productsToShowList);
     }
 
     private void fillWithAllFood() {
-        ArrayList<Product> productList = (ArrayList<Product>) dataHandler.getProducts();
-        if(onlyEco) {
-            productsList.removeIf(product -> !product.isEcological());
-            fillWithFood();
-        }
-        else {
-            fillWithFood();
-        }
+        fillWithFood((ArrayList<Product>) dataHandler.getProducts());
     }
 
-    private void fillWithFood() {
+    private void fillWithFood(ArrayList<Product> productsToShowList) {
         int colY = 0;
         int rowX = 0;
         gridPane.getChildren().clear();
-        productItemsList.clear();
-        for(Product product: productsList) {
+        productItemsToShowList.clear();
+        for(Product product: productsToShowList) {
+            if(onlyEco && !product.isEcological()) {
+                continue;
+            }
             ProductItemController productItem = new ProductItemController(product, this);
-            productItemsList.add(productItem);
+            productItemsToShowList.add(productItem);
             gridPane.add(productItem, colY, rowX);
             colY++;
             if(colY == 2 ) {
@@ -304,12 +370,17 @@ public class MainPageController implements Initializable, ShoppingCartListener {
                 rowX++;
             }
         }
+        if(gridPane.getChildren().size() %2 == 1) {
+            ProductItemController productItem = new ProductItemController(dataHandler.getProduct(1), this);
+            productItem.setVisible(false);
+            gridPane.add(productItem, 1, gridPane.getRowCount());
+        }
     }
 
     /*-----*/
 
     private void updateProductItemsNumText() {
-        for(ProductItemController productItemController : productItemsList) {
+        for(ProductItemController productItemController : productItemsToShowList) {
             productItemController.updateNumberOfProductsText();
         }
     }

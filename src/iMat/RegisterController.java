@@ -5,11 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.*;
 
 /**
@@ -21,9 +19,6 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
     private final ShoppingCart cart = IMat.getShoppingCart();
     private final MainPageController mainPageController;
 
-
-    @FXML Button toPurchaseButton;
-    @FXML Button toBackButton;
     @FXML GridPane registerGridPane;
     @FXML Label totalPriceB;
 
@@ -37,22 +32,20 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        this.cart.addShoppingCartListener(this);
+        cart.addShoppingCartListener(this);
         this.mainPageController = mainPageController;
-
     }
 
-    //TODO: Add cart value to the total.
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-        this.registerGridPane.getChildren().clear();
+        registerGridPane.getChildren().clear();
         ArrayList<ShoppingItem> list = (ArrayList<ShoppingItem>) cart.getItems();
         int x = 0;
         int y = 0;
         for (ShoppingItem item : list) {
             if (item.getAmount() > 0) {
-                CartItemController cartFlow = new CartItemController(item, this.mainPageController);
-                this.registerGridPane.add(cartFlow, x, y);
+                CartItemController cartFlow = new CartItemController(item, mainPageController);
+                registerGridPane.add(cartFlow, x, y);
                 if(x == 0) {
                     x++;
                 }
@@ -62,25 +55,20 @@ public class RegisterController extends AnchorPane implements ShoppingCartListen
                 }
             }
         }
-        this.totalPriceB.setText(String.valueOf(cart.getTotal())+" kr");
+        totalPriceB.setText(String.format("%.2f kr", cart.getTotal()));
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
     @FXML
-    private void openPurchaseView() throws IOException{
-        this.mainPageController.openPurchaseView();
-    }
-
-    @FXML
     private void openMainPageView() throws IOException{
-        this.mainPageController.openMainPageView();
+        mainPageController.openMainPageView();
     }
 
     @FXML
-    private void openRegisterstep2() throws IOException{
-        this.mainPageController.openRegisterstep2View();
+    private void openRegisterStep2() throws IOException{
+        if (cart.getTotal() > 0) {
+            mainPageController.openRegisterstep2View();
+        }
     }
-
-
 }

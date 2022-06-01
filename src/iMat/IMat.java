@@ -19,11 +19,9 @@ public class IMat extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-            @Override
-            public void run() {
-                dataHandler.shutDown();
-            }
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            cart.clear();
+            dataHandler.shutDown();
         }));
     }
 
@@ -81,12 +79,7 @@ public class IMat extends Application {
     static void writeInNumOfProductAmount(Product product, String strAmount) {
         try {
             int amount = Integer.parseInt(strAmount);
-            if (amount > 99) {
-                setProductAmount(product, 99);
-            }
-            else {
-                setProductAmount(product, amount);;
-            }
+            setProductAmount(product, Math.min(amount, 99));
         }
         catch (Exception e) {
             // Invalid input
@@ -94,8 +87,7 @@ public class IMat extends Application {
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
-
-    public static void setProductAmount(Product product, int amount) {
+    private static void setProductAmount(Product product, int amount) {
         List<ShoppingItem> listOfShoppingItems = cart.getItems();
         Product productInCart;
         for (ShoppingItem shoppingItem : listOfShoppingItems) {

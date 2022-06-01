@@ -57,12 +57,12 @@ public class DetailViewController extends AnchorPane {
 
     @FXML
     private void closeButtonMouseEnter() {
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_white.png"))));
+        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_white.png"))));
     }
 
     @FXML
     private void closeButtonMouseExited() {
-        this.closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_hover.png"))));
+        closeImageView.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/cross_close_hover.png"))));
     }
 
     @FXML
@@ -74,66 +74,66 @@ public class DetailViewController extends AnchorPane {
 
     @FXML
     private void closeProductDetailView() {
-        this.toBack();
+        toBack();
     }
 
     @FXML
     private void favoriteButtonClicked() {
-        if (dataHandler.isFavorite(this.product)) {
-            dataHandler.removeFavorite(this.product);
+        if (dataHandler.isFavorite(product)) {
+            dataHandler.removeFavorite(product);
         }
         else {
-            dataHandler.addFavorite(this.product);
+            dataHandler.addFavorite(product);
         }
         updateFavoriteButton();
-        this.mainPageController.updateProductItemFavoriteButtons();
+        mainPageController.updateProductItemFavoriteButtons();
     }
 
     @FXML
     private void plusButtonClicked() {
-        IMat.addOneToCart(this.product);
-        this.numOfItems.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
+        IMat.addOneToCart(product);
+        numOfItems.setText(String.valueOf(IMat.getNumberOfAProductInCart(product)));
     }
 
     @FXML
     private void minusButtonClicked() {
-        IMat.removeOneFromCart(this.product);
-        this.numOfItems.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
+        IMat.removeOneFromCart(product);
+        numOfItems.setText(String.valueOf(IMat.getNumberOfAProductInCart(product)));
     }
 
     @FXML
     private void numOfItemsWriteIn() throws InputMismatchException {
-        String strAmount = this.numOfItems.getText();
-        IMat.writeInNumOfProductAmount(this.product, strAmount);
-        this.numOfItems.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
+        String strAmount = numOfItems.getText();
+        IMat.writeInNumOfProductAmount(product, strAmount);
+        numOfItems.setText(String.valueOf(IMat.getNumberOfAProductInCart(product)));
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 
     private void populateProductDetailView() {
-        this.productImage.setImage(dataHandler.getFXImage(this.product));
-        this.productNameLabel.setText(this.product.getName());
-        this.priceLabel.setText(String.format("Pris: %.2f %s", this.product.getPrice(), this.product.getUnit()));
-        if (this.product.isEcological()) {
-            this.isEcoLabel.setText("Produkten är ekologisk");
-            this.ekoStackPane.setVisible(true);
+        productImage.setImage(dataHandler.getFXImage(product));
+        productNameLabel.setText(product.getName());
+        priceLabel.setText(String.format("Pris: %.2f %s", product.getPrice(), product.getUnit()));
+        if (product.isEcological()) {
+            isEcoLabel.setText("Produkten är ekologisk");
+            ekoStackPane.setVisible(true);
         }
         else {
-            this.isEcoLabel.setText("Produkten är ej ekologisk");
-            this.ekoStackPane.setVisible(false);
+            isEcoLabel.setText("Produkten är ej ekologisk");
+            ekoStackPane.setVisible(false);
         }
-        this.numOfItems.setText(String.valueOf(IMat.getNumberOfAProductInCart(this.product)));
+        numOfItems.setText(String.valueOf(IMat.getNumberOfAProductInCart(product)));
         updateFavoriteButton();
     }
 
     private void updateFavoriteButton() {
-        if (dataHandler.isFavorite(this.product)) {
-            this.favoriteImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/starSelected.png"))));
-            this.favoriteButton.setText("Ta bort från favoritvaror");
+        if (dataHandler.isFavorite(product)) {
+            favoriteImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/starSelected.png"))));
+            favoriteButton.setText("Ta bort från favoritvaror");
         }
         else {
-            this.favoriteImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/starUnselected.png"))));
-            this.favoriteButton.setText("Gör till favoritvara");
+            favoriteImage.setImage(new Image(Objects.requireNonNull(classLoader.getResourceAsStream("iMat/images/starUnselected.png"))));
+            favoriteButton.setText("Gör till favoritvara");
         }
     }
 }

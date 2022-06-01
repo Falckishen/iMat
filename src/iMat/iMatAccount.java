@@ -19,7 +19,7 @@ public class iMatAccount {
         this.postNumber = postNumber;
         this.telephoneNumber = telephoneNumber;
         this.paymentType = paymentType;
-    };
+    }
 
     /**
      * Public get-ers for the attributes.
@@ -54,26 +54,26 @@ public class iMatAccount {
      * @return new account with changed attribute.
      */
     public iMatAccount changeFirstName(String newFirstName) {
-        return new iMatAccount(newFirstName, this.lastName, this.address, this.postNumber, this.telephoneNumber, this.paymentType);
+        return new iMatAccount(newFirstName, lastName, address, postNumber, telephoneNumber, paymentType);
     }
 
     public iMatAccount changeLastName(String newLastName) {
-        return new iMatAccount(this.firstName, newLastName, this.address, this.postNumber, this.telephoneNumber, this.paymentType);
+        return new iMatAccount(firstName, newLastName, address, postNumber, telephoneNumber, paymentType);
     }
 
     public iMatAccount changeAddress(String newAddress) {
-        return new iMatAccount(this.firstName, this.lastName, newAddress, this.postNumber, this.telephoneNumber, this.paymentType);
+        return new iMatAccount(firstName, lastName, newAddress, postNumber, telephoneNumber, paymentType);
     }
 
     public iMatAccount changePostNumber(int newPostNumber) {
-        return new iMatAccount(this.firstName, this.lastName, this.address, newPostNumber, this.telephoneNumber, this.paymentType);
+        return new iMatAccount(firstName, lastName, address, newPostNumber, telephoneNumber, paymentType);
     }
 
     public iMatAccount changeTelephoneNumber(int newTelephoneNumber) {
-        return new iMatAccount(this.firstName, this.lastName, this.address, this.postNumber, newTelephoneNumber, this.paymentType);
+        return new iMatAccount(firstName, lastName, address, postNumber, newTelephoneNumber, paymentType);
     }
 
     public iMatAccount changePaymentType(PaymentType newPaymentType) {
-        return new iMatAccount(this.firstName, this.lastName, this.address, this.postNumber, this.telephoneNumber, newPaymentType);
+        return new iMatAccount(firstName, lastName, address, postNumber, telephoneNumber, newPaymentType);
     }
 }

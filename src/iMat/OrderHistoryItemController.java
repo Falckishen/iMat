@@ -1,32 +1,24 @@
 package iMat;
 
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
-import java.io.IOException;
-import java.util.Calendar;
-
 public class OrderHistoryItemController extends AnchorPane {
-    private IMatDataHandler dataHandler = IMatDataHandler.getInstance();
-    private Order order;
+
+    private final Order order;
     private double total;
 
-    @FXML
-    private Label labelPurchaseDate;
-    @FXML
-    private Label labelPurchaseTotal;
-    @FXML
-    private TextArea orderTextArea;
-    @FXML
-    private TextArea orderTextArea2;
-    @FXML
-    private TextArea orderTextArea3;
+    @FXML private Label labelPurchaseDate;
+    @FXML private Label labelPurchaseTotal;
+    @FXML private TextArea orderTextArea;
+    @FXML private TextArea orderTextArea2;
+    @FXML private TextArea orderTextArea3;
 
 
     public OrderHistoryItemController(Order order) {
@@ -52,12 +44,12 @@ public class OrderHistoryItemController extends AnchorPane {
             textName.append(item.getProduct().getName()).append("\n");
             textAmount.append((int)item.getAmount()).append(" ").append(item.getProduct().getUnit().substring(3)).append("\n");
             textMoney.append(String.format("%.2f", item.getTotal())).append(" kr\n");
-            this.total = this.total + item.getTotal();
+            total = total + item.getTotal();
         }
         orderTextArea.setText(textName.toString());
         orderTextArea2.setText(textAmount.toString());
         orderTextArea3.setText(textMoney.toString());
-        labelPurchaseDate.setText(order.getDate().toLocaleString().substring(0,order.getDate().toLocaleString().length() - 8));
-        labelPurchaseTotal.setText(this.total + "");
+        labelPurchaseDate.setText(order.getDate().toString().substring(0, order.getDate().toString().length() - 8));
+        labelPurchaseTotal.setText(total + "");
     }
 }

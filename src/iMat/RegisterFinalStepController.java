@@ -2,10 +2,8 @@ package iMat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.*;
 
@@ -34,7 +32,7 @@ public class RegisterFinalStepController extends AnchorPane implements ShoppingC
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        this.cart.addShoppingCartListener(this);
+        cart.addShoppingCartListener(this);
         this.mainPageController = mainPageController;
 
     }
@@ -42,16 +40,17 @@ public class RegisterFinalStepController extends AnchorPane implements ShoppingC
     @FXML
     private void openMainPageView() throws IOException {
         cart.clear();
-        this.mainPageController.openMainPageView();
+        mainPageController.disableEnableButton();
+        mainPageController.openMainPageView();
     }
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-        this.flowpane.getChildren().clear();
+        flowpane.getChildren().clear();
         ArrayList<ShoppingItem> productList = (ArrayList<ShoppingItem>) cart.getItems();
         for (ShoppingItem product : productList) {
             finalcartItem productItem = new finalcartItem(product);
-            this.flowpane.getChildren().add(productItem);
+            flowpane.getChildren().add(productItem);
         }
     }
 }
